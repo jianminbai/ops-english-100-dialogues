@@ -16,7 +16,10 @@
   "pdf_pages": 104,
   "pdf_bookmarks": 100,
   "all_audio_decodes": true,
-  "main_zip_bytes": 98144793,
+  "main_zip_bytes": 98141264,
   "main_zip_entries": 306,
-  "chapter_zips": 10
+  "chapter_zips": 10,
+  "speaker_label_format": "01 [A]",
+  "pdf_speaker_labels": 1200,
+  "embedded_speaker_label_font": "LiberationSans"
 }
