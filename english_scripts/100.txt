@@ -1,0 +1,26 @@
+SCENARIO 100
+月度复盘与持续改进
+
+B / Operations Director: We closed eighteen improvement actions this month. What evidence shows that reliability actually improved, rather than simply showing that our action tracker became shorter?
+
+A / Ops Engineer: We'll compare recurrence, detection time, restoration time, and customer impact across comparable periods. We'll also review controlled tests of the specific failures those actions addressed.
+
+B / Operations Director: What makes the periods comparable? This month's traffic was lower, so fewer incidents might reflect lighter demand instead of stronger controls or better recovery.
+
+A / Ops Engineer: We'll report traffic volume, peak concurrency, and release frequency alongside the incident metrics. For workload-sensitive measures, we'll compare similar load bands and disclose remaining differences.
+
+B / Operations Director: The connection failure hasn't recurred. Can we count that absence as proof that the new configuration validation eliminated this particular incident class from production?
+
+A / Ops Engineer: It is encouraging, but the observation period is short. We replayed five invalid configurations, and the new gate blocked all five before deployment.
+
+B / Operations Director: That demonstrates specific test coverage. Do we also have evidence that responders find problems sooner and restore business service faster when prevention fails?
+
+A / Ops Engineer: In matched exercises, detection fell from seven minutes to two, and restoration from twenty-eight to eighteen. Real incidents remain too few for a strong trend claim.
+
+B / Operations Director: Where is the largest remaining gap, and what should we prioritize next instead of spreading effort evenly across every open suggestion from the reviews?
+
+A / Ops Engineer: Exercises exposed stale recovery permissions that delayed access. I recommend validating those permissions and their approved renewal process before adding more low-value dashboard changes.
+
+B / Operations Director: Prepare a focused proposal with the access owner, acceptance evidence, and expected effort by November 20 at 15:00 UTC. Keep the longer-term measures running.
+
+A / Ops Engineer: I'll bring that proposal and label each conclusion by its evidence strength. Next month, we'll review both control effectiveness and the limits of our confidence.

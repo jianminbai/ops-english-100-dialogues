@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,600
+Narrator: Scenario 56. Databases, middleware, and batch processing.
+
+2
+00:00:07,200 --> 00:00:18,696
+B: Database traffic increased sharply after the Redis restart, and customers report slower page loads. Should we clear the cache again in case entries are inconsistent?
+
+3
+00:00:19,296 --> 00:00:29,016
+A: The hit rate fell from ninety-five percent to fifteen percent because the cache is cold. Another flush could prolong the database load spike.
+
+4
+00:00:29,616 --> 00:00:40,224
+C: Do we have evidence of incorrect values, or is this mainly missing entries? We shouldn't treat a performance problem as data corruption without checking.
+
+5
+00:00:40,824 --> 00:00:51,336
+A: Sampled values match the database, and misses account for most additional queries. I'll keep checking correctness while we investigate why warming is slow.
+
+6
+00:00:51,936 --> 00:01:02,208
+B: Our usual warm-up job loads popular product records, but it's currently disabled. Can we start it now and let customer requests fill the rest?
+
+7
+00:01:02,808 --> 00:01:13,440
+A: Let's use the approved warm-up method with a rate limit. The database is already busy, so unrestricted warming could make customer response times worse.
+
+8
+00:01:14,040 --> 00:01:24,840
+C: Please define a stop condition before starting. We also need to make sure the job doesn't cache account-specific responses under shared product keys.
+
+9
+00:01:25,440 --> 00:01:38,424
+B: The job only loads public product data. I'll verify the key namespace, expiration settings, and per-key request coordination to avoid simultaneous reloads of popular entries.
+
+10
+00:01:39,024 --> 00:01:50,688
+A: We'll start below the approved warm-up rate and pause if database latency crosses our operating threshold. I'll monitor hit rate, evictions, and successful page requests.
+
+11
+00:01:51,288 --> 00:02:03,000
+C: Could short expiration times keep the cache cold even after loading? Please compare those settings with the previous healthy configuration before increasing the warm-up rate.
+
+12
+00:02:03,600 --> 00:02:14,568
+B: I'll compare those settings and inspect memory headroom. We won't extend expiration blindly because product data has freshness requirements agreed with the business.
+
+13
+00:02:15,168 --> 00:02:26,160
+A: I'll post a trend comparison in ten minutes. Recovery requires stable database latency and normal page performance, alongside an improving cache hit rate.

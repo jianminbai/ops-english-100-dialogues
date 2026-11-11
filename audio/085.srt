@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,840
+Narrator: Scenario 85. Changes, security, and disaster recovery.
+
+2
+00:00:07,440 --> 00:00:16,992
+B: The timeout setting looks wrong. It's just one configuration value; can I update production directly while we have everyone on the call?
+
+3
+00:00:17,592 --> 00:00:28,824
+A: We should use the emergency change process. A small edit can still affect many requests, so let's record the risk, authorization, and recovery steps.
+
+4
+00:00:29,424 --> 00:00:40,200
+C: Prepare the minimum evidence for a prompt review. Under our emergency policy, I'm the designated approver, but I need a clearly bounded proposal.
+
+5
+00:00:40,800 --> 00:00:52,032
+B: The current timeout is shorter than the documented dependency requirement. I'd change one instance first and compare completed requests with the unchanged instances.
+
+6
+00:00:52,632 --> 00:01:03,432
+A: Increasing it could also hold connections longer. Have we checked connection capacity and whether the dependency is actually responding within the proposed limit?
+
+7
+00:01:04,032 --> 00:01:15,144
+B: Recent traces show successful responses within that limit, and connection usage is below the reviewed threshold. I'll attach those graphs and the original value.
+
+8
+00:01:15,744 --> 00:01:25,896
+C: What would make you stop the trial, and who will verify that recovered requests correspond to successful business transactions rather than repeated retries?
+
+9
+00:01:26,496 --> 00:01:38,544
+A: We'll stop if connection saturation or transaction failures breach the documented limits. I'll monitor capacity, and the application owner will validate transaction results.
+
+10
+00:01:39,144 --> 00:01:49,920
+B: The previous configuration is captured, and I tested the reversal in staging. I'll record the exact execution time and avoid unrelated changes.
+
+11
+00:01:50,520 --> 00:02:01,824
+C: I approve the single-instance trial described in the emergency record. Expanding it requires a review of the observed results, not an automatic rollout.
+
+12
+00:02:02,424 --> 00:02:12,720
+A: I'll enter your approval and start with the engineer after that record is complete. Our first evidence review is at 14:20 UTC today.
+
+13
+00:02:13,320 --> 00:02:23,448
+B: Understood. I'll post the measured outcome at that checkpoint, and we'll retain the record for the required review after the incident is stabilized.

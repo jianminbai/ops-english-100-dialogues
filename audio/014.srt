@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,256
+Narrator: Scenario 14. Infrastructure operations.
+
+2
+00:00:05,856 --> 00:00:16,104
+B: Writes are failing with a no-space error, but the disk dashboard shows almost forty percent free. What else should we check before expanding storage?
+
+3
+00:00:16,704 --> 00:00:27,840
+A: We should check inode usage as well as bytes. The affected filesystem has exhausted its inodes because the application created millions of small temporary files.
+
+4
+00:00:28,440 --> 00:00:38,448
+B: Does that mean larger files might still have room while creating a new file fails? That would explain why the usual capacity alert did not fire.
+
+5
+00:00:39,048 --> 00:00:49,632
+A: Yes, creating a new file requires an available inode. We need to restore that resource and add monitoring so the byte-based dashboard does not hide the risk.
+
+6
+00:00:50,232 --> 00:00:59,400
+B: Can we clear the temporary directory now? Most of those files are from old export jobs, but a few exports are still running.
+
+7
+00:01:00,000 --> 00:01:10,776
+A: Let us identify completed job directories and confirm the retention rule first. We should not remove active files or rely only on their modification time.
+
+8
+00:01:11,376 --> 00:01:22,248
+B: I can compare the job registry with directory names and provide an approved list. The application normally removes those files after a successful export.
+
+9
+00:01:22,848 --> 00:01:33,600
+A: Please check failed and canceled jobs too. Their cleanup paths may differ, and the accumulation could continue even if successful jobs clean up correctly.
+
+10
+00:01:34,200 --> 00:01:43,944
+B: I found that canceled exports skip cleanup. I will fix that behavior and add a scheduled cleanup proposal with safeguards for running jobs.
+
+11
+00:01:44,544 --> 00:01:54,960
+A: I will remove only the verified inactive directories in controlled batches, then check inode availability, file creation, and the completion of a small test export.
+
+12
+00:01:55,560 --> 00:02:06,144
+B: I will send the approved directory list by 10:20 UTC and own the application correction. We should agree on a warning threshold based on growth.
+
+13
+00:02:06,744 --> 00:02:19,080
+A: Agreed. I will post the recovery checks by 10:40 UTC and create the inode alert task. We will track the application fix separately until validated.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,952
+Narrator: Scenario 99. Follow up and operational improvement.
+
+2
+00:00:06,552 --> 00:00:16,944
+B: This action belongs to the application team. The platform ran as configured; we can't own every failure caused by how an application uses it.
+
+3
+00:00:17,544 --> 00:00:27,600
+C: We agree the retry behavior needs a code fix, but the shared platform didn't detect the traffic surge early enough to protect neighboring services.
+
+4
+00:00:28,200 --> 00:00:38,976
+A: Let's map the actions to the controls that need to change. We can assign ownership without requiring one team to accept responsibility for the entire incident.
+
+5
+00:00:39,576 --> 00:00:50,472
+B: What specific platform control are you proposing? A broad action such as prevent overload could become an unlimited commitment that we cannot reasonably accept.
+
+6
+00:00:51,072 --> 00:01:02,712
+A: The first platform action is a detection rule for sustained saturation, with notification routing and a tested threshold. The application action is bounded retries.
+
+7
+00:01:03,312 --> 00:01:15,264
+C: I'll be accountable for the retry change, including a maximum attempt count and delay behavior. We'll share representative traffic patterns for testing the detection rule.
+
+8
+00:01:15,864 --> 00:01:26,664
+B: I can own the detection rule if the application team supplies those patterns. My team will document what the platform signal detects and its limitations.
+
+9
+00:01:27,264 --> 00:01:39,264
+A: Good. Each action will list one accountable owner and the supporting team. We'll also create a joint validation task with me accountable for coordinating evidence.
+
+10
+00:01:39,864 --> 00:01:51,792
+C: Our test patterns will be ready by November 17 at 11:00 UTC. Can we set the integration test after both individual changes pass their reviews?
+
+11
+00:01:52,392 --> 00:02:03,672
+B: Yes. I'll provide a rule review date once I see the patterns. We should record that dependency rather than promise an unsupported delivery date today.
+
+12
+00:02:04,272 --> 00:02:15,192
+A: At the November 17 checkpoint, we'll confirm the remaining dates and test scope. Any unresolved control boundary will go to the service owner for a decision.
+
+13
+00:02:15,792 --> 00:02:27,888
+C: That works. We'll keep the incident analysis factual and track the code, platform rule, and joint validation as separate commitments with linked completion evidence.

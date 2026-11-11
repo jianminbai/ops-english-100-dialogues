@@ -1,0 +1,26 @@
+SCENARIO 071
+收到告警后的初步确认
+
+B / On-call Lead: The checkout error alert fired at 10:05 UTC. Have you confirmed customer impact, or could this be an issue with the monitoring rule?
+
+A / Ops Engineer: Not yet. I am checking an independent checkout probe, recent production responses, and whether the failures are limited to one region or endpoint.
+
+B / On-call Lead: Please check the deployment history too. A release finished shortly before the alert, but we should not assume the timing proves a connection.
+
+A / Ops Engineer: The probe failed twice in the east region, and gateway logs show a six percent checkout error rate over the last five minutes.
+
+B / On-call Lead: That confirms a problem on the checkout path. Are those failed requests or distinct customers, and do we know whether payment processing is affected?
+
+A / Ops Engineer: They are failed requests, including possible retries. I have not established the number of customers or whether any payments completed without order confirmation.
+
+B / On-call Lead: I will contact the application on-call engineer and ask support to check incoming reports. Please preserve a few failed request identifiers for tracing.
+
+A / Ops Engineer: Will do. The release affected both regions, while confirmed failures currently appear only in the east. That difference needs investigation before we blame the release.
+
+B / On-call Lead: Do we need to escalate immediately, or can we wait until the first investigation checkpoint? Please compare the impact with our incident policy.
+
+A / Ops Engineer: The current evidence requires notifying the incident manager for assessment. I will send the measured impact and open questions without choosing a severity myself.
+
+B / On-call Lead: Good. Give the first written update at 10:10 UTC, even if the investigation is incomplete. List the next checks and their owners clearly.
+
+A / Ops Engineer: Understood. I will separate confirmed facts, working hypotheses, and unknowns, and include the next checkpoint rather than offering an unsupported recovery estimate.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,136
+Narrator: Scenario 25. Network and access.
+
+2
+00:00:05,736 --> 00:00:17,616
+A: The production gateway certificate expires on November 18 at 12:00 UTC, seven days from now. Who owns renewal, installation, and client validation?
+
+3
+00:00:18,216 --> 00:00:29,400
+B: Platform owns renewal and gateway installation. The certificate authority request is ready, but we need the application team to confirm the required hostnames.
+
+4
+00:00:30,000 --> 00:00:41,400
+C: The customer portal and mobile API use this certificate. I will verify the hostname list against the current routing configuration and mobile client settings.
+
+5
+00:00:42,000 --> 00:00:53,424
+A: Please also identify supported clients with special trust requirements. A browser test alone would not cover older mobile versions or integrated partner systems.
+
+6
+00:00:54,024 --> 00:01:04,896
+B: The new certificate will use the approved issuing chain. I will check the private key match, validity dates, and intermediate certificates before installation.
+
+7
+00:01:05,496 --> 00:01:15,816
+C: One partner pins a certificate authority rather than our leaf certificate. I will ask their technical owner to validate the proposed chain today.
+
+8
+00:01:16,416 --> 00:01:27,648
+A: Can we complete staging validation tomorrow and install before the weekend? That would leave time to address compatibility issues while the current certificate remains valid.
+
+9
+00:01:28,248 --> 00:01:40,296
+B: Yes, subject to change approval. I propose November 13 at 09:00 UTC, starting with one gateway and comparing the served chain before continuing.
+
+10
+00:01:40,896 --> 00:01:51,936
+C: I will test browser login, mobile API access, and the partner connection. If a supported client fails, we will pause and capture its error.
+
+11
+00:01:52,536 --> 00:02:03,696
+A: Keep the existing certificate available during the validation period. Any rollback must happen before its expiry and follow the same controlled deployment process.
+
+12
+00:02:04,296 --> 00:02:15,000
+B: I will attach the installation evidence and verify every gateway serves the new certificate. I will also confirm the expiry monitor discovers the new date.
+
+13
+00:02:15,600 --> 00:02:26,232
+A: Let us review readiness tomorrow at 15:00 UTC. Platform owns deployment, application owns client checks, and I will track the approval and final evidence.

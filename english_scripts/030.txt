@@ -1,0 +1,26 @@
+SCENARIO 030
+第三方链路与代理超时
+
+B / Application Developer: The vendor API responds from my laptop, but production calls time out after ten seconds. The application code and requested endpoint are the same.
+
+A / Ops Engineer: The connection path differs between your laptop and production. Production uses an outbound proxy, so we need to compare DNS, proxy routing, and destination access.
+
+C / Vendor Engineer: Please provide the failed request time and the observed public source IP through our support ticket. We will check the corresponding access records.
+
+A / Ops Engineer: I will share the approved egress details there. First, I am checking whether the timeout occurs during proxy connection, TLS negotiation, or the API response.
+
+B / Application Developer: The trace reaches the proxy, but it shows no completed TLS session with the vendor. Should we increase the application timeout to thirty seconds?
+
+A / Ops Engineer: A longer timeout would not resolve a blocked connection and could tie up more workers. Let us identify the failed connection stage before changing it.
+
+C / Vendor Engineer: I see connection attempts from an address outside your registered range. Did the production egress address change during your recent proxy maintenance?
+
+A / Ops Engineer: The maintenance added a second approved proxy gateway, but its public address is absent from the vendor request. I will verify both active gateways.
+
+B / Application Developer: Can we force production through the original gateway until the update is approved? We need to consider whether that would reduce capacity or redundancy.
+
+A / Ops Engineer: We will assess that option with the network owner. The preferred fix is to update the vendor allowlist through the existing approval process.
+
+C / Vendor Engineer: Once approved, I can add the exact new address and coordinate a test at 18:00 UTC. Please send requests through each gateway separately.
+
+A / Ops Engineer: I will coordinate those tests and verify successful business responses, not just open connections. We will attach results and add vendor checks to the maintenance checklist.

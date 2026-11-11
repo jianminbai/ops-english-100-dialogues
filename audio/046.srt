@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,424
+Narrator: Scenario 46. Application operations.
+
+2
+00:00:06,024 --> 00:00:16,080
+B: CPU is only forty percent, but response time has tripled and requests are queuing. Why can't the application use the remaining capacity?
+
+3
+00:00:16,680 --> 00:00:27,912
+A: Low CPU doesn't necessarily mean spare processing capacity. Worker threads may be occupied while waiting for a dependency rather than doing calculations.
+
+4
+00:00:28,512 --> 00:00:37,680
+C: Can you capture thread information during the slowdown? We should verify where the workers are waiting before we change the pool settings.
+
+5
+00:00:38,280 --> 00:00:48,192
+A: I'll use our approved diagnostic capture with a short sampling window. I'll also align the timestamps with queue depth and dependency latency.
+
+6
+00:00:48,792 --> 00:00:58,728
+B: Would increasing the worker count help temporarily? The incoming request rate is normal, and our queue has reached two thousand pending requests.
+
+7
+00:00:59,328 --> 00:01:09,480
+C: Only if the dependency has room for more concurrent work. Otherwise, extra workers could send more requests into the same bottleneck.
+
+8
+00:01:10,080 --> 00:01:20,232
+A: The first capture shows most workers blocked on the document service. Its latency rose from one second to twelve seconds before our queue grew.
+
+9
+00:01:20,832 --> 00:01:31,656
+B: Document previews are optional, but document downloads are essential. Can we reduce preview work without interrupting downloads or losing any user data?
+
+10
+00:01:32,256 --> 00:01:43,344
+C: The application supports a temporary preview fallback. I'll verify that downloads use a separate path and get the service owner's approval to enable it.
+
+11
+00:01:43,944 --> 00:01:52,896
+A: I'll monitor queue age as well as depth. A smaller queue isn't enough if old requests remain stuck or clients keep timing out.
+
+12
+00:01:53,496 --> 00:02:03,504
+B: Please coordinate with the document team and give us another update in ten minutes. Keep any thread captures in the restricted diagnostic location.
+
+13
+00:02:04,104 --> 00:02:15,576
+A: Agreed. We'll confirm improvement through completed downloads, lower wait times, and falling dependency latency, then investigate why document processing slowed down.

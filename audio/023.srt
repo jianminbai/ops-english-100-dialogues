@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,160
+Narrator: Scenario 23. Network and access.
+
+2
+00:00:05,760 --> 00:00:16,080
+B: The customer search page takes almost two seconds from our US office. Our Singapore colleague sees the same page load in about half a second.
+
+3
+00:00:16,680 --> 00:00:26,208
+A: Let us compare the same request type and time window. Different search terms or cached responses could make the regional comparison misleading.
+
+4
+00:00:26,808 --> 00:00:39,408
+C: Please collect request IDs, UTC timestamps, and source locations. I can combine the application traces with approved network measurements from both locations.
+
+5
+00:00:40,008 --> 00:00:49,800
+B: I have ten requests using the same test account and search terms. The browser timings show most of the delay before the first response byte.
+
+6
+00:00:50,400 --> 00:01:02,352
+A: That includes network time and server processing. The matching traces show similar processing times, around 180 milliseconds, so we should inspect the connection path.
+
+7
+00:01:02,952 --> 00:01:15,264
+C: The US office traffic crosses the corporate inspection proxy before reaching Asia. A direct approved monitoring probe has substantially lower connection establishment time.
+
+8
+00:01:15,864 --> 00:01:25,656
+B: Does that mean we should remove the proxy for everyone? Sales is asking whether customers outside the office are experiencing the same slowdown.
+
+9
+00:01:26,256 --> 00:01:37,200
+A: We do not have evidence of broad customer impact yet. External probes remain near baseline, and changing the proxy path requires a separate review.
+
+10
+00:01:37,800 --> 00:01:47,832
+C: I found elevated connection queue time on the US proxy pool. I will check its capacity and recent policy changes with the network owner.
+
+11
+00:01:48,432 --> 00:01:59,256
+A: Please preserve those measurements before any adjustment. We can repeat the ten-request comparison afterward and verify that the inspection controls still function.
+
+12
+00:01:59,856 --> 00:02:11,424
+B: I will coordinate the office retest at 16:00 UTC and ask support for any matching customer reports, including timestamps and affected locations.
+
+13
+00:02:12,024 --> 00:02:22,272
+A: At that checkpoint, we will share the measured impact and next action. We should describe the proxy evidence without declaring a root cause prematurely.

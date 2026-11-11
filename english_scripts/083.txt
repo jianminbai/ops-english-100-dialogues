@@ -1,0 +1,26 @@
+SCENARIO 083
+灰度发布观察
+
+B / Developer: The canary has been running for twenty minutes without an alert. Can we move from five percent to all production traffic now?
+
+A / Ops Engineer: Let's review the agreed rollout stages first. We need representative traffic, comparable baseline metrics, and successful business checks before increasing its share.
+
+B / Developer: The dashboard shows only two hundred requests on the new version. This region is quiet, and most requests are simple account lookups.
+
+A / Ops Engineer: That sample tells us little about order creation or refunds. How many completed business transactions have we observed on the canary?
+
+B / Developer: Only nine orders and no refunds. The request error rate looks normal, but one payment callback took much longer than usual.
+
+A / Ops Engineer: Please compare that callback with unchanged servers and check the trace. A shared payment delay would require a different interpretation than a canary regression.
+
+B / Developer: The same delay appears on the baseline servers, and the payment provider reported a short slowdown. Both versions completed those orders successfully.
+
+A / Ops Engineer: Good. Keep that evidence in the rollout record, but continue the five percent stage until the agreed transaction sample and observation period are met.
+
+B / Developer: Would synthetic refund tests help while we wait, provided they use our approved test accounts and avoid changing real customer orders?
+
+A / Ops Engineer: Yes, they can cover that path, alongside real traffic observations. We'll still review representativeness before approving the next twenty percent stage.
+
+B / Developer: I'll run the approved checks and attach transaction counts and traces. Let's review again at 10:30 UTC rather than promise full rollout today.
+
+A / Ops Engineer: Agreed. I'll watch the stop thresholds and keep the baseline available. Any expansion will be a separate decision supported by the new evidence.

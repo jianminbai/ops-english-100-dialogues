@@ -1,0 +1,26 @@
+SCENARIO 061
+告警阈值评审
+
+B / Service Owner: We received twenty CPU pages last week, but only two coincided with slower responses. Can we make this alert less sensitive?
+
+A / Ops Engineer: Probably, but I want to compare CPU usage with request latency, error rates, and queue depth before we change the threshold.
+
+B / Service Owner: Most spikes lasted under a minute during scheduled imports. The two longer events happened when the request queue was also growing.
+
+A / Ops Engineer: That suggests duration matters. We could require high CPU for five minutes and use queue growth to provide additional context for responders.
+
+B / Service Owner: Would that delay detection if a sudden traffic increase causes customer impact within the first minute? I do not want that gap.
+
+A / Ops Engineer: The separate latency and error alerts would still apply. We should replay all three rules against previous incidents to check detection times.
+
+B / Service Owner: Please include the import failure from September. CPU stayed below our current threshold even though the queue took an hour to clear.
+
+A / Ops Engineer: Good point. That case may need a queue age alert rather than a different CPU threshold. I will assess both signals separately.
+
+B / Service Owner: Who will review the proposed rules, and can we observe their behavior before changing the production paging configuration for the service?
+
+A / Ops Engineer: I will prepare the historical results by Thursday at 14:00 UTC. You and the monitoring owner can review a week of shadow results.
+
+B / Service Owner: That works. Keep the existing pages active during observation, and document any incident that the proposed rule detects later or misses completely.
+
+A / Ops Engineer: Agreed. We will approve the final change only after comparing missed events, detection delay, and paging volume, with a documented rollback option.

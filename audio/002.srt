@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,136
+Narrator: Scenario 2. Global meeting communication.
+
+2
+00:00:05,736 --> 00:00:15,072
+A: We have thirty minutes today. I suggest ten minutes for service health, ten for open incidents, and five for the maintenance window.
+
+3
+00:00:15,672 --> 00:00:25,032
+B: Could we add a deployment blocker? The staging test failed yesterday, and we need a decision before the release team starts preparation.
+
+4
+00:00:25,632 --> 00:00:34,488
+A: Yes. What decision do you need from this group? Can we cover the supporting evidence within five minutes?
+
+5
+00:00:35,088 --> 00:00:44,232
+B: We need to decide whether to keep the maintenance booking while we investigate. I can summarize the failed test and remaining checks.
+
+6
+00:00:44,832 --> 00:00:54,192
+C: That affects our customer notice. Could we review the blocker before the maintenance discussion so the notice reflects the actual plan?
+
+7
+00:00:54,792 --> 00:01:04,368
+A: Agreed. We will shorten the health overview to five minutes, cover incidents next, then discuss the blocker and maintenance together.
+
+8
+00:01:04,968 --> 00:01:13,704
+B: I will share the test summary now. The detailed logs are linked, so we can avoid reading through every result during the meeting.
+
+9
+00:01:14,304 --> 00:01:25,104
+C: Please also clarify whether the blocker affects all services or only the reporting component. That changes which business teams need an update.
+
+10
+00:01:25,704 --> 00:01:36,168
+B: Only the reporting component is affected by the failed test. The other services have completed validation, but the shared release still needs review.
+
+11
+00:01:36,768 --> 00:01:48,720
+A: Thanks. I will reserve the final five minutes for decisions, owners, and deadlines. Any detailed troubleshooting can continue in a separate working session.
+
+12
+00:01:49,320 --> 00:01:58,968
+C: That works. I will own the customer notice once we confirm the maintenance decision, and I will flag any communication deadline.
+
+13
+00:01:59,568 --> 00:02:08,592
+A: The revised agenda is in the meeting chat. Let us start with service health and return to the release decision at minute twenty.

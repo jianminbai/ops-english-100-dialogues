@@ -1,0 +1,26 @@
+SCENARIO 024
+负载均衡健康检查
+
+B / Application Lead: The application process is running, and a local status check succeeds. Why did the load balancer stop sending requests to this instance?
+
+A / Ops Engineer: Its readiness endpoint returns HTTP 503 to the load balancer. The local check you ran only confirms that the process can answer requests.
+
+B / Application Lead: Could the readiness endpoint depend on the recommendation service? That service is degraded, but users should still be able to place orders without recommendations.
+
+A / Ops Engineer: The response body names that dependency. Let us compare the endpoint behavior with the documented readiness contract and confirm which dependencies are essential.
+
+B / Application Lead: The contract says database access is essential, while recommendations are optional. Last week, a library update added all downstream checks to the readiness result.
+
+A / Ops Engineer: That could explain the removal, but we still need functional evidence. Can the application handle an unavailable recommendation service without blocking checkout?
+
+B / Application Lead: Staging tests show checkout succeeds and displays a fallback message. I will repeat that test with the current production version and capture the results.
+
+A / Ops Engineer: Please include order creation and payment confirmation. We should correct the readiness implementation through a reviewed change, while leaving the failing dependency visible in monitoring.
+
+B / Application Lead: I can prepare a small patch that separates optional dependency health from readiness. Would changing the load balancer to accept every response be faster?
+
+A / Ops Engineer: That would also admit genuinely unready instances. Keep the current success criteria, and validate the patch on one instance before restoring its traffic gradually.
+
+B / Application Lead: I will own the patch and request the incident change review. The test evidence will be ready for our 11:30 UTC checkpoint.
+
+A / Ops Engineer: I will watch error rates and completed orders during that rollout. We can confirm recovery when readiness and customer transactions remain healthy together.

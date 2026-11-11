@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,528
+Narrator: Scenario 32. Cloud platforms, containers, and automation.
+
+2
+00:00:07,128 --> 00:00:17,568
+B: Zone A is failing health checks, and customer errors are increasing. Can we move its remaining traffic to zone B immediately under the failover runbook?
+
+3
+00:00:18,168 --> 00:00:30,528
+A: Before shifting traffic, we need to verify capacity and dependencies. Zone B has application instances ready, but I still need confirmation of database write availability.
+
+4
+00:00:31,128 --> 00:00:42,816
+C: The database primary moved to zone B through the managed failover process. Replication was synchronous before the event, and the current writer health check passes.
+
+5
+00:00:43,416 --> 00:00:52,944
+B: Can we state that no data was lost and service is recovered? The executive update is due in ten minutes, and they need a clear status.
+
+6
+00:00:53,544 --> 00:01:06,576
+A: We can report that database failover completed, but customer recovery still needs validation. Data integrity requires transaction checks; healthy infrastructure alone does not prove it.
+
+7
+00:01:07,176 --> 00:01:18,768
+C: I am checking recent committed orders against the payment records and database logs. I will also confirm that applications reconnect to the current writer endpoint.
+
+8
+00:01:19,368 --> 00:01:30,552
+A: Zone B can handle the forecast load within the tested limit. Its queue, cache, and secret services are available, and background processing can be deferred.
+
+9
+00:01:31,152 --> 00:01:41,088
+B: Proceed with the runbook checkpoints under my incident authority. What measurements will tell us to pause before sending all remaining traffic to zone B?
+
+10
+00:01:41,688 --> 00:01:54,192
+A: We will increase traffic in two steps, watching checkout success, database saturation, and request latency. Crossing the runbook thresholds means pausing and reassessing capacity.
+
+11
+00:01:54,792 --> 00:02:05,688
+C: The transaction samples match, and writer connections are stable. I will remain on the bridge during each step and watch lock waits and connection limits.
+
+12
+00:02:06,288 --> 00:02:19,128
+B: I will tell stakeholders that failover validation is underway, with reduced zone redundancy. Our next checkpoint is 10:20 UTC, regardless of whether the shift is complete.
+
+13
+00:02:19,728 --> 00:02:31,128
+A: I will own traffic changes and record the evidence. We will confirm recovery against business checks and plan restoration of zone redundancy as separate follow-up work.

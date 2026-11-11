@@ -1,0 +1,26 @@
+SCENARIO 082
+发布前Go/No-Go
+
+A / Ops Engineer: Before we decide whether to start, can each owner confirm the required approvals, monitoring coverage, recovery prerequisites, and business validation evidence?
+
+B / Release Lead: The technical checks are complete, the backup verification passed, and the previous application package is available. We're still missing business signoff.
+
+A / Ops Engineer: Then we haven't met the agreed entry criteria. Which business checks remain, and who is responsible for providing the missing evidence?
+
+C / Business Validator: I own that validation. Standard purchases passed, but the finance team hasn't confirmed refunds involving the new tax calculation for international orders.
+
+B / Release Lead: Could we release now and check refunds afterward? The feature team has already arranged support coverage for this deployment window.
+
+A / Ops Engineer: Refund validation is an explicit entry requirement because this release changes that behavior. Support coverage doesn't establish that the calculation is correct.
+
+C / Business Validator: Finance can review the examples at 13:30 UTC today. I'll provide the expected amounts, actual results, and their acceptance decision.
+
+B / Release Lead: Our approved window closes at 15:00 UTC. If the evidence arrives late, do we still have enough time for deployment and observation?
+
+A / Ops Engineer: The plan requires ninety minutes including observation and rollback allowance. We'll reassess the remaining window; we cannot simply shorten those safeguards.
+
+C / Business Validator: If any refund case fails, I'll mark validation incomplete and explain the discrepancy. I won't treat a scheduled review as a passing result.
+
+B / Release Lead: Agreed. The release remains on hold. I'll keep the support team informed and arrange another decision checkpoint at 13:45 UTC today.
+
+A / Ops Engineer: At that checkpoint, we'll review the evidence and available time together, then record either an authorized start or a rescheduled release.

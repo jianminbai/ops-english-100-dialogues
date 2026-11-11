@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,256
+Narrator: Scenario 77. Incident response.
+
+2
+00:00:05,856 --> 00:00:15,720
+B: The new release has exceeded the documented error threshold for rollback. Can we restore the previous version now, or are there additional checks?
+
+3
+00:00:16,320 --> 00:00:27,456
+A: We need to confirm database and configuration compatibility first. A binary rollback is unsafe if the older version cannot read data already written today.
+
+4
+00:00:28,056 --> 00:00:39,624
+B: The schema change only added an optional column, and compatibility tests passed. I will verify that today's writes did not introduce unsupported data values.
+
+5
+00:00:40,224 --> 00:00:51,960
+C: Please also confirm the previous artifact and configuration are available. I need a specific execution plan, not just confidence that rollback should work.
+
+6
+00:00:52,560 --> 00:01:03,576
+A: The signed artifact is available and its integrity check passed. We will keep the additive schema change and avoid reversing the database migration during recovery.
+
+7
+00:01:04,176 --> 00:01:16,296
+B: I verified the new records against the older reader and checked feature settings. The previous application accepts them without losing required fields or changing payment status.
+
+8
+00:01:16,896 --> 00:01:26,544
+C: What will the initial scope be, and what result would stop the rollback? We should avoid replacing the whole fleet before seeing evidence.
+
+9
+00:01:27,144 --> 00:01:39,672
+A: Start with ten percent of traffic. Stop if errors increase, data validation fails, or payment outcomes become inconsistent; retain the current version for controlled recovery.
+
+10
+00:01:40,272 --> 00:01:51,216
+B: I will execute, and the database on-call engineer will observe compatibility. We will compare completed checkouts and regional error rates for five minutes.
+
+11
+00:01:51,816 --> 00:02:03,312
+C: Approved under the emergency change process. Record the checks and approval in the incident log, then report the first result at 18:20 UTC.
+
+12
+00:02:03,912 --> 00:02:15,552
+A: We will expand only if the initial group meets the validation criteria. A successful rollback would support mitigation, but would not complete the root-cause analysis.
+
+13
+00:02:16,152 --> 00:02:27,600
+B: Understood. I will announce each stage on the bridge, preserve version-level evidence, and keep unrelated deployments paused until the commander reviews service stability.

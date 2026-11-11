@@ -1,0 +1,26 @@
+SCENARIO 065
+错误预算与发布节奏
+
+B / Product Owner: We have three feature releases planned this week. Can we maintain the schedule, or does the recent outage mean everything has to stop?
+
+A / Ops Engineer: The service has consumed ninety percent of its monthly error budget. Our agreed policy requires a reliability review before further production changes.
+
+B / Product Owner: Please explain the budget in practical terms. Does the remaining ten percent represent a safe amount of downtime that we can deliberately use?
+
+A / Ops Engineer: No. It tracks how much unsuccessful service our objective permits over the measurement window. It is a decision signal, not planned outage allowance.
+
+C / Engineering Lead: The releases have different risks. One changes payment routing, one updates help text, and the third fixes the retry issue behind yesterday's overload.
+
+A / Ops Engineer: We should assess each change under the policy. The retry fix may reduce current risk, but it still needs evidence and a safe rollout.
+
+B / Product Owner: Can the help text proceed while payment routing waits? Marketing needs a clear answer today because the campaign announcement references the new payment option.
+
+C / Engineering Lead: The text update is isolated, with no runtime configuration change. Payment routing has broader exposure and should wait for the review board's decision.
+
+A / Ops Engineer: For the retry fix, please provide test results, canary limits, rollback conditions, and an owner watching downstream load throughout the initial rollout.
+
+B / Product Owner: I will revise the campaign message if payment routing is deferred. When can we confirm the approved release list and the next budget checkpoint?
+
+A / Ops Engineer: The review is today at 15:00 UTC. We will record the decision for each change and reassess the service indicators tomorrow at the same time.
+
+C / Engineering Lead: Agreed. I will bring the evidence and reliability priorities, and we will communicate the resulting schedule together so teams receive one consistent message.

@@ -1,0 +1,26 @@
+SCENARIO 084
+数据库结构变更
+
+C / Developer: The new application needs an extra column on the orders table. Can we add it during deployment and remove the old column afterward?
+
+A / Ops Engineer: Let's separate those steps. We need the database review to cover locking, expected duration, replication impact, and compatibility with both application versions.
+
+B / Database Administrator: The table contains eighty million rows. Our database supports an online operation for this addition, but acquiring the initial lock can still block traffic.
+
+C / Developer: What testing would show whether that lock is acceptable? A small development database completes the change almost immediately, so it hasn't revealed much.
+
+B / Database Administrator: I'll test on a representative copy with realistic concurrent writes. We'll measure lock waits, replica lag, disk usage, and the operation's cancellation behavior.
+
+A / Ops Engineer: Please define a lock timeout and explicit stop conditions. If migration stops halfway, what state should the deployment team expect to find?
+
+B / Database Administrator: The column addition and data backfill are separate. The backfill will use restartable batches with progress records; we must inspect state before retrying.
+
+C / Developer: I can make this release accept both schemas and read the new field only when populated. We'll keep writes compatible with the previous version.
+
+A / Ops Engineer: Then application rollback can leave the added column in place. Removing the old column must wait until older versions and dependent jobs no longer need it.
+
+B / Database Administrator: Agreed. A backup is useful recovery evidence, but restoring this entire database would be a separate, disruptive operation requiring its own recovery decision.
+
+C / Developer: I'll submit the compatibility tests and revised migration sequence by November 13 at 12:00 UTC, including the behavior when some rows remain unfilled.
+
+A / Ops Engineer: We'll review those results with the database tests before approval. The production plan will name a migration owner and a separate business validation owner.

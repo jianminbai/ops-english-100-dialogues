@@ -1,0 +1,26 @@
+SCENARIO 031
+云配额阻止扩容
+
+B / Platform Lead: The scale-out request failed this morning, but our monthly budget has plenty of room. What is preventing the additional instances from starting?
+
+A / Ops Engineer: We reached the regional compute quota for this instance family. Budget controls spending, while this quota limits the amount of compute we can provision.
+
+B / Platform Lead: The traffic peak begins tomorrow afternoon. Can the provider raise the limit today, and does a higher quota guarantee that the requested capacity exists?
+
+A / Ops Engineer: I have submitted an urgent increase request, but there is no confirmed completion time. Quota approval also does not guarantee available capacity in each zone.
+
+B / Platform Lead: What alternatives can we prepare while waiting? We have some idle development instances, and another instance family appears to have unused quota.
+
+A / Ops Engineer: Development uses a different account, so stopping those instances will not release this production quota. The other family needs compatibility and performance validation first.
+
+B / Platform Lead: Could we move everything into the zone that still has room? I want to understand whether our current distribution is blocking a practical workaround.
+
+A / Ops Engineer: That would concentrate risk and would not change the regional quota. We should preserve the approved distribution and assess capacity across the required zones.
+
+B / Platform Lead: Please test the alternative family today, then. Can the current fleet handle tomorrow’s forecast if the increase is delayed or the tests fail?
+
+A / Ops Engineer: The latest load test supports normal traffic, but the forecast exceeds our tested headroom. We can defer approved background work and review demand controls.
+
+B / Platform Lead: I will coordinate those business tradeoffs and contact our provider representative. Please bring quota status, test results, and remaining risk to the 16:00 UTC review.
+
+A / Ops Engineer: I will own that update and keep the deployment plan conditional on evidence. We will not describe extra capacity as available until provisioning and validation succeed.

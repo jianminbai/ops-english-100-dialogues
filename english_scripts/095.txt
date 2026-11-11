@@ -1,0 +1,26 @@
+SCENARIO 095
+修复验收与关闭工单
+
+B / Developer: The retry fix has been merged and passed the unit tests. Can we close the action item before this week's reliability review?
+
+A / Ops Engineer: We still need deployment confirmation and evidence that the original failure no longer occurs. Code completion and accepted operational recovery are different milestones.
+
+B / Developer: The release is scheduled for tonight, and the pipeline normally deploys automatically. Would a successful pipeline result be enough evidence to close it afterward?
+
+A / Ops Engineer: It would establish part of the deployment history, but we must verify the running version and the agreed failure replay, not just pipeline status.
+
+B / Developer: The original issue created duplicate payments when a response was lost. We added a stable request key and reuse the previous result for matching retries.
+
+A / Ops Engineer: Then acceptance should include a lost-response test, repeated retries, and reconciliation showing one charge for one business order. Have those scenarios been reviewed?
+
+B / Developer: Yes, the service owner approved them. We'll also check that different orders are processed separately and that our logs don't expose sensitive payment information.
+
+A / Ops Engineer: Good. Use the approved test accounts and attach the transaction references. What observation period did we agree for the production checks after deployment?
+
+B / Developer: Two hours of representative traffic, plus the controlled test results. If traffic is too low, we'll extend observation rather than claim the sample is sufficient.
+
+A / Ops Engineer: I'll keep the action open with implementation marked complete. Any remaining historical duplicates also need a linked reconciliation task so they aren't lost during closure.
+
+B / Developer: I'll attach the deployment record and regression evidence by November 14 at 09:00 UTC, and identify the finance owner handling any historical corrections.
+
+A / Ops Engineer: Once the agreed criteria pass, I'll ask the service owner to accept the results and record closure, including any separate work that remains open.

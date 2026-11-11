@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,328
+Narrator: Scenario 19. Infrastructure operations.
+
+2
+00:00:05,928 --> 00:00:17,136
+B: These events appear out of order across the application and authentication logs. Are all servers using the same approved time source and reporting timestamps consistently?
+
+3
+00:00:17,736 --> 00:00:28,560
+A: One application server is about four minutes behind the reference time. I recorded the offset and am checking its synchronization service and network access.
+
+4
+00:00:29,160 --> 00:00:38,736
+B: Could that explain the authentication errors? Some tokens appear expired in one log even though the issuing service records them as valid.
+
+5
+00:00:39,336 --> 00:00:49,680
+A: It could contribute, but we have not confirmed it as the cause. We need to compare token validity windows and error details with the measured offset.
+
+6
+00:00:50,280 --> 00:01:00,216
+B: Can we set the clock directly to the current time? That seems faster than waiting for the synchronization service to correct several minutes of drift.
+
+7
+00:01:00,816 --> 00:01:12,120
+A: An abrupt clock change can affect scheduled jobs and time-sensitive applications. We should follow the approved correction method and involve the service owner before proceeding.
+
+8
+00:01:12,720 --> 00:01:23,496
+B: I found the synchronization service was stopped after maintenance. The configured sources are correct, but we need to check why it did not start automatically.
+
+9
+00:01:24,096 --> 00:01:35,232
+A: Please preserve the service logs and maintenance record. I will ask the platform owner whether controlled adjustment requires temporarily draining this node from traffic.
+
+10
+00:01:35,832 --> 00:01:46,560
+B: The runbook calls for draining this application node before a correction of that size. The other nodes have enough capacity, and the owner approved the procedure.
+
+11
+00:01:47,160 --> 00:01:58,800
+A: Then we will drain it, correct the clock, and verify synchronization stability before restoring traffic. We will recheck authentication using fresh test tokens afterward.
+
+12
+00:01:59,400 --> 00:02:11,952
+B: I will complete the system checks by 11:00 UTC and propose monitoring for clock offset and synchronization status. The original logs will retain their recorded timestamps.
+
+13
+00:02:12,552 --> 00:02:25,248
+A: I will publish a timeline with the offset clearly annotated and compare authentication results at 11:15 UTC. We will keep investigating if failures continue after correction.

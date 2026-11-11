@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,504
+Narrator: Scenario 59. Databases, middleware, and batch processing.
+
+2
+00:00:07,104 --> 00:00:17,064
+B: The parsing bug is fixed and deployed. Can we replay the entire dead-letter queue now? There are about eight thousand messages waiting.
+
+3
+00:00:17,664 --> 00:00:27,840
+A: Let's classify the failures first. Some messages may still be invalid, and others may have completed a business action before they entered the queue.
+
+4
+00:00:28,440 --> 00:00:38,376
+C: Please check the business status before retrying. An old request to cancel an order could be unsafe if that order has already shipped.
+
+5
+00:00:38,976 --> 00:00:50,016
+B: I'll group the messages by failure reason and schema version, then compare their business keys with processing records. The bug only affected one format.
+
+6
+00:00:50,616 --> 00:01:02,088
+A: Also verify idempotency across the replay path. A different replay tool must preserve the original business key rather than generate a fresh operation identity.
+
+7
+00:01:02,688 --> 00:01:12,984
+B: Our tool preserves that key and records the replay attempt separately. I'll demonstrate it with ten verified messages whose business actions are still valid.
+
+8
+00:01:13,584 --> 00:01:25,584
+C: I'll approve that sample after checking the current order states. Keep invalid messages aside for correction, and retain a clear explanation for excluded records.
+
+9
+00:01:26,184 --> 00:01:37,920
+A: We'll replay the sample at a controlled rate and compare outcomes with business records. We'll stop if duplicate actions, unexpected state changes, or renewed errors appear.
+
+10
+00:01:38,520 --> 00:01:49,632
+B: Should successful messages be removed from the source queue immediately, or retained until reconciliation? I want to avoid losing evidence or processing them twice.
+
+11
+00:01:50,232 --> 00:02:02,448
+A: Use the approved replay workflow: acknowledge only after confirmed processing, with durable audit records linking source and result. We'll retain evidence under the normal policy.
+
+12
+00:02:03,048 --> 00:02:15,048
+C: After the sample reconciles, I'll approve larger batches for eligible messages. Please check age limits and any required ordering before expanding the replay.
+
+13
+00:02:15,648 --> 00:02:26,952
+B: I'll prepare the classification summary and sample results for review in thirty minutes. Messages with unclear outcomes will stay isolated until their owners decide.

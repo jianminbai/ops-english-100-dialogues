@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,280
+Narrator: Scenario 11. Infrastructure operations.
+
+2
+00:00:05,880 --> 00:00:16,848
+B: CPU usage has stayed above ninety percent for twenty minutes, and request latency is rising. Is incoming traffic higher than the normal morning baseline?
+
+3
+00:00:17,448 --> 00:00:28,320
+A: Request volume is close to normal. A scheduled reconciliation process is consuming most of the CPU on the affected server, based on process metrics.
+
+4
+00:00:28,920 --> 00:00:38,160
+B: Do we know why that process is busier today? I do not want to stop a critical business task without understanding its dependencies.
+
+5
+00:00:38,760 --> 00:00:50,088
+C: It is processing yesterday’s backlog as well as today’s records. It can pause at a checkpoint, but terminating it immediately could require a lengthy restart.
+
+6
+00:00:50,688 --> 00:01:02,088
+A: Can you request a controlled pause through the documented procedure? We can then compare CPU and application latency before deciding whether further mitigation is needed.
+
+7
+00:01:02,688 --> 00:01:15,816
+C: Yes. The next checkpoint should arrive within five minutes. Pausing there preserves progress, although the reconciliation report will be delayed until the job resumes.
+
+8
+00:01:16,416 --> 00:01:25,488
+B: Please notify the report owner about that delay and confirm whether any downstream task requires the report before we authorize the pause.
+
+9
+00:01:26,088 --> 00:01:39,312
+C: I checked the dependency schedule. Nothing consumes the report until 18:00 UTC, and the owner accepts a temporary pause with an update by 12:00 UTC.
+
+10
+00:01:39,912 --> 00:01:51,120
+A: With that confirmation, I will coordinate the pause and record the exact time. We will watch CPU, queue length, and successful customer requests afterward.
+
+11
+00:01:51,720 --> 00:02:02,040
+B: If latency improves, treat that as evidence for contention, not the full root cause. We still need to explain why the backlog accumulated.
+
+12
+00:02:02,640 --> 00:02:16,128
+A: Agreed. I will review service recovery after ten minutes and post results by 11:30 UTC. The investigation will remain open even if performance returns to normal.
+
+13
+00:02:16,728 --> 00:02:28,128
+C: I own the backlog investigation and a throttled restart proposal. I will bring the completion forecast and report risk to the 12:00 UTC checkpoint.

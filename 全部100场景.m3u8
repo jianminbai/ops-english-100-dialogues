@@ -1,0 +1,201 @@
+#EXTM3U
+#EXTINF:135,001 介绍职责与支持范围
+audio/001.mp3
+#EXTINF:129,002 开场与确认议程
+audio/002.mp3
+#EXTINF:136,003 时区与夏令时确认
+audio/003.mp3
+#EXTINF:142,004 没听清时请求重述
+audio/004.mp3
+#EXTINF:132,005 礼貌打断并纠正信息
+audio/005.mp3
+#EXTINF:135,006 表达不同意见
+audio/006.mp3
+#EXTINF:141,007 请求具体进展
+audio/007.mp3
+#EXTINF:138,008 说明任务延期
+audio/008.mp3
+#EXTINF:133,009 无法承诺恢复时间
+audio/009.mp3
+#EXTINF:145,010 会末总结决定
+audio/010.mp3
+#EXTINF:148,011 服务器CPU持续升高
+audio/011.mp3
+#EXTINF:139,012 内存压力与OOM
+audio/012.mp3
+#EXTINF:140,013 磁盘空间即将耗尽
+audio/013.mp3
+#EXTINF:139,014 磁盘未满但无法写入
+audio/014.mp3
+#EXTINF:148,015 存储延迟升高
+audio/015.mp3
+#EXTINF:142,016 服务器补丁维护
+audio/016.mp3
+#EXTINF:137,017 虚拟机异常重启
+audio/017.mp3
+#EXTINF:145,018 机房硬件故障
+audio/018.mp3
+#EXTINF:145,019 时间同步异常
+audio/019.mp3
+#EXTINF:158,020 容量与成本评审
+audio/020.mp3
+#EXTINF:144,021 DNS解析失败
+audio/021.mp3
+#EXTINF:141,022 防火墙端口申请
+audio/022.mp3
+#EXTINF:142,023 跨区域网络延迟
+audio/023.mp3
+#EXTINF:143,024 负载均衡健康检查
+audio/024.mp3
+#EXTINF:146,025 TLS证书即将过期
+audio/025.mp3
+#EXTINF:140,026 VPN连接与访问范围
+audio/026.mp3
+#EXTINF:140,027 SSO登录与权限不足
+audio/027.mp3
+#EXTINF:144,028 服务账号密钥轮换
+audio/028.mp3
+#EXTINF:149,029 WAF误拦截业务请求
+audio/029.mp3
+#EXTINF:141,030 第三方链路与代理超时
+audio/030.mp3
+#EXTINF:143,031 云配额阻止扩容
+audio/031.mp3
+#EXTINF:151,032 可用区故障与流量转移
+audio/032.mp3
+#EXTINF:145,033 Pod持续重启
+audio/033.mp3
+#EXTINF:145,034 Pod无法调度
+audio/034.mp3
+#EXTINF:150,035 节点维护与工作负载迁移
+audio/035.mp3
+#EXTINF:149,036 自动扩容未触发
+audio/036.mp3
+#EXTINF:153,037 镜像拉取失败
+audio/037.mp3
+#EXTINF:149,038 环境配置不一致
+audio/038.mp3
+#EXTINF:142,039 Terraform计划出现意外删除
+audio/039.mp3
+#EXTINF:152,040 自动化脚本执行范围
+audio/040.mp3
+#EXTINF:134,041 应用启动失败
+audio/041.mp3
+#EXTINF:136,042 API错误率突然上升
+audio/042.mp3
+#EXTINF:135,043 API超时与上游依赖
+audio/043.mp3
+#EXTINF:132,044 前端正常但业务操作失败
+audio/044.mp3
+#EXTINF:140,045 连接池耗尽
+audio/045.mp3
+#EXTINF:136,046 线程池与请求排队
+audio/046.mp3
+#EXTINF:143,047 重试放大流量
+audio/047.mp3
+#EXTINF:142,048 功能开关紧急降级
+audio/048.mp3
+#EXTINF:141,049 第三方接口故障
+audio/049.mp3
+#EXTINF:141,050 版本与接口兼容性
+audio/050.mp3
+#EXTINF:142,051 数据库慢查询
+audio/051.mp3
+#EXTINF:142,052 锁等待与长事务
+audio/052.mp3
+#EXTINF:143,053 数据库复制延迟
+audio/053.mp3
+#EXTINF:157,054 数据库主备切换
+audio/054.mp3
+#EXTINF:151,055 备份成功与恢复验证
+audio/055.mp3
+#EXTINF:146,056 Redis缓存命中率下降
+audio/056.mp3
+#EXTINF:149,057 消息队列积压
+audio/057.mp3
+#EXTINF:147,058 重复消息与幂等性
+audio/058.mp3
+#EXTINF:147,059 死信队列消息处理
+audio/059.mp3
+#EXTINF:149,060 夜间批处理超时
+audio/060.mp3
+#EXTINF:130,061 告警阈值评审
+audio/061.mp3
+#EXTINF:144,062 重复告警与降噪
+audio/062.mp3
+#EXTINF:137,063 平均延迟与P95
+audio/063.mp3
+#EXTINF:142,064 SLI与SLO口径
+audio/064.mp3
+#EXTINF:139,065 错误预算与发布节奏
+audio/065.mp3
+#EXTINF:144,066 监控数据缺失
+audio/066.mp3
+#EXTINF:142,067 跨服务日志关联
+audio/067.mp3
+#EXTINF:142,068 压测与真实流量差异
+audio/068.mp3
+#EXTINF:144,069 探测成功但客户仍报错
+audio/069.mp3
+#EXTINF:142,070 容量预测与促销保障
+audio/070.mp3
+#EXTINF:139,071 收到告警后的初步确认
+audio/071.mp3
+#EXTINF:147,072 确定等级并升级
+audio/072.mp3
+#EXTINF:149,073 明确故障会议角色
+audio/073.mp3
+#EXTINF:142,074 量化影响范围
+audio/074.mp3
+#EXTINF:145,075 建立时间线并验证假设
+audio/075.mp3
+#EXTINF:142,076 优先恢复与并行排查
+audio/076.mp3
+#EXTINF:148,077 故障期间决定回退
+audio/077.mp3
+#EXTINF:138,078 面向管理层的简明更新
+audio/078.mp3
+#EXTINF:151,079 验证服务真正恢复
+audio/079.mp3
+#EXTINF:150,080 结束故障会议与观察交接
+audio/080.mp3
+#EXTINF:130,081 CAB变更评审
+audio/081.mp3
+#EXTINF:140,082 发布前Go/No-Go
+audio/082.mp3
+#EXTINF:135,083 灰度发布观察
+audio/083.mp3
+#EXTINF:145,084 数据库结构变更
+audio/084.mp3
+#EXTINF:143,085 紧急变更授权
+audio/085.mp3
+#EXTINF:140,086 维护窗口通知
+audio/086.mp3
+#EXTINF:151,087 高危漏洞修复安排
+audio/087.mp3
+#EXTINF:150,088 疑似安全事件协调
+audio/088.mp3
+#EXTINF:160,089 灾备演练与RTO/RPO
+audio/089.mp3
+#EXTINF:144,090 审计证据与权限复核
+audio/090.mp3
+#EXTINF:150,091 故障复盘与根因说明
+audio/091.mp3
+#EXTINF:143,092 根因尚未确认
+audio/092.mp3
+#EXTINF:145,093 落实行动负责人和期限
+audio/093.mp3
+#EXTINF:145,094 礼貌催办逾期任务
+audio/094.mp3
+#EXTINF:143,095 修复验收与关闭工单
+audio/095.mp3
+#EXTINF:149,096 全球值班交接
+audio/096.mp3
+#EXTINF:143,097 周度运维健康汇报
+audio/097.mp3
+#EXTINF:145,098 更新Runbook与知识转移
+audio/098.mp3
+#EXTINF:148,099 跨团队责任分歧
+audio/099.mp3
+#EXTINF:152,100 月度复盘与持续改进
+audio/100.mp3

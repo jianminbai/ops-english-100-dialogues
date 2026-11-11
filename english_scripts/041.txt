@@ -1,0 +1,26 @@
+SCENARIO 041
+应用启动失败
+
+B / Release Lead: The deployment completed, but the new instances never became ready. Are we dealing with a slow startup or an actual failure?
+
+A / Ops Engineer: The process exits after thirty seconds. Startup logs identify a missing configuration value for the inventory service URL, without exposing any credentials.
+
+C / Developer: That value became mandatory in this release. It exists in our approved configuration repository, but the production deployment references an older configuration revision.
+
+B / Release Lead: Can we update the configuration directly, or do we need to stop the release and restore the previous application version first?
+
+A / Ops Engineer: The previous instances are still serving traffic, so I'll pause the rollout. We can verify the correction before starting any replacements.
+
+C / Developer: I'll compare the required settings against the release manifest and check the destination address. We should avoid discovering another missing value afterward.
+
+B / Release Lead: Please also confirm that the existing version can use this configuration. We need a workable rollback path if the new instances fail again.
+
+C / Developer: The setting is additive, and the previous version ignores it. I'll attach that compatibility check and the configuration difference to the change record.
+
+A / Ops Engineer: Once the release approval is recorded, I'll deploy one instance and check readiness, dependency access, and a test inventory lookup before proceeding.
+
+B / Release Lead: What would make us stop at that stage, even if the readiness check turns green? I want the decision criteria to be clear.
+
+A / Ops Engineer: Any failed functional check or elevated errors will stop expansion. I'll post the first validation results in ten minutes, without committing to completion yet.
+
+B / Release Lead: Agreed. Keep the healthy instances available, and have the release owner confirm the full rollout only after the application checks pass.

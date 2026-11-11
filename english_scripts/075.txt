@@ -1,0 +1,26 @@
+SCENARIO 075
+建立时间线并验证假设
+
+B / Application Developer: The timeout errors started right after the configuration rollout. That must be the cause, so I think we should reverse the change immediately.
+
+A / Ops Engineer: The timing makes it a strong hypothesis, but it does not establish causation. Let us compare the rollout timeline with when each instance began failing.
+
+C / Incident Commander: What evidence would confirm or weaken the hypothesis quickly? We need useful checks that do not delay a safe opportunity to reduce customer impact.
+
+A / Ops Engineer: Compare updated and unchanged instances under similar traffic. Check the actual configuration values and error signatures, rather than relying only on deployment completion times.
+
+B / Application Developer: Updated instances show eighteen percent timeouts; unchanged instances show two percent. The new configuration lowers the connection timeout from five seconds to one second.
+
+A / Ops Engineer: That supports a link, but traffic distribution may differ. We should check dependency latency and test the previous timeout on a small, controlled group.
+
+C / Incident Commander: What are the risks of that test? Longer timeouts might hold connections longer, so I need capacity limits and clear stopping conditions before approval.
+
+A / Ops Engineer: We will limit the group to five percent of traffic, watch connection usage, and stop if saturation rises. The previous value remains within tested limits.
+
+B / Application Developer: I will execute the test after your emergency approval and record exact start times. The observer can compare outcomes against the unchanged control group.
+
+C / Incident Commander: Approved under the incident change process. Review the first five minutes at 12:40 UTC, and raise any stopping condition immediately rather than waiting.
+
+A / Ops Engineer: If errors fall in the test group, we can propose broader mitigation. We will still investigate why dependency latency increased beyond the new timeout.
+
+B / Application Developer: Understood. I will record the configuration change as a tested contributor only if the evidence supports it, and keep the deeper cause investigation open.

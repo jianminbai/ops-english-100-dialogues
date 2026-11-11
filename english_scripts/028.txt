@@ -1,0 +1,26 @@
+SCENARIO 028
+服务账号密钥轮换
+
+A / Ops Engineer: The shared service credential is due for rotation next week. Have we identified every consumer, including background jobs that might run less frequently?
+
+B / Application Lead: Three applications are confirmed. A monthly reconciliation job may also use it, but its owner has not verified the current configuration yet.
+
+C / Security Engineer: We should resolve that uncertainty before revocation. Does the provider support two active credentials so we can migrate consumers without an immediate shared cutover?
+
+A / Ops Engineer: It supports two active credentials with separate identifiers. I propose creating the replacement in the approved secret store and tracking migration by consumer.
+
+B / Application Lead: The reconciliation owner just confirmed the job uses this account. We can run its validation mode today without posting any financial updates.
+
+C / Security Engineer: Good. Record the credential identifier and test result, never the secret itself. Please also verify that the replacement has the same approved permission scope.
+
+A / Ops Engineer: I will check permissions and update one application first through the change process. We will observe authentication errors and completed transactions before migrating the others.
+
+B / Application Lead: How will we know the monthly job is no longer using the old credential? Its next scheduled run is after the rotation deadline.
+
+A / Ops Engineer: We will validate its updated secret reference and run the approved validation mode. Provider audit logs should show the replacement identifier for that execution.
+
+C / Security Engineer: Do not revoke based only on silence in the logs. Require an explicit successful test from all four consumers and owner confirmation of the inventory.
+
+B / Application Lead: I will collect the application and job evidence by 17:00 UTC tomorrow. Any failed test will block revocation and trigger a review of the migration.
+
+A / Ops Engineer: After security approves the evidence, I will revoke the old credential and repeat key checks. We will then update the rotation schedule and ownership record.

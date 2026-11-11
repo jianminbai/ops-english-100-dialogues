@@ -1,0 +1,26 @@
+SCENARIO 015
+存储延迟升高
+
+B / Application Lead: Application response times increased around 02:10 UTC, but CPU and memory remain near their normal levels. Could the database be waiting on storage?
+
+A / Ops Engineer: Disk latency and queue depth increased at the same time. That supports checking storage contention, although it does not identify which workload is responsible.
+
+C / Storage Engineer: A backup job started on the same storage pool at 02:00 UTC. Its throughput is higher than usual because it is catching up after a delay.
+
+B / Application Lead: The timing seems convincing. Can we stop the backup immediately, or could that leave us without the recovery point required by the business?
+
+C / Storage Engineer: We should check the backup policy first. The last verified recovery point is still within the required interval, but stopping now would require a documented restart plan.
+
+A / Ops Engineer: Could we safely reduce backup throughput instead? A controlled reduction would preserve progress and help us observe whether application performance changes with the storage load.
+
+C / Storage Engineer: Yes. The backup owner has approved a temporary throttle within the runbook. I will apply it and record the time and new throughput limit.
+
+B / Application Lead: I will compare transaction completion times before and after the adjustment. Some requests are queued, so the customer experience may recover later than the disk metrics.
+
+A / Ops Engineer: Exactly. We will monitor storage latency, queue drain, and completed business transactions together. Lower disk latency alone will not establish full service recovery.
+
+C / Storage Engineer: I will also estimate the backup completion time under the throttle and flag any risk to the next required recovery point by 03:00 UTC.
+
+B / Application Lead: The application team will check for failed or unusually delayed transactions at that checkpoint. We should not retry completed work just because clients saw timeouts.
+
+A / Ops Engineer: I will coordinate the 03:00 UTC review and document the evidence. After recovery, we will review backup scheduling and shared pool capacity with both owners.

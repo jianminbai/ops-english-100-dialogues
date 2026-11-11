@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,648
+Narrator: Scenario 65. Monitoring, performance, and reliability.
+
+2
+00:00:07,248 --> 00:00:16,296
+B: We have three feature releases planned this week. Can we maintain the schedule, or does the recent outage mean everything has to stop?
+
+3
+00:00:16,896 --> 00:00:27,648
+A: The service has consumed ninety percent of its monthly error budget. Our agreed policy requires a reliability review before further production changes.
+
+4
+00:00:28,248 --> 00:00:37,824
+B: Please explain the budget in practical terms. Does the remaining ten percent represent a safe amount of downtime that we can deliberately use?
+
+5
+00:00:38,424 --> 00:00:50,016
+A: No. It tracks how much unsuccessful service our objective permits over the measurement window. It is a decision signal, not planned outage allowance.
+
+6
+00:00:50,616 --> 00:01:02,280
+C: The releases have different risks. One changes payment routing, one updates help text, and the third fixes the retry issue behind yesterday's overload.
+
+7
+00:01:02,880 --> 00:01:12,432
+A: We should assess each change under the policy. The retry fix may reduce current risk, but it still needs evidence and a safe rollout.
+
+8
+00:01:13,032 --> 00:01:23,136
+B: Can the help text proceed while payment routing waits? Marketing needs a clear answer today because the campaign announcement references the new payment option.
+
+9
+00:01:23,736 --> 00:01:34,968
+C: The text update is isolated, with no runtime configuration change. Payment routing has broader exposure and should wait for the review board's decision.
+
+10
+00:01:35,568 --> 00:01:45,096
+A: For the retry fix, please provide test results, canary limits, rollback conditions, and an owner watching downstream load throughout the initial rollout.
+
+11
+00:01:45,696 --> 00:01:55,128
+B: I will revise the campaign message if payment routing is deferred. When can we confirm the approved release list and the next budget checkpoint?
+
+12
+00:01:55,728 --> 00:02:06,744
+A: The review is today at 15:00 UTC. We will record the decision for each change and reassess the service indicators tomorrow at the same time.
+
+13
+00:02:07,344 --> 00:02:18,936
+C: Agreed. I will bring the evidence and reliability priorities, and we will communicate the resulting schedule together so teams receive one consistent message.

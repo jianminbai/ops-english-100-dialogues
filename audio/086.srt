@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,912
+Narrator: Scenario 86. Changes, security, and disaster recovery.
+
+2
+00:00:07,512 --> 00:00:18,480
+A: Maintenance is planned for December 5, 2026, from 01:00 to 02:00 UTC. I'd like to confirm the business impact before we send the notice.
+
+3
+00:00:19,080 --> 00:00:28,296
+B: Will customers lose access for the entire hour? Our regional teams need a clear answer because some customers will still be working.
+
+4
+00:00:28,896 --> 00:00:39,168
+A: The hour is the maintenance window. We expect one interruption of up to five minutes during the connection switch, although actual duration could vary.
+
+5
+00:00:39,768 --> 00:00:50,808
+B: Which functions will be affected? Saying the whole platform is unavailable would cause unnecessary cancellations if most services remain accessible throughout the work.
+
+6
+00:00:51,408 --> 00:01:02,520
+A: New order submission and order updates may fail briefly. Product browsing and existing order history should remain available, and we'll monitor those functions too.
+
+7
+00:01:03,120 --> 00:01:13,008
+B: What should users do if they see an error after submitting an order? Repeated submissions could create confusion or duplicate business requests.
+
+8
+00:01:13,608 --> 00:01:22,584
+A: The notice will ask them to check order history first and contact support if the result is unclear, rather than repeatedly submitting the same order.
+
+9
+00:01:23,184 --> 00:01:33,840
+B: Please include verified regional times as well. Last time, a copied conversion was wrong because one region had changed its daylight saving schedule.
+
+10
+00:01:34,440 --> 00:01:45,072
+A: I'll use the exact UTC date and window as the reference. Regional coordinators will verify local conversions before those versions are distributed.
+
+11
+00:01:45,672 --> 00:01:54,528
+B: Who will provide updates if the interruption exceeds expectations, and where should business teams check whether the service is ready to use again?
+
+12
+00:01:55,128 --> 00:02:06,648
+A: The service desk will publish updates on the approved status page. I'll coordinate technical updates, and the business validator will confirm successful order submission.
+
+13
+00:02:07,248 --> 00:02:20,328
+B: Good. Send me the revised draft by November 30 at 12:00 UTC. I'll confirm regional contacts and approve distribution after we resolve any conflicts.

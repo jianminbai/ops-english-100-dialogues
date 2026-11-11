@@ -1,0 +1,26 @@
+SCENARIO 059
+死信队列消息处理
+
+B / Developer: The parsing bug is fixed and deployed. Can we replay the entire dead-letter queue now? There are about eight thousand messages waiting.
+
+A / Ops Engineer: Let's classify the failures first. Some messages may still be invalid, and others may have completed a business action before they entered the queue.
+
+C / Business Operations Lead: Please check the business status before retrying. An old request to cancel an order could be unsafe if that order has already shipped.
+
+B / Developer: I'll group the messages by failure reason and schema version, then compare their business keys with processing records. The bug only affected one format.
+
+A / Ops Engineer: Also verify idempotency across the replay path. A different replay tool must preserve the original business key rather than generate a fresh operation identity.
+
+B / Developer: Our tool preserves that key and records the replay attempt separately. I'll demonstrate it with ten verified messages whose business actions are still valid.
+
+C / Business Operations Lead: I'll approve that sample after checking the current order states. Keep invalid messages aside for correction, and retain a clear explanation for excluded records.
+
+A / Ops Engineer: We'll replay the sample at a controlled rate and compare outcomes with business records. We'll stop if duplicate actions, unexpected state changes, or renewed errors appear.
+
+B / Developer: Should successful messages be removed from the source queue immediately, or retained until reconciliation? I want to avoid losing evidence or processing them twice.
+
+A / Ops Engineer: Use the approved replay workflow: acknowledge only after confirmed processing, with durable audit records linking source and result. We'll retain evidence under the normal policy.
+
+C / Business Operations Lead: After the sample reconciles, I'll approve larger batches for eligible messages. Please check age limits and any required ordering before expanding the replay.
+
+B / Developer: I'll prepare the classification summary and sample results for review in thirty minutes. Messages with unclear outcomes will stay isolated until their owners decide.

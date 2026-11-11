@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,112
+Narrator: Scenario 71. Incident response.
+
+2
+00:00:05,712 --> 00:00:15,600
+B: The checkout error alert fired at 10:05 UTC. Have you confirmed customer impact, or could this be an issue with the monitoring rule?
+
+3
+00:00:16,200 --> 00:00:26,784
+A: Not yet. I am checking an independent checkout probe, recent production responses, and whether the failures are limited to one region or endpoint.
+
+4
+00:00:27,384 --> 00:00:36,840
+B: Please check the deployment history too. A release finished shortly before the alert, but we should not assume the timing proves a connection.
+
+5
+00:00:37,440 --> 00:00:45,048
+A: The probe failed twice in the east region, and gateway logs show a six percent checkout error rate over the last five minutes.
+
+6
+00:00:45,648 --> 00:00:55,752
+B: That confirms a problem on the checkout path. Are those failed requests or distinct customers, and do we know whether payment processing is affected?
+
+7
+00:00:56,352 --> 00:01:07,608
+A: They are failed requests, including possible retries. I have not established the number of customers or whether any payments completed without order confirmation.
+
+8
+00:01:08,208 --> 00:01:19,152
+B: I will contact the application on-call engineer and ask support to check incoming reports. Please preserve a few failed request identifiers for tracing.
+
+9
+00:01:19,752 --> 00:01:32,280
+A: Will do. The release affected both regions, while confirmed failures currently appear only in the east. That difference needs investigation before we blame the release.
+
+10
+00:01:32,880 --> 00:01:42,888
+B: Do we need to escalate immediately, or can we wait until the first investigation checkpoint? Please compare the impact with our incident policy.
+
+11
+00:01:43,488 --> 00:01:54,600
+A: The current evidence requires notifying the incident manager for assessment. I will send the measured impact and open questions without choosing a severity myself.
+
+12
+00:01:55,200 --> 00:02:06,744
+B: Good. Give the first written update at 10:10 UTC, even if the investigation is incomplete. List the next checks and their owners clearly.
+
+13
+00:02:07,344 --> 00:02:19,008
+A: Understood. I will separate confirmed facts, working hypotheses, and unknowns, and include the next checkpoint rather than offering an unsupported recovery estimate.

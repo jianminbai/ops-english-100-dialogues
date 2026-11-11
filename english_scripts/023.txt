@@ -1,0 +1,26 @@
+SCENARIO 023
+跨区域网络延迟
+
+B / US Engineer: The customer search page takes almost two seconds from our US office. Our Singapore colleague sees the same page load in about half a second.
+
+A / Ops Engineer: Let us compare the same request type and time window. Different search terms or cached responses could make the regional comparison misleading.
+
+C / Network Engineer: Please collect request IDs, UTC timestamps, and source locations. I can combine the application traces with approved network measurements from both locations.
+
+B / US Engineer: I have ten requests using the same test account and search terms. The browser timings show most of the delay before the first response byte.
+
+A / Ops Engineer: That includes network time and server processing. The matching traces show similar processing times, around 180 milliseconds, so we should inspect the connection path.
+
+C / Network Engineer: The US office traffic crosses the corporate inspection proxy before reaching Asia. A direct approved monitoring probe has substantially lower connection establishment time.
+
+B / US Engineer: Does that mean we should remove the proxy for everyone? Sales is asking whether customers outside the office are experiencing the same slowdown.
+
+A / Ops Engineer: We do not have evidence of broad customer impact yet. External probes remain near baseline, and changing the proxy path requires a separate review.
+
+C / Network Engineer: I found elevated connection queue time on the US proxy pool. I will check its capacity and recent policy changes with the network owner.
+
+A / Ops Engineer: Please preserve those measurements before any adjustment. We can repeat the ten-request comparison afterward and verify that the inspection controls still function.
+
+B / US Engineer: I will coordinate the office retest at 16:00 UTC and ask support for any matching customer reports, including timestamps and affected locations.
+
+A / Ops Engineer: At that checkpoint, we will share the measured impact and next action. We should describe the proxy evidence without declaring a root cause prematurely.

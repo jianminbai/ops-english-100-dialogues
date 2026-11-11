@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,672
+Narrator: Scenario 66. Monitoring, performance, and reliability.
+
+2
+00:00:07,272 --> 00:00:16,368
+B: The service dashboard has shown no data for ten minutes. Is production down, and should we notify the business teams right away?
+
+3
+00:00:16,968 --> 00:00:27,480
+A: We have not confirmed a service failure. I am checking an independent external probe and recent transactions while we investigate the missing telemetry.
+
+4
+00:00:28,080 --> 00:00:41,088
+C: The external probe succeeds from three locations. Metric ingestion stopped at 09:20 UTC, and the collectors are reporting export failures to the monitoring gateway.
+
+5
+00:00:41,688 --> 00:00:51,120
+B: So can we tell everyone the service is healthy? I want to avoid unnecessary concern, but I also need a statement we can support.
+
+6
+00:00:51,720 --> 00:01:02,592
+A: We can say the independent checks are passing. They cover limited journeys, so we still need application logs and business confirmation before broader conclusions.
+
+7
+00:01:03,192 --> 00:01:13,440
+C: The gateway certificate expired this morning. I have the renewal procedure, but I need to confirm whether that explains every collector failure.
+
+8
+00:01:14,040 --> 00:01:25,536
+A: Please verify the certificate errors and use the approved renewal process. Meanwhile, I will arrange temporary checks of transaction success and application error logs.
+
+9
+00:01:26,136 --> 00:01:35,496
+B: What visibility will the on-call engineer have during the repair? The usual paging rules depend on the same data that has stopped arriving.
+
+10
+00:01:36,096 --> 00:01:46,368
+A: We will keep external probes active and review independent logs every five minutes. I will also flag the monitoring gap in the operations channel.
+
+11
+00:01:46,968 --> 00:01:59,736
+C: The certificate replacement is approved. After applying it, I will verify fresh timestamps, ingestion volume, and alert evaluation rather than just dashboard loading.
+
+12
+00:02:00,336 --> 00:02:11,568
+B: Please give the next update at 09:45 UTC, even if the repair is incomplete. Include any customer impact found through the independent checks.
+
+13
+00:02:12,168 --> 00:02:23,664
+A: Understood. We will track the observation failure separately, retain the data-gap interval, and remove temporary checks only after normal monitoring is verified.

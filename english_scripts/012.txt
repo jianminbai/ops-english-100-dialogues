@@ -1,0 +1,26 @@
+SCENARIO 012
+内存压力与OOM
+
+B / Application Developer: Was the overnight restart caused by an application crash or an operating system issue? The application log stops without showing a normal shutdown.
+
+A / Ops Engineer: The system logs show that the out-of-memory killer terminated the process. That confirms memory exhaustion occurred, but it does not explain the underlying growth.
+
+B / Application Developer: Should we increase the memory allocation immediately? The process has restarted, and I want to prevent another interruption while we investigate the application.
+
+A / Ops Engineer: We can assess temporary headroom, but first I need to distinguish the process limit from total host capacity and check other workloads on the server.
+
+B / Application Developer: The heap chart rises steadily after each restart and does not return to its earlier level. Could that be enough to call this a leak?
+
+A / Ops Engineer: It suggests retained memory, but traffic patterns and caching could also contribute. We need allocation evidence before confirming a leak or choosing a permanent fix.
+
+B / Application Developer: I can collect a supported memory profile from staging using the same workload. Capturing a large dump directly in production might add pressure.
+
+A / Ops Engineer: That sounds reasonable. I found enough host capacity for a limited increase, provided we keep the documented reserve for the other applications.
+
+B / Application Developer: Let us request that temporary change and set an expiration for review. Additional memory may buy time, but growing usage could consume it again.
+
+A / Ops Engineer: I will submit the change and monitor the memory trend, restart count, and successful transactions. We will not judge recovery solely by the process staying alive.
+
+B / Application Developer: I own the application investigation and will share the first profile comparison by 16:00 UTC. Please include the termination timestamp and process limit in the ticket.
+
+A / Ops Engineer: I will add those now and schedule a capacity review tomorrow. We will reassess the temporary allocation after we understand the growth rate.

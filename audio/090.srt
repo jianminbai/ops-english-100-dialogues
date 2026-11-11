@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,552
+Narrator: Scenario 90. Changes, security, and disaster recovery.
+
+2
+00:00:07,152 --> 00:00:16,320
+B: For these five sampled production accounts, can you show who approved access, what role was assigned, and when the entitlement was last reviewed?
+
+3
+00:00:16,920 --> 00:00:25,968
+A: I'll map each account to its access request, named approver, assigned role, review history, and relevant access logs for the audit period.
+
+4
+00:00:26,568 --> 00:00:38,376
+B: Please distinguish the approved role from the permissions actually active during the sample period. An approval document alone doesn't establish that the implementation matched it.
+
+5
+00:00:38,976 --> 00:00:51,720
+A: Understood. I'll include the role assignment history and compare it with the authorized scope. Where historical evidence is unavailable, I'll identify the gap explicitly.
+
+6
+00:00:52,320 --> 00:01:01,920
+B: How do you remove expired contractor access, and how do you verify that disabling an account also ends existing production sessions where required?
+
+7
+00:01:02,520 --> 00:01:14,112
+A: The offboarding workflow triggers account suspension and role removal. The access team also applies the required session revocation and records its verification results.
+
+8
+00:01:14,712 --> 00:01:25,056
+B: One sampled contractor ended work on October 30, but I only see a ticket closed on November 2. What happened between those dates?
+
+9
+00:01:25,656 --> 00:01:37,056
+A: The account was disabled on October 30, according to the identity log. However, I haven't found evidence confirming the separate production role removal time.
+
+10
+00:01:37,656 --> 00:01:48,456
+B: Please investigate that distinction. Don't infer that a late ticket closure means late revocation, but don't assume all permissions ended with the account either.
+
+11
+00:01:49,056 --> 00:02:00,624
+A: I'll ask the access owner to retrieve the system records. We'll document any actual control failure and corrective action without backdating approvals or removal evidence.
+
+12
+00:02:01,224 --> 00:02:13,008
+B: Provide the evidence index through the restricted audit folder by November 13 at 16:00 UTC. Limit unrelated personal information and preserve the original records.
+
+13
+00:02:13,608 --> 00:02:23,928
+A: I'll deliver the indexed sample and a separate list of unresolved gaps by that deadline. The control owner will own follow-up on any confirmed finding.

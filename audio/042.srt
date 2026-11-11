@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,256
+Narrator: Scenario 42. Application operations.
+
+2
+00:00:05,856 --> 00:00:16,512
+A: The API's server error rate rose immediately after the release. Order creation is affected, while product searches and order history remain healthy.
+
+3
+00:00:17,112 --> 00:00:25,320
+B: How large is the increase, and does it affect all order creation requests or a specific combination of fields in the payload?
+
+4
+00:00:25,920 --> 00:00:36,480
+A: Eight percent of order creation requests failed over the last five minutes. The failing requests include a discount code; the others usually succeed.
+
+5
+00:00:37,080 --> 00:00:48,576
+C: That exceeds our release rollback threshold. Before we decide, can you preserve the relevant logs and confirm whether failed requests created any orders?
+
+6
+00:00:49,176 --> 00:00:59,424
+B: I'll trace a sample using request IDs. The exception appears before the database write, but I need to verify that across the affected path.
+
+7
+00:01:00,024 --> 00:01:10,488
+A: I'll preserve the error traces and compare both versions. Correlation with deployment is strong, although we haven't established the exact defect yet.
+
+8
+00:01:11,088 --> 00:01:20,448
+C: Was there a database migration in this release? I don't want an application rollback to introduce a second problem with stored data.
+
+9
+00:01:21,048 --> 00:01:32,400
+B: There was no schema or data migration. The previous application version accepts the current data format, and the rollback package passed our compatibility check.
+
+10
+00:01:33,000 --> 00:01:43,512
+C: Then I'll authorize the rollback under the release procedure. Keep the evidence for investigation, and tell support which order operation is affected.
+
+11
+00:01:44,112 --> 00:01:54,000
+A: I'll run the rollback and monitor order creation by payload type. A lower overall error rate alone could hide continued discount failures.
+
+12
+00:01:54,600 --> 00:02:04,272
+B: I'll validate a discounted test order and check its database record. We'll also confirm that failed attempts did not leave partial orders.
+
+13
+00:02:04,872 --> 00:02:15,864
+A: I'll update the incident in ten minutes with rollback status and business checks. The defect investigation will continue separately after recovery is confirmed.

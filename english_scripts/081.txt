@@ -1,0 +1,26 @@
+SCENARIO 081
+CAB变更评审
+
+B / Change Manager: What exactly are you changing in production, and which customer functions could be affected during the proposed maintenance window?
+
+A / Ops Engineer: We're upgrading the application runtime on six checkout servers. We'll replace one server at a time while the remaining five serve traffic.
+
+B / Change Manager: Have you demonstrated that five servers can handle the expected load, or does that assumption depend on traffic staying unusually low?
+
+A / Ops Engineer: The staging load test reached projected peak traffic with five servers. CPU stayed below sixty percent, and checkout latency remained within our target.
+
+B / Change Manager: Staging evidence helps, but production dependencies may behave differently. What will you check after replacing the first server before continuing?
+
+A / Ops Engineer: We'll observe it for fifteen minutes, comparing errors, latency, payment callbacks, and completed orders against the unchanged servers and the production baseline.
+
+B / Change Manager: What stops the change, and can the old runtime still operate with the configuration that the upgraded version will use?
+
+A / Ops Engineer: A sustained breach of our approved thresholds stops the rollout. Configuration remains compatible, and we tested restoring the previous image in staging.
+
+B / Change Manager: Who can initiate rollback, and do you have the application owner available to confirm business recovery if that becomes necessary?
+
+A / Ops Engineer: I own execution, and the designated change lead authorizes rollback under the approved plan. The application owner will validate checkout and reconciliation.
+
+B / Change Manager: Attach those test results and the named contacts by November 12 at 15:00 UTC. Approval remains pending until I review the complete record.
+
+A / Ops Engineer: I'll update the change record before that checkpoint and confirm the review outcome. We won't schedule execution until the required approval is recorded.

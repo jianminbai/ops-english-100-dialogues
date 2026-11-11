@@ -1,0 +1,26 @@
+SCENARIO 019
+时间同步异常
+
+B / Systems Engineer: These events appear out of order across the application and authentication logs. Are all servers using the same approved time source and reporting timestamps consistently?
+
+A / Ops Engineer: One application server is about four minutes behind the reference time. I recorded the offset and am checking its synchronization service and network access.
+
+B / Systems Engineer: Could that explain the authentication errors? Some tokens appear expired in one log even though the issuing service records them as valid.
+
+A / Ops Engineer: It could contribute, but we have not confirmed it as the cause. We need to compare token validity windows and error details with the measured offset.
+
+B / Systems Engineer: Can we set the clock directly to the current time? That seems faster than waiting for the synchronization service to correct several minutes of drift.
+
+A / Ops Engineer: An abrupt clock change can affect scheduled jobs and time-sensitive applications. We should follow the approved correction method and involve the service owner before proceeding.
+
+B / Systems Engineer: I found the synchronization service was stopped after maintenance. The configured sources are correct, but we need to check why it did not start automatically.
+
+A / Ops Engineer: Please preserve the service logs and maintenance record. I will ask the platform owner whether controlled adjustment requires temporarily draining this node from traffic.
+
+B / Systems Engineer: The runbook calls for draining this application node before a correction of that size. The other nodes have enough capacity, and the owner approved the procedure.
+
+A / Ops Engineer: Then we will drain it, correct the clock, and verify synchronization stability before restoring traffic. We will recheck authentication using fresh test tokens afterward.
+
+B / Systems Engineer: I will complete the system checks by 11:00 UTC and propose monitoring for clock offset and synchronization status. The original logs will retain their recorded timestamps.
+
+A / Ops Engineer: I will publish a timeline with the offset clearly annotated and compare authentication results at 11:15 UTC. We will keep investigating if failures continue after correction.

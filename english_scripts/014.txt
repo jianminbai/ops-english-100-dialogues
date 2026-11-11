@@ -1,0 +1,26 @@
+SCENARIO 014
+磁盘未满但无法写入
+
+B / Application Developer: Writes are failing with a no-space error, but the disk dashboard shows almost forty percent free. What else should we check before expanding storage?
+
+A / Ops Engineer: We should check inode usage as well as bytes. The affected filesystem has exhausted its inodes because the application created millions of small temporary files.
+
+B / Application Developer: Does that mean larger files might still have room while creating a new file fails? That would explain why the usual capacity alert did not fire.
+
+A / Ops Engineer: Yes, creating a new file requires an available inode. We need to restore that resource and add monitoring so the byte-based dashboard does not hide the risk.
+
+B / Application Developer: Can we clear the temporary directory now? Most of those files are from old export jobs, but a few exports are still running.
+
+A / Ops Engineer: Let us identify completed job directories and confirm the retention rule first. We should not remove active files or rely only on their modification time.
+
+B / Application Developer: I can compare the job registry with directory names and provide an approved list. The application normally removes those files after a successful export.
+
+A / Ops Engineer: Please check failed and canceled jobs too. Their cleanup paths may differ, and the accumulation could continue even if successful jobs clean up correctly.
+
+B / Application Developer: I found that canceled exports skip cleanup. I will fix that behavior and add a scheduled cleanup proposal with safeguards for running jobs.
+
+A / Ops Engineer: I will remove only the verified inactive directories in controlled batches, then check inode availability, file creation, and the completion of a small test export.
+
+B / Application Developer: I will send the approved directory list by 10:20 UTC and own the application correction. We should agree on a warning threshold based on growth.
+
+A / Ops Engineer: Agreed. I will post the recovery checks by 10:40 UTC and create the inode alert task. We will track the application fix separately until validated.

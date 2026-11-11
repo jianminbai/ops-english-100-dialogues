@@ -1,0 +1,26 @@
+SCENARIO 042
+API错误率突然上升
+
+A / Ops Engineer: The API's server error rate rose immediately after the release. Order creation is affected, while product searches and order history remain healthy.
+
+B / Developer: How large is the increase, and does it affect all order creation requests or a specific combination of fields in the payload?
+
+A / Ops Engineer: Eight percent of order creation requests failed over the last five minutes. The failing requests include a discount code; the others usually succeed.
+
+C / Release Lead: That exceeds our release rollback threshold. Before we decide, can you preserve the relevant logs and confirm whether failed requests created any orders?
+
+B / Developer: I'll trace a sample using request IDs. The exception appears before the database write, but I need to verify that across the affected path.
+
+A / Ops Engineer: I'll preserve the error traces and compare both versions. Correlation with deployment is strong, although we haven't established the exact defect yet.
+
+C / Release Lead: Was there a database migration in this release? I don't want an application rollback to introduce a second problem with stored data.
+
+B / Developer: There was no schema or data migration. The previous application version accepts the current data format, and the rollback package passed our compatibility check.
+
+C / Release Lead: Then I'll authorize the rollback under the release procedure. Keep the evidence for investigation, and tell support which order operation is affected.
+
+A / Ops Engineer: I'll run the rollback and monitor order creation by payload type. A lower overall error rate alone could hide continued discount failures.
+
+B / Developer: I'll validate a discounted test order and check its database record. We'll also confirm that failed attempts did not leave partial orders.
+
+A / Ops Engineer: I'll update the incident in ten minutes with rollback status and business checks. The defect investigation will continue separately after recovery is confirmed.

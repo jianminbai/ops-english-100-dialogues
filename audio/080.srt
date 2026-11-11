@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,752
+Narrator: Scenario 80. Incident response.
+
+2
+00:00:05,352 --> 00:00:16,344
+B: The service has remained stable through the agreed sixty-minute observation period. Before we close the bridge, can we confirm monitoring ownership and remaining work?
+
+3
+00:00:16,944 --> 00:00:28,272
+A: Critical journeys are passing in all affected regions, and queues are back to baseline. The open reconciliation tasks have separate owners and documented checkpoints.
+
+4
+00:00:28,872 --> 00:00:40,200
+C: I am taking the next on-call shift. Please walk me through the temporary settings, what to watch, and which conditions require reopening the incident bridge.
+
+5
+00:00:40,800 --> 00:00:54,024
+A: The export concurrency limit remains reduced under the approved mitigation. Watch checkout failures, queue age, and cluster saturation; the incident record links the exact alert thresholds.
+
+6
+00:00:54,624 --> 00:01:05,904
+B: If a threshold is crossed, follow the documented escalation process and reassess impact under our policy. Do not wait for the next scheduled status update.
+
+7
+00:01:06,504 --> 00:01:16,848
+C: I have opened the dashboard and runbook, and I can access the incident record. Who can approve restoring the normal export settings later tonight?
+
+8
+00:01:17,448 --> 00:01:27,864
+A: The reporting owner and service owner must review the staged resumption plan through the change process. Their contacts and the capacity evidence are attached.
+
+9
+00:01:28,464 --> 00:01:38,232
+B: Who will coordinate the post-incident review, and when will the team receive the evidence? I want clear follow-up ownership before people leave the call.
+
+10
+00:01:38,832 --> 00:01:50,040
+A: I will coordinate the review under our incident policy and circulate the timeline, decisions, and open hypotheses tomorrow by 12:00 UTC, with proposed attendees.
+
+11
+00:01:50,640 --> 00:02:04,584
+C: I accept monitoring ownership from 18:00 UTC. I will post an observation update at 19:00 UTC and escalate immediately if the documented triggers occur.
+
+12
+00:02:05,184 --> 00:02:17,280
+B: With that handoff accepted, I am closing the live bridge and recording service recovery. Reconciliation and preventive actions will remain tracked until their owners complete them.
+
+13
+00:02:17,880 --> 00:02:30,240
+A: I will publish the closure note with the handoff, escalation contacts, and outstanding actions. The review invitation will follow once the required participants confirm availability.

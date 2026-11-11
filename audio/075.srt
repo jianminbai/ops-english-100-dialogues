@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,232
+Narrator: Scenario 75. Incident response.
+
+2
+00:00:05,832 --> 00:00:15,504
+B: The timeout errors started right after the configuration rollout. That must be the cause, so I think we should reverse the change immediately.
+
+3
+00:00:16,104 --> 00:00:26,616
+A: The timing makes it a strong hypothesis, but it does not establish causation. Let us compare the rollout timeline with when each instance began failing.
+
+4
+00:00:27,216 --> 00:00:37,944
+C: What evidence would confirm or weaken the hypothesis quickly? We need useful checks that do not delay a safe opportunity to reduce customer impact.
+
+5
+00:00:38,544 --> 00:00:51,048
+A: Compare updated and unchanged instances under similar traffic. Check the actual configuration values and error signatures, rather than relying only on deployment completion times.
+
+6
+00:00:51,648 --> 00:01:03,864
+B: Updated instances show eighteen percent timeouts; unchanged instances show two percent. The new configuration lowers the connection timeout from five seconds to one second.
+
+7
+00:01:04,464 --> 00:01:15,192
+A: That supports a link, but traffic distribution may differ. We should check dependency latency and test the previous timeout on a small, controlled group.
+
+8
+00:01:15,792 --> 00:01:26,832
+C: What are the risks of that test? Longer timeouts might hold connections longer, so I need capacity limits and clear stopping conditions before approval.
+
+9
+00:01:27,432 --> 00:01:38,376
+A: We will limit the group to five percent of traffic, watch connection usage, and stop if saturation rises. The previous value remains within tested limits.
+
+10
+00:01:38,976 --> 00:01:49,992
+B: I will execute the test after your emergency approval and record exact start times. The observer can compare outcomes against the unchanged control group.
+
+11
+00:01:50,592 --> 00:02:02,496
+C: Approved under the incident change process. Review the first five minutes at 12:40 UTC, and raise any stopping condition immediately rather than waiting.
+
+12
+00:02:03,096 --> 00:02:13,584
+A: If errors fall in the test group, we can propose broader mitigation. We will still investigate why dependency latency increased beyond the new timeout.
+
+13
+00:02:14,184 --> 00:02:25,056
+B: Understood. I will record the configuration change as a tested contributor only if the evidence supports it, and keep the deeper cause investigation open.

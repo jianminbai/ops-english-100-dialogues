@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,952
+Narrator: Scenario 91. Follow up and operational improvement.
+
+2
+00:00:06,552 --> 00:00:17,760
+B: What triggered yesterday's connection failures, and which conditions allowed the impact to spread? Please separate confirmed evidence from assumptions in the incident review.
+
+3
+00:00:18,360 --> 00:00:30,168
+A: A configuration change replaced the database hostname with an invalid value. The deployment record and failed connection logs establish the sequence across affected instances.
+
+4
+00:00:30,768 --> 00:00:39,864
+B: Was that simply an editing mistake, or did a missing safeguard allow an otherwise detectable error to reach production and affect every instance?
+
+5
+00:00:40,464 --> 00:00:52,152
+A: The editor introduced the value, but our validation checked only file syntax. It didn't verify the destination, and the deployment updated all instances together.
+
+6
+00:00:52,752 --> 00:01:03,816
+B: How confident are we that reverting the configuration explains recovery? Were any unrelated changes made at approximately the same time that could confuse that conclusion?
+
+7
+00:01:04,416 --> 00:01:16,824
+A: The timeline shows no other production changes during recovery. Connections resumed after the previous value was restored, and staging reproduced the same failure with the invalid value.
+
+8
+00:01:17,424 --> 00:01:28,752
+B: That supports the causal explanation. What delayed detection, and why didn't the deployment stop before the configuration reached the remaining instances in production?
+
+9
+00:01:29,352 --> 00:01:40,752
+A: The existing check tested process health without a database operation. We also lacked a staged rollout gate, so healthy processes masked failed customer requests.
+
+10
+00:01:41,352 --> 00:01:53,256
+B: Let's define separate improvements for configuration validation, deployment controls, and monitoring. Naming a person who made the edit won't address those system gaps.
+
+11
+00:01:53,856 --> 00:02:05,808
+A: I'll own destination validation and a staged production check. The monitoring owner will add a representative transaction probe, with acceptance based on replaying this failure.
+
+12
+00:02:06,408 --> 00:02:18,432
+B: Please attach the reproduction evidence and draft acceptance criteria by November 16 at 15:00 UTC. We'll confirm owners and dates at that review.
+
+13
+00:02:19,032 --> 00:02:29,952
+A: I'll also document the residual risks. We can say the cause is supported by evidence, while prevention remains pending until the new controls pass validation.

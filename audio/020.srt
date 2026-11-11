@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,280
+Narrator: Scenario 20. Infrastructure operations.
+
+2
+00:00:05,880 --> 00:00:16,992
+A: At the current growth rate, we expect to reach our planning threshold in six weeks. That threshold preserves reserve capacity rather than marking total exhaustion.
+
+3
+00:00:17,592 --> 00:00:27,456
+B: Does that mean we need to double the infrastructure budget now? I need to understand the spending request before next month’s forecast is finalized.
+
+4
+00:00:28,056 --> 00:00:40,056
+A: Not necessarily. We will compare right-sizing, moving flexible batch work away from peak periods, and adding capacity incrementally where the measured bottlenecks justify it.
+
+5
+00:00:40,656 --> 00:00:53,088
+C: What assumptions support the six-week estimate? Average utilization can hide peak pressure, and any proposal must preserve service capacity when one node is unavailable.
+
+6
+00:00:53,688 --> 00:01:04,680
+A: The estimate uses eight weeks of peak usage and the announced customer rollout. I will show a baseline forecast and a higher-demand case, including node failure.
+
+7
+00:01:05,280 --> 00:01:17,736
+B: Please separate confirmed demand from assumptions. I would also like to see one-time implementation costs, ongoing charges, and the confidence range for any projected savings.
+
+8
+00:01:18,336 --> 00:01:31,008
+C: Before reducing server sizes, check workload variability and recovery requirements. A machine that looks idle on average may provide needed capacity during a failure.
+
+9
+00:01:31,608 --> 00:01:45,552
+A: Agreed. We will identify candidates from workload history and test changes individually. We will also check database limits so extra application instances do not shift the bottleneck.
+
+10
+00:01:46,152 --> 00:01:56,760
+B: Could the proposal include a staged spending option? Releasing funds against measured demand would be easier to approve than buying the entire forecast upfront.
+
+11
+00:01:57,360 --> 00:02:09,936
+A: Yes. I will define capacity triggers, expected lead times, and owners for each stage. We must order early enough to avoid consuming the required reserve.
+
+12
+00:02:10,536 --> 00:02:24,792
+C: I will validate technical feasibility and resilience assumptions by November 17 at 16:00 UTC. Please bring comparable options with the same demand and availability targets.
+
+13
+00:02:25,392 --> 00:02:38,304
+B: I will review the cost ranges on November 18 at 16:00 UTC. We can choose an initial stage then, with later spending conditional on the agreed capacity triggers.

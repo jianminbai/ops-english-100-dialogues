@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,232
+Narrator: Scenario 76. Incident response.
+
+2
+00:00:05,832 --> 00:00:15,432
+B: We still do not know the exact root cause. Should we keep investigating before changing anything, or try to restore checkout service now?
+
+3
+00:00:16,032 --> 00:00:26,616
+A: We can investigate in parallel while assessing a safe mitigation. The scheduled export workers are consuming resources in the same cluster as checkout.
+
+4
+00:00:27,216 --> 00:00:37,872
+C: Pausing exports might help, but what evidence supports that option? I also need to understand the business cost and whether the pause is reversible.
+
+5
+00:00:38,472 --> 00:00:49,416
+A: Checkout queue growth began as export concurrency increased. That is not a confirmed cause, but a previous capacity test showed these workloads can compete.
+
+6
+00:00:50,016 --> 00:01:00,600
+B: Exports are noncritical for the next hour and can resume from saved checkpoints. I will verify current checkpoints before proposing a pause of the workers.
+
+7
+00:01:01,200 --> 00:01:09,816
+C: Who will approve the delayed exports from the business side, and how will we tell whether pausing them actually improves the customer journey?
+
+8
+00:01:10,416 --> 00:01:22,152
+A: The reporting owner has accepted a thirty-minute delay. We will measure checkout completion, queue age, and cluster pressure, with independent test orders as confirmation.
+
+9
+00:01:22,752 --> 00:01:33,744
+B: I can lead the mitigation, while another developer preserves logs and investigates resource contention. We will capture evidence before the workers are paused.
+
+10
+00:01:34,344 --> 00:01:46,440
+C: Approved through the emergency process, with the reporting agreement recorded. Start with the documented pause procedure and stop if checkpoint integrity cannot be verified.
+
+11
+00:01:47,040 --> 00:01:58,128
+A: I will observe the result for ten minutes and report at 13:10 UTC. If checkout does not improve, we will reconsider rather than assume success.
+
+12
+00:01:58,728 --> 00:02:08,616
+B: If the service improves, should I resume exports immediately at lower concurrency, or wait until we agree on recovery and the next operating limits?
+
+13
+00:02:09,216 --> 00:02:21,600
+C: Wait for that decision. Service recovery, export resumption, and root-cause confirmation are separate milestones, and each needs an owner and supporting evidence.

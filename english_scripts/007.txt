@@ -1,0 +1,26 @@
+SCENARIO 007
+请求具体进展
+
+A / Ops Coordinator: Could you give us an update on the network investigation? The incident ticket still says you are checking connectivity, without a recent timestamp.
+
+B / Network Engineer: We reviewed the firewall rules and found no unexpected changes. We also tested the affected route, but we have not reproduced the failure yet.
+
+A / Ops Coordinator: Which source and destination did you test, and did the test run during the same period when the application team observed connection failures?
+
+B / Network Engineer: We tested from the regional operations host to the application endpoint. The checks were successful, but they started fifteen minutes after the reported failures.
+
+A / Ops Coordinator: That means the successful tests do not rule out an intermittent problem. What evidence would help you compare the failed and successful connections?
+
+B / Network Engineer: We need precise timestamps, source addresses, destination ports, and connection identifiers. A targeted packet capture would also help if the issue happens again.
+
+A / Ops Coordinator: I can ask the application owner for those details. Can you prepare the capture now so we do not lose the next occurrence?
+
+B / Network Engineer: Yes. I will use the approved capture procedure, limit the duration and endpoints, and store the output in the restricted incident evidence location.
+
+A / Ops Coordinator: Good. What is your next checkpoint if the failure does not recur? We still need a useful update rather than an open-ended wait.
+
+B / Network Engineer: By 16:00 UTC, I will document the completed checks, capture readiness, and remaining hypotheses. I will also compare routing events around the original timestamps.
+
+A / Ops Coordinator: Please state which findings are confirmed and which are untested. I will add the application evidence by 15:30 UTC and link it to your task.
+
+B / Network Engineer: Agreed. I own the network investigation and the 16:00 UTC update. If we capture a new failure earlier, I will notify the incident coordinator immediately.

@@ -1,0 +1,26 @@
+SCENARIO 087
+高危漏洞修复安排
+
+B / Security Engineer: A critical vulnerability was disclosed this morning. Management wants a patching schedule today, especially for systems reachable from the internet or partner networks.
+
+A / Ops Engineer: We're matching the vendor advisory against our asset inventory and package versions. Severity alone doesn't tell us which systems have the vulnerable component enabled.
+
+B / Security Engineer: Understood. Prioritize confirmed exposure and service impact, and flag anything that cannot meet the remediation deadline defined in our security policy.
+
+A / Ops Engineer: We found twelve potentially affected hosts so far. Four serve external traffic; eight are internal, and we're still verifying whether the affected feature is active.
+
+B / Security Engineer: Can you patch the external hosts first without interrupting all traffic, and what evidence will show the fix is actually effective after installation?
+
+A / Ops Engineer: We'll test the vendor package, then use an approved rolling plan where capacity allows. We'll verify versions, approved vulnerability checks, and normal business transactions.
+
+B / Security Engineer: One internal host supports an older reporting application. The owner says the vendor patch isn't certified yet, so that may need a formal exception.
+
+A / Ops Engineer: I'll ask that owner for the compatibility issue and test timeline. Any temporary control needs a security review, a named risk owner, and an expiration date.
+
+B / Security Engineer: We can review restricted network access as a temporary mitigation if it fits the advisory. That would reduce exposure but would not count as permanent remediation.
+
+A / Ops Engineer: Agreed. We'll also check newly discovered assets against the same inventory criteria, so an incomplete initial list doesn't become a false completion report.
+
+B / Security Engineer: Please provide the first asset-level status at 16:00 UTC today, including unknowns, patch owners, validation results, and any exception requests needing my review.
+
+A / Ops Engineer: I'll deliver that checkpoint and update the schedule as testing confirms feasibility. We will report remaining exposure explicitly until remediation or approved exception handling is complete.

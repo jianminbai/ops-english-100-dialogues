@@ -1,0 +1,26 @@
+SCENARIO 079
+验证服务真正恢复
+
+B / Application Engineer: The alerts cleared after the mitigation, and error rates are back near baseline. Can we announce that the incident is resolved and end the bridge?
+
+A / Ops Engineer: Let us verify critical user journeys, regional metrics, and backlog behavior first. An alert clearing does not prove that customers can complete their work.
+
+C / Business Lead: Test orders now succeed in both affected regions, and support has confirmed two customers completed checkout. However, some delayed orders still need transaction reconciliation.
+
+A / Ops Engineer: Please check order visibility and payment confirmation as well as creation. We need to verify the whole journey, not only the first successful response.
+
+B / Application Engineer: Those checks pass. The processing queue is draining steadily, but forty orders remain in an uncertain state out of the original six hundred delayed orders.
+
+C / Business Lead: Can we safely replay those forty orders? Customers are asking whether they should submit again, and I want to avoid duplicate orders or payments.
+
+A / Ops Engineer: Do not replay them blindly. Reconcile each order against payment records, use the approved recovery procedure, and confirm duplicate protection before any retry.
+
+B / Application Engineer: The payments engineer will own that reconciliation, with a second reviewer. I will provide the remaining order list and current processing state in the incident record.
+
+A / Ops Engineer: For service recovery, we need the agreed thirty-minute stable period. Watch successful checkouts, regional latency, and queue age, including any new orders entering the system.
+
+C / Business Lead: Then the customer message can distinguish restored checkout service from the outstanding delayed orders. Please include a clear contact for people still waiting on confirmation.
+
+B / Application Engineer: The observation period ends at 16:10 UTC. I will bring the regional results then, while the payments engineer provides a separate reconciliation progress update.
+
+A / Ops Engineer: Agreed. If validation passes, we can report service recovery and keep the forty-order cleanup open with ownership, checkpoints, and customer communication until every outcome is resolved.

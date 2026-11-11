@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,528
+Narrator: Scenario 38. Cloud platforms, containers, and automation.
+
+2
+00:00:07,128 --> 00:00:18,648
+B: The release passed staging yesterday, but production validation is failing. What differs between the environments besides the customer data and normal scale differences?
+
+3
+00:00:19,248 --> 00:00:31,056
+A: The configuration comparison shows a different dependency endpoint and one feature flag enabled only in production. We need to confirm whether both differences are intentional.
+
+4
+00:00:31,656 --> 00:00:43,584
+B: The dependency endpoint should differ because production uses a separate account. I do not recognize the enabled flag; it activates the new asynchronous validation path.
+
+5
+00:00:44,184 --> 00:00:54,096
+A: Where is the approved flag state documented, and who owns it? We should compare against that source rather than make production identical to staging.
+
+6
+00:00:54,696 --> 00:01:05,856
+B: The rollout document says the flag must remain disabled until partner testing finishes. The application team owns it, and partner approval is still pending.
+
+7
+00:01:06,456 --> 00:01:17,232
+A: The deployment history shows the production override was omitted from the new template. The application then used its default value, which enables the feature.
+
+8
+00:01:17,832 --> 00:01:27,816
+B: That explains the unexpected path, but could the endpoint also be wrong? I want to rule out a second issue before we propose the correction.
+
+9
+00:01:28,416 --> 00:01:40,728
+A: The endpoint matches the approved production inventory, and connectivity checks pass. Keep that intentional difference; correct the flag override through the reviewed configuration change.
+
+10
+00:01:41,328 --> 00:01:52,704
+B: The flag affects only new requests. I will verify whether any asynchronous requests are still pending and define how they complete without being submitted twice.
+
+11
+00:01:53,304 --> 00:02:04,368
+A: After approval, restore the documented flag state on one instance first. We should validate the normal path and inspect the pending requests before expanding.
+
+12
+00:02:04,968 --> 00:02:16,656
+B: I will own the configuration correction and request tracking. The validation evidence and pending-request status will be ready at our 16:30 UTC checkpoint.
+
+13
+00:02:17,256 --> 00:02:28,776
+A: I will compare error rates and completed transactions with baseline. We should also add explicit production flag values and required override checks to release validation.

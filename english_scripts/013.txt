@@ -1,0 +1,26 @@
+SCENARIO 013
+磁盘空间即将耗尽
+
+A / Ops Engineer: The log volume is ninety-two percent full. Based on the last thirty minutes of growth, it may reach capacity within about two hours.
+
+B / Infrastructure Lead: Can we delete the oldest files now? I would like to create breathing room before the volume fills and the application starts failing writes.
+
+A / Ops Engineer: I will check the retention policy and archive status first. Some older logs support an active investigation, so age alone does not establish deletion eligibility.
+
+B / Infrastructure Lead: Understood. What is driving the growth? If rotation stopped working, a one-time cleanup could give us only a short period of relief.
+
+A / Ops Engineer: The current log file is growing unusually fast, and yesterday’s rotation task failed. I am checking permissions and the task error before changing anything.
+
+B / Infrastructure Lead: Please also check whether debug logging was enabled during troubleshooting. We should ask the application owner before reducing anything needed for the investigation.
+
+A / Ops Engineer: The owner confirmed extra debug logging can end now under the troubleshooting plan. I will restore the normal level and preserve the relevant evidence.
+
+B / Infrastructure Lead: How much space can approved cleanup recover, and do we need expansion as well? Please account for the time required to grow the filesystem.
+
+A / Ops Engineer: Verified archived files should release about fifteen percent of the volume. I am also checking online expansion support and available storage with the platform owner.
+
+B / Infrastructure Lead: Use the approved cleanup procedure and avoid truncating files that are still open. If expansion is needed, submit the appropriate change with the capacity evidence.
+
+A / Ops Engineer: I will report usage and the new growth rate by 13:00 UTC. After repairing rotation, I will verify the next cycle rather than assume it works.
+
+B / Infrastructure Lead: I will review the expansion recommendation at that checkpoint. Keep the application owner informed and verify normal log writes before closing the immediate capacity risk.

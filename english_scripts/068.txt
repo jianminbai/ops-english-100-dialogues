@@ -1,0 +1,26 @@
+SCENARIO 068
+压测与真实流量差异
+
+B / Engineering Manager: The load test passed last week, yet production struggled during the sale. What did the test miss, and how can we trust the next result?
+
+A / Ops Engineer: The test represented request volume reasonably well, but not the production request mix, data size, or limits of the shared search dependency.
+
+C / Performance Engineer: We used mostly cached reads and a small catalog. During the sale, searches with multiple filters increased and reached the database more often.
+
+B / Engineering Manager: Could we simply double the test traffic and add application replicas? That seems faster than rebuilding the whole workload model before the next event.
+
+A / Ops Engineer: More replicas may increase pressure on the same dependency. We need to reproduce the actual bottleneck before deciding whether application capacity would help.
+
+C / Performance Engineer: I can build an anonymized workload from production proportions, with realistic catalog size, cold-cache periods, and the current search quota represented explicitly.
+
+B / Engineering Manager: How long should it run? The previous test lasted twenty minutes, while the production slowdown appeared almost an hour into the campaign.
+
+A / Ops Engineer: We need a longer steady-load phase to expose queue growth and resource accumulation, plus controlled bursts and a recovery period after traffic falls.
+
+C / Performance Engineer: I propose a two-hour steady phase. Pass criteria will cover completed searches, checkout success, tail latency, dependency saturation, and how quickly queues drain.
+
+B / Engineering Manager: Make the constraints visible in the report. A passing result should state the supported traffic profile, not imply unlimited readiness for any campaign.
+
+A / Ops Engineer: We will agree on the workload and acceptance criteria Wednesday at 10:00 UTC. The test environment limits must also be documented before execution.
+
+C / Performance Engineer: I will prepare that proposal and identify production differences we cannot simulate. After the run, we will turn the measured bottlenecks into owned actions.

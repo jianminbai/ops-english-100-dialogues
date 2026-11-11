@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,184
+Narrator: Scenario 8. Global meeting communication.
+
+2
+00:00:05,784 --> 00:00:16,320
+A: The upgrade is behind schedule because the compatibility test failed in staging. We cannot complete the production readiness review with the current evidence.
+
+3
+00:00:16,920 --> 00:00:26,352
+B: What failed, and how does it affect the production date? We have already reserved the maintenance window and informed several support teams.
+
+4
+00:00:26,952 --> 00:00:37,320
+A: The reporting agent cannot connect after the library update. Core application checks passed, but reporting is a required function for the business owner.
+
+5
+00:00:37,920 --> 00:00:45,144
+B: Could we proceed without that agent and repair it afterward, or would that create an unacceptable gap in the service?
+
+6
+00:00:45,744 --> 00:00:56,040
+A: The owner has not accepted that gap, and the current change approval includes working reports. We need another test cycle or an approved scope change.
+
+7
+00:00:56,640 --> 00:01:07,752
+B: Understood. Do you have a confirmed fix, or are we still estimating how much investigation remains? I need to explain the uncertainty clearly.
+
+8
+00:01:08,352 --> 00:01:19,968
+A: The vendor suggested a compatible agent version, but we have not validated it. The application team will test installation, report generation, and rollback tomorrow.
+
+9
+00:01:20,568 --> 00:01:31,272
+B: What support would help that testing finish efficiently? Please identify a specific dependency instead of simply asking everyone to prioritize the upgrade.
+
+10
+00:01:31,872 --> 00:01:42,216
+A: We need a reporting specialist for two hours and access to representative test data. I have requested both, but the specialist is not confirmed yet.
+
+11
+00:01:42,816 --> 00:01:53,856
+B: I will contact the reporting manager today. Please publish the blocker, its owner, and the validation criteria so the teams understand what must change.
+
+12
+00:01:54,456 --> 00:02:05,904
+A: I will update the project record today and hold the next checkpoint tomorrow at 15:00 UTC. After validation, I will propose a revised production date.
+
+13
+00:02:06,504 --> 00:02:17,544
+B: Agreed. I will tell stakeholders the current window is at risk and confirm its status at that checkpoint, without promising an unvalidated completion date.

@@ -1,0 +1,26 @@
+SCENARIO 035
+节点维护与工作负载迁移
+
+A / Ops Engineer: We need to drain node seven for operating system maintenance. Have we checked workload disruption budgets, replacement capacity, and any storage tied to this node?
+
+B / Platform Engineer: One application has three replicas, but only two are healthy. Its disruption budget requires two available replicas, so evicting the local healthy pod is blocked.
+
+A / Ops Engineer: Let us restore redundancy before proceeding with maintenance. Do we know why the third replica is unhealthy, and is the application owner already involved?
+
+B / Platform Engineer: The third replica cannot connect to its required queue because of a configuration mistake. The application owner is preparing a correction through the change process.
+
+A / Ops Engineer: Please keep the drain paused. We should not override the disruption budget simply to meet the maintenance schedule, especially while the service has reduced redundancy.
+
+B / Platform Engineer: Agreed. The remaining nodes have capacity for the evicted workloads. I also confirmed that this application uses shared storage and has no node-local persistent data.
+
+A / Ops Engineer: After the correction, wait until all three replicas are ready and stable. Can the application owner run a representative request before we resume?
+
+B / Platform Engineer: Yes. They will verify queue processing and a completed customer operation. We will retain the evidence in the maintenance ticket rather than rely only on pod status.
+
+A / Ops Engineer: Once that passes, cordon the node and drain through normal eviction handling. Watch replacement readiness and stop if another replica becomes unhealthy during the move.
+
+B / Platform Engineer: I will perform the drain and maintenance one node at a time. After reboot, I will validate networking, storage access, and node health before uncordoning.
+
+A / Ops Engineer: Let us use 19:00 UTC as the readiness checkpoint. If redundancy is not restored by then, we will reschedule this node and notify the maintenance owner.
+
+B / Platform Engineer: I will update the ticket at that checkpoint. We will close only after workload health remains stable and the application owner confirms the post-maintenance checks.

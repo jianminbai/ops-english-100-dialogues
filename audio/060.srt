@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,336
+Narrator: Scenario 60. Databases, middleware, and batch processing.
+
+2
+00:00:06,936 --> 00:00:18,888
+B: Will the overnight report be ready before our 06:30 UTC deadline on November 12, 2026? Regional teams need it before they start processing accounts.
+
+3
+00:00:19,488 --> 00:00:28,416
+A: The batch is waiting for an upstream file. We don't have a confirmed arrival time, so I can't commit to the report being ready.
+
+4
+00:00:29,016 --> 00:00:41,616
+C: Once the file arrives and passes validation, processing normally takes twenty-five minutes. Larger files can take longer, and we still need the final reconciliation.
+
+5
+00:00:42,216 --> 00:00:51,744
+B: Can we publish yesterday's report as a fallback? It would let teams prepare, but I need to understand which decisions would become unsafe.
+
+6
+00:00:52,344 --> 00:01:03,480
+A: The fallback needs business approval and a clear data timestamp. Yesterday's balances won't include overnight changes, so the permitted use must be explicit.
+
+7
+00:01:04,080 --> 00:01:15,288
+B: It can support staffing estimates, but not account adjustments or customer balance confirmations. I'll confirm that restriction with the regional operations owners.
+
+8
+00:01:15,888 --> 00:01:27,936
+C: I'll contact the upstream owner for file status and check whether any partial delivery is usable. We won't silently combine incomplete data with yesterday's report.
+
+9
+00:01:28,536 --> 00:01:38,832
+A: Please also confirm whether the batch can resume safely after the delay. We need to avoid duplicate processing if the scheduler starts another attempt.
+
+10
+00:01:39,432 --> 00:01:51,528
+C: The job tracks completed input files, but I'll verify the current checkpoint and keep retries under the documented control. The late file needs completeness checks.
+
+11
+00:01:52,128 --> 00:02:03,864
+B: I'll own approval of the restricted fallback and tell teams which activities must wait. Please give me another update by 06:00 UTC, even without an arrival estimate.
+
+12
+00:02:04,464 --> 00:02:16,632
+A: At that checkpoint, I'll report file status, remaining processing steps, and the fallback decision. We'll label the report with its actual data cutoff, not its publication time.
+
+13
+00:02:17,232 --> 00:02:28,536
+C: I'll own the batch restart and reconciliation. The final report will replace the fallback only after data checks pass and the business owner confirms release.

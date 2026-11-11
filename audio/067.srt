@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,648
+Narrator: Scenario 67. Monitoring, performance, and reliability.
+
+2
+00:00:07,248 --> 00:00:15,936
+B: I found an order error and a payment timeout within the same second. Can we treat them as parts of the same failed transaction?
+
+3
+00:00:16,536 --> 00:00:27,744
+A: Not from timing alone. Let us compare the request identifier, trace identifier, and UTC timestamps across the services before linking those events.
+
+4
+00:00:28,344 --> 00:00:40,440
+C: The payment entry has a transaction identifier, but no trace identifier. Our gateway appears to drop the incoming correlation header before forwarding requests.
+
+5
+00:00:41,040 --> 00:00:51,576
+B: The order service logs the transaction identifier after creating the payment request. Could that give us a reliable link for this particular sample?
+
+6
+00:00:52,176 --> 00:01:02,832
+A: Yes, if the identifier is stable across both records and retries. Please confirm its semantics rather than assuming two fields with similar names match.
+
+7
+00:01:03,432 --> 00:01:14,712
+C: I confirmed the same identifier on both sides. There are three payment attempts, so the timeout may describe only one attempt, not the final outcome.
+
+8
+00:01:15,312 --> 00:01:25,632
+B: The final attempt succeeded, but the order update failed afterward. That explains why the customer saw an error despite a successful payment record.
+
+9
+00:01:26,232 --> 00:01:36,720
+A: That is supported for this sample. We should check additional affected transactions before concluding the same sequence explains the whole incident or its scope.
+
+10
+00:01:37,320 --> 00:01:47,304
+C: I will investigate the missing header and propose a gateway fix. Should we include a test that checks propagation through every retry path?
+
+11
+00:01:47,904 --> 00:01:58,992
+A: Please do, and keep sensitive payment details out of shared logs. We need identifiers and processing states, not card data or authentication secrets.
+
+12
+00:01:59,592 --> 00:02:10,440
+B: I will trace five more failed orders and document the evidence chain by 17:00 UTC, including where correlation remains incomplete or uncertain.
+
+13
+00:02:11,040 --> 00:02:22,080
+A: Great. At that checkpoint, we will separate confirmed transaction sequences from open gaps and assign owners for both the application failure and tracing repair.

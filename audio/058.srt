@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,504
+Narrator: Scenario 58. Databases, middleware, and batch processing.
+
+2
+00:00:07,104 --> 00:00:16,752
+B: Some orders appear twice in the business dashboard. Did the queue duplicate messages, and should we cancel every record that looks like a repeat?
+
+3
+00:00:17,352 --> 00:00:29,664
+A: Delivery retries are possible, but a repeated delivery shouldn't create another order if deduplication works. We're comparing message IDs, business keys, and database records.
+
+4
+00:00:30,264 --> 00:00:41,112
+C: I found one processing path that writes the order before saving the idempotency result. A crash between those steps can leave the retry unprotected.
+
+5
+00:00:41,712 --> 00:00:51,192
+B: Can we stop that path while keeping other orders moving? We also need to know whether duplicate records caused duplicate payments or shipments.
+
+6
+00:00:51,792 --> 00:01:03,336
+A: I'll request approval to pause the affected consumer group and hold its messages durably. Other groups use a separate path, which we'll verify before leaving them running.
+
+7
+00:01:03,936 --> 00:01:15,000
+C: I'll preserve the failing examples and fix the write boundary. The idempotency result and business write need a consistent atomic operation for this path.
+
+8
+00:01:15,600 --> 00:01:26,376
+B: How many duplicates have we confirmed so far? Please separate confirmed duplicate orders from repeated messages that were handled correctly without extra records.
+
+9
+00:01:26,976 --> 00:01:37,752
+A: We've confirmed fourteen duplicate order pairs in the sampled window. The full affected period and any payment or fulfillment impact are still under investigation.
+
+10
+00:01:38,352 --> 00:01:50,472
+B: I'll assign finance and fulfillment owners to reconcile those pairs. Don't delete or cancel records automatically; we need to identify the valid order and downstream actions.
+
+11
+00:01:51,072 --> 00:02:02,352
+C: Before restarting, I'll test duplicate delivery, a crash after the write, and recovery using the same business key. The fix also needs normal review.
+
+12
+00:02:02,952 --> 00:02:13,704
+A: I'll keep replay disabled until the fix and reconciliation plan are approved. We'll review containment status and the affected-record list in twenty minutes.
+
+13
+00:02:14,304 --> 00:02:27,216
+B: Agreed. I'll own the business corrections and customer communication. We can resume controlled processing once technical validation and the record-handling decisions are complete.

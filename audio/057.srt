@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,600
+Narrator: Scenario 57. Databases, middleware, and batch processing.
+
+2
+00:00:07,200 --> 00:00:17,928
+B: Queue depth keeps growing, and delayed notifications are becoming visible to customers. Can we add more consumers to catch up before the afternoon peak?
+
+3
+00:00:18,528 --> 00:00:28,848
+A: We have eighteen thousand queued messages. Producers add six hundred per minute, while consumers currently complete only four hundred fifty per minute.
+
+4
+00:00:29,448 --> 00:00:43,248
+C: The downstream notification API is returning rate-limit errors. Retries consume part of our allocation, so more consumers could increase calls without improving successful processing.
+
+5
+00:00:43,848 --> 00:00:53,808
+B: What capacity have we agreed with that API owner? We should work from the actual limit rather than increasing concurrency until something breaks.
+
+6
+00:00:54,408 --> 00:01:04,416
+A: Our allocation is one thousand calls per minute. I'll confirm that it still applies and check whether all consumer instances share the same rate control.
+
+7
+00:01:05,016 --> 00:01:16,512
+C: They currently enforce limits independently, which allows the total to exceed our allocation. I can apply the reviewed shared limit and bounded retry backoff.
+
+8
+00:01:17,112 --> 00:01:28,968
+B: Will delayed messages still be useful when they arrive? Some notifications refer to short-lived offers, so draining every message might produce misleading customer messages.
+
+9
+00:01:29,568 --> 00:01:40,656
+A: We'll check message age and expiry rules with the product owner. Expired messages need their approved handling path, while valid messages should retain required ordering.
+
+10
+00:01:41,256 --> 00:01:52,896
+C: After the rate fix, suppose we sustain nine hundred successful messages per minute. With six hundred arriving, the backlog would shrink by three hundred per minute.
+
+11
+00:01:53,496 --> 00:02:05,232
+B: That suggests about an hour for eighteen thousand messages, provided those rates hold. Please present it as a conditional estimate rather than a guaranteed completion time.
+
+12
+00:02:05,832 --> 00:02:17,280
+A: I'll measure actual throughput and oldest-message age after the approved change. We'll refresh the estimate at our fifteen-minute checkpoint and validate delivered notifications.
+
+13
+00:02:17,880 --> 00:02:29,448
+B: I'll coordinate the product decision on expired messages and notify support of the delay. Keep concurrency unchanged until downstream headroom supports another increase.

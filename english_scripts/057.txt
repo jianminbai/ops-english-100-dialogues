@@ -1,0 +1,26 @@
+SCENARIO 057
+消息队列积压
+
+B / Service Owner: Queue depth keeps growing, and delayed notifications are becoming visible to customers. Can we add more consumers to catch up before the afternoon peak?
+
+A / Ops Engineer: We have eighteen thousand queued messages. Producers add six hundred per minute, while consumers currently complete only four hundred fifty per minute.
+
+C / Developer: The downstream notification API is returning rate-limit errors. Retries consume part of our allocation, so more consumers could increase calls without improving successful processing.
+
+B / Service Owner: What capacity have we agreed with that API owner? We should work from the actual limit rather than increasing concurrency until something breaks.
+
+A / Ops Engineer: Our allocation is one thousand calls per minute. I'll confirm that it still applies and check whether all consumer instances share the same rate control.
+
+C / Developer: They currently enforce limits independently, which allows the total to exceed our allocation. I can apply the reviewed shared limit and bounded retry backoff.
+
+B / Service Owner: Will delayed messages still be useful when they arrive? Some notifications refer to short-lived offers, so draining every message might produce misleading customer messages.
+
+A / Ops Engineer: We'll check message age and expiry rules with the product owner. Expired messages need their approved handling path, while valid messages should retain required ordering.
+
+C / Developer: After the rate fix, suppose we sustain nine hundred successful messages per minute. With six hundred arriving, the backlog would shrink by three hundred per minute.
+
+B / Service Owner: That suggests about an hour for eighteen thousand messages, provided those rates hold. Please present it as a conditional estimate rather than a guaranteed completion time.
+
+A / Ops Engineer: I'll measure actual throughput and oldest-message age after the approved change. We'll refresh the estimate at our fifteen-minute checkpoint and validate delivered notifications.
+
+B / Service Owner: I'll coordinate the product decision on expired messages and notify support of the delay. Keep concurrency unchanged until downstream headroom supports another increase.

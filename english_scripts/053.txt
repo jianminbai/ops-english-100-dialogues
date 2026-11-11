@@ -1,0 +1,26 @@
+SCENARIO 053
+数据库复制延迟
+
+B / Regional Lead: Users save their account changes successfully, but some still see the old details afterward. Are the writes failing, or are we showing outdated data?
+
+A / Ops Engineer: Sample writes are present on the primary. The regional read replica is ninety seconds behind, and the affected reads appear to use that replica.
+
+C / Database Administrator: I'll confirm the routing with request traces and compare replication positions. We should distinguish replication delay from a separate application cache problem.
+
+B / Regional Lead: Could we send every regional read to the primary until the replica catches up? The inconsistency is confusing customers and increasing support contacts.
+
+A / Ops Engineer: We'll assess capacity and consistency requirements before changing read routing. The primary also handles writes, so an unrestricted switch could affect more customers.
+
+C / Database Administrator: The primary has some headroom, but not enough for all regional reporting traffic. Account confirmation reads are small and could be considered separately.
+
+B / Regional Lead: Then prioritize the screen immediately after a customer saves changes. Historical reports can tolerate delayed data if we show the data timestamp clearly.
+
+A / Ops Engineer: I'll ask the application owner to verify that we can route those confirmation reads independently. We also need to monitor cross-region latency.
+
+C / Database Administrator: The replica is applying a large backlog after a storage slowdown. I'll investigate that separately and watch whether the lag is shrinking or growing.
+
+B / Regional Lead: Please tell support that saved changes are present in the checked examples. Avoid promising an exact catch-up time until you have a stable processing trend.
+
+A / Ops Engineer: After the routing change is approved, I'll verify saved details through the user flow and track primary load. We'll review results in fifteen minutes.
+
+C / Database Administrator: I'll own replica recovery and define a lag threshold with the application owner before returning reads. We'll confirm correctness as well as capacity.

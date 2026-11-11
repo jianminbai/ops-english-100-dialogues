@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,928
+Narrator: Scenario 98. Follow up and operational improvement.
+
+2
+00:00:06,528 --> 00:00:16,608
+B: The recovery runbook still refers to the retired platform, and our new colleague couldn't follow it during the incident. How will we make it usable?
+
+3
+00:00:17,208 --> 00:00:26,544
+A: I'll update the procedure for the current platform, assign a permanent maintainer, and validate the draft with an engineer who didn't handle this incident.
+
+4
+00:00:27,144 --> 00:00:37,368
+C: I can test it. Last time, I couldn't tell which environment the commands targeted, or what output meant the check had actually succeeded.
+
+5
+00:00:37,968 --> 00:00:49,992
+A: Each step will state its purpose, target environment, required access, expected result, and stop condition. Any command examples will use clearly labeled placeholders.
+
+6
+00:00:50,592 --> 00:01:01,920
+B: Please include escalation contacts and prerequisites. A procedure that depends on an unavailable permission or an unknown service owner won't help the on-call team.
+
+7
+00:01:02,520 --> 00:01:12,264
+C: Can the exercise also include an unexpected result? Following the happy path won't show whether I know when to stop and ask for help.
+
+8
+00:01:12,864 --> 00:01:25,440
+A: Yes. We'll use an approved test environment and simulate a failed dependency check. You should stop before the recovery action and use the documented escalation path.
+
+9
+00:01:26,040 --> 00:01:36,528
+B: Who will maintain the document after this revision? We need a review trigger when platform changes affect the procedure, as well as a scheduled review date.
+
+10
+00:01:37,128 --> 00:01:48,576
+A: The service's operations owner will maintain it. Relevant change records must include a documentation check, and the first scheduled review will be December 15.
+
+11
+00:01:49,176 --> 00:02:00,720
+C: I'll record every unclear step during the exercise instead of filling gaps from memory. That should show whether another new engineer could follow it independently.
+
+12
+00:02:01,320 --> 00:02:12,648
+A: I'll deliver the draft by November 16 at 10:00 UTC. We'll run the exercise that afternoon and attach the results to the document's revision history.
+
+13
+00:02:13,248 --> 00:02:25,056
+B: Agreed. Publish the reviewed version after the gaps are resolved, then cover it in the next handover. We'll measure usability through the exercise evidence.

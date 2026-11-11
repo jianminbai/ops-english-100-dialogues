@@ -1,0 +1,26 @@
+SCENARIO 021
+DNS解析失败
+
+B / Regional Lead: Our European support team cannot resolve the service hostname. Customers are reporting access failures, but the application dashboard still shows healthy instances.
+
+A / Ops Engineer: A controlled test reaches the application through its IP address with the correct hostname. That supports application availability, but it does not validate DNS.
+
+C / Network Engineer: Which resolvers did those affected devices use? We should compare corporate resolvers with an approved external resolver before changing any records.
+
+B / Regional Lead: We have six examples from two offices. All six use corporate DNS, while the same hostname resolves successfully from our external monitoring service.
+
+A / Ops Engineer: Please attach their timestamps and resolver addresses to the incident. We will check the authoritative answers, cached responses, and recent configuration changes.
+
+C / Network Engineer: The authoritative record is correct. One corporate forwarding rule changed at 09:15 UTC, and queries through that path now return a server failure.
+
+B / Regional Lead: Can we tell everyone to change their laptop DNS settings? The support team needs a practical workaround while you investigate the forwarding rule.
+
+A / Ops Engineer: Individual changes could break internal resolution and create inconsistent results. I recommend restoring the previous forwarding configuration through the incident change process.
+
+C / Network Engineer: I can prepare that rollback now. It affects only the new forwarding rule, and the previous configuration passed validation earlier this morning.
+
+A / Ops Engineer: After approval, please apply it and repeat queries from both offices. I will check login and search through the normal customer access path.
+
+B / Regional Lead: I will coordinate those office checks and update support. Let us review resolution results and customer transactions together at 10:00 UTC.
+
+A / Ops Engineer: Agreed. We will report recovery only after those checks pass, then investigate why the forwarding change escaped testing and improve the coverage.

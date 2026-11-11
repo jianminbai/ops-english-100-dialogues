@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,208
+Narrator: Scenario 7. Global meeting communication.
+
+2
+00:00:05,808 --> 00:00:15,720
+A: Could you give us an update on the network investigation? The incident ticket still says you are checking connectivity, without a recent timestamp.
+
+3
+00:00:16,320 --> 00:00:26,736
+B: We reviewed the firewall rules and found no unexpected changes. We also tested the affected route, but we have not reproduced the failure yet.
+
+4
+00:00:27,336 --> 00:00:35,784
+A: Which source and destination did you test, and did the test run during the same period when the application team observed connection failures?
+
+5
+00:00:36,384 --> 00:00:47,664
+B: We tested from the regional operations host to the application endpoint. The checks were successful, but they started fifteen minutes after the reported failures.
+
+6
+00:00:48,264 --> 00:00:58,200
+A: That means the successful tests do not rule out an intermittent problem. What evidence would help you compare the failed and successful connections?
+
+7
+00:00:58,800 --> 00:01:10,800
+B: We need precise timestamps, source addresses, destination ports, and connection identifiers. A targeted packet capture would also help if the issue happens again.
+
+8
+00:01:11,400 --> 00:01:20,232
+A: I can ask the application owner for those details. Can you prepare the capture now so we do not lose the next occurrence?
+
+9
+00:01:20,832 --> 00:01:31,536
+B: Yes. I will use the approved capture procedure, limit the duration and endpoints, and store the output in the restricted incident evidence location.
+
+10
+00:01:32,136 --> 00:01:42,096
+A: Good. What is your next checkpoint if the failure does not recur? We still need a useful update rather than an open-ended wait.
+
+11
+00:01:42,696 --> 00:01:56,232
+B: By 16:00 UTC, I will document the completed checks, capture readiness, and remaining hypotheses. I will also compare routing events around the original timestamps.
+
+12
+00:01:56,832 --> 00:02:07,176
+A: Please state which findings are confirmed and which are untested. I will add the application evidence by 15:30 UTC and link it to your task.
+
+13
+00:02:07,776 --> 00:02:21,048
+B: Agreed. I own the network investigation and the 16:00 UTC update. If we capture a new failure earlier, I will notify the incident coordinator immediately.

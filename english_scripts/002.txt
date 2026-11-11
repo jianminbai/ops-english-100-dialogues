@@ -1,0 +1,26 @@
+SCENARIO 002
+开场与确认议程
+
+A / Meeting Facilitator: We have thirty minutes today. I suggest ten minutes for service health, ten for open incidents, and five for the maintenance window.
+
+B / Application Lead: Could we add a deployment blocker? The staging test failed yesterday, and we need a decision before the release team starts preparation.
+
+A / Meeting Facilitator: Yes. What decision do you need from this group? Can we cover the supporting evidence within five minutes?
+
+B / Application Lead: We need to decide whether to keep the maintenance booking while we investigate. I can summarize the failed test and remaining checks.
+
+C / Service Owner: That affects our customer notice. Could we review the blocker before the maintenance discussion so the notice reflects the actual plan?
+
+A / Meeting Facilitator: Agreed. We will shorten the health overview to five minutes, cover incidents next, then discuss the blocker and maintenance together.
+
+B / Application Lead: I will share the test summary now. The detailed logs are linked, so we can avoid reading through every result during the meeting.
+
+C / Service Owner: Please also clarify whether the blocker affects all services or only the reporting component. That changes which business teams need an update.
+
+B / Application Lead: Only the reporting component is affected by the failed test. The other services have completed validation, but the shared release still needs review.
+
+A / Meeting Facilitator: Thanks. I will reserve the final five minutes for decisions, owners, and deadlines. Any detailed troubleshooting can continue in a separate working session.
+
+C / Service Owner: That works. I will own the customer notice once we confirm the maintenance decision, and I will flag any communication deadline.
+
+A / Meeting Facilitator: The revised agenda is in the meeting chat. Let us start with service health and return to the release decision at minute twenty.

@@ -1,0 +1,26 @@
+SCENARIO 098
+更新Runbook与知识转移
+
+B / Team Lead: The recovery runbook still refers to the retired platform, and our new colleague couldn't follow it during the incident. How will we make it usable?
+
+A / Ops Engineer: I'll update the procedure for the current platform, assign a permanent maintainer, and validate the draft with an engineer who didn't handle this incident.
+
+C / New Engineer: I can test it. Last time, I couldn't tell which environment the commands targeted, or what output meant the check had actually succeeded.
+
+A / Ops Engineer: Each step will state its purpose, target environment, required access, expected result, and stop condition. Any command examples will use clearly labeled placeholders.
+
+B / Team Lead: Please include escalation contacts and prerequisites. A procedure that depends on an unavailable permission or an unknown service owner won't help the on-call team.
+
+C / New Engineer: Can the exercise also include an unexpected result? Following the happy path won't show whether I know when to stop and ask for help.
+
+A / Ops Engineer: Yes. We'll use an approved test environment and simulate a failed dependency check. You should stop before the recovery action and use the documented escalation path.
+
+B / Team Lead: Who will maintain the document after this revision? We need a review trigger when platform changes affect the procedure, as well as a scheduled review date.
+
+A / Ops Engineer: The service's operations owner will maintain it. Relevant change records must include a documentation check, and the first scheduled review will be December 15.
+
+C / New Engineer: I'll record every unclear step during the exercise instead of filling gaps from memory. That should show whether another new engineer could follow it independently.
+
+A / Ops Engineer: I'll deliver the draft by November 16 at 10:00 UTC. We'll run the exercise that afternoon and attach the results to the document's revision history.
+
+B / Team Lead: Agreed. Publish the reviewed version after the gaps are resolved, then cover it in the next handover. We'll measure usability through the exercise evidence.

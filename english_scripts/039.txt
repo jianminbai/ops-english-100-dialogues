@@ -1,0 +1,26 @@
+SCENARIO 039
+Terraform计划出现意外删除
+
+A / Ops Engineer: The Terraform plan includes deleting a production database and creating another one. The request only mentions a tag update; is this resource replacement expected?
+
+B / Platform Engineer: No, the database must remain in place. I updated the tag and reorganized a module, but I did not intend any change to the database itself.
+
+A / Ops Engineer: Let us stop before applying and inspect the resource addresses, configuration diff, and state mapping. Please confirm that no execution has started in another pipeline.
+
+B / Platform Engineer: No apply is running, and the deployment gate remains closed. The module refactor changed the database resource address, but the state still contains the old address.
+
+A / Ops Engineer: That may explain the planned replacement. Does this refactor need an explicit move declaration so Terraform recognizes the existing database under its new configuration address?
+
+B / Platform Engineer: Yes. I omitted the move declaration. I will add it and check provider documentation to confirm that the revised configuration preserves the same underlying resource.
+
+A / Ops Engineer: Please use our controlled state workflow and retain a protected backup. We should avoid ad hoc state edits or removing the database merely to silence the plan.
+
+B / Platform Engineer: I will regenerate the plan against the correct production workspace after adding the declaration. The expected result is the address move and intended tag update only.
+
+A / Ops Engineer: Check every resource action, including replacement indicators and outputs. A shorter summary alone is not enough to establish that the production database will remain untouched.
+
+B / Platform Engineer: Understood. I will attach the full sanitized plan and request a second review by 17:00 UTC. There should be no resource creation or destruction.
+
+A / Ops Engineer: The reviewed plan must match the configuration and state used for execution. If either changes afterward, regenerate the plan and repeat the required review.
+
+B / Platform Engineer: I will keep the apply blocked until that review passes. After the approved change, I will verify the database identifier, connectivity, and final state mapping.

@@ -1,0 +1,26 @@
+SCENARIO 016
+服务器补丁维护
+
+A / Ops Engineer: The security patches require a reboot. Before confirming tonight’s maintenance, can the service tolerate one node being unavailable while the remaining nodes handle traffic?
+
+B / Service Owner: Yes, provided the remaining nodes have enough capacity. We have three application nodes, but I want current load figures rather than last month’s estimate.
+
+A / Ops Engineer: Yesterday’s peak and the latest load test support running on two nodes with reserve. I will recheck current traffic before we start the approved change.
+
+B / Service Owner: How will you remove a node from service? Some requests can run for several minutes, and a sudden disconnect would interrupt customer exports.
+
+A / Ops Engineer: We will stop new traffic to one node, wait for active requests to drain, and confirm the drain before applying patches and rebooting.
+
+B / Service Owner: Please define what validation means before putting it back. A successful reboot and a green host check do not prove the application functions correctly.
+
+A / Ops Engineer: We will check the patch version, application dependencies, and a representative export. Then we will restore limited traffic and observe errors and latency for ten minutes.
+
+B / Service Owner: That works. Stop the rollout if checks fail or service errors exceed the agreed threshold. Do not patch another node while the first remains uncertain.
+
+A / Ops Engineer: Agreed. If the patched node cannot return safely, we will keep it out of traffic and follow the approved recovery plan with the platform owner.
+
+B / Service Owner: Is the previous system image still usable, or could restoring it conflict with application state? Please confirm the recovery method before the window begins.
+
+A / Ops Engineer: These nodes are stateless, and the platform owner will verify image compatibility and the rebuild procedure by 18:00 UTC. No database changes are included.
+
+B / Service Owner: I will review that evidence at 18:30 UTC and confirm business coverage. Record each node’s validation before proceeding, and share the final service check afterward.

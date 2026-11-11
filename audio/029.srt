@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,064
+Narrator: Scenario 29. Network and access.
+
+2
+00:00:05,664 --> 00:00:18,936
+B: Since the WAF policy update, some legitimate checkout requests return HTTP 403. The application logs show no matching requests reaching the checkout handler.
+
+3
+00:00:19,536 --> 00:00:30,288
+A: Please send a few request IDs and UTC timestamps through the incident ticket. I will correlate them with WAF events and the deployment timeline.
+
+4
+00:00:30,888 --> 00:00:43,824
+C: Do not attach complete payment payloads. Sanitized field names, rule identifiers, and the request path should let us investigate without exposing customer information.
+
+5
+00:00:44,424 --> 00:00:55,176
+A: The matched events point to one new rule inspecting an optional delivery note. Other checkout requests pass, and the affected pattern uses valid punctuation.
+
+6
+00:00:55,776 --> 00:01:06,624
+B: Our support team reproduced it with a normal delivery instruction. Could we temporarily switch the entire checkout policy to monitoring mode to restore sales?
+
+7
+00:01:07,224 --> 00:01:18,720
+C: That would remove broader protections than necessary. Let us define an exception for this rule, endpoint, and field, with an expiry and active monitoring.
+
+8
+00:01:19,320 --> 00:01:29,328
+A: I can draft the exception request using the verified examples. We should keep inspection on other fields and preserve the remaining checkout rules.
+
+9
+00:01:29,928 --> 00:01:40,104
+B: Will narrowing the exception to that field still allow malicious content there? I want to understand what compensating validation the application provides.
+
+10
+00:01:40,704 --> 00:01:52,296
+C: We need that assessment before approval. Please confirm length limits and safe handling, then test legitimate examples and our approved security test cases.
+
+11
+00:01:52,896 --> 00:02:04,488
+A: After approval, I will apply the exception for two hours and compare blocked requests, checkout errors, and completed orders. We will review at 12:30 UTC.
+
+12
+00:02:05,088 --> 00:02:16,560
+B: I will own functional validation and provide results within fifteen minutes of the change. Support will confirm whether the reported customer cases can complete checkout.
+
+13
+00:02:17,160 --> 00:02:29,160
+C: I will own the permanent rule correction. If review is incomplete before expiry, we must request an extension explicitly rather than leave the exception unattended.

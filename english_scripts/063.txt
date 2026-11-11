@@ -1,0 +1,26 @@
+SCENARIO 063
+平均延迟与P95
+
+B / Engineering Manager: The global average response time is still two hundred milliseconds. Why are customers in one region saying the application feels much slower?
+
+A / Ops Engineer: The average hides the slower requests. In the east region, the ninety-fifth percentile increased from eight hundred milliseconds to three seconds this morning.
+
+B / Engineering Manager: Does that mean ninety-five percent of customers are waiting three seconds, or are we talking about a smaller share of the traffic?
+
+A / Ops Engineer: It describes requests, not individual customers. Roughly ninety-five percent completed within three seconds in that window; the remaining requests took longer.
+
+C / Application Engineer: The change is concentrated in product search. Other endpoints look stable, but search traffic also increased, so the comparison needs a consistent request mix.
+
+A / Ops Engineer: Let us compare the same endpoint and region across matching fifteen-minute windows, then separate cached searches from requests that reach the database.
+
+B / Engineering Manager: Could the regional percentile simply reflect low traffic? I want to understand how much confidence we should place in this apparent increase.
+
+A / Ops Engineer: There were forty thousand search requests in the affected window. I will check histogram coverage and sample counts before relying on the comparison.
+
+C / Application Engineer: The slower traces show database calls taking most of the time. That narrows the investigation, but it does not establish why those calls slowed.
+
+A / Ops Engineer: Please compare query plans and connection wait times. I will check regional resource pressure and whether the traffic change affected cache hit rates.
+
+B / Engineering Manager: Bring the findings to our 13:30 UTC checkpoint. Include request counts and customer-facing response times so we can judge whether mitigation is needed.
+
+A / Ops Engineer: Understood. We will report the regional tail latency alongside the average, and clearly separate measured behavior from our current explanations for it.

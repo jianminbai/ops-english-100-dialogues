@@ -1,0 +1,26 @@
+SCENARIO 073
+明确故障会议角色
+
+B / Incident Commander: We now have nine people on the bridge. I will coordinate the incident; let us assign clear owners before everyone starts checking the same systems.
+
+A / Ops Engineer: I can lead the infrastructure track, covering compute, network reachability, and database connectivity. The application lead has agreed to own application-level investigation.
+
+C / Communications Lead: I will handle stakeholder communications. Who is recording the timeline, and where should I find verified facts for the next business update?
+
+A / Ops Engineer: Our second on-call engineer will maintain the incident document. Every entry will include the UTC timestamp, action or finding, owner, and supporting evidence.
+
+B / Incident Commander: Please keep proposed actions separate from completed actions. I need to know what actually changed before approving anything that could interact with it.
+
+A / Ops Engineer: Understood. Each investigation track will post findings to the shared document, but production changes will come through you under the emergency change process.
+
+C / Communications Lead: I will draft updates from confirmed impact and approved actions. Can technical owners review factual details without delaying the agreed fifteen-minute communication schedule?
+
+B / Incident Commander: Yes. Send the draft two minutes before each checkpoint. If a fact is uncertain, label it clearly instead of waiting for a complete root-cause explanation.
+
+A / Ops Engineer: We also need one person executing each change. Otherwise, two engineers might restart overlapping components and make the result impossible to interpret safely.
+
+B / Incident Commander: Agreed. The action log will name the executor and observer, with start time, validation criteria, and rollback conditions before a change begins.
+
+C / Communications Lead: The next stakeholder update is at 11:30 UTC. I will own that deadline and ask you only about material impact changes or decisions requiring approval.
+
+A / Ops Engineer: I will confirm the infrastructure assignments now and provide the first findings at 11:25 UTC. Any urgent risk will be raised immediately on the bridge.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,648
+Narrator: Scenario 54. Databases, middleware, and batch processing.
+
+2
+00:00:07,248 --> 00:00:19,320
+B: The primary stopped responding at 10:15 UTC on November 12, 2026. Is the standby ready, and what must we check before authorizing failover?
+
+3
+00:00:19,920 --> 00:00:29,592
+C: I need to confirm replication state and fence the old primary. We must prevent it from accepting writes if it becomes reachable again.
+
+4
+00:00:30,192 --> 00:00:40,800
+A: I'll prepare connection routing and identify the application checks. I'll wait for your promotion confirmation before sending any write traffic to the standby.
+
+5
+00:00:41,400 --> 00:00:52,776
+B: Please explain potential data loss against the approved objectives. Our service allows a thirty-second recovery point gap and targets recovery within fifteen minutes.
+
+6
+00:00:53,376 --> 00:01:09,888
+C: The standby has applied commits through 10:14:42 UTC. The latest confirmed primary commit is at 10:15:00, leaving an eighteen-second interval requiring reconciliation.
+
+7
+00:01:10,488 --> 00:01:20,952
+B: Eighteen seconds is the observed replication gap, but it doesn't bound all possible loss. Can you establish the final writable point before approval?
+
+8
+00:01:21,552 --> 00:01:34,008
+C: Storage fencing completed at 10:15:00 UTC. Durable commit records show no later writes, so that eighteen-second interval bounds the current data exposure.
+
+9
+00:01:34,608 --> 00:01:47,448
+A: The business owner can reconcile affected orders using durable request records and partner confirmations. I'll preserve those references without retrying uncertain transactions automatically.
+
+10
+00:01:48,048 --> 00:01:59,832
+C: The infrastructure team confirmed the fence blocks every old-primary write path. Replication checks are complete, and I'm ready to promote once approval is recorded.
+
+11
+00:02:00,432 --> 00:02:11,304
+B: I approve the failover with that documented data risk. Keep the recovery timer running; meeting the time target depends on application recovery, too.
+
+12
+00:02:11,904 --> 00:02:24,528
+A: After promotion, I'll refresh connections gradually and test account reads and order writes. We'll verify persistence, error rates, and business reconciliation before declaring recovery.
+
+13
+00:02:25,128 --> 00:02:37,392
+C: I'll report database status at 10:20 UTC and keep the old primary isolated. Reintroducing it will require a separate, reviewed resynchronization plan.

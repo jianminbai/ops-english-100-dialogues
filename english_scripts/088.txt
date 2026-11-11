@@ -1,0 +1,26 @@
+SCENARIO 088
+疑似安全事件协调
+
+A / Ops Engineer: We detected unusual logins and an unexpected process on one production host at 09:10 UTC. I have opened a restricted security incident record.
+
+B / Security Responder: Please preserve the relevant evidence and avoid uncoordinated changes. Have you recorded the host identifier, alert source, and timestamps without sharing sensitive details broadly?
+
+A / Ops Engineer: Yes. Those details are in the approved incident channel. I haven't rebooted the host or removed files because that could affect the investigation.
+
+C / Service Owner: That host handles part of our order traffic. If isolation is needed, can we remove it from service while the remaining hosts support demand?
+
+A / Ops Engineer: Current capacity suggests that is feasible, but I'll verify active connections and pending work first. We also need to identify any unique local state.
+
+B / Security Responder: Follow the evidence collection steps in our response runbook using the approved tooling. I will decide the containment sequence with the incident lead.
+
+C / Service Owner: The service team can monitor order completion during the change. Please tell us which customer symptoms to watch and whether any queued work needs reconciliation.
+
+A / Ops Engineer: I'll track failed submissions, completion delays, and the affected host's pending jobs. We won't replay transactions until we know their original processing status.
+
+B / Security Responder: The initial assessment supports isolating this host under our response procedure. Preserve access through the approved investigation path, and record each containment action.
+
+C / Service Owner: I acknowledge the service impact and will coordinate traffic removal with Ops. We'll validate that customers can still complete orders after the isolation.
+
+A / Ops Engineer: I'll execute the coordinated steps and log the results. Our next restricted update is at 09:40 UTC, including capacity, business checks, and pending evidence tasks.
+
+B / Security Responder: Thank you. We'll communicate only confirmed facts and keep the scope under investigation. Suspicious activity alone does not establish the full extent of compromise.

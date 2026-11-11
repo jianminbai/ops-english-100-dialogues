@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,552
+Narrator: Scenario 62. Monitoring, performance, and reliability.
+
+2
+00:00:07,152 --> 00:00:17,928
+B: One database failure generated fifty pages overnight. I spent several minutes opening duplicate incidents before I could identify the shared dependency.
+
+3
+00:00:18,528 --> 00:00:29,472
+A: Let us separate repeated notifications from distinct symptoms. Which alerts shared the same database cluster, and which belonged to unrelated services?
+
+4
+00:00:30,072 --> 00:00:40,152
+B: Forty-two pages came from services using the east cluster. Eight came from a separate batch system and should remain independent notifications.
+
+5
+00:00:40,752 --> 00:00:51,432
+C: We can group the east-cluster alerts into one incident. Should the database alert also suppress every application alert associated with that cluster?
+
+6
+00:00:52,032 --> 00:01:02,112
+A: Only where we have verified the dependency. An application may have another failure at the same time, so blanket suppression could hide impact.
+
+7
+00:01:02,712 --> 00:01:14,208
+C: Then we can suppress duplicate pages while keeping downstream events visible on the incident timeline. Critical user journey failures can retain separate routing.
+
+8
+00:01:14,808 --> 00:01:24,360
+B: What happens if the database alert clears first but checkout is still failing? I need the application problem to become actionable again.
+
+9
+00:01:24,960 --> 00:01:36,768
+A: We should test that transition explicitly. Once suppression ends, unresolved application alerts must notify their owners according to the configured notification policy.
+
+10
+00:01:37,368 --> 00:01:49,512
+C: I will create tests for dependency failure, recovery, missing labels, and simultaneous independent incidents. Incorrect labels will fall back to normal routing.
+
+11
+00:01:50,112 --> 00:02:00,480
+B: Please also check the destination team. Last night the database page reached the application rotation, which added another ten minutes of delay.
+
+12
+00:02:01,080 --> 00:02:12,192
+A: I will verify ownership with both teams today. We can review test results tomorrow at 16:00 UTC before enabling any new suppression rules.
+
+13
+00:02:12,792 --> 00:02:24,096
+C: Agreed. After approval, we will monitor duplicate page counts and missed escalations for seven days, with the old routing available for rollback.

@@ -1,0 +1,26 @@
+SCENARIO 051
+数据库慢查询
+
+B / Application Lead: Database response time has doubled since the release. Should we move to a larger instance before the next peak traffic period begins?
+
+A / Ops Engineer: A small set of queries accounts for most of the increase. We're reviewing their execution plans before deciding whether more resources would help.
+
+C / Database Administrator: One customer search query now scans two million rows instead of twenty thousand. The release added a filter that changed the access plan.
+
+B / Application Lead: Is that conclusion based on a production sample or a test run? We should make sure the slower query explains the customer impact.
+
+A / Ops Engineer: Production traces link it to the affected search requests. Other database operations remain near baseline, and overall request volume hasn't changed significantly.
+
+C / Database Administrator: I'll compare the old and new plans using representative parameters in the test environment. Data distribution matters, so one fast sample won't be sufficient.
+
+B / Application Lead: Could a new index solve this faster than changing the application query? We need a practical mitigation as well as a longer-term fix.
+
+C / Database Administrator: Possibly, but index creation has storage, locking, and write costs. I'll assess those alongside a query rewrite instead of assuming an index is harmless.
+
+A / Ops Engineer: We can temporarily limit the optional bulk search feature through its approved control. That should reduce pressure while preserving individual account lookups.
+
+B / Application Lead: I'll confirm that tradeoff with the business owner. What evidence will we review before choosing and approving the targeted database or application change?
+
+C / Database Administrator: Compare query latency, rows examined, write performance, and resource use across representative cases. I'll bring the results and deployment risks to our thirty-minute checkpoint.
+
+A / Ops Engineer: I'll track search completion and database health during the mitigation. After the fix, we'll compare against the same baseline before considering the issue resolved.

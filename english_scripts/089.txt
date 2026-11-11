@@ -1,0 +1,26 @@
+SCENARIO 089
+灾备演练与RTO/RPO
+
+B / Recovery Manager: What evidence will demonstrate a successful disaster recovery exercise? I want criteria that cover business service, not just servers starting in the recovery region.
+
+A / Ops Engineer: The approved objectives are a sixty-minute recovery time objective and a five-minute recovery point objective. We'll measure both using the documented exercise boundaries.
+
+C / Business Lead: Please explain when that recovery clock starts and stops. Business teams may define recovery differently if customers can log in but cannot finish transactions.
+
+A / Ops Engineer: For this exercise, timing starts at the simulated disaster declaration and stops when the agreed business checks pass, including order submission and payment confirmation.
+
+B / Recovery Manager: How will we verify the recovery point? A healthy replication indicator alone may miss transactions that were acknowledged but never reached the recovery site.
+
+A / Ops Engineer: We'll compare transaction identifiers and durable timestamps with the source record captured at declaration. Any gap must be reconciled and evaluated against the five-minute objective.
+
+C / Business Lead: My team will validate representative orders and check downstream accounting. Who will verify identity access, network routing, external integrations, and monitoring in the recovery region?
+
+A / Ops Engineer: Each dependency has a named owner in the exercise checklist. We'll confirm their availability before starting and record limitations where the test uses simulated integrations.
+
+B / Recovery Manager: We also need a safe return plan. Switching back before data synchronization is verified could create inconsistent records or lose transactions written during recovery operations.
+
+A / Ops Engineer: Agreed. Failback requires separate checks, reconciliation, and authorization. We'll keep the recovered service active until the return conditions in the runbook are satisfied.
+
+C / Business Lead: Please send the checklist by November 18 at 14:00 UTC. I'll confirm the business validators and the exact transactions they need to inspect.
+
+B / Recovery Manager: We'll review readiness at that checkpoint. After the exercise, report actual recovery time, measured data gaps, business results, and any limits on what was demonstrated.

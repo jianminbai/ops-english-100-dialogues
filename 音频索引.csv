@@ -1,0 +1,101 @@
+﻿编号,主题,标题,英文词数,时长_秒,MP3,英文字幕,英文稿
+001,跨国会议沟通,介绍职责与支持范围,257,134.664,audio/001.mp3,audio/001.srt,english_scripts/001.txt
+002,跨国会议沟通,开场与确认议程,260,128.592,audio/002.mp3,audio/002.srt,english_scripts/002.txt
+003,跨国会议沟通,时区与夏令时确认,276,136.44,audio/003.mp3,audio/003.srt,english_scripts/003.txt
+004,跨国会议沟通,没听清时请求重述,279,142.296,audio/004.mp3,audio/004.srt,english_scripts/004.txt
+005,跨国会议沟通,礼貌打断并纠正信息,274,132.264,audio/005.mp3,audio/005.srt,english_scripts/005.txt
+006,跨国会议沟通,表达不同意见,279,135.12,audio/006.mp3,audio/006.srt,english_scripts/006.txt
+007,跨国会议沟通,请求具体进展,286,141.048,audio/007.mp3,audio/007.srt,english_scripts/007.txt
+008,跨国会议沟通,说明任务延期,281,137.544,audio/008.mp3,audio/008.srt,english_scripts/008.txt
+009,跨国会议沟通,无法承诺恢复时间,290,133.416,audio/009.mp3,audio/009.srt,english_scripts/009.txt
+010,跨国会议沟通,会末总结决定,290,145.056,audio/010.mp3,audio/010.srt,english_scripts/010.txt
+011,Infrastructure 基础设施,服务器CPU持续升高,293,148.128,audio/011.mp3,audio/011.srt,english_scripts/011.txt
+012,Infrastructure 基础设施,内存压力与OOM,290,138.552,audio/012.mp3,audio/012.srt,english_scripts/012.txt
+013,Infrastructure 基础设施,磁盘空间即将耗尽,291,140.16,audio/013.mp3,audio/013.srt,english_scripts/013.txt
+014,Infrastructure 基础设施,磁盘未满但无法写入,298,139.08,audio/014.mp3,audio/014.srt,english_scripts/014.txt
+015,Infrastructure 基础设施,存储延迟升高,299,148.056,audio/015.mp3,audio/015.srt,english_scripts/015.txt
+016,Infrastructure 基础设施,服务器补丁维护,294,141.72,audio/016.mp3,audio/016.srt,english_scripts/016.txt
+017,Infrastructure 基础设施,虚拟机异常重启,293,136.584,audio/017.mp3,audio/017.srt,english_scripts/017.txt
+018,Infrastructure 基础设施,机房硬件故障,286,144.96,audio/018.mp3,audio/018.srt,english_scripts/018.txt
+019,Infrastructure 基础设施,时间同步异常,300,145.248,audio/019.mp3,audio/019.srt,english_scripts/019.txt
+020,Infrastructure 基础设施,容量与成本评审,303,158.304,audio/020.mp3,audio/020.srt,english_scripts/020.txt
+021,网络与访问,DNS解析失败,270,143.904,audio/021.mp3,audio/021.srt,english_scripts/021.txt
+022,网络与访问,防火墙端口申请,275,140.64,audio/022.mp3,audio/022.srt,english_scripts/022.txt
+023,网络与访问,跨区域网络延迟,281,142.272,audio/023.mp3,audio/023.srt,english_scripts/023.txt
+024,网络与访问,负载均衡健康检查,281,142.536,audio/024.mp3,audio/024.srt,english_scripts/024.txt
+025,网络与访问,TLS证书即将过期,285,146.232,audio/025.mp3,audio/025.srt,english_scripts/025.txt
+026,网络与访问,VPN连接与访问范围,284,140.136,audio/026.mp3,audio/026.srt,english_scripts/026.txt
+027,网络与访问,SSO登录与权限不足,286,140.256,audio/027.mp3,audio/027.srt,english_scripts/027.txt
+028,网络与访问,服务账号密钥轮换,286,143.664,audio/028.mp3,audio/028.srt,english_scripts/028.txt
+029,网络与访问,WAF误拦截业务请求,286,149.16,audio/029.mp3,audio/029.srt,english_scripts/029.txt
+030,网络与访问,第三方链路与代理超时,289,141.264,audio/030.mp3,audio/030.srt,english_scripts/030.txt
+031,云平台、容器与自动化,云配额阻止扩容,288,142.944,audio/031.mp3,audio/031.srt,english_scripts/031.txt
+032,云平台、容器与自动化,可用区故障与流量转移,302,151.128,audio/032.mp3,audio/032.srt,english_scripts/032.txt
+033,云平台、容器与自动化,Pod持续重启,293,144.696,audio/033.mp3,audio/033.srt,english_scripts/033.txt
+034,云平台、容器与自动化,Pod无法调度,296,145.104,audio/034.mp3,audio/034.srt,english_scripts/034.txt
+035,云平台、容器与自动化,节点维护与工作负载迁移,301,150.384,audio/035.mp3,audio/035.srt,english_scripts/035.txt
+036,云平台、容器与自动化,自动扩容未触发,298,149.4,audio/036.mp3,audio/036.srt,english_scripts/036.txt
+037,云平台、容器与自动化,镜像拉取失败,303,153.288,audio/037.mp3,audio/037.srt,english_scripts/037.txt
+038,云平台、容器与自动化,环境配置不一致,292,148.776,audio/038.mp3,audio/038.srt,english_scripts/038.txt
+039,云平台、容器与自动化,Terraform计划出现意外删除,303,141.624,audio/039.mp3,audio/039.srt,english_scripts/039.txt
+040,云平台、容器与自动化,自动化脚本执行范围,298,152.496,audio/040.mp3,audio/040.srt,english_scripts/040.txt
+041,Application 应用与依赖,应用启动失败,266,133.872,audio/041.mp3,audio/041.srt,english_scripts/041.txt
+042,Application 应用与依赖,API错误率突然上升,271,135.864,audio/042.mp3,audio/042.srt,english_scripts/042.txt
+043,Application 应用与依赖,API超时与上游依赖,266,135.048,audio/043.mp3,audio/043.srt,english_scripts/043.txt
+044,Application 应用与依赖,前端正常但业务操作失败,277,131.904,audio/044.mp3,audio/044.srt,english_scripts/044.txt
+045,Application 应用与依赖,连接池耗尽,273,140.448,audio/045.mp3,audio/045.srt,english_scripts/045.txt
+046,Application 应用与依赖,线程池与请求排队,268,135.576,audio/046.mp3,audio/046.srt,english_scripts/046.txt
+047,Application 应用与依赖,重试放大流量,279,143.16,audio/047.mp3,audio/047.srt,english_scripts/047.txt
+048,Application 应用与依赖,功能开关紧急降级,283,141.816,audio/048.mp3,audio/048.srt,english_scripts/048.txt
+049,Application 应用与依赖,第三方接口故障,277,140.808,audio/049.mp3,audio/049.srt,english_scripts/049.txt
+050,Application 应用与依赖,版本与接口兼容性,281,140.784,audio/050.mp3,audio/050.srt,english_scripts/050.txt
+051,数据库、中间件与批处理,数据库慢查询,277,141.72,audio/051.mp3,audio/051.srt,english_scripts/051.txt
+052,数据库、中间件与批处理,锁等待与长事务,285,141.528,audio/052.mp3,audio/052.srt,english_scripts/052.txt
+053,数据库、中间件与批处理,数据库复制延迟,280,142.92,audio/053.mp3,audio/053.srt,english_scripts/053.txt
+054,数据库、中间件与批处理,数据库主备切换,283,157.392,audio/054.mp3,audio/054.srt,english_scripts/054.txt
+055,数据库、中间件与批处理,备份成功与恢复验证,290,151.32,audio/055.mp3,audio/055.srt,english_scripts/055.txt
+056,数据库、中间件与批处理,Redis缓存命中率下降,287,146.16,audio/056.mp3,audio/056.srt,english_scripts/056.txt
+057,数据库、中间件与批处理,消息队列积压,289,149.448,audio/057.mp3,audio/057.srt,english_scripts/057.txt
+058,数据库、中间件与批处理,重复消息与幂等性,289,147.216,audio/058.mp3,audio/058.srt,english_scripts/058.txt
+059,数据库、中间件与批处理,死信队列消息处理,287,146.952,audio/059.mp3,audio/059.srt,english_scripts/059.txt
+060,数据库、中间件与批处理,夜间批处理超时,295,148.536,audio/060.mp3,audio/060.srt,english_scripts/060.txt
+061,监控、性能与可靠性,告警阈值评审,262,130.464,audio/061.mp3,audio/061.srt,english_scripts/061.txt
+062,监控、性能与可靠性,重复告警与降噪,265,144.096,audio/062.mp3,audio/062.srt,english_scripts/062.txt
+063,监控、性能与可靠性,平均延迟与P95,272,136.968,audio/063.mp3,audio/063.srt,english_scripts/063.txt
+064,监控、性能与可靠性,SLI与SLO口径,273,142.32,audio/064.mp3,audio/064.srt,english_scripts/064.txt
+065,监控、性能与可靠性,错误预算与发布节奏,280,138.936,audio/065.mp3,audio/065.srt,english_scripts/065.txt
+066,监控、性能与可靠性,监控数据缺失,280,143.664,audio/066.mp3,audio/066.srt,english_scripts/066.txt
+067,监控、性能与可靠性,跨服务日志关联,281,142.08,audio/067.mp3,audio/067.srt,english_scripts/067.txt
+068,监控、性能与可靠性,压测与真实流量差异,278,142.152,audio/068.mp3,audio/068.srt,english_scripts/068.txt
+069,监控、性能与可靠性,探测成功但客户仍报错,285,144.36,audio/069.mp3,audio/069.srt,english_scripts/069.txt
+070,监控、性能与可靠性,容量预测与促销保障,282,141.768,audio/070.mp3,audio/070.srt,english_scripts/070.txt
+071,Incident 故障响应,收到告警后的初步确认,281,139.008,audio/071.mp3,audio/071.srt,english_scripts/071.txt
+072,Incident 故障响应,确定等级并升级,279,146.64,audio/072.mp3,audio/072.srt,english_scripts/072.txt
+073,Incident 故障响应,明确故障会议角色,283,149.28,audio/073.mp3,audio/073.srt,english_scripts/073.txt
+074,Incident 故障响应,量化影响范围,288,142.416,audio/074.mp3,audio/074.srt,english_scripts/074.txt
+075,Incident 故障响应,建立时间线并验证假设,289,145.056,audio/075.mp3,audio/075.srt,english_scripts/075.txt
+076,Incident 故障响应,优先恢复与并行排查,285,141.6,audio/076.mp3,audio/076.srt,english_scripts/076.txt
+077,Incident 故障响应,故障期间决定回退,288,147.6,audio/077.mp3,audio/077.srt,english_scripts/077.txt
+078,Incident 故障响应,面向管理层的简明更新,287,138.456,audio/078.mp3,audio/078.srt,english_scripts/078.txt
+079,Incident 故障响应,验证服务真正恢复,296,150.552,audio/079.mp3,audio/079.srt,english_scripts/079.txt
+080,Incident 故障响应,结束故障会议与观察交接,298,150.24,audio/080.mp3,audio/080.srt,english_scripts/080.txt
+081,变更、发布、安全与灾备,CAB变更评审,258,129.504,audio/081.mp3,audio/081.srt,english_scripts/081.txt
+082,变更、发布、安全与灾备,发布前Go/No-Go,258,140.4,audio/082.mp3,audio/082.srt,english_scripts/082.txt
+083,变更、发布、安全与灾备,灰度发布观察,267,135.12,audio/083.mp3,audio/083.srt,english_scripts/083.txt
+084,变更、发布、安全与灾备,数据库结构变更,281,145.488,audio/084.mp3,audio/084.srt,english_scripts/084.txt
+085,变更、发布、安全与灾备,紧急变更授权,277,143.448,audio/085.mp3,audio/085.srt,english_scripts/085.txt
+086,变更、发布、安全与灾备,维护窗口通知,283,140.328,audio/086.mp3,audio/086.srt,english_scripts/086.txt
+087,变更、发布、安全与灾备,高危漏洞修复安排,289,150.696,audio/087.mp3,audio/087.srt,english_scripts/087.txt
+088,变更、发布、安全与灾备,疑似安全事件协调,286,150.48,audio/088.mp3,audio/088.srt,english_scripts/088.txt
+089,变更、发布、安全与灾备,灾备演练与RTO/RPO,291,159.744,audio/089.mp3,audio/089.srt,english_scripts/089.txt
+090,变更、发布、安全与灾备,审计证据与权限复核,286,143.928,audio/090.mp3,audio/090.srt,english_scripts/090.txt
+091,Follow-up 复盘与闭环,故障复盘与根因说明,290,149.952,audio/091.mp3,audio/091.srt,english_scripts/091.txt
+092,Follow-up 复盘与闭环,根因尚未确认,279,143.328,audio/092.mp3,audio/092.srt,english_scripts/092.txt
+093,Follow-up 复盘与闭环,落实行动负责人和期限,288,144.744,audio/093.mp3,audio/093.srt,english_scripts/093.txt
+094,Follow-up 复盘与闭环,礼貌催办逾期任务,290,144.96,audio/094.mp3,audio/094.srt,english_scripts/094.txt
+095,Follow-up 复盘与闭环,修复验收与关闭工单,286,142.56,audio/095.mp3,audio/095.srt,english_scripts/095.txt
+096,Follow-up 复盘与闭环,全球值班交接,289,148.848,audio/096.mp3,audio/096.srt,english_scripts/096.txt
+097,Follow-up 复盘与闭环,周度运维健康汇报,287,143.256,audio/097.mp3,audio/097.srt,english_scripts/097.txt
+098,Follow-up 复盘与闭环,更新Runbook与知识转移,294,145.056,audio/098.mp3,audio/098.srt,english_scripts/098.txt
+099,Follow-up 复盘与闭环,跨团队责任分歧,298,147.888,audio/099.mp3,audio/099.srt,english_scripts/099.txt
+100,Follow-up 复盘与闭环,月度复盘与持续改进,292,152.472,audio/100.mp3,audio/100.srt,english_scripts/100.txt

@@ -1,0 +1,26 @@
+SCENARIO 076
+优先恢复与并行排查
+
+B / Application Engineer: We still do not know the exact root cause. Should we keep investigating before changing anything, or try to restore checkout service now?
+
+A / Ops Engineer: We can investigate in parallel while assessing a safe mitigation. The scheduled export workers are consuming resources in the same cluster as checkout.
+
+C / Incident Commander: Pausing exports might help, but what evidence supports that option? I also need to understand the business cost and whether the pause is reversible.
+
+A / Ops Engineer: Checkout queue growth began as export concurrency increased. That is not a confirmed cause, but a previous capacity test showed these workloads can compete.
+
+B / Application Engineer: Exports are noncritical for the next hour and can resume from saved checkpoints. I will verify current checkpoints before proposing a pause of the workers.
+
+C / Incident Commander: Who will approve the delayed exports from the business side, and how will we tell whether pausing them actually improves the customer journey?
+
+A / Ops Engineer: The reporting owner has accepted a thirty-minute delay. We will measure checkout completion, queue age, and cluster pressure, with independent test orders as confirmation.
+
+B / Application Engineer: I can lead the mitigation, while another developer preserves logs and investigates resource contention. We will capture evidence before the workers are paused.
+
+C / Incident Commander: Approved through the emergency process, with the reporting agreement recorded. Start with the documented pause procedure and stop if checkpoint integrity cannot be verified.
+
+A / Ops Engineer: I will observe the result for ten minutes and report at 13:10 UTC. If checkout does not improve, we will reconsider rather than assume success.
+
+B / Application Engineer: If the service improves, should I resume exports immediately at lower concurrency, or wait until we agree on recovery and the next operating limits?
+
+C / Incident Commander: Wait for that decision. Service recovery, export resumption, and root-cause confirmation are separate milestones, and each needs an owner and supporting evidence.

@@ -1,0 +1,26 @@
+SCENARIO 080
+结束故障会议与观察交接
+
+B / Incident Commander: The service has remained stable through the agreed sixty-minute observation period. Before we close the bridge, can we confirm monitoring ownership and remaining work?
+
+A / Ops Engineer: Critical journeys are passing in all affected regions, and queues are back to baseline. The open reconciliation tasks have separate owners and documented checkpoints.
+
+C / Incoming On-call Engineer: I am taking the next on-call shift. Please walk me through the temporary settings, what to watch, and which conditions require reopening the incident bridge.
+
+A / Ops Engineer: The export concurrency limit remains reduced under the approved mitigation. Watch checkout failures, queue age, and cluster saturation; the incident record links the exact alert thresholds.
+
+B / Incident Commander: If a threshold is crossed, follow the documented escalation process and reassess impact under our policy. Do not wait for the next scheduled status update.
+
+C / Incoming On-call Engineer: I have opened the dashboard and runbook, and I can access the incident record. Who can approve restoring the normal export settings later tonight?
+
+A / Ops Engineer: The reporting owner and service owner must review the staged resumption plan through the change process. Their contacts and the capacity evidence are attached.
+
+B / Incident Commander: Who will coordinate the post-incident review, and when will the team receive the evidence? I want clear follow-up ownership before people leave the call.
+
+A / Ops Engineer: I will coordinate the review under our incident policy and circulate the timeline, decisions, and open hypotheses tomorrow by 12:00 UTC, with proposed attendees.
+
+C / Incoming On-call Engineer: I accept monitoring ownership from 18:00 UTC. I will post an observation update at 19:00 UTC and escalate immediately if the documented triggers occur.
+
+B / Incident Commander: With that handoff accepted, I am closing the live bridge and recording service recovery. Reconciliation and preventive actions will remain tracked until their owners complete them.
+
+A / Ops Engineer: I will publish the closure note with the handoff, escalation contacts, and outstanding actions. The review invitation will follow once the required participants confirm availability.

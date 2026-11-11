@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,048
+Narrator: Scenario 94. Follow up and operational improvement.
+
+2
+00:00:06,648 --> 00:00:16,728
+A: The alerting action was due yesterday, November 10. Could you share the current status and any blockers so we can keep the review record accurate?
+
+3
+00:00:17,328 --> 00:00:27,912
+B: The rule change is ready, but the test environment is unavailable because another team extended its maintenance. I haven't run the required failure replay.
+
+4
+00:00:28,512 --> 00:00:38,976
+A: Thanks for explaining. Is the remaining work limited to validation, or are there implementation changes that might still affect the revised delivery date?
+
+5
+00:00:39,576 --> 00:00:50,688
+B: Validation is the known remaining step. If replay exposes a problem, we'll need another revision, so I can't honestly promise completion before testing.
+
+6
+00:00:51,288 --> 00:01:01,896
+A: What support would unblock the test, and who can help secure an environment? We should avoid silently moving the due date without recording the dependency.
+
+7
+00:01:02,496 --> 00:01:13,536
+B: I need the platform coordinator to confirm a slot. I'll contact them today and provide a definite scheduling update by November 12 at 12:00 UTC.
+
+8
+00:01:14,136 --> 00:01:24,384
+A: Could another approved test environment provide equivalent coverage, or does this replay depend on a configuration available only in the unavailable environment?
+
+9
+00:01:24,984 --> 00:01:36,576
+B: A shared environment might work, but we'd need isolation and realistic queue settings. I will ask the platform coordinator to assess it rather than assume equivalence.
+
+10
+00:01:37,176 --> 00:01:49,056
+A: Until validation is complete, the original detection gap remains. Is the interim monitoring coverage still active, and does the on-call team understand its limitations?
+
+11
+00:01:49,656 --> 00:02:01,200
+B: Yes. The manual check is assigned during each shift, and its limitations are documented. I'll reconfirm that coverage in today's regional handover.
+
+12
+00:02:01,800 --> 00:02:12,264
+A: I'll retain the original due date and mark the action blocked, with your scheduling checkpoint. Please escalate early if the platform team cannot offer an option.
+
+13
+00:02:12,864 --> 00:02:24,960
+B: Understood. My November 12 update will include the confirmed test slot or the unresolved dependency, plus a revised completion estimate supported by that information.

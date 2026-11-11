@@ -1,0 +1,26 @@
+SCENARIO 078
+面向管理层的简明更新
+
+B / Executive Sponsor: Please give me a concise update I can use with the regional leaders. Start with what customers cannot do and what remains available.
+
+A / Ops Engineer: Some customers in the Asia-Pacific region cannot create new orders. Browsing and existing order lookup remain available; we have not confirmed impact elsewhere.
+
+B / Executive Sponsor: How large is the impact, and are the figures stable enough to share? I want to avoid revising an unexplained headline number later.
+
+A / Ops Engineer: Twenty percent of order creation requests failed during the last fifteen minutes. That includes retries, so we are still validating the affected customer count.
+
+B / Executive Sponsor: What are we doing to restore service, and is there anything you need from leadership to help the response move forward more quickly?
+
+A / Ops Engineer: The team is validating a controlled rollback after compatibility checks. Incident roles and technical support are covered; we do not need an additional decision yet.
+
+B / Executive Sponsor: Can we tell customers they should retry shortly? Sales teams are asking for a recovery estimate and advice they can share without causing more confusion.
+
+A / Ops Engineer: Recovery time is unconfirmed. Support is preparing approved guidance, including how customers can check an order before retrying and potentially creating a duplicate.
+
+B / Executive Sponsor: Is there evidence of lost data or unexpected charges? Those concerns will matter more to the business than the details of the technical change.
+
+A / Ops Engineer: We have not confirmed either, but transaction reconciliation is ongoing. We will state that as an open validation item rather than give an unsupported assurance.
+
+B / Executive Sponsor: Please send the next update at 15:00 UTC, even if the recovery time is still unknown. Escalate immediately if the scope or customer risk increases.
+
+A / Ops Engineer: Understood. I will report current impact, progress on mitigation, remaining uncertainty, and the next checkpoint, using the same definitions in every leadership update.

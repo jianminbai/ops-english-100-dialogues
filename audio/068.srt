@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,528
+Narrator: Scenario 68. Monitoring, performance, and reliability.
+
+2
+00:00:07,128 --> 00:00:16,992
+B: The load test passed last week, yet production struggled during the sale. What did the test miss, and how can we trust the next result?
+
+3
+00:00:17,592 --> 00:00:27,072
+A: The test represented request volume reasonably well, but not the production request mix, data size, or limits of the shared search dependency.
+
+4
+00:00:27,672 --> 00:00:38,448
+C: We used mostly cached reads and a small catalog. During the sale, searches with multiple filters increased and reached the database more often.
+
+5
+00:00:39,048 --> 00:00:49,200
+B: Could we simply double the test traffic and add application replicas? That seems faster than rebuilding the whole workload model before the next event.
+
+6
+00:00:49,800 --> 00:01:00,696
+A: More replicas may increase pressure on the same dependency. We need to reproduce the actual bottleneck before deciding whether application capacity would help.
+
+7
+00:01:01,296 --> 00:01:13,080
+C: I can build an anonymized workload from production proportions, with realistic catalog size, cold-cache periods, and the current search quota represented explicitly.
+
+8
+00:01:13,680 --> 00:01:23,280
+B: How long should it run? The previous test lasted twenty minutes, while the production slowdown appeared almost an hour into the campaign.
+
+9
+00:01:23,880 --> 00:01:33,144
+A: We need a longer steady-load phase to expose queue growth and resource accumulation, plus controlled bursts and a recovery period after traffic falls.
+
+10
+00:01:33,744 --> 00:01:46,848
+C: I propose a two-hour steady phase. Pass criteria will cover completed searches, checkout success, tail latency, dependency saturation, and how quickly queues drain.
+
+11
+00:01:47,448 --> 00:01:58,320
+B: Make the constraints visible in the report. A passing result should state the supported traffic profile, not imply unlimited readiness for any campaign.
+
+12
+00:01:58,920 --> 00:02:10,416
+A: We will agree on the workload and acceptance criteria Wednesday at 10:00 UTC. The test environment limits must also be documented before execution.
+
+13
+00:02:11,016 --> 00:02:22,152
+C: I will prepare that proposal and identify production differences we cannot simulate. After the run, we will turn the measured bottlenecks into owned actions.

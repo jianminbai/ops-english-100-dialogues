@@ -1,0 +1,26 @@
+SCENARIO 032
+可用区故障与流量转移
+
+B / Incident Lead: Zone A is failing health checks, and customer errors are increasing. Can we move its remaining traffic to zone B immediately under the failover runbook?
+
+A / Ops Engineer: Before shifting traffic, we need to verify capacity and dependencies. Zone B has application instances ready, but I still need confirmation of database write availability.
+
+C / Database Engineer: The database primary moved to zone B through the managed failover process. Replication was synchronous before the event, and the current writer health check passes.
+
+B / Incident Lead: Can we state that no data was lost and service is recovered? The executive update is due in ten minutes, and they need a clear status.
+
+A / Ops Engineer: We can report that database failover completed, but customer recovery still needs validation. Data integrity requires transaction checks; healthy infrastructure alone does not prove it.
+
+C / Database Engineer: I am checking recent committed orders against the payment records and database logs. I will also confirm that applications reconnect to the current writer endpoint.
+
+A / Ops Engineer: Zone B can handle the forecast load within the tested limit. Its queue, cache, and secret services are available, and background processing can be deferred.
+
+B / Incident Lead: Proceed with the runbook checkpoints under my incident authority. What measurements will tell us to pause before sending all remaining traffic to zone B?
+
+A / Ops Engineer: We will increase traffic in two steps, watching checkout success, database saturation, and request latency. Crossing the runbook thresholds means pausing and reassessing capacity.
+
+C / Database Engineer: The transaction samples match, and writer connections are stable. I will remain on the bridge during each step and watch lock waits and connection limits.
+
+B / Incident Lead: I will tell stakeholders that failover validation is underway, with reduced zone redundancy. Our next checkpoint is 10:20 UTC, regardless of whether the shift is complete.
+
+A / Ops Engineer: I will own traffic changes and record the evidence. We will confirm recovery against business checks and plan restoration of zone redundancy as separate follow-up work.

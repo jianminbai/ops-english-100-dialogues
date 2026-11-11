@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,072
+Narrator: Scenario 97. Follow up and operational improvement.
+
+2
+00:00:06,672 --> 00:00:15,432
+B: What changed in service health this week, and which issue needs a leadership decision before next week's expected increase in reporting traffic?
+
+3
+00:00:16,032 --> 00:00:25,824
+A: Incident count fell from six to four, but total customer-impact duration increased from thirty to seventy-five minutes because one outage lasted much longer.
+
+4
+00:00:26,424 --> 00:00:36,648
+B: Are we using the same measurement across both weeks? I want to avoid celebrating fewer tickets if business disruption actually became worse overall.
+
+5
+00:00:37,248 --> 00:00:50,400
+A: Yes. We sum each incident's customer-impact duration using the same start and recovery criteria. Affected-user counts and failed transaction counts are reported separately.
+
+6
+00:00:51,000 --> 00:01:00,552
+B: What made the longer outage difficult to restore, and have the immediate recovery actions reduced the chance of another disruption during next week's workload?
+
+7
+00:01:01,152 --> 00:01:13,248
+A: Reporting jobs saturated storage throughput on the shared database. Staggering those jobs restored normal operation, but it leaves limited margin for the projected workload.
+
+8
+00:01:13,848 --> 00:01:24,120
+B: What is the proposed capacity action, and what evidence suggests it addresses the measured bottleneck rather than simply increasing application servers without a benefit?
+
+9
+00:01:24,720 --> 00:01:37,896
+A: We propose increasing provisioned storage throughput. The database team's controlled test improved job completion time while holding application capacity constant, and the vendor confirmed availability.
+
+10
+00:01:38,496 --> 00:01:46,368
+B: What decision do you need from me, and what risk remains if we delay it until the next regular budget review later this month?
+
+11
+00:01:46,968 --> 00:01:59,112
+A: We need budget approval by Friday, November 13, at 16:00 UTC to request the change window. Delaying would extend dependence on manual batch scheduling.
+
+12
+00:01:59,712 --> 00:02:11,304
+B: Send the test results, cost, and risk summary today. I'll decide by that checkpoint, while the database owner retains responsibility for technical change approval.
+
+13
+00:02:11,904 --> 00:02:23,256
+A: I'll send that package and keep the interim schedule active. Next week's review will report actual workload, capacity margin, and whether the approved action took effect.

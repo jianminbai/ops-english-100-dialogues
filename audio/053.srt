@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,600
+Narrator: Scenario 53. Databases, middleware, and batch processing.
+
+2
+00:00:07,200 --> 00:00:17,424
+B: Users save their account changes successfully, but some still see the old details afterward. Are the writes failing, or are we showing outdated data?
+
+3
+00:00:18,024 --> 00:00:28,440
+A: Sample writes are present on the primary. The regional read replica is ninety seconds behind, and the affected reads appear to use that replica.
+
+4
+00:00:29,040 --> 00:00:40,488
+C: I'll confirm the routing with request traces and compare replication positions. We should distinguish replication delay from a separate application cache problem.
+
+5
+00:00:41,088 --> 00:00:51,840
+B: Could we send every regional read to the primary until the replica catches up? The inconsistency is confusing customers and increasing support contacts.
+
+6
+00:00:52,440 --> 00:01:04,152
+A: We'll assess capacity and consistency requirements before changing read routing. The primary also handles writes, so an unrestricted switch could affect more customers.
+
+7
+00:01:04,752 --> 00:01:15,864
+C: The primary has some headroom, but not enough for all regional reporting traffic. Account confirmation reads are small and could be considered separately.
+
+8
+00:01:16,464 --> 00:01:27,600
+B: Then prioritize the screen immediately after a customer saves changes. Historical reports can tolerate delayed data if we show the data timestamp clearly.
+
+9
+00:01:28,200 --> 00:01:38,280
+A: I'll ask the application owner to verify that we can route those confirmation reads independently. We also need to monitor cross-region latency.
+
+10
+00:01:38,880 --> 00:01:49,200
+C: The replica is applying a large backlog after a storage slowdown. I'll investigate that separately and watch whether the lag is shrinking or growing.
+
+11
+00:01:49,800 --> 00:02:00,600
+B: Please tell support that saved changes are present in the checked examples. Avoid promising an exact catch-up time until you have a stable processing trend.
+
+12
+00:02:01,200 --> 00:02:11,496
+A: After the routing change is approved, I'll verify saved details through the user flow and track primary load. We'll review results in fifteen minutes.
+
+13
+00:02:12,096 --> 00:02:22,920
+C: I'll own replica recovery and define a lag threshold with the application owner before returning reads. We'll confirm correctness as well as capacity.

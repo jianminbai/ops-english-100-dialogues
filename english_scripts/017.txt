@@ -1,0 +1,26 @@
+SCENARIO 017
+虚拟机异常重启
+
+B / Infrastructure Lead: Was the overnight reboot planned, or did the underlying host fail? I cannot find a maintenance notice, and the application team is asking for an explanation.
+
+A / Ops Engineer: It was not in our change calendar. The guest boot record shows a restart at 03:14 UTC, but we have not confirmed what triggered it.
+
+B / Infrastructure Lead: Has the application recovered, or are we reporting only that the operating system and application process have started again?
+
+A / Ops Engineer: The process is running and health checks pass. We are still validating a complete business transaction and checking whether the interrupted background jobs resumed correctly.
+
+B / Infrastructure Lead: Please prioritize that validation. For the reboot investigation, can we distinguish an operating system shutdown from a hypervisor reset or host-level event?
+
+A / Ops Engineer: The guest logs end abruptly without a normal shutdown entry. That supports looking outside the guest, but it does not prove the host failed.
+
+B / Infrastructure Lead: Have you checked platform automation and administrator actions as well? A restart request could come from a policy or a manual operation.
+
+A / Ops Engineer: I requested the hypervisor event history and audit records from the platform owner. I will compare them with the guest timestamp and note any clock difference.
+
+B / Infrastructure Lead: Good. Are other virtual machines on the same host affected? That may help define the scope without assuming they experienced the same failure.
+
+A / Ops Engineer: The platform team is checking that. So far, monitoring shows no confirmed restart on the two neighboring guests, but we need the host events to verify.
+
+B / Infrastructure Lead: Please give us a business recovery update by 04:00 UTC and a separate investigation update by 06:00 UTC, even if the trigger is still unknown.
+
+A / Ops Engineer: I own both updates and will involve the application owner for transaction checks. We will preserve the logs and keep the cause unconfirmed until evidence supports it.

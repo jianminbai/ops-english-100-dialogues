@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,136
+Narrator: Scenario 10. Global meeting communication.
+
+2
+00:00:05,736 --> 00:00:15,360
+A: Before we close, let us confirm the decisions and action owners. I want the minutes to show what is agreed and what remains conditional.
+
+3
+00:00:15,960 --> 00:00:28,248
+B: The application team will validate the fix in staging by November 12 at 17:00 UTC. That includes the original failure and the main regression checks.
+
+4
+00:00:28,848 --> 00:00:38,928
+A: Please attach the test results rather than only marking the task complete. Who will review whether the evidence covers the reported business impact?
+
+5
+00:00:39,528 --> 00:00:51,336
+C: I will review the business scenarios with the application lead. We need successful report generation and confirmation that previously queued reports are handled correctly.
+
+6
+00:00:51,936 --> 00:01:03,840
+B: Agreed. We will include both checks. Operations also needs to confirm the rollback approach because the release changes a database index used by reporting.
+
+7
+00:01:04,440 --> 00:01:15,576
+A: Operations will prepare that plan with the database owner by 16:00 UTC on November 12, including compatibility checks and the conditions for stopping deployment.
+
+8
+00:01:16,176 --> 00:01:25,584
+C: Does completing those tasks automatically authorize production, or do we need a separate readiness decision before the maintenance window begins?
+
+9
+00:01:26,184 --> 00:01:37,776
+A: We need a readiness decision and the required change approval. We will review the evidence at 18:00 UTC; preparation alone does not authorize deployment.
+
+10
+00:01:38,376 --> 00:01:48,600
+B: If the staging test fails again, I will flag it immediately rather than wait for the meeting. We should not keep preparing around an unconfirmed fix.
+
+11
+00:01:49,200 --> 00:01:59,496
+C: I will own the business acceptance result and stakeholder notice. Please send me any changed scope before I confirm the wording with regional teams.
+
+12
+00:02:00,096 --> 00:02:12,312
+A: I will send the minutes within an hour, listing these owners, deadlines, evidence links, and the 18:00 UTC decision checkpoint. Please correct any misunderstanding.
+
+13
+00:02:12,912 --> 00:02:25,056
+B: That matches my understanding. I own the staging validation, the service owner owns acceptance, and operations coordinates rollback readiness and the final evidence review.

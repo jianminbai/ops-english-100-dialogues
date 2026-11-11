@@ -1,0 +1,26 @@
+SCENARIO 044
+前端正常但业务操作失败
+
+B / Business Lead: The homepage loads on my laptop, and the website status check is green. Why are we still treating this as an active incident?
+
+A / Ops Engineer: Those checks only confirm that the page is available. The checkout journey is failing when customers submit orders, so the business impact continues.
+
+B / Business Lead: Can you quantify that impact? We need to explain it clearly to customer support without suggesting that every visitor is affected.
+
+A / Ops Engineer: During the last ten minutes, thirty percent of order submission requests failed. That is a request measure; we haven't calculated unique affected customers yet.
+
+B / Business Lead: Thank you for separating those figures. Are customers being charged when the order fails, or is the failure happening before payment begins?
+
+A / Ops Engineer: The traces suggest the failure occurs before payment authorization, but finance is reconciling a sample. We shouldn't rule out payment impact until that finishes.
+
+B / Business Lead: The application team has applied a correction. If the submission endpoint returns a successful response now, can we announce that checkout has recovered?
+
+A / Ops Engineer: We need to validate the full journey: create an order, confirm payment status, verify the stored order, and check that the confirmation reaches the customer.
+
+B / Business Lead: I can assign a business tester to the approved test account. Should we also check both standard delivery and the regional collection option?
+
+A / Ops Engineer: Yes, both were affected. I'll compare their submission success rates and latency during a ten-minute observation period after the test transactions succeed.
+
+B / Business Lead: I'll own the business validation and ask support to keep the incident message active until we have those results and the payment reconciliation.
+
+A / Ops Engineer: I'll gather the technical evidence and report at the next checkpoint in fifteen minutes. We'll confirm recovery together once both sets of checks pass.

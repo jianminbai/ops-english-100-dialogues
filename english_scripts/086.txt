@@ -1,0 +1,26 @@
+SCENARIO 086
+维护窗口通知
+
+A / Ops Engineer: Maintenance is planned for December 5, 2026, from 01:00 to 02:00 UTC. I'd like to confirm the business impact before we send the notice.
+
+B / Business Lead: Will customers lose access for the entire hour? Our regional teams need a clear answer because some customers will still be working.
+
+A / Ops Engineer: The hour is the maintenance window. We expect one interruption of up to five minutes during the connection switch, although actual duration could vary.
+
+B / Business Lead: Which functions will be affected? Saying the whole platform is unavailable would cause unnecessary cancellations if most services remain accessible throughout the work.
+
+A / Ops Engineer: New order submission and order updates may fail briefly. Product browsing and existing order history should remain available, and we'll monitor those functions too.
+
+B / Business Lead: What should users do if they see an error after submitting an order? Repeated submissions could create confusion or duplicate business requests.
+
+A / Ops Engineer: The notice will ask them to check order history first and contact support if the result is unclear, rather than repeatedly submitting the same order.
+
+B / Business Lead: Please include verified regional times as well. Last time, a copied conversion was wrong because one region had changed its daylight saving schedule.
+
+A / Ops Engineer: I'll use the exact UTC date and window as the reference. Regional coordinators will verify local conversions before those versions are distributed.
+
+B / Business Lead: Who will provide updates if the interruption exceeds expectations, and where should business teams check whether the service is ready to use again?
+
+A / Ops Engineer: The service desk will publish updates on the approved status page. I'll coordinate technical updates, and the business validator will confirm successful order submission.
+
+B / Business Lead: Good. Send me the revised draft by November 30 at 12:00 UTC. I'll confirm regional contacts and approve distribution after we resolve any conflicts.

@@ -1,0 +1,26 @@
+SCENARIO 006
+表达不同意见
+
+B / Release Lead: Can we deploy the infrastructure change during today’s peak traffic? The project is already late, and the business team wants progress this afternoon.
+
+A / Ops Engineer: I understand the urgency, but I am concerned about recovery if it fails. This change affects shared routing for three customer-facing services.
+
+B / Release Lead: The configuration passed staging tests. What additional risk do you see in production that would justify waiting for the approved maintenance window?
+
+A / Ops Engineer: Production has much higher connection volume. We have not validated the recovery procedure under that load, and peak traffic leaves less spare capacity.
+
+B / Release Lead: Could we reduce the scope to one gateway and move forward? A smaller change might allow us to demonstrate progress without a full rollout.
+
+A / Ops Engineer: A limited rollout could reduce exposure, but it still needs an approved plan, clear stop conditions, and evidence that traffic can return safely.
+
+B / Release Lead: What would you recommend we complete today, and what should remain scheduled for the low-traffic window? I need a concrete plan to share.
+
+A / Ops Engineer: Today we can verify configuration differences, rehearse rollback in staging, and confirm monitoring coverage. The production change should stay in the approved window.
+
+B / Release Lead: If the business insists that waiting has a material cost, is there a formal route to review the timing rather than arguing informally?
+
+A / Ops Engineer: Yes. The change owner can request an expedited risk review with the designated approver, including business impact, technical evidence, and available recovery options.
+
+B / Release Lead: I will explain the options and keep the current window unless a revised plan is approved. Can you finish the readiness checks by 17:00 UTC?
+
+A / Ops Engineer: Yes. I will publish the checklist results by then and highlight any unresolved risks. We can use those results for the final readiness decision.

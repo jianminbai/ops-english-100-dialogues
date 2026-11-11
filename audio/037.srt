@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,624
+Narrator: Scenario 37. Cloud platforms, containers, and automation.
+
+2
+00:00:07,224 --> 00:00:18,216
+B: The build completed successfully, and I can see the image tag in the registry. Why is production stuck in ImagePullBackOff instead of starting the containers?
+
+3
+00:00:18,816 --> 00:00:31,416
+A: The artifact exists, but access from production still needs validation. I am checking the exact image reference, registry reachability, and credentials used by this namespace.
+
+4
+00:00:32,016 --> 00:00:42,672
+B: The deployment points to the expected repository and tag. Could the image have been overwritten, or might production be contacting a different registry endpoint?
+
+5
+00:00:43,272 --> 00:00:55,056
+A: The recorded digest matches the release artifact. Node events show an authorization rejection from the correct registry, rather than a name resolution or network timeout.
+
+6
+00:00:55,656 --> 00:01:07,368
+B: This namespace uses a separate image pull secret from staging. I suspect the repository moved, but the production service account kept its old credential reference.
+
+7
+00:01:07,968 --> 00:01:19,968
+A: Let us verify the secret reference and repository read permissions through the registry owner. Please share identifiers and audit events, without copying the credential into chat.
+
+8
+00:01:20,568 --> 00:01:32,376
+B: The owner confirms that the existing identity only reads the previous repository. An approved production identity already has read access to the new release repository.
+
+9
+00:01:32,976 --> 00:01:43,800
+A: Then propose the correct secret reference through the deployment process. We should not grant broad registry administration rights just to make an image pull succeed.
+
+10
+00:01:44,400 --> 00:01:56,088
+B: The old replicas still serve traffic, and the rollout is paused. I will prepare the reference correction and retain the existing release digest and verification checks.
+
+11
+00:01:56,688 --> 00:02:08,544
+A: After approval, test one pod on a production node. Confirm image pull, startup, readiness, and a representative request before allowing the remaining rollout to continue.
+
+12
+00:02:09,144 --> 00:02:21,456
+B: I will own that correction and post sanitized results by 13:00 UTC. If pulling still fails, we will keep the rollout paused and inspect the new events.
+
+13
+00:02:22,056 --> 00:02:33,288
+A: I will monitor customer errors during validation. Afterward, we should add a production identity access check whenever a release moves to a different repository.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,552
+Narrator: Scenario 39. Cloud platforms, containers, and automation.
+
+2
+00:00:07,152 --> 00:00:18,600
+A: The Terraform plan includes deleting a production database and creating another one. The request only mentions a tag update; is this resource replacement expected?
+
+3
+00:00:19,200 --> 00:00:30,120
+B: No, the database must remain in place. I updated the tag and reorganized a module, but I did not intend any change to the database itself.
+
+4
+00:00:30,720 --> 00:00:42,072
+A: Let us stop before applying and inspect the resource addresses, configuration diff, and state mapping. Please confirm that no execution has started in another pipeline.
+
+5
+00:00:42,672 --> 00:00:54,480
+B: No apply is running, and the deployment gate remains closed. The module refactor changed the database resource address, but the state still contains the old address.
+
+6
+00:00:55,080 --> 00:01:07,200
+A: That may explain the planned replacement. Does this refactor need an explicit move declaration so Terraform recognizes the existing database under its new configuration address?
+
+7
+00:01:07,800 --> 00:01:08,520
+B: Yes. I omitted the move declaration. I will add it and check provider documentation to confirm that the revised configuration preserves the same underlying resource.
+
+8
+00:01:09,120 --> 00:01:19,896
+A: Please use our controlled state workflow and retain a protected backup. We should avoid ad hoc state edits or removing the database merely to silence the plan.
+
+9
+00:01:20,496 --> 00:01:31,848
+B: I will regenerate the plan against the correct production workspace after adding the declaration. The expected result is the address move and intended tag update only.
+
+10
+00:01:32,448 --> 00:01:44,208
+A: Check every resource action, including replacement indicators and outputs. A shorter summary alone is not enough to establish that the production database will remain untouched.
+
+11
+00:01:44,808 --> 00:01:57,744
+B: Understood. I will attach the full sanitized plan and request a second review by 17:00 UTC. There should be no resource creation or destruction.
+
+12
+00:01:58,344 --> 00:02:09,408
+A: The reviewed plan must match the configuration and state used for execution. If either changes afterward, regenerate the plan and repeat the required review.
+
+13
+00:02:10,008 --> 00:02:21,624
+B: I will keep the apply blocked until that review passes. After the approved change, I will verify the database identifier, connectivity, and final state mapping.

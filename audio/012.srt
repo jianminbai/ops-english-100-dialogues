@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,232
+Narrator: Scenario 12. Infrastructure operations.
+
+2
+00:00:05,832 --> 00:00:16,152
+B: Was the overnight restart caused by an application crash or an operating system issue? The application log stops without showing a normal shutdown.
+
+3
+00:00:16,752 --> 00:00:27,792
+A: The system logs show that the out-of-memory killer terminated the process. That confirms memory exhaustion occurred, but it does not explain the underlying growth.
+
+4
+00:00:28,392 --> 00:00:38,952
+B: Should we increase the memory allocation immediately? The process has restarted, and I want to prevent another interruption while we investigate the application.
+
+5
+00:00:39,552 --> 00:00:48,840
+A: We can assess temporary headroom, but first I need to distinguish the process limit from total host capacity and check other workloads on the server.
+
+6
+00:00:49,440 --> 00:00:58,320
+B: The heap chart rises steadily after each restart and does not return to its earlier level. Could that be enough to call this a leak?
+
+7
+00:00:58,920 --> 00:01:10,320
+A: It suggests retained memory, but traffic patterns and caching could also contribute. We need allocation evidence before confirming a leak or choosing a permanent fix.
+
+8
+00:01:10,920 --> 00:01:20,976
+B: I can collect a supported memory profile from staging using the same workload. Capturing a large dump directly in production might add pressure.
+
+9
+00:01:21,576 --> 00:01:32,064
+A: That sounds reasonable. I found enough host capacity for a limited increase, provided we keep the documented reserve for the other applications.
+
+10
+00:01:32,664 --> 00:01:43,056
+B: Let us request that temporary change and set an expiration for review. Additional memory may buy time, but growing usage could consume it again.
+
+11
+00:01:43,656 --> 00:01:54,936
+A: I will submit the change and monitor the memory trend, restart count, and successful transactions. We will not judge recovery solely by the process staying alive.
+
+12
+00:01:55,536 --> 00:02:08,160
+B: I own the application investigation and will share the first profile comparison by 16:00 UTC. Please include the termination timestamp and process limit in the ticket.
+
+13
+00:02:08,760 --> 00:02:18,552
+A: I will add those now and schedule a capacity review tomorrow. We will reassess the temporary allocation after we understand the growth rate.

@@ -1,0 +1,26 @@
+SCENARIO 096
+全球值班交接
+
+A / APAC Ops Engineer: The order service has been stable for forty minutes after we reduced batch concurrency. Root-cause investigation and backlog reconciliation remain open at this handover.
+
+B / EMEA Ops Engineer: Before I take ownership, please summarize current customer impact, the remaining backlog, and whether any temporary controls need attention during my shift.
+
+A / APAC Ops Engineer: New orders are completing normally. About four thousand eight hundred older orders remain queued, and processing is averaging three hundred per minute without a completion guarantee.
+
+B / EMEA Ops Engineer: Are those counts from the latest snapshot, and how will I distinguish normal drain progress from a recurrence that requires escalation to the incident lead?
+
+A / APAC Ops Engineer: They are from 07:55 UTC. The ticket defines escalation if queue age rises for ten minutes or order failures exceed the approved incident threshold.
+
+B / EMEA Ops Engineer: I'll use those documented thresholds. Is the lower concurrency setting still required, and does changing it need approval from the current incident lead?
+
+A / APAC Ops Engineer: Yes. Keep it in place until the dependency owner reviews the evidence. Raising concurrency could overload that dependency again, so any adjustment needs coordinated approval.
+
+B / EMEA Ops Engineer: Who owns reconciliation, and are there orders with uncertain outcomes that we must not replay automatically while working through the remaining processing backlog?
+
+A / APAC Ops Engineer: The application owner is checking uncertain transactions against payment records. Their list is linked in the ticket; those orders are excluded from automated replay.
+
+B / EMEA Ops Engineer: I have the ticket, dashboards, restricted evidence links, and escalation contacts open. The next stakeholder update is at 08:30 UTC; I'll lead that update.
+
+A / APAC Ops Engineer: Correct. Please explicitly confirm ownership from 08:00 UTC. I'll remain reachable during the agreed overlap if anything in the handover needs clarification.
+
+B / EMEA Ops Engineer: I've reviewed the handover and accept ownership from 08:00 UTC. I'll monitor recovery, coordinate the pending investigation, and record the next reconciliation checkpoint.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,672
+Narrator: Scenario 33. Cloud platforms, containers, and automation.
+
+2
+00:00:07,272 --> 00:00:17,832
+B: The new pods keep restarting with CrashLoopBackOff. Is the Kubernetes cluster unstable, or did the deployment introduce a problem with our application?
+
+3
+00:00:18,432 --> 00:00:29,472
+A: Other workloads on the same nodes are stable. These containers exit within three seconds, and their last logs report a missing required configuration value.
+
+4
+00:00:30,072 --> 00:00:40,440
+B: Please share the previous container logs and exit code. The live logs disappear too quickly, and I want to compare them with the startup changes.
+
+5
+00:00:41,040 --> 00:00:51,192
+A: I attached sanitized previous logs and the deployment revision to the incident. The exit code is one, and there is no recorded memory kill.
+
+6
+00:00:51,792 --> 00:01:03,384
+B: The new version requires a queue endpoint variable. It exists in staging, but the production deployment template does not reference the corresponding configuration key.
+
+7
+00:01:03,984 --> 00:01:14,160
+A: That matches the error, but let us verify the intended production endpoint before adding it. We should not copy staging values into production.
+
+8
+00:01:14,760 --> 00:01:26,376
+B: The application configuration owner confirms the approved endpoint. I can update the template and run validation to check that every required startup value is present.
+
+9
+00:01:26,976 --> 00:01:37,128
+A: How is customer traffic affected right now? The old replicas are still running, so we need their capacity and error rates before choosing the next step.
+
+10
+00:01:37,728 --> 00:01:48,480
+B: The rollout stopped after two new pods failed. The old replicas retain full serving capacity, and we have not observed an increase in customer errors.
+
+11
+00:01:49,080 --> 00:02:01,488
+A: Keep the rollout paused while the template correction is reviewed. After approval, validate one new pod’s startup, readiness, queue access, and a representative business transaction.
+
+12
+00:02:02,088 --> 00:02:13,512
+B: I will own the correction and provide the test evidence at 14:00 UTC. If validation fails, we will stop and retain the currently serving revision.
+
+13
+00:02:14,112 --> 00:02:24,696
+A: I will monitor the remaining rollout and record the configuration gap. We should add a required-value check to deployment validation before the next release.

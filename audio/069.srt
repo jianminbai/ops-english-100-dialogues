@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,528
+Narrator: Scenario 69. Monitoring, performance, and reliability.
+
+2
+00:00:07,128 --> 00:00:16,560
+B: All synthetic checks are green, but one customer says file uploads keep failing. Could this be a problem with their network or browser?
+
+3
+00:00:17,160 --> 00:00:26,976
+A: That is possible, but our checks may not cover the affected account type, region, or upload path. We should examine their examples first.
+
+4
+00:00:27,576 --> 00:00:39,720
+C: They supplied three failing request identifiers and UTC timestamps. The requests came from an enterprise account using large files through the regional gateway.
+
+5
+00:00:40,320 --> 00:00:50,064
+B: Our probe uploads a small file through the global endpoint. It does not exercise that regional gateway or the larger enterprise upload limit.
+
+6
+00:00:50,664 --> 00:01:01,056
+A: Then the green result has limited relevance to this complaint. Let us trace those requests and compare gateway responses with the upload service logs.
+
+7
+00:01:01,656 --> 00:01:13,200
+C: The gateway returns a timeout after thirty seconds. The upload service continues processing, so a customer retry might create another copy of the file.
+
+8
+00:01:13,800 --> 00:01:26,040
+A: Please check whether the request identifier prevents duplicate processing before recommending retries. We also need to confirm completed uploads remain accessible to the customer.
+
+9
+00:01:26,640 --> 00:01:36,864
+B: Can we reproduce the timeout safely with a test enterprise account? I would prefer direct evidence before changing the gateway limit for all customers.
+
+10
+00:01:37,464 --> 00:01:49,824
+A: Yes. Use a non-sensitive test file in the same region and record size, duration, and response codes. Any configuration change still needs normal approval.
+
+11
+00:01:50,424 --> 00:02:00,432
+C: I will update the customer now with confirmed findings and avoid assigning blame. When should I promise the next progress update from our team?
+
+12
+00:02:01,032 --> 00:02:12,048
+A: Give them 16:30 UTC as the next update time, not a recovery estimate. I will own reproduction, and the service owner will assess mitigation.
+
+13
+00:02:12,648 --> 00:02:24,360
+B: Agreed. We will add representative regional upload coverage after validating the failure, and keep the customer case open until they confirm the workflow succeeds.

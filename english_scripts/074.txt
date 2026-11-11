@@ -1,0 +1,26 @@
+SCENARIO 074
+量化影响范围
+
+B / Operations Director: How many users are affected, and is this a global outage? I need a reliable figure for the leadership update in ten minutes.
+
+A / Ops Engineer: We have confirmed failures in the Asia-Pacific region. From 08:00 to 08:20 UTC, twelve thousand of one hundred thousand checkout requests failed.
+
+B / Operations Director: Should I describe that as twelve thousand affected customers, or does the request count include people trying the same checkout more than once?
+
+A / Ops Engineer: It includes retries, so it is not a unique customer count. We are deduplicating account and transaction identifiers, with limitations for unauthenticated sessions.
+
+C / Business Analyst: So far, we have identified forty-eight hundred distinct checkout attempts associated with those failures. Some attempts later succeeded, which changes the final business outcome.
+
+B / Operations Director: Can we estimate lost sales from those attempts? Multiplying by the average order value would give me a quick number for the executive team.
+
+C / Business Analyst: That would be a rough exposure estimate, not confirmed lost revenue. We need to reconcile later completions, abandoned carts, and any payments already captured.
+
+A / Ops Engineer: For now, report the failed request rate and distinct affected attempts separately. We should also state that customer counts and revenue effects remain under validation.
+
+B / Operations Director: What about Europe and the Americas? I want to avoid calling it regional simply because we have not looked carefully at the other regions.
+
+A / Ops Engineer: Independent probes and regional transaction metrics show no abnormal failure rate there during the same window. That supports the current regional scope, with ongoing monitoring.
+
+C / Business Analyst: I will reconcile the forty-eight hundred attempts by 09:00 UTC and provide confirmed completions, unresolved outcomes, and the remaining uncertainty in the business estimate.
+
+B / Operations Director: Good. I will use the stated twenty-minute window and measurement definitions, and make clear that the next update may revise the preliminary business numbers.

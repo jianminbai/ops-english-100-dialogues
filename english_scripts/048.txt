@@ -1,0 +1,26 @@
+SCENARIO 048
+功能开关紧急降级
+
+B / Product Owner: Can we disable the recommendation feature while keeping checkout available? Customers should still be able to buy items even if suggestions disappear.
+
+A / Ops Engineer: The feature flag supports that, but we need to confirm the fallback behavior. Does checkout continue normally when the recommendation response is absent?
+
+C / Developer: The checkout page uses a default empty list when the flag is off. It doesn't need recommendation data to calculate prices or submit orders.
+
+B / Product Owner: Was that path tested with the version now in production? A fallback from an earlier release might behave differently after the recent checkout changes.
+
+C / Developer: Yes, the release tests cover checkout with the flag disabled. I'll attach those results and repeat the key flow in our matching test environment.
+
+A / Ops Engineer: I'll check the flag's scope and propagation behavior. We need to know whether it applies to every region and how quickly instances refresh it.
+
+B / Product Owner: Please include mobile checkout. It's acceptable to lose recommendations temporarily, but we shouldn't display a blank error panel or interrupt saved shopping carts.
+
+C / Developer: Mobile clients also accept an empty recommendation list. Existing carts remain stored separately. I'll verify those points before the change owner requests approval.
+
+A / Ops Engineer: After approval, I'll switch the flag off and confirm the effective value on running instances. Then we'll test checkout across the affected channels.
+
+B / Product Owner: What measures will tell us the mitigation worked? Recommendation errors may disappear automatically when we stop calling that service, even if checkout still fails.
+
+A / Ops Engineer: We'll track successful order submissions and checkout latency, supported by test transactions. I'll share an initial comparison ten minutes after the flag change takes effect.
+
+B / Product Owner: Agreed. I'll confirm the temporary product impact and own the decision to restore recommendations after the team validates a fix under normal change review.

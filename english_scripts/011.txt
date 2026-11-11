@@ -1,0 +1,26 @@
+SCENARIO 011
+服务器CPU持续升高
+
+B / Infrastructure Lead: CPU usage has stayed above ninety percent for twenty minutes, and request latency is rising. Is incoming traffic higher than the normal morning baseline?
+
+A / Ops Engineer: Request volume is close to normal. A scheduled reconciliation process is consuming most of the CPU on the affected server, based on process metrics.
+
+B / Infrastructure Lead: Do we know why that process is busier today? I do not want to stop a critical business task without understanding its dependencies.
+
+C / Batch Job Owner: It is processing yesterday’s backlog as well as today’s records. It can pause at a checkpoint, but terminating it immediately could require a lengthy restart.
+
+A / Ops Engineer: Can you request a controlled pause through the documented procedure? We can then compare CPU and application latency before deciding whether further mitigation is needed.
+
+C / Batch Job Owner: Yes. The next checkpoint should arrive within five minutes. Pausing there preserves progress, although the reconciliation report will be delayed until the job resumes.
+
+B / Infrastructure Lead: Please notify the report owner about that delay and confirm whether any downstream task requires the report before we authorize the pause.
+
+C / Batch Job Owner: I checked the dependency schedule. Nothing consumes the report until 18:00 UTC, and the owner accepts a temporary pause with an update by 12:00 UTC.
+
+A / Ops Engineer: With that confirmation, I will coordinate the pause and record the exact time. We will watch CPU, queue length, and successful customer requests afterward.
+
+B / Infrastructure Lead: If latency improves, treat that as evidence for contention, not the full root cause. We still need to explain why the backlog accumulated.
+
+A / Ops Engineer: Agreed. I will review service recovery after ten minutes and post results by 11:30 UTC. The investigation will remain open even if performance returns to normal.
+
+C / Batch Job Owner: I own the backlog investigation and a throttled restart proposal. I will bring the completion forecast and report risk to the 12:00 UTC checkpoint.

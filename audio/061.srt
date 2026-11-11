@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,576
+Narrator: Scenario 61. Monitoring, performance, and reliability.
+
+2
+00:00:07,176 --> 00:00:17,112
+B: We received twenty CPU pages last week, but only two coincided with slower responses. Can we make this alert less sensitive?
+
+3
+00:00:17,712 --> 00:00:25,968
+A: Probably, but I want to compare CPU usage with request latency, error rates, and queue depth before we change the threshold.
+
+4
+00:00:26,568 --> 00:00:35,736
+B: Most spikes lasted under a minute during scheduled imports. The two longer events happened when the request queue was also growing.
+
+5
+00:00:36,336 --> 00:00:46,680
+A: That suggests duration matters. We could require high CPU for five minutes and use queue growth to provide additional context for responders.
+
+6
+00:00:47,280 --> 00:00:56,328
+B: Would that delay detection if a sudden traffic increase causes customer impact within the first minute? I do not want that gap.
+
+7
+00:00:56,928 --> 00:01:06,648
+A: The separate latency and error alerts would still apply. We should replay all three rules against previous incidents to check detection times.
+
+8
+00:01:07,248 --> 00:01:16,296
+B: Please include the import failure from September. CPU stayed below our current threshold even though the queue took an hour to clear.
+
+9
+00:01:16,896 --> 00:01:27,144
+A: Good point. That case may need a queue age alert rather than a different CPU threshold. I will assess both signals separately.
+
+10
+00:01:27,744 --> 00:01:36,312
+B: Who will review the proposed rules, and can we observe their behavior before changing the production paging configuration for the service?
+
+11
+00:01:36,912 --> 00:01:47,616
+A: I will prepare the historical results by Thursday at 14:00 UTC. You and the monitoring owner can review a week of shadow results.
+
+12
+00:01:48,216 --> 00:01:59,112
+B: That works. Keep the existing pages active during observation, and document any incident that the proposed rule detects later or misses completely.
+
+13
+00:01:59,712 --> 00:02:10,464
+A: Agreed. We will approve the final change only after comparing missed events, detection delay, and paging volume, with a documented rollback option.

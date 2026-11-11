@@ -1,0 +1,26 @@
+SCENARIO 027
+SSO登录与权限不足
+
+B / Application Engineer: I can sign in through SSO, but the production console says access denied. My manager approved a read-only role yesterday for release verification.
+
+A / Ops Engineer: Authentication succeeded, but authorization appears to have failed. Please share the approval ticket and console error reference so we can verify the expected role.
+
+B / Application Engineer: The ticket is approved, and it names the production observer role. I can access staging, but I cannot open any production resource pages.
+
+C / Identity Engineer: I will check the identity group mapping and provisioning history. An approved request does not necessarily mean the console has received the membership update.
+
+A / Ops Engineer: Please compare the exact account identifier too. We have seen confusion when people use a contractor identity and an employee identity with similar names.
+
+B / Application Engineer: I am using the employee account listed in the request. Should I ask someone to lend me a working administrator session for the meeting?
+
+A / Ops Engineer: Keep access tied to your own identity and approved role. I can share the relevant read-only deployment evidence through the ticket while we investigate.
+
+C / Identity Engineer: The directory group is correct, but the console provisioning job rejected one mapping. I found a role name mismatch introduced in yesterday’s configuration update.
+
+A / Ops Engineer: Can you repair that mapping with the identity change owner and rerun provisioning? We should retain the original approval and record the correction.
+
+C / Identity Engineer: Yes. After the reviewed correction, I will confirm the assigned role in the audit log. Please start a new session once I notify you.
+
+B / Application Engineer: I will test access at 15:00 UTC and confirm that production details are visible. I will also verify that write controls remain unavailable.
+
+A / Ops Engineer: I will close the support ticket after those checks and attach the audit reference. The identity owner will separately track prevention of future mapping failures.

@@ -1,0 +1,26 @@
+SCENARIO 066
+监控数据缺失
+
+B / Engineering Manager: The service dashboard has shown no data for ten minutes. Is production down, and should we notify the business teams right away?
+
+A / Ops Engineer: We have not confirmed a service failure. I am checking an independent external probe and recent transactions while we investigate the missing telemetry.
+
+C / Monitoring Engineer: The external probe succeeds from three locations. Metric ingestion stopped at 09:20 UTC, and the collectors are reporting export failures to the monitoring gateway.
+
+B / Engineering Manager: So can we tell everyone the service is healthy? I want to avoid unnecessary concern, but I also need a statement we can support.
+
+A / Ops Engineer: We can say the independent checks are passing. They cover limited journeys, so we still need application logs and business confirmation before broader conclusions.
+
+C / Monitoring Engineer: The gateway certificate expired this morning. I have the renewal procedure, but I need to confirm whether that explains every collector failure.
+
+A / Ops Engineer: Please verify the certificate errors and use the approved renewal process. Meanwhile, I will arrange temporary checks of transaction success and application error logs.
+
+B / Engineering Manager: What visibility will the on-call engineer have during the repair? The usual paging rules depend on the same data that has stopped arriving.
+
+A / Ops Engineer: We will keep external probes active and review independent logs every five minutes. I will also flag the monitoring gap in the operations channel.
+
+C / Monitoring Engineer: The certificate replacement is approved. After applying it, I will verify fresh timestamps, ingestion volume, and alert evaluation rather than just dashboard loading.
+
+B / Engineering Manager: Please give the next update at 09:45 UTC, even if the repair is incomplete. Include any customer impact found through the independent checks.
+
+A / Ops Engineer: Understood. We will track the observation failure separately, retain the data-gap interval, and remove temporary checks only after normal monitoring is verified.

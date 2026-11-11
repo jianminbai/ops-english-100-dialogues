@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,768
+Narrator: Scenario 82. Changes, security, and disaster recovery.
+
+2
+00:00:07,368 --> 00:00:17,760
+A: Before we decide whether to start, can each owner confirm the required approvals, monitoring coverage, recovery prerequisites, and business validation evidence?
+
+3
+00:00:18,360 --> 00:00:29,184
+B: The technical checks are complete, the backup verification passed, and the previous application package is available. We're still missing business signoff.
+
+4
+00:00:29,784 --> 00:00:39,456
+A: Then we haven't met the agreed entry criteria. Which business checks remain, and who is responsible for providing the missing evidence?
+
+5
+00:00:40,056 --> 00:00:52,152
+C: I own that validation. Standard purchases passed, but the finance team hasn't confirmed refunds involving the new tax calculation for international orders.
+
+6
+00:00:52,752 --> 00:01:01,800
+B: Could we release now and check refunds afterward? The feature team has already arranged support coverage for this deployment window.
+
+7
+00:01:02,400 --> 00:01:13,776
+A: Refund validation is an explicit entry requirement because this release changes that behavior. Support coverage doesn't establish that the calculation is correct.
+
+8
+00:01:14,376 --> 00:01:25,776
+C: Finance can review the examples at 13:30 UTC today. I'll provide the expected amounts, actual results, and their acceptance decision.
+
+9
+00:01:26,376 --> 00:01:36,672
+B: Our approved window closes at 15:00 UTC. If the evidence arrives late, do we still have enough time for deployment and observation?
+
+10
+00:01:37,272 --> 00:01:47,880
+A: The plan requires ninety minutes including observation and rollback allowance. We'll reassess the remaining window; we cannot simply shorten those safeguards.
+
+11
+00:01:48,480 --> 00:01:59,280
+C: If any refund case fails, I'll mark validation incomplete and explain the discrepancy. I won't treat a scheduled review as a passing result.
+
+12
+00:01:59,880 --> 00:02:11,328
+B: Agreed. The release remains on hold. I'll keep the support team informed and arrange another decision checkpoint at 13:45 UTC today.
+
+13
+00:02:11,928 --> 00:02:20,400
+A: At that checkpoint, we'll review the evidence and available time together, then record either an authorized start or a rescheduled release.

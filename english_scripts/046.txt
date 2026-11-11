@@ -1,0 +1,26 @@
+SCENARIO 046
+线程池与请求排队
+
+B / Application Lead: CPU is only forty percent, but response time has tripled and requests are queuing. Why can't the application use the remaining capacity?
+
+A / Ops Engineer: Low CPU doesn't necessarily mean spare processing capacity. Worker threads may be occupied while waiting for a dependency rather than doing calculations.
+
+C / Developer: Can you capture thread information during the slowdown? We should verify where the workers are waiting before we change the pool settings.
+
+A / Ops Engineer: I'll use our approved diagnostic capture with a short sampling window. I'll also align the timestamps with queue depth and dependency latency.
+
+B / Application Lead: Would increasing the worker count help temporarily? The incoming request rate is normal, and our queue has reached two thousand pending requests.
+
+C / Developer: Only if the dependency has room for more concurrent work. Otherwise, extra workers could send more requests into the same bottleneck.
+
+A / Ops Engineer: The first capture shows most workers blocked on the document service. Its latency rose from one second to twelve seconds before our queue grew.
+
+B / Application Lead: Document previews are optional, but document downloads are essential. Can we reduce preview work without interrupting downloads or losing any user data?
+
+C / Developer: The application supports a temporary preview fallback. I'll verify that downloads use a separate path and get the service owner's approval to enable it.
+
+A / Ops Engineer: I'll monitor queue age as well as depth. A smaller queue isn't enough if old requests remain stuck or clients keep timing out.
+
+B / Application Lead: Please coordinate with the document team and give us another update in ten minutes. Keep any thread captures in the restricted diagnostic location.
+
+A / Ops Engineer: Agreed. We'll confirm improvement through completed downloads, lower wait times, and falling dependency latency, then investigate why document processing slowed down.

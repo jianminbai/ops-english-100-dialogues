@@ -1,0 +1,26 @@
+SCENARIO 090
+审计证据与权限复核
+
+B / Auditor: For these five sampled production accounts, can you show who approved access, what role was assigned, and when the entitlement was last reviewed?
+
+A / Ops Engineer: I'll map each account to its access request, named approver, assigned role, review history, and relevant access logs for the audit period.
+
+B / Auditor: Please distinguish the approved role from the permissions actually active during the sample period. An approval document alone doesn't establish that the implementation matched it.
+
+A / Ops Engineer: Understood. I'll include the role assignment history and compare it with the authorized scope. Where historical evidence is unavailable, I'll identify the gap explicitly.
+
+B / Auditor: How do you remove expired contractor access, and how do you verify that disabling an account also ends existing production sessions where required?
+
+A / Ops Engineer: The offboarding workflow triggers account suspension and role removal. The access team also applies the required session revocation and records its verification results.
+
+B / Auditor: One sampled contractor ended work on October 30, but I only see a ticket closed on November 2. What happened between those dates?
+
+A / Ops Engineer: The account was disabled on October 30, according to the identity log. However, I haven't found evidence confirming the separate production role removal time.
+
+B / Auditor: Please investigate that distinction. Don't infer that a late ticket closure means late revocation, but don't assume all permissions ended with the account either.
+
+A / Ops Engineer: I'll ask the access owner to retrieve the system records. We'll document any actual control failure and corrective action without backdating approvals or removal evidence.
+
+B / Auditor: Provide the evidence index through the restricted audit folder by November 13 at 16:00 UTC. Limit unrelated personal information and preserve the original records.
+
+A / Ops Engineer: I'll deliver the indexed sample and a separate list of unresolved gaps by that deadline. The control owner will own follow-up on any confirmed finding.

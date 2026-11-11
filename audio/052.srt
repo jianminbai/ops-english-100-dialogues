@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,504
+Narrator: Scenario 52. Databases, middleware, and batch processing.
+
+2
+00:00:07,104 --> 00:00:16,320
+B: Several account updates have been waiting for six minutes. Can we terminate the blocking session now and let those requests move forward?
+
+3
+00:00:16,920 --> 00:00:27,696
+A: The database administrator identified a long-running transaction at the head of the blocking chain. We need to assess its rollback impact before terminating it.
+
+4
+00:00:28,296 --> 00:00:39,384
+C: It belongs to the reconciliation job and has modified about four hundred thousand rows. Termination could trigger a lengthy rollback while locks remain held.
+
+5
+00:00:39,984 --> 00:00:50,040
+B: So killing the session wouldn't necessarily release everything immediately. Do we know whether the job is still making progress or waiting on something else?
+
+6
+00:00:50,640 --> 00:01:02,040
+C: Its processed row count is increasing, and it isn't waiting on another lock. However, the current transaction is much larger than the job's usual batches.
+
+7
+00:01:02,640 --> 00:01:12,720
+A: I'll contact the job owner to understand the batch change and expected remaining work. We shouldn't invent a completion time from one progress sample.
+
+8
+00:01:13,320 --> 00:01:23,376
+B: Can we pause new reconciliation work without interrupting the active transaction? That might keep the problem from repeating while we assess the options.
+
+9
+00:01:23,976 --> 00:01:36,624
+C: Yes, the scheduler supports pausing future batches. The owner must confirm that control, and we should also limit automatic retries from blocked application requests.
+
+10
+00:01:37,224 --> 00:01:48,648
+A: I'll give the incident lead two options: allow monitored completion or authorize termination with a potentially long rollback. We'll include current business impact for each.
+
+11
+00:01:49,248 --> 00:01:58,056
+B: I'll check whether the blocked requests can expire safely and confirm that customers won't receive duplicate updates when they try again later.
+
+12
+00:01:58,656 --> 00:02:10,104
+C: I'll collect progress and lock measurements for the next five minutes. If termination is chosen, I'll execute it under approval and monitor rollback explicitly.
+
+13
+00:02:10,704 --> 00:02:21,528
+A: Let's review those measurements with the job owner and incident lead at that checkpoint. Recovery requires completed account updates, not just a disappeared session.

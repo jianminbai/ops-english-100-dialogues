@@ -1,0 +1,26 @@
+SCENARIO 070
+容量预测与促销保障
+
+B / Business Lead: The campaign forecast is twice our normal traffic. Can you confirm we are ready before the regional teams finalize their promotional messages tomorrow?
+
+A / Ops Engineer: We need more than a daily traffic total. Please share the regional launch schedule, peak concurrency forecast, and expected mix of browsing and transactions.
+
+B / Business Lead: Most advertisements launch at 12:00 UTC, and purchases may triple for thirty minutes. The rest of the day should remain near twice normal volume.
+
+C / Capacity Engineer: That concentrated peak matters. Application capacity has headroom, but the payment provider quota is only twenty percent above our previous transaction peak.
+
+A / Ops Engineer: Adding application replicas will not remove that quota. We should request provider capacity and validate queue behavior under the forecast transaction rate.
+
+B / Business Lead: If the provider cannot increase the quota in time, could we stagger advertisements by region? I need to know the practical business alternatives.
+
+C / Capacity Engineer: Yes, if the revised schedule keeps the combined transaction peak within tested capacity. We must also reserve headroom for a component failure during the event.
+
+A / Ops Engineer: We also need approved fallback options, trigger conditions, and a business contact who can authorize them. We should not invent those decisions during overload.
+
+B / Business Lead: I will own the regional schedule and authorize campaign changes. Please bring me a clear choice between the original launch and a staggered plan.
+
+C / Capacity Engineer: I will finish the quota check and peak-load evidence by 17:00 UTC today. Readiness will remain conditional until the provider confirms its limit.
+
+A / Ops Engineer: Let us review both plans at that checkpoint, including recovery capacity, alert coverage, and named on-call contacts for every critical dependency involved.
+
+B / Business Lead: Agreed. I will publish the approved schedule afterward and ensure regional leads know the escalation route and who can change the campaign if needed.

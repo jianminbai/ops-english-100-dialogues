@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,864
+Narrator: Scenario 87. Changes, security, and disaster recovery.
+
+2
+00:00:07,464 --> 00:00:18,888
+B: A critical vulnerability was disclosed this morning. Management wants a patching schedule today, especially for systems reachable from the internet or partner networks.
+
+3
+00:00:19,488 --> 00:00:30,624
+A: We're matching the vendor advisory against our asset inventory and package versions. Severity alone doesn't tell us which systems have the vulnerable component enabled.
+
+4
+00:00:31,224 --> 00:00:42,672
+B: Understood. Prioritize confirmed exposure and service impact, and flag anything that cannot meet the remediation deadline defined in our security policy.
+
+5
+00:00:43,272 --> 00:00:54,504
+A: We found twelve potentially affected hosts so far. Four serve external traffic; eight are internal, and we're still verifying whether the affected feature is active.
+
+6
+00:00:55,104 --> 00:01:04,248
+B: Can you patch the external hosts first without interrupting all traffic, and what evidence will show the fix is actually effective after installation?
+
+7
+00:01:04,848 --> 00:01:16,944
+A: We'll test the vendor package, then use an approved rolling plan where capacity allows. We'll verify versions, approved vulnerability checks, and normal business transactions.
+
+8
+00:01:17,544 --> 00:01:28,032
+B: One internal host supports an older reporting application. The owner says the vendor patch isn't certified yet, so that may need a formal exception.
+
+9
+00:01:28,632 --> 00:01:40,008
+A: I'll ask that owner for the compatibility issue and test timeline. Any temporary control needs a security review, a named risk owner, and an expiration date.
+
+10
+00:01:40,608 --> 00:01:51,888
+B: We can review restricted network access as a temporary mitigation if it fits the advisory. That would reduce exposure but would not count as permanent remediation.
+
+11
+00:01:52,488 --> 00:02:03,648
+A: Agreed. We'll also check newly discovered assets against the same inventory criteria, so an incomplete initial list doesn't become a false completion report.
+
+12
+00:02:04,248 --> 00:02:17,352
+B: Please provide the first asset-level status at 16:00 UTC today, including unknowns, patch owners, validation results, and any exception requests needing my review.
+
+13
+00:02:17,952 --> 00:02:30,696
+A: I'll deliver that checkpoint and update the schedule as testing confirms feasibility. We will report remaining exposure explicitly until remediation or approved exception handling is complete.

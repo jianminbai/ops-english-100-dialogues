@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,016
+Narrator: Scenario 21. Network and access.
+
+2
+00:00:05,616 --> 00:00:17,136
+B: Our European support team cannot resolve the service hostname. Customers are reporting access failures, but the application dashboard still shows healthy instances.
+
+3
+00:00:17,736 --> 00:00:29,376
+A: A controlled test reaches the application through its IP address with the correct hostname. That supports application availability, but it does not validate DNS.
+
+4
+00:00:29,976 --> 00:00:40,632
+C: Which resolvers did those affected devices use? We should compare corporate resolvers with an approved external resolver before changing any records.
+
+5
+00:00:41,232 --> 00:00:52,488
+B: We have six examples from two offices. All six use corporate DNS, while the same hostname resolves successfully from our external monitoring service.
+
+6
+00:00:53,088 --> 00:01:04,296
+A: Please attach their timestamps and resolver addresses to the incident. We will check the authoritative answers, cached responses, and recent configuration changes.
+
+7
+00:01:04,896 --> 00:01:16,680
+C: The authoritative record is correct. One corporate forwarding rule changed at 09:15 UTC, and queries through that path now return a server failure.
+
+8
+00:01:17,280 --> 00:01:27,288
+B: Can we tell everyone to change their laptop DNS settings? The support team needs a practical workaround while you investigate the forwarding rule.
+
+9
+00:01:27,888 --> 00:01:40,248
+A: Individual changes could break internal resolution and create inconsistent results. I recommend restoring the previous forwarding configuration through the incident change process.
+
+10
+00:01:40,848 --> 00:01:51,240
+C: I can prepare that rollback now. It affects only the new forwarding rule, and the previous configuration passed validation earlier this morning.
+
+11
+00:01:51,840 --> 00:02:01,728
+A: After approval, please apply it and repeat queries from both offices. I will check login and search through the normal customer access path.
+
+12
+00:02:02,328 --> 00:02:13,032
+B: I will coordinate those office checks and update support. Let us review resolution results and customer transactions together at 10:00 UTC.
+
+13
+00:02:13,632 --> 00:02:23,904
+A: Agreed. We will report recovery only after those checks pass, then investigate why the forwarding change escaped testing and improve the coverage.

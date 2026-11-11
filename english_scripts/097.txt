@@ -1,0 +1,26 @@
+SCENARIO 097
+周度运维健康汇报
+
+B / Global Lead: What changed in service health this week, and which issue needs a leadership decision before next week's expected increase in reporting traffic?
+
+A / Ops Engineer: Incident count fell from six to four, but total customer-impact duration increased from thirty to seventy-five minutes because one outage lasted much longer.
+
+B / Global Lead: Are we using the same measurement across both weeks? I want to avoid celebrating fewer tickets if business disruption actually became worse overall.
+
+A / Ops Engineer: Yes. We sum each incident's customer-impact duration using the same start and recovery criteria. Affected-user counts and failed transaction counts are reported separately.
+
+B / Global Lead: What made the longer outage difficult to restore, and have the immediate recovery actions reduced the chance of another disruption during next week's workload?
+
+A / Ops Engineer: Reporting jobs saturated storage throughput on the shared database. Staggering those jobs restored normal operation, but it leaves limited margin for the projected workload.
+
+B / Global Lead: What is the proposed capacity action, and what evidence suggests it addresses the measured bottleneck rather than simply increasing application servers without a benefit?
+
+A / Ops Engineer: We propose increasing provisioned storage throughput. The database team's controlled test improved job completion time while holding application capacity constant, and the vendor confirmed availability.
+
+B / Global Lead: What decision do you need from me, and what risk remains if we delay it until the next regular budget review later this month?
+
+A / Ops Engineer: We need budget approval by Friday, November 13, at 16:00 UTC to request the change window. Delaying would extend dependence on manual batch scheduling.
+
+B / Global Lead: Send the test results, cost, and risk summary today. I'll decide by that checkpoint, while the database owner retains responsibility for technical change approval.
+
+A / Ops Engineer: I'll send that package and keep the interim schedule active. Next week's review will report actual workload, capacity margin, and whether the approved action took effect.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,576
+Narrator: Scenario 55. Databases, middleware, and batch processing.
+
+2
+00:00:07,176 --> 00:00:16,800
+B: All backup jobs are green this month. Can we tell the service owner that recovery is guaranteed within the documented time and data objectives?
+
+3
+00:00:17,400 --> 00:00:29,424
+A: A successful backup does not by itself prove recoverability. We still need a restore test, usable recovery credentials, and validation by the application team.
+
+4
+00:00:30,024 --> 00:00:41,232
+C: I'll restore a selected backup and its transaction logs into an isolated environment. The test will use approved access and protect the production data.
+
+5
+00:00:41,832 --> 00:00:50,784
+B: Our objectives are one hour for service recovery and no more than five minutes of lost data. How will you measure those separately?
+
+6
+00:00:51,384 --> 00:01:04,104
+A: We'll record when recovery is requested and when the application is usable. Separately, we'll identify the latest recovered transaction and compare its timestamp with the simulated incident.
+
+7
+00:01:04,704 --> 00:01:17,064
+C: For this exercise, the simulated incident is at 04:00 UTC on November 12, 2026. I'll document which backup and logs support that point.
+
+8
+00:01:17,664 --> 00:01:28,872
+B: Please include access approval and environment preparation in the recovery timeline. Starting the clock only when data copying begins would hide important delays.
+
+9
+00:01:29,472 --> 00:01:42,072
+A: Agreed. We'll use the service's documented measurement boundaries and show each stage. Any pre-provisioned resources will be listed so the result has clear limits.
+
+10
+00:01:42,672 --> 00:01:54,840
+C: After restoration, I'll check database integrity and the latest committed records. A running database alone won't prove that all required application data is available.
+
+11
+00:01:55,440 --> 00:02:07,416
+B: I'll arrange an application tester to verify login, order lookup, and a controlled transaction. Please avoid sending notifications or payments from the test environment.
+
+12
+00:02:08,016 --> 00:02:19,560
+A: External side effects will be isolated in the test setup. I'll publish the measured recovery time, recovered data point, and functional results after the exercise.
+
+13
+00:02:20,160 --> 00:02:31,320
+B: Let's review that evidence tomorrow before updating the assurance statement. If either objective is missed, assign an improvement owner and schedule another measured test.

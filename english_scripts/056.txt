@@ -1,0 +1,26 @@
+SCENARIO 056
+Redis缓存命中率下降
+
+B / Developer: Database traffic increased sharply after the Redis restart, and customers report slower page loads. Should we clear the cache again in case entries are inconsistent?
+
+A / Ops Engineer: The hit rate fell from ninety-five percent to fifteen percent because the cache is cold. Another flush could prolong the database load spike.
+
+C / Application Lead: Do we have evidence of incorrect values, or is this mainly missing entries? We shouldn't treat a performance problem as data corruption without checking.
+
+A / Ops Engineer: Sampled values match the database, and misses account for most additional queries. I'll keep checking correctness while we investigate why warming is slow.
+
+B / Developer: Our usual warm-up job loads popular product records, but it's currently disabled. Can we start it now and let customer requests fill the rest?
+
+A / Ops Engineer: Let's use the approved warm-up method with a rate limit. The database is already busy, so unrestricted warming could make customer response times worse.
+
+C / Application Lead: Please define a stop condition before starting. We also need to make sure the job doesn't cache account-specific responses under shared product keys.
+
+B / Developer: The job only loads public product data. I'll verify the key namespace, expiration settings, and per-key request coordination to avoid simultaneous reloads of popular entries.
+
+A / Ops Engineer: We'll start below the approved warm-up rate and pause if database latency crosses our operating threshold. I'll monitor hit rate, evictions, and successful page requests.
+
+C / Application Lead: Could short expiration times keep the cache cold even after loading? Please compare those settings with the previous healthy configuration before increasing the warm-up rate.
+
+B / Developer: I'll compare those settings and inspect memory headroom. We won't extend expiration blindly because product data has freshness requirements agreed with the business.
+
+A / Ops Engineer: I'll post a trend comparison in ten minutes. Recovery requires stable database latency and normal page performance, alongside an improving cache hit rate.

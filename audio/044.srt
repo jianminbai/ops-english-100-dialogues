@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,400
+Narrator: Scenario 44. Application operations.
+
+2
+00:00:06,000 --> 00:00:14,928
+B: The homepage loads on my laptop, and the website status check is green. Why are we still treating this as an active incident?
+
+3
+00:00:15,528 --> 00:00:25,896
+A: Those checks only confirm that the page is available. The checkout journey is failing when customers submit orders, so the business impact continues.
+
+4
+00:00:26,496 --> 00:00:35,784
+B: Can you quantify that impact? We need to explain it clearly to customer support without suggesting that every visitor is affected.
+
+5
+00:00:36,384 --> 00:00:47,424
+A: During the last ten minutes, thirty percent of order submission requests failed. That is a request measure; we haven't calculated unique affected customers yet.
+
+6
+00:00:48,024 --> 00:00:57,624
+B: Thank you for separating those figures. Are customers being charged when the order fails, or is the failure happening before payment begins?
+
+7
+00:00:58,224 --> 00:01:09,264
+A: The traces suggest the failure occurs before payment authorization, but finance is reconciling a sample. We shouldn't rule out payment impact until that finishes.
+
+8
+00:01:09,864 --> 00:01:20,184
+B: The application team has applied a correction. If the submission endpoint returns a successful response now, can we announce that checkout has recovered?
+
+9
+00:01:20,784 --> 00:01:30,552
+A: We need to validate the full journey: create an order, confirm payment status, verify the stored order, and check that the confirmation reaches the customer.
+
+10
+00:01:31,152 --> 00:01:40,344
+B: I can assign a business tester to the approved test account. Should we also check both standard delivery and the regional collection option?
+
+11
+00:01:40,944 --> 00:01:51,600
+A: Yes, both were affected. I'll compare their submission success rates and latency during a ten-minute observation period after the test transactions succeed.
+
+12
+00:01:52,200 --> 00:02:01,032
+B: I'll own the business validation and ask support to keep the incident message active until we have those results and the payment reconciliation.
+
+13
+00:02:01,632 --> 00:02:11,904
+A: I'll gather the technical evidence and report at the next checkpoint in fifteen minutes. We'll confirm recovery together once both sets of checks pass.

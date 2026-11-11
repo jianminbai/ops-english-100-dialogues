@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,208
+Narrator: Scenario 5. Global meeting communication.
+
+2
+00:00:05,808 --> 00:00:14,352
+B: The service has been fully unavailable since 09:00 UTC, so I think we should tell all business teams that work has stopped.
+
+3
+00:00:14,952 --> 00:00:25,512
+A: May I jump in with a clarification? The latest evidence shows failures on new login requests, while existing authenticated sessions remain active.
+
+4
+00:00:26,112 --> 00:00:35,760
+B: Thanks for correcting that. The earlier message said the service was down. Do we know when the login failures actually started?
+
+5
+00:00:36,360 --> 00:00:47,496
+A: The first confirmed failure was at 09:12 UTC. We are reviewing earlier logs, so I would describe that as the confirmed start, pending further evidence.
+
+6
+00:00:48,096 --> 00:00:56,856
+B: Are existing sessions completely unaffected, or could users encounter problems when their session expires and they need to authenticate again?
+
+7
+00:00:57,456 --> 00:01:08,592
+A: Existing sessions can still perform the tested business actions. When a session expires, the next login could fail, so the impact may expand over time.
+
+8
+00:01:09,192 --> 00:01:18,864
+B: What figures should we use in the update? Leadership will ask whether the percentage refers to requests, accounts, or active users.
+
+9
+00:01:19,464 --> 00:01:30,576
+A: During the last ten minutes, eighteen percent of login requests failed. We have not calculated unique affected accounts, and retries can inflate request counts.
+
+10
+00:01:31,176 --> 00:01:40,392
+B: That is clearer. Please share the current dashboard and a timestamped summary so people do not keep forwarding the earlier description.
+
+11
+00:01:40,992 --> 00:01:51,048
+A: I will post both in the incident channel now. I suggest saying that login is degraded and existing sessions continue to work in our checks.
+
+12
+00:01:51,648 --> 00:02:01,416
+B: Agreed. I will correct the business update and ask regional leads to reference that summary. When is the next impact review?
+
+13
+00:02:02,016 --> 00:02:12,264
+A: We will review the impact again at 09:45 UTC and update sooner if conditions change. I will own the technical figures and their wording.

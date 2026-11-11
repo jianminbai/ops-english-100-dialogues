@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,256
+Narrator: Scenario 41. Application operations.
+
+2
+00:00:05,856 --> 00:00:14,664
+B: The deployment completed, but the new instances never became ready. Are we dealing with a slow startup or an actual failure?
+
+3
+00:00:15,264 --> 00:00:27,120
+A: The process exits after thirty seconds. Startup logs identify a missing configuration value for the inventory service URL, without exposing any credentials.
+
+4
+00:00:27,720 --> 00:00:40,320
+C: That value became mandatory in this release. It exists in our approved configuration repository, but the production deployment references an older configuration revision.
+
+5
+00:00:40,920 --> 00:00:48,936
+B: Can we update the configuration directly, or do we need to stop the release and restore the previous application version first?
+
+6
+00:00:49,536 --> 00:00:59,328
+A: The previous instances are still serving traffic, so I'll pause the rollout. We can verify the correction before starting any replacements.
+
+7
+00:00:59,928 --> 00:01:10,824
+C: I'll compare the required settings against the release manifest and check the destination address. We should avoid discovering another missing value afterward.
+
+8
+00:01:11,424 --> 00:01:21,120
+B: Please also confirm that the existing version can use this configuration. We need a workable rollback path if the new instances fail again.
+
+9
+00:01:21,720 --> 00:01:32,280
+C: The setting is additive, and the previous version ignores it. I'll attach that compatibility check and the configuration difference to the change record.
+
+10
+00:01:32,880 --> 00:01:42,456
+A: Once the release approval is recorded, I'll deploy one instance and check readiness, dependency access, and a test inventory lookup before proceeding.
+
+11
+00:01:43,056 --> 00:01:51,648
+B: What would make us stop at that stage, even if the readiness check turns green? I want the decision criteria to be clear.
+
+12
+00:01:52,248 --> 00:02:03,432
+A: Any failed functional check or elevated errors will stop expansion. I'll post the first validation results in ten minutes, without committing to completion yet.
+
+13
+00:02:04,032 --> 00:02:13,872
+B: Agreed. Keep the healthy instances available, and have the release owner confirm the full rollout only after the application checks pass.

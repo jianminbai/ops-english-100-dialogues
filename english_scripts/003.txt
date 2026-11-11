@@ -1,0 +1,26 @@
+SCENARIO 003
+时区与夏令时确认
+
+A / Ops Coordinator: The proposed meeting is November 12, 2026, at 14:00 UTC. Please check whether your change reviewers can attend for forty minutes.
+
+B / US Lead: Our clocks changed recently, so the usual calendar shortcut may be misleading. Could you include the local date and time for each location?
+
+A / Ops Coordinator: Yes. Please confirm the cities or named time zones your reviewers use. I will verify conversions for that specific date before sending the invitation.
+
+C / EU Lead: Our reviewers are in Berlin. That slot is workable, but we should avoid assuming every European office follows exactly the same working hours.
+
+B / US Lead: The US reviewers are in New York and Phoenix. They do not necessarily follow the same seasonal clock rules, so please check both.
+
+A / Ops Coordinator: Understood. I will use the calendar time-zone database and display UTC in the description, with each location listed separately for confirmation.
+
+C / EU Lead: What about the APAC team? We should check their availability before treating this as the final slot, especially if it falls outside normal hours.
+
+A / Ops Coordinator: Their regional coordinator has accepted the proposed slot, but I am still checking whether the database reviewer can attend or needs a delegate.
+
+B / US Lead: If a required reviewer cannot join, can we collect written feedback first? I would prefer that to repeatedly moving the meeting at short notice.
+
+A / Ops Coordinator: Yes, provided the change process allows that reviewer to delegate or comment asynchronously. I will confirm the requirement with the change coordinator.
+
+C / EU Lead: Please rotate the inconvenient slot for the next review. We can keep a simple record so the same region does not always absorb it.
+
+A / Ops Coordinator: I will send the verified invitation by 17:00 UTC today and record the rotation. Please report any calendar mismatch before accepting it.

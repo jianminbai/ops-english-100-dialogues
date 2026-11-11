@@ -1,0 +1,26 @@
+SCENARIO 077
+故障期间决定回退
+
+B / Release Lead: The new release has exceeded the documented error threshold for rollback. Can we restore the previous version now, or are there additional checks?
+
+A / Ops Engineer: We need to confirm database and configuration compatibility first. A binary rollback is unsafe if the older version cannot read data already written today.
+
+B / Release Lead: The schema change only added an optional column, and compatibility tests passed. I will verify that today's writes did not introduce unsupported data values.
+
+C / Incident Commander: Please also confirm the previous artifact and configuration are available. I need a specific execution plan, not just confidence that rollback should work.
+
+A / Ops Engineer: The signed artifact is available and its integrity check passed. We will keep the additive schema change and avoid reversing the database migration during recovery.
+
+B / Release Lead: I verified the new records against the older reader and checked feature settings. The previous application accepts them without losing required fields or changing payment status.
+
+C / Incident Commander: What will the initial scope be, and what result would stop the rollback? We should avoid replacing the whole fleet before seeing evidence.
+
+A / Ops Engineer: Start with ten percent of traffic. Stop if errors increase, data validation fails, or payment outcomes become inconsistent; retain the current version for controlled recovery.
+
+B / Release Lead: I will execute, and the database on-call engineer will observe compatibility. We will compare completed checkouts and regional error rates for five minutes.
+
+C / Incident Commander: Approved under the emergency change process. Record the checks and approval in the incident log, then report the first result at 18:20 UTC.
+
+A / Ops Engineer: We will expand only if the initial group meets the validation criteria. A successful rollback would support mitigation, but would not complete the root-cause analysis.
+
+B / Release Lead: Understood. I will announce each stage on the bridge, preserve version-level evidence, and keep unrelated deployments paused until the commander reviews service stability.

@@ -1,0 +1,26 @@
+SCENARIO 060
+夜间批处理超时
+
+B / Business Lead: Will the overnight report be ready before our 06:30 UTC deadline on November 12, 2026? Regional teams need it before they start processing accounts.
+
+A / Ops Engineer: The batch is waiting for an upstream file. We don't have a confirmed arrival time, so I can't commit to the report being ready.
+
+C / Data Engineer: Once the file arrives and passes validation, processing normally takes twenty-five minutes. Larger files can take longer, and we still need the final reconciliation.
+
+B / Business Lead: Can we publish yesterday's report as a fallback? It would let teams prepare, but I need to understand which decisions would become unsafe.
+
+A / Ops Engineer: The fallback needs business approval and a clear data timestamp. Yesterday's balances won't include overnight changes, so the permitted use must be explicit.
+
+B / Business Lead: It can support staffing estimates, but not account adjustments or customer balance confirmations. I'll confirm that restriction with the regional operations owners.
+
+C / Data Engineer: I'll contact the upstream owner for file status and check whether any partial delivery is usable. We won't silently combine incomplete data with yesterday's report.
+
+A / Ops Engineer: Please also confirm whether the batch can resume safely after the delay. We need to avoid duplicate processing if the scheduler starts another attempt.
+
+C / Data Engineer: The job tracks completed input files, but I'll verify the current checkpoint and keep retries under the documented control. The late file needs completeness checks.
+
+B / Business Lead: I'll own approval of the restricted fallback and tell teams which activities must wait. Please give me another update by 06:00 UTC, even without an arrival estimate.
+
+A / Ops Engineer: At that checkpoint, I'll report file status, remaining processing steps, and the fallback decision. We'll label the report with its actual data cutoff, not its publication time.
+
+C / Data Engineer: I'll own the batch restart and reconciliation. The final report will replace the fallback only after data checks pass and the business owner confirms release.

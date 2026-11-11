@@ -1,0 +1,26 @@
+SCENARIO 069
+探测成功但客户仍报错
+
+B / Service Owner: All synthetic checks are green, but one customer says file uploads keep failing. Could this be a problem with their network or browser?
+
+A / Ops Engineer: That is possible, but our checks may not cover the affected account type, region, or upload path. We should examine their examples first.
+
+C / Support Engineer: They supplied three failing request identifiers and UTC timestamps. The requests came from an enterprise account using large files through the regional gateway.
+
+B / Service Owner: Our probe uploads a small file through the global endpoint. It does not exercise that regional gateway or the larger enterprise upload limit.
+
+A / Ops Engineer: Then the green result has limited relevance to this complaint. Let us trace those requests and compare gateway responses with the upload service logs.
+
+C / Support Engineer: The gateway returns a timeout after thirty seconds. The upload service continues processing, so a customer retry might create another copy of the file.
+
+A / Ops Engineer: Please check whether the request identifier prevents duplicate processing before recommending retries. We also need to confirm completed uploads remain accessible to the customer.
+
+B / Service Owner: Can we reproduce the timeout safely with a test enterprise account? I would prefer direct evidence before changing the gateway limit for all customers.
+
+A / Ops Engineer: Yes. Use a non-sensitive test file in the same region and record size, duration, and response codes. Any configuration change still needs normal approval.
+
+C / Support Engineer: I will update the customer now with confirmed findings and avoid assigning blame. When should I promise the next progress update from our team?
+
+A / Ops Engineer: Give them 16:30 UTC as the next update time, not a recovery estimate. I will own reproduction, and the service owner will assess mitigation.
+
+B / Service Owner: Agreed. We will add representative regional upload coverage after validating the failure, and keep the customer case open until they confirm the workflow succeeds.

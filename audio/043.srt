@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,424
+Narrator: Scenario 43. Application operations.
+
+2
+00:00:06,024 --> 00:00:15,864
+B: The gateway returns timeout errors after five seconds. Could we raise its timeout to fifteen seconds so more requests have time to finish?
+
+3
+00:00:16,464 --> 00:00:26,568
+A: That might reduce visible errors temporarily, but it would also hold connections longer. The upstream pricing service has become much slower.
+
+4
+00:00:27,168 --> 00:00:36,240
+B: Do the traces show where those five seconds go? We should separate network delay from time spent waiting inside the pricing service.
+
+5
+00:00:36,840 --> 00:00:46,728
+A: Most of the time is inside pricing. Its request queue grew sharply, while connection establishment stayed near its normal twenty milliseconds.
+
+6
+00:00:47,328 --> 00:00:56,736
+B: The pricing team says database calls are slow. Would adding application instances help clear the queue while they investigate the queries?
+
+7
+00:00:57,336 --> 00:01:08,736
+A: More instances could increase database concurrency and make that bottleneck worse. We need their capacity assessment before changing either concurrency or instance count.
+
+8
+00:01:09,336 --> 00:01:19,920
+B: Understood. Our client also retries once after a timeout. Could the first attempt still be running when that retry reaches the service?
+
+9
+00:01:20,520 --> 00:01:31,248
+A: Yes, cancellation doesn't currently propagate reliably. I'll check overlapping attempts and ask the pricing owner which requests can safely be retried.
+
+10
+00:01:31,848 --> 00:01:42,576
+B: We have an approved fallback for optional price suggestions, but confirmed checkout prices must remain accurate. Can we isolate the optional requests?
+
+11
+00:01:43,176 --> 00:01:53,040
+A: Yes. Let's route only the optional suggestions to that fallback through the incident change process, then watch pricing load and checkout latency.
+
+12
+00:01:53,640 --> 00:02:03,600
+B: I'll coordinate that change and review timeout budgets with both service owners. We should leave enough time for the gateway to return a controlled response.
+
+13
+00:02:04,200 --> 00:02:15,048
+A: I'll share traces and updated queue measurements in fifteen minutes. We'll reconsider timeout settings after understanding the upstream limit and the fallback results.

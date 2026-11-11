@@ -1,0 +1,26 @@
+SCENARIO 040
+自动化脚本执行范围
+
+B / Operations Manager: Can we run the configuration repair script across all 120 production servers tonight? Completing them together would clear a large maintenance backlog before tomorrow’s review.
+
+A / Ops Engineer: I recommend a dry run, then a small representative batch. We need to confirm the target inventory, expected changes, and service impact before expanding.
+
+B / Operations Manager: What does the dry run verify, and how will you select the first servers? Our application hosts and queue workers use different configuration layouts.
+
+A / Ops Engineer: It will list proposed changes without writing files. We will select one host from each layout and verify that critical redundant partners are outside the batch.
+
+B / Operations Manager: What happens if the script stops halfway through a host or the remote session drops? I do not want inconsistent configuration or duplicate changes.
+
+A / Ops Engineer: The script must write changes atomically, record per-host completion, and compare current state before retrying. We will test interruption and safe reruns in staging first.
+
+B / Operations Manager: Please also cover rollback. If the updated configuration causes an application failure, can we restore the previous file without introducing another compatibility problem?
+
+A / Ops Engineer: We will preserve protected configuration snapshots and test restoration with the deployed application version. Any required service restart must be included in the approved procedure.
+
+B / Operations Manager: That sounds reasonable. What evidence do you need from the first batch before you recommend proceeding, and what would automatically stop the remaining work?
+
+A / Ops Engineer: We need the expected file differences, healthy service checks, and successful business requests. Unexpected changes, failed checks, or elevated errors will stop the next batch.
+
+B / Operations Manager: I will approve the staged schedule once those prerequisites are documented. Let us review the dry-run results and interruption tests at 18:00 UTC before production execution.
+
+A / Ops Engineer: I will own execution and maintain a host-by-host record. We will expand only after each checkpoint passes and report completed, unchanged, failed, and pending hosts separately.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,792
+Narrator: Scenario 88. Changes, security, and disaster recovery.
+
+2
+00:00:07,392 --> 00:00:18,744
+A: We detected unusual logins and an unexpected process on one production host at 09:10 UTC. I have opened a restricted security incident record.
+
+3
+00:00:19,344 --> 00:00:31,464
+B: Please preserve the relevant evidence and avoid uncoordinated changes. Have you recorded the host identifier, alert source, and timestamps without sharing sensitive details broadly?
+
+4
+00:00:32,064 --> 00:00:43,296
+A: Yes. Those details are in the approved incident channel. I haven't rebooted the host or removed files because that could affect the investigation.
+
+5
+00:00:43,896 --> 00:00:54,120
+C: That host handles part of our order traffic. If isolation is needed, can we remove it from service while the remaining hosts support demand?
+
+6
+00:00:54,720 --> 00:01:05,640
+A: Current capacity suggests that is feasible, but I'll verify active connections and pending work first. We also need to identify any unique local state.
+
+7
+00:01:06,240 --> 00:01:15,984
+B: Follow the evidence collection steps in our response runbook using the approved tooling. I will decide the containment sequence with the incident lead.
+
+8
+00:01:16,584 --> 00:01:28,080
+C: The service team can monitor order completion during the change. Please tell us which customer symptoms to watch and whether any queued work needs reconciliation.
+
+9
+00:01:28,680 --> 00:01:40,056
+A: I'll track failed submissions, completion delays, and the affected host's pending jobs. We won't replay transactions until we know their original processing status.
+
+10
+00:01:40,656 --> 00:01:52,512
+B: The initial assessment supports isolating this host under our response procedure. Preserve access through the approved investigation path, and record each containment action.
+
+11
+00:01:53,112 --> 00:02:04,128
+C: I acknowledge the service impact and will coordinate traffic removal with Ops. We'll validate that customers can still complete orders after the isolation.
+
+12
+00:02:04,728 --> 00:02:17,256
+A: I'll execute the coordinated steps and log the results. Our next restricted update is at 09:40 UTC, including capacity, business checks, and pending evidence tasks.
+
+13
+00:02:17,856 --> 00:02:30,480
+B: Thank you. We'll communicate only confirmed facts and keep the scope under investigation. Suspicious activity alone does not establish the full extent of compromise.

@@ -1,0 +1,22 @@
+{
+  "scenarios": 100,
+  "turns": 1200,
+  "english_words": 28420,
+  "word_range": [
+    257,
+    303
+  ],
+  "mp3_files": 100,
+  "subtitle_files": 100,
+  "audio_hours": 3.98,
+  "audio_duration_range_seconds": [
+    128.592,
+    159.744
+  ],
+  "pdf_pages": 104,
+  "pdf_bookmarks": 100,
+  "all_audio_decodes": true,
+  "main_zip_bytes": 98144793,
+  "main_zip_entries": 306,
+  "chapter_zips": 10
+}

@@ -1,0 +1,26 @@
+SCENARIO 072
+确定等级并升级
+
+A / Ops Engineer: Checkout failures are confirmed in two regions, with thirty percent of attempts failing over ten minutes. This appears to meet our major-incident criteria.
+
+B / Incident Manager: What evidence supports that assessment, and which parts of the customer journey remain available? I need the current scope before assigning the severity.
+
+A / Ops Engineer: External checkout tests and production transaction records agree. Browsing and existing order lookup remain available; unique affected customer counts are still being validated.
+
+C / Application Lead: Application logs show payment confirmation timeouts. We have not determined whether the cause is in our code, the database, or the network path.
+
+B / Incident Manager: Under our documented impact criteria, I am declaring severity one and opening the major-incident bridge. Please record 14:12 UTC as the declaration time.
+
+A / Ops Engineer: I will page the application, database, and network on-call engineers through the escalation system, with the incident link and confirmed facts attached.
+
+B / Incident Manager: Ask each team to acknowledge ownership, not simply join the call. If anyone misses the policy response window, use the documented backup escalation.
+
+C / Application Lead: I accept the application investigation. I will compare failing and successful requests and check recent changes while preserving samples for the other teams.
+
+A / Ops Engineer: The database engineer has acknowledged; the network page is still pending. I am tracking both response times and will escalate if the window expires.
+
+B / Incident Manager: I will assign a communications lead and notify business operations through the incident process. Our first stakeholder update will focus on impact and response.
+
+C / Application Lead: Can we set the next technical checkpoint for 14:20 UTC? That gives each track time to gather evidence without delaying an urgent mitigation proposal.
+
+B / Incident Manager: Agreed. Escalate material changes immediately between checkpoints, and reassess severity if the measured impact changes. Recovery time remains unconfirmed at this stage.

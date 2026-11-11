@@ -1,0 +1,26 @@
+SCENARIO 010
+会末总结决定
+
+A / Meeting Facilitator: Before we close, let us confirm the decisions and action owners. I want the minutes to show what is agreed and what remains conditional.
+
+B / Application Lead: The application team will validate the fix in staging by November 12 at 17:00 UTC. That includes the original failure and the main regression checks.
+
+A / Meeting Facilitator: Please attach the test results rather than only marking the task complete. Who will review whether the evidence covers the reported business impact?
+
+C / Service Owner: I will review the business scenarios with the application lead. We need successful report generation and confirmation that previously queued reports are handled correctly.
+
+B / Application Lead: Agreed. We will include both checks. Operations also needs to confirm the rollback approach because the release changes a database index used by reporting.
+
+A / Meeting Facilitator: Operations will prepare that plan with the database owner by 16:00 UTC on November 12, including compatibility checks and the conditions for stopping deployment.
+
+C / Service Owner: Does completing those tasks automatically authorize production, or do we need a separate readiness decision before the maintenance window begins?
+
+A / Meeting Facilitator: We need a readiness decision and the required change approval. We will review the evidence at 18:00 UTC; preparation alone does not authorize deployment.
+
+B / Application Lead: If the staging test fails again, I will flag it immediately rather than wait for the meeting. We should not keep preparing around an unconfirmed fix.
+
+C / Service Owner: I will own the business acceptance result and stakeholder notice. Please send me any changed scope before I confirm the wording with regional teams.
+
+A / Meeting Facilitator: I will send the minutes within an hour, listing these owners, deadlines, evidence links, and the 18:00 UTC decision checkpoint. Please correct any misunderstanding.
+
+B / Application Lead: That matches my understanding. I own the staging validation, the service owner owns acceptance, and operations coordinates rollback readiness and the final evidence review.

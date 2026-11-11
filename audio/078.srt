@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,112
+Narrator: Scenario 78. Incident response.
+
+2
+00:00:05,712 --> 00:00:14,688
+B: Please give me a concise update I can use with the regional leaders. Start with what customers cannot do and what remains available.
+
+3
+00:00:15,288 --> 00:00:26,640
+A: Some customers in the Asia-Pacific region cannot create new orders. Browsing and existing order lookup remain available; we have not confirmed impact elsewhere.
+
+4
+00:00:27,240 --> 00:00:36,384
+B: How large is the impact, and are the figures stable enough to share? I want to avoid revising an unexplained headline number later.
+
+5
+00:00:36,984 --> 00:00:48,168
+A: Twenty percent of order creation requests failed during the last fifteen minutes. That includes retries, so we are still validating the affected customer count.
+
+6
+00:00:48,768 --> 00:00:56,616
+B: What are we doing to restore service, and is there anything you need from leadership to help the response move forward more quickly?
+
+7
+00:00:57,216 --> 00:01:08,376
+A: The team is validating a controlled rollback after compatibility checks. Incident roles and technical support are covered; we do not need an additional decision yet.
+
+8
+00:01:08,976 --> 00:01:19,272
+B: Can we tell customers they should retry shortly? Sales teams are asking for a recovery estimate and advice they can share without causing more confusion.
+
+9
+00:01:19,872 --> 00:01:31,248
+A: Recovery time is unconfirmed. Support is preparing approved guidance, including how customers can check an order before retrying and potentially creating a duplicate.
+
+10
+00:01:31,848 --> 00:01:41,712
+B: Is there evidence of lost data or unexpected charges? Those concerns will matter more to the business than the details of the technical change.
+
+11
+00:01:42,312 --> 00:01:53,400
+A: We have not confirmed either, but transaction reconciliation is ongoing. We will state that as an open validation item rather than give an unsupported assurance.
+
+12
+00:01:54,000 --> 00:02:05,928
+B: Please send the next update at 15:00 UTC, even if the recovery time is still unknown. Escalate immediately if the scope or customer risk increases.
+
+13
+00:02:06,528 --> 00:02:18,456
+A: Understood. I will report current impact, progress on mitigation, remaining uncertainty, and the next checkpoint, using the same definitions in every leadership update.

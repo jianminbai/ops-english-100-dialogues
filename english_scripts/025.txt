@@ -1,0 +1,26 @@
+SCENARIO 025
+TLS证书即将过期
+
+A / Ops Engineer: The production gateway certificate expires on November 18 at 12:00 UTC, seven days from now. Who owns renewal, installation, and client validation?
+
+B / Platform Engineer: Platform owns renewal and gateway installation. The certificate authority request is ready, but we need the application team to confirm the required hostnames.
+
+C / Application Lead: The customer portal and mobile API use this certificate. I will verify the hostname list against the current routing configuration and mobile client settings.
+
+A / Ops Engineer: Please also identify supported clients with special trust requirements. A browser test alone would not cover older mobile versions or integrated partner systems.
+
+B / Platform Engineer: The new certificate will use the approved issuing chain. I will check the private key match, validity dates, and intermediate certificates before installation.
+
+C / Application Lead: One partner pins a certificate authority rather than our leaf certificate. I will ask their technical owner to validate the proposed chain today.
+
+A / Ops Engineer: Can we complete staging validation tomorrow and install before the weekend? That would leave time to address compatibility issues while the current certificate remains valid.
+
+B / Platform Engineer: Yes, subject to change approval. I propose November 13 at 09:00 UTC, starting with one gateway and comparing the served chain before continuing.
+
+C / Application Lead: I will test browser login, mobile API access, and the partner connection. If a supported client fails, we will pause and capture its error.
+
+A / Ops Engineer: Keep the existing certificate available during the validation period. Any rollback must happen before its expiry and follow the same controlled deployment process.
+
+B / Platform Engineer: I will attach the installation evidence and verify every gateway serves the new certificate. I will also confirm the expiry monitor discovers the new date.
+
+A / Ops Engineer: Let us review readiness tomorrow at 15:00 UTC. Platform owns deployment, application owns client checks, and I will track the approval and final evidence.

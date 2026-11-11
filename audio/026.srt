@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,136
+Narrator: Scenario 26. Network and access.
+
+2
+00:00:05,736 --> 00:00:15,744
+B: My VPN connection shows as active, but the production management page times out. I need to review a deployment before the release meeting.
+
+3
+00:00:16,344 --> 00:00:27,120
+A: Can you reach other internal services through this connection? Please tell me whether the failure affects one hostname, the entire management subnet, or everything.
+
+4
+00:00:27,720 --> 00:00:39,480
+B: The internal documentation site and code repository work. Two management hosts in the same subnet time out, although both names resolve to expected addresses.
+
+5
+00:00:40,080 --> 00:00:50,856
+A: That narrows the scope. Please share the VPN profile name and failure timestamps through the support ticket, without including credentials or connection secrets.
+
+6
+00:00:51,456 --> 00:01:02,112
+C: Your approved profile includes read-only access to that management network. I will compare the assigned routes and policy groups with the access approval.
+
+7
+00:01:02,712 --> 00:01:12,264
+B: I moved to the new VPN client yesterday. Could reinstalling the client help, or should I try adding the missing route manually first?
+
+8
+00:01:12,864 --> 00:01:23,616
+A: Please leave the client configuration unchanged while we collect evidence. A manual route could hide the provisioning problem and might not match your approved access.
+
+9
+00:01:24,216 --> 00:01:34,704
+C: The new client received the standard profile instead of the approved operations profile. Its route list does not include the management subnet.
+
+10
+00:01:35,304 --> 00:01:46,128
+A: Can you correct the profile assignment through the normal access process? We should verify that the update grants only the management destinations already approved.
+
+11
+00:01:46,728 --> 00:01:58,152
+C: Yes. I will apply the approved mapping and ask you to reconnect. We will check the route table and gateway logs at 13:30 UTC.
+
+12
+00:01:58,752 --> 00:02:09,120
+B: I will reconnect at that time and test the read-only management page. I will also confirm that the documentation site and repository still work.
+
+13
+00:02:09,720 --> 00:02:20,136
+A: I will document the results and hand the client migration issue to the VPN owner. Successful connection alone will not be our closure criterion.

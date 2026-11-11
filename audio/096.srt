@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,072
+Narrator: Scenario 96. Follow up and operational improvement.
+
+2
+00:00:06,672 --> 00:00:18,288
+A: The order service has been stable for forty minutes after we reduced batch concurrency. Root-cause investigation and backlog reconciliation remain open at this handover.
+
+3
+00:00:18,888 --> 00:00:29,256
+B: Before I take ownership, please summarize current customer impact, the remaining backlog, and whether any temporary controls need attention during my shift.
+
+4
+00:00:29,856 --> 00:00:41,760
+A: New orders are completing normally. About four thousand eight hundred older orders remain queued, and processing is averaging three hundred per minute without a completion guarantee.
+
+5
+00:00:42,360 --> 00:00:51,480
+B: Are those counts from the latest snapshot, and how will I distinguish normal drain progress from a recurrence that requires escalation to the incident lead?
+
+6
+00:00:52,080 --> 00:01:03,216
+A: They are from 07:55 UTC. The ticket defines escalation if queue age rises for ten minutes or order failures exceed the approved incident threshold.
+
+7
+00:01:03,816 --> 00:01:13,872
+B: I'll use those documented thresholds. Is the lower concurrency setting still required, and does changing it need approval from the current incident lead?
+
+8
+00:01:14,472 --> 00:01:27,528
+A: Yes. Keep it in place until the dependency owner reviews the evidence. Raising concurrency could overload that dependency again, so any adjustment needs coordinated approval.
+
+9
+00:01:28,128 --> 00:01:37,728
+B: Who owns reconciliation, and are there orders with uncertain outcomes that we must not replay automatically while working through the remaining processing backlog?
+
+10
+00:01:38,328 --> 00:01:49,608
+A: The application owner is checking uncertain transactions against payment records. Their list is linked in the ticket; those orders are excluded from automated replay.
+
+11
+00:01:50,208 --> 00:02:02,520
+B: I have the ticket, dashboards, restricted evidence links, and escalation contacts open. The next stakeholder update is at 08:30 UTC; I'll lead that update.
+
+12
+00:02:03,120 --> 00:02:15,840
+A: Correct. Please explicitly confirm ownership from 08:00 UTC. I'll remain reachable during the agreed overlap if anything in the handover needs clarification.
+
+13
+00:02:16,440 --> 00:02:28,848
+B: I've reviewed the handover and accept ownership from 08:00 UTC. I'll monitor recovery, coordinate the pending investigation, and record the next reconciliation checkpoint.

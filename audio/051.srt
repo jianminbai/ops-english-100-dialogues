@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,504
+Narrator: Scenario 51. Databases, middleware, and batch processing.
+
+2
+00:00:07,104 --> 00:00:16,560
+B: Database response time has doubled since the release. Should we move to a larger instance before the next peak traffic period begins?
+
+3
+00:00:17,160 --> 00:00:26,928
+A: A small set of queries accounts for most of the increase. We're reviewing their execution plans before deciding whether more resources would help.
+
+4
+00:00:27,528 --> 00:00:38,064
+C: One customer search query now scans two million rows instead of twenty thousand. The release added a filter that changed the access plan.
+
+5
+00:00:38,664 --> 00:00:47,880
+B: Is that conclusion based on a production sample or a test run? We should make sure the slower query explains the customer impact.
+
+6
+00:00:48,480 --> 00:01:00,072
+A: Production traces link it to the affected search requests. Other database operations remain near baseline, and overall request volume hasn't changed significantly.
+
+7
+00:01:00,672 --> 00:01:12,192
+C: I'll compare the old and new plans using representative parameters in the test environment. Data distribution matters, so one fast sample won't be sufficient.
+
+8
+00:01:12,792 --> 00:01:22,224
+B: Could a new index solve this faster than changing the application query? We need a practical mitigation as well as a longer-term fix.
+
+9
+00:01:22,824 --> 00:01:34,776
+C: Possibly, but index creation has storage, locking, and write costs. I'll assess those alongside a query rewrite instead of assuming an index is harmless.
+
+10
+00:01:35,376 --> 00:01:46,032
+A: We can temporarily limit the optional bulk search feature through its approved control. That should reduce pressure while preserving individual account lookups.
+
+11
+00:01:46,632 --> 00:01:56,760
+B: I'll confirm that tradeoff with the business owner. What evidence will we review before choosing and approving the targeted database or application change?
+
+12
+00:01:57,360 --> 00:02:10,344
+C: Compare query latency, rows examined, write performance, and resource use across representative cases. I'll bring the results and deployment risks to our thirty-minute checkpoint.
+
+13
+00:02:10,944 --> 00:02:21,720
+A: I'll track search completion and database health during the mitigation. After the fix, we'll compare against the same baseline before considering the issue resolved.

@@ -1,0 +1,26 @@
+SCENARIO 047
+重试放大流量
+
+B / Incident Lead: Calls to the inventory dependency tripled, but customer activity stayed flat. Is this a traffic spike, or are our systems generating extra work?
+
+A / Ops Engineer: The edge request rate is stable. Traces show the same operation retried by the application client and again by an internal proxy.
+
+C / Developer: Each layer allows two retries, so one customer request can trigger several downstream attempts. The timeout settings may also make those attempts overlap.
+
+B / Incident Lead: Should we disable every retry while inventory recovers? We need to lower the load quickly, but I don't want to lose recoverable requests.
+
+A / Ops Engineer: Let's choose one retry owner and set a bounded policy. Different operations need different treatment, especially if they can change inventory or create reservations.
+
+C / Developer: Availability checks are read-only. Reservations use an idempotency key, but we must verify that the same key survives every retry before relying on it.
+
+B / Incident Lead: Which change can we safely make first under the incident procedure? Please include a measurable target so we can judge whether it helps.
+
+A / Ops Engineer: We can remove duplicate proxy retries for availability checks and keep one client retry with backoff and jitter, using the approved configuration control.
+
+C / Developer: I'll review reservation traces separately and hold its retry policy unchanged until key propagation is verified. We should also respect the dependency's retry guidance.
+
+A / Ops Engineer: The target is fewer downstream attempts per incoming request, alongside improving success rates. A lower call count alone could simply mean more requests fail immediately.
+
+B / Incident Lead: Proceed with that scoped mitigation after approval. I'll ask the inventory owner to report capacity and errors at our checkpoint in ten minutes.
+
+C / Developer: I'll document the retry chain and propose a single coordinated policy afterward. We'll keep monitoring reservations for duplicates while validating customer recovery.

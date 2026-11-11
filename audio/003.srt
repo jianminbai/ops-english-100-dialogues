@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,232
+Narrator: Scenario 3. Global meeting communication.
+
+2
+00:00:05,832 --> 00:00:17,256
+A: The proposed meeting is November 12, 2026, at 14:00 UTC. Please check whether your change reviewers can attend for forty minutes.
+
+3
+00:00:17,856 --> 00:00:27,384
+B: Our clocks changed recently, so the usual calendar shortcut may be misleading. Could you include the local date and time for each location?
+
+4
+00:00:27,984 --> 00:00:39,528
+A: Yes. Please confirm the cities or named time zones your reviewers use. I will verify conversions for that specific date before sending the invitation.
+
+5
+00:00:40,128 --> 00:00:50,712
+C: Our reviewers are in Berlin. That slot is workable, but we should avoid assuming every European office follows exactly the same working hours.
+
+6
+00:00:51,312 --> 00:01:01,080
+B: The US reviewers are in New York and Phoenix. They do not necessarily follow the same seasonal clock rules, so please check both.
+
+7
+00:01:01,680 --> 00:01:12,144
+A: Understood. I will use the calendar time-zone database and display UTC in the description, with each location listed separately for confirmation.
+
+8
+00:01:12,744 --> 00:01:23,688
+C: What about the APAC team? We should check their availability before treating this as the final slot, especially if it falls outside normal hours.
+
+9
+00:01:24,288 --> 00:01:32,880
+A: Their regional coordinator has accepted the proposed slot, but I am still checking whether the database reviewer can attend or needs a delegate.
+
+10
+00:01:33,480 --> 00:01:43,440
+B: If a required reviewer cannot join, can we collect written feedback first? I would prefer that to repeatedly moving the meeting at short notice.
+
+11
+00:01:44,040 --> 00:01:54,744
+A: Yes, provided the change process allows that reviewer to delegate or comment asynchronously. I will confirm the requirement with the change coordinator.
+
+12
+00:01:55,344 --> 00:02:04,872
+C: Please rotate the inconvenient slot for the next review. We can keep a simple record so the same region does not always absorb it.
+
+13
+00:02:05,472 --> 00:02:16,440
+A: I will send the verified invitation by 17:00 UTC today and record the rotation. Please report any calendar mismatch before accepting it.

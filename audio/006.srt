@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,280
+Narrator: Scenario 6. Global meeting communication.
+
+2
+00:00:05,880 --> 00:00:16,056
+B: Can we deploy the infrastructure change during today’s peak traffic? The project is already late, and the business team wants progress this afternoon.
+
+3
+00:00:16,656 --> 00:00:26,952
+A: I understand the urgency, but I am concerned about recovery if it fails. This change affects shared routing for three customer-facing services.
+
+4
+00:00:27,552 --> 00:00:37,584
+B: The configuration passed staging tests. What additional risk do you see in production that would justify waiting for the approved maintenance window?
+
+5
+00:00:38,184 --> 00:00:48,960
+A: Production has much higher connection volume. We have not validated the recovery procedure under that load, and peak traffic leaves less spare capacity.
+
+6
+00:00:49,560 --> 00:00:58,896
+B: Could we reduce the scope to one gateway and move forward? A smaller change might allow us to demonstrate progress without a full rollout.
+
+7
+00:00:59,496 --> 00:01:08,592
+A: A limited rollout could reduce exposure, but it still needs an approved plan, clear stop conditions, and evidence that traffic can return safely.
+
+8
+00:01:09,192 --> 00:01:18,096
+B: What would you recommend we complete today, and what should remain scheduled for the low-traffic window? I need a concrete plan to share.
+
+9
+00:01:18,696 --> 00:01:30,048
+A: Today we can verify configuration differences, rehearse rollback in staging, and confirm monitoring coverage. The production change should stay in the approved window.
+
+10
+00:01:30,648 --> 00:01:39,024
+B: If the business insists that waiting has a material cost, is there a formal route to review the timing rather than arguing informally?
+
+11
+00:01:39,624 --> 00:01:51,624
+A: Yes. The change owner can request an expedited risk review with the designated approver, including business impact, technical evidence, and available recovery options.
+
+12
+00:01:52,224 --> 00:02:03,000
+B: I will explain the options and keep the current window unless a revised plan is approved. Can you finish the readiness checks by 17:00 UTC?
+
+13
+00:02:03,600 --> 00:02:15,120
+A: Yes. I will publish the checklist results by then and highlight any unresolved risks. We can use those results for the final readiness decision.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,912
+Narrator: Scenario 84. Changes, security, and disaster recovery.
+
+2
+00:00:07,512 --> 00:00:16,848
+C: The new application needs an extra column on the orders table. Can we add it during deployment and remove the old column afterward?
+
+3
+00:00:17,448 --> 00:00:29,184
+A: Let's separate those steps. We need the database review to cover locking, expected duration, replication impact, and compatibility with both application versions.
+
+4
+00:00:29,784 --> 00:00:40,920
+B: The table contains eighty million rows. Our database supports an online operation for this addition, but acquiring the initial lock can still block traffic.
+
+5
+00:00:41,520 --> 00:00:52,392
+C: What testing would show whether that lock is acceptable? A small development database completes the change almost immediately, so it hasn't revealed much.
+
+6
+00:00:52,992 --> 00:01:04,872
+B: I'll test on a representative copy with realistic concurrent writes. We'll measure lock waits, replica lag, disk usage, and the operation's cancellation behavior.
+
+7
+00:01:05,472 --> 00:01:15,600
+A: Please define a lock timeout and explicit stop conditions. If migration stops halfway, what state should the deployment team expect to find?
+
+8
+00:01:16,200 --> 00:01:27,384
+B: The column addition and data backfill are separate. The backfill will use restartable batches with progress records; we must inspect state before retrying.
+
+9
+00:01:27,984 --> 00:01:38,184
+C: I can make this release accept both schemas and read the new field only when populated. We'll keep writes compatible with the previous version.
+
+10
+00:01:38,784 --> 00:01:49,344
+A: Then application rollback can leave the added column in place. Removing the old column must wait until older versions and dependent jobs no longer need it.
+
+11
+00:01:49,944 --> 00:02:01,800
+B: Agreed. A backup is useful recovery evidence, but restoring this entire database would be a separate, disruptive operation requiring its own recovery decision.
+
+12
+00:02:02,400 --> 00:02:14,232
+C: I'll submit the compatibility tests and revised migration sequence by November 13 at 12:00 UTC, including the behavior when some rows remain unfilled.
+
+13
+00:02:14,832 --> 00:02:25,488
+A: We'll review those results with the database tests before approval. The production plan will name a migration owner and a separate business validation owner.

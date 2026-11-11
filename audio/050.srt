@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,040
+Narrator: Scenario 50. Application operations.
+
+2
+00:00:05,640 --> 00:00:14,904
+B: The new API passes our integration tests. Which clients are failing, and do they all receive the same response from the server?
+
+3
+00:00:15,504 --> 00:00:26,904
+A: Clients using the previous response format fail when parsing the result. The server returns success, so the usual server error dashboard misses this impact.
+
+4
+00:00:27,504 --> 00:00:37,896
+C: How much production traffic still comes from those clients? Can we coordinate an immediate upgrade, or are some versions outside our direct control?
+
+5
+00:00:38,496 --> 00:00:49,368
+A: Older clients account for eighteen percent of requests. Some belong to external partners, and their release schedules mean an immediate upgrade isn't realistic.
+
+6
+00:00:49,968 --> 00:01:00,312
+B: We replaced a text status field with a structured object. Our tests covered current clients, but they didn't include the older partner contract.
+
+7
+00:01:00,912 --> 00:01:11,952
+C: Then we need a compatible mitigation while those clients are updated. Is restoring the old field possible without breaking clients already using the new format?
+
+8
+00:01:12,552 --> 00:01:23,376
+B: We can serve the previous format through the existing versioned endpoint. I'll verify that its routing and response behavior still match the documented contract.
+
+9
+00:01:23,976 --> 00:01:34,224
+A: Please check how callers select that endpoint. We should avoid guessing client versions from incomplete headers or sending partners to an untested fallback.
+
+10
+00:01:34,824 --> 00:01:45,960
+C: I'll have the integration owner confirm the affected client list and contact owners through the established process. What validation do you need before rollout?
+
+11
+00:01:46,560 --> 00:01:58,104
+B: Contract tests for both response versions, plus sample calls from an affected partner client. We also need to check that both paths preserve authorization behavior.
+
+12
+00:01:58,704 --> 00:02:09,696
+A: I'll monitor client completion metrics as well as server responses. Let's review the test evidence in twenty minutes before approving the compatibility change.
+
+13
+00:02:10,296 --> 00:02:20,784
+C: Agreed. I'll own the migration schedule and require confirmed client adoption before we set a retirement date for the older API version.

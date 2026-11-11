@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,280
+Narrator: Scenario 49. Application operations.
+
+2
+00:00:05,880 --> 00:00:15,456
+B: Is this our issue or the payment provider's issue? Support needs a clear explanation because customers are reporting failed payment attempts.
+
+3
+00:00:16,056 --> 00:00:26,880
+A: We see failures on the provider path, but we're validating both sides before assigning the cause. Their public status page still reports normal service.
+
+4
+00:00:27,480 --> 00:00:37,056
+C: What evidence do you have so far? I can open a priority support case, but the provider will ask for specific examples.
+
+5
+00:00:37,656 --> 00:00:49,752
+A: Twelve percent of authorization requests returned gateway errors over fifteen minutes. Our request format, credentials, and network reachability checks passed for the sampled calls.
+
+6
+00:00:50,352 --> 00:00:59,280
+B: Does that mean those customers weren't charged? We need to avoid telling them to retry if the first attempt might still complete.
+
+7
+00:00:59,880 --> 00:01:11,520
+A: Not necessarily. Some responses are ambiguous, so we'll check transaction status using the provider's documented process and reconcile against our order records.
+
+8
+00:01:12,120 --> 00:01:25,272
+C: Please send sanitized request IDs, UTC timestamps, response codes, and the completed checks. I'll use the approved support channel and exclude payment details.
+
+9
+00:01:25,872 --> 00:01:37,248
+A: I'll include examples from successful and failed calls, plus the affected region. That comparison may help them distinguish routing trouble from account configuration.
+
+10
+00:01:37,848 --> 00:01:47,184
+B: Can we route customers to our other payment method while the case is open? It's already available, but we need to understand its capacity.
+
+11
+00:01:47,784 --> 00:01:58,320
+A: I'll ask its service owner to assess headroom and confirm the approved customer flow. We shouldn't switch pending transactions without checking their current status.
+
+12
+00:01:58,920 --> 00:02:10,536
+C: I'll own the provider escalation and request an acknowledgement. I'll update the incident in fifteen minutes even if they haven't confirmed a cause or recovery estimate.
+
+13
+00:02:11,136 --> 00:02:20,808
+B: I'll coordinate the customer message: some payments are failing, pending transactions are being checked, and the next update will follow that checkpoint.

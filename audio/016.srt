@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,376
+Narrator: Scenario 16. Infrastructure operations.
+
+2
+00:00:05,976 --> 00:00:17,448
+A: The security patches require a reboot. Before confirming tonight’s maintenance, can the service tolerate one node being unavailable while the remaining nodes handle traffic?
+
+3
+00:00:18,048 --> 00:00:28,776
+B: Yes, provided the remaining nodes have enough capacity. We have three application nodes, but I want current load figures rather than last month’s estimate.
+
+4
+00:00:29,376 --> 00:00:39,552
+A: Yesterday’s peak and the latest load test support running on two nodes with reserve. I will recheck current traffic before we start the approved change.
+
+5
+00:00:40,152 --> 00:00:50,160
+B: How will you remove a node from service? Some requests can run for several minutes, and a sudden disconnect would interrupt customer exports.
+
+6
+00:00:50,760 --> 00:00:59,040
+A: We will stop new traffic to one node, wait for active requests to drain, and confirm the drain before applying patches and rebooting.
+
+7
+00:00:59,640 --> 00:01:10,176
+B: Please define what validation means before putting it back. A successful reboot and a green host check do not prove the application functions correctly.
+
+8
+00:01:10,776 --> 00:01:22,392
+A: We will check the patch version, application dependencies, and a representative export. Then we will restore limited traffic and observe errors and latency for ten minutes.
+
+9
+00:01:22,992 --> 00:01:34,128
+B: That works. Stop the rollout if checks fail or service errors exceed the agreed threshold. Do not patch another node while the first remains uncertain.
+
+10
+00:01:34,728 --> 00:01:44,496
+A: Agreed. If the patched node cannot return safely, we will keep it out of traffic and follow the approved recovery plan with the platform owner.
+
+11
+00:01:45,096 --> 00:01:55,872
+B: Is the previous system image still usable, or could restoring it conflict with application state? Please confirm the recovery method before the window begins.
+
+12
+00:01:56,472 --> 00:02:08,712
+A: These nodes are stateless, and the platform owner will verify image compatibility and the rebuild procedure by 18:00 UTC. No database changes are included.
+
+13
+00:02:09,312 --> 00:02:21,720
+B: I will review that evidence at 18:30 UTC and confirm business coverage. Record each node’s validation before proceeding, and share the final service check afterward.

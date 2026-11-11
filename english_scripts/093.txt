@@ -1,0 +1,26 @@
+SCENARIO 093
+落实行动负责人和期限
+
+B / Review Lead: We've agreed to improve alerting and update the recovery runbook. Can I record one action saying the operations team will handle both items?
+
+A / Ops Engineer: Let's split them into separate actions with one accountable owner each. Otherwise, a partial update could make the whole improvement appear complete.
+
+C / Monitoring Lead: I'll own the alerting action. The current rule reacts only when the queue is already full, so I propose detecting sustained processing delays earlier.
+
+A / Ops Engineer: What proves completion? We should specify the failure to replay, the maximum detection time, and how we confirm the notification reaches the correct on-call engineer.
+
+C / Monitoring Lead: In the test, we'll stop a worker and replay representative traffic. The alert must fire within two minutes and reach the assigned on-call route.
+
+B / Review Lead: That covers detection, but could the rule also page constantly during normal low traffic? Please include evidence that it handles expected quiet periods appropriately.
+
+C / Monitoring Lead: Agreed. I'll test the quiet-period behavior and attach both results. I can commit to a reviewed rule by November 18 at 12:00 UTC.
+
+A / Ops Engineer: I'll own the runbook action separately. Acceptance will require another engineer to follow the steps, identify the stop condition, and complete the recovery check.
+
+B / Review Lead: Who will review that exercise, and does your due date depend on the alerting change being finished first? We should show any sequencing explicitly.
+
+A / Ops Engineer: The service lead will review it. The recovery steps can be validated independently, but I'll link the final alert reference after the monitoring review.
+
+C / Monitoring Lead: I will share the proposed alert details early so the runbook doesn't wait unnecessarily. Any change to our commitment will be recorded with the reason.
+
+B / Review Lead: I'll create two tracked actions with those owners, criteria, and dependencies. We'll check progress on November 16 and keep completion evidence attached to each record.

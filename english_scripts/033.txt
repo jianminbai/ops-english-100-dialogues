@@ -1,0 +1,26 @@
+SCENARIO 033
+Pod持续重启
+
+B / Application Developer: The new pods keep restarting with CrashLoopBackOff. Is the Kubernetes cluster unstable, or did the deployment introduce a problem with our application?
+
+A / Ops Engineer: Other workloads on the same nodes are stable. These containers exit within three seconds, and their last logs report a missing required configuration value.
+
+B / Application Developer: Please share the previous container logs and exit code. The live logs disappear too quickly, and I want to compare them with the startup changes.
+
+A / Ops Engineer: I attached sanitized previous logs and the deployment revision to the incident. The exit code is one, and there is no recorded memory kill.
+
+B / Application Developer: The new version requires a queue endpoint variable. It exists in staging, but the production deployment template does not reference the corresponding configuration key.
+
+A / Ops Engineer: That matches the error, but let us verify the intended production endpoint before adding it. We should not copy staging values into production.
+
+B / Application Developer: The application configuration owner confirms the approved endpoint. I can update the template and run validation to check that every required startup value is present.
+
+A / Ops Engineer: How is customer traffic affected right now? The old replicas are still running, so we need their capacity and error rates before choosing the next step.
+
+B / Application Developer: The rollout stopped after two new pods failed. The old replicas retain full serving capacity, and we have not observed an increase in customer errors.
+
+A / Ops Engineer: Keep the rollout paused while the template correction is reviewed. After approval, validate one new pod’s startup, readiness, queue access, and a representative business transaction.
+
+B / Application Developer: I will own the correction and provide the test evidence at 14:00 UTC. If validation fails, we will stop and retain the currently serving revision.
+
+A / Ops Engineer: I will monitor the remaining rollout and record the configuration gap. We should add a required-value check to deployment validation before the next release.

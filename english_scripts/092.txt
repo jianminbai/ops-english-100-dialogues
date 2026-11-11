@@ -1,0 +1,26 @@
+SCENARIO 092
+根因尚未确认
+
+B / Engineering Manager: The restart restored service, and memory usage dropped afterward. Can we write memory leakage as the root cause and finish the incident report?
+
+A / Ops Engineer: Not yet. A restart clears several types of state, so the lower memory usage doesn't establish a leak. The underlying cause remains unconfirmed.
+
+B / Engineering Manager: What do we know for certain, and how can we communicate progress without leaving readers with the impression that we have no investigation plan?
+
+A / Ops Engineer: We confirmed rising response times, stalled worker threads, and recovery after restarting two instances. We haven't established why those workers stopped completing requests.
+
+B / Engineering Manager: Do the available logs support other hypotheses, such as a blocked dependency or connection pool exhaustion, rather than an issue with memory allocation?
+
+A / Ops Engineer: Both remain plausible. Connection waits increased, but the logs don't show whether that was the initiating problem or a consequence of stalled workers.
+
+B / Engineering Manager: What evidence should we collect next time, and can we gather it without delaying recovery for users if the same symptoms return?
+
+A / Ops Engineer: We'll add approved thread and memory diagnostics with bounded collection time. The runbook will prioritize recovery and specify when to stop collecting evidence.
+
+B / Engineering Manager: Please make the investigation finite. Who will examine the existing evidence, and when should we decide whether additional testing is worth the effort?
+
+A / Ops Engineer: The application owner will review thread samples, and I'll correlate dependency metrics. We'll present findings and a recommendation on November 17 at 14:00 UTC.
+
+B / Engineering Manager: Until then, the report should state that service recovered, monitoring continues, and root-cause analysis remains open. Avoid promising a confirmed cause by that date.
+
+A / Ops Engineer: Agreed. I'll document the confirmed symptoms, effective mitigation, competing hypotheses, and evidence gaps. At the checkpoint, we'll decide the next investigation step explicitly.

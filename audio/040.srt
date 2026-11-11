@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,288
+Narrator: Scenario 40. Cloud platforms, containers, and automation.
+
+2
+00:00:06,888 --> 00:00:19,008
+B: Can we run the configuration repair script across all 120 production servers tonight? Completing them together would clear a large maintenance backlog before tomorrow’s review.
+
+3
+00:00:19,608 --> 00:00:30,984
+A: I recommend a dry run, then a small representative batch. We need to confirm the target inventory, expected changes, and service impact before expanding.
+
+4
+00:00:31,584 --> 00:00:41,928
+B: What does the dry run verify, and how will you select the first servers? Our application hosts and queue workers use different configuration layouts.
+
+5
+00:00:42,528 --> 00:00:53,232
+A: It will list proposed changes without writing files. We will select one host from each layout and verify that critical redundant partners are outside the batch.
+
+6
+00:00:53,832 --> 00:01:04,056
+B: What happens if the script stops halfway through a host or the remote session drops? I do not want inconsistent configuration or duplicate changes.
+
+7
+00:01:04,656 --> 00:01:16,632
+A: The script must write changes atomically, record per-host completion, and compare current state before retrying. We will test interruption and safe reruns in staging first.
+
+8
+00:01:17,232 --> 00:01:29,160
+B: Please also cover rollback. If the updated configuration causes an application failure, can we restore the previous file without introducing another compatibility problem?
+
+9
+00:01:29,760 --> 00:01:42,096
+A: We will preserve protected configuration snapshots and test restoration with the deployed application version. Any required service restart must be included in the approved procedure.
+
+10
+00:01:42,696 --> 00:01:52,968
+B: That sounds reasonable. What evidence do you need from the first batch before you recommend proceeding, and what would automatically stop the remaining work?
+
+11
+00:01:53,568 --> 00:02:05,904
+A: We need the expected file differences, healthy service checks, and successful business requests. Unexpected changes, failed checks, or elevated errors will stop the next batch.
+
+12
+00:02:06,504 --> 00:02:19,560
+B: I will approve the staged schedule once those prerequisites are documented. Let us review the dry-run results and interruption tests at 18:00 UTC before production execution.
+
+13
+00:02:20,160 --> 00:02:32,496
+A: I will own execution and maintain a host-by-host record. We will expand only after each checkpoint passes and report completed, unchanged, failed, and pending hosts separately.

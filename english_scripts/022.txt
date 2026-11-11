@@ -1,0 +1,26 @@
+SCENARIO 022
+防火墙端口申请
+
+A / Ops Engineer: The reporting application needs to reach the internal database on TCP port 5432. I have opened a firewall request for the production environment.
+
+B / Security Reviewer: Please provide the exact source range, destination address, and business justification. We also need an owner and a review date for this access.
+
+A / Ops Engineer: The source is the reporting subnet, and the destination is the database service address. The approved data flow shows scheduled revenue reports.
+
+C / Network Engineer: That subnet contains another application. Can we restrict the source to the reporting security group instead, assuming the network platform supports that reference?
+
+A / Ops Engineer: Yes, that would match the actual consumers more closely. I will update the request and attach the application inventory before the review.
+
+B / Security Reviewer: Will this connection require a database administrator account? Network reachability should not grant broader database permissions than the reporting task actually needs.
+
+A / Ops Engineer: The application will use a dedicated read-only account from the approved secret store. Database permissions and encrypted connections are covered by separate checks.
+
+C / Network Engineer: Once security approves the revised scope, I can schedule the rule change for 14:00 UTC. We should test both allowed and denied traffic.
+
+A / Ops Engineer: I will run the reporting connection test and a small query. Could you confirm that an unrelated application still cannot reach the database?
+
+B / Security Reviewer: That is appropriate. Please capture connection results without account secrets, and make sure the ticket references the approved change and access owner.
+
+C / Network Engineer: If the validation fails, I will remove the new rule and compare the firewall logs with your test timestamps before proposing another change.
+
+A / Ops Engineer: I will own the final verification and attach evidence by 14:30 UTC. We will close the request only after the reporting job completes successfully.

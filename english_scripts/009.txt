@@ -1,0 +1,26 @@
+SCENARIO 009
+无法承诺恢复时间
+
+B / Business Lead: Can you confirm the service will be back within thirty minutes? Our operations team needs to decide whether to activate the manual order process.
+
+A / Ops Engineer: We do not have a reliable recovery estimate yet. We are validating a mitigation, but we have not confirmed that it restores successful order processing.
+
+B / Business Lead: What does validating mean in this case? The dashboard looks better than it did ten minutes ago, so people are expecting a quick recovery.
+
+A / Ops Engineer: The error rate has decreased, but some orders still time out. We need to check completed orders and payment status, not only server health.
+
+B / Business Lead: If you cannot give a recovery time, what information can I use to decide whether our staff should switch to the manual process?
+
+A / Ops Engineer: I can provide the current failure rate, affected functions, and trend. Your team should apply the documented business continuity criteria using those facts.
+
+B / Business Lead: Our procedure says to consider manual handling after twenty minutes of sustained order failures. We have reached that point, but duplicate orders are a concern.
+
+A / Ops Engineer: Please coordinate with the order owner before entering replacements. A timed-out request may still complete, so reconciliation is necessary before retrying or manually recreating it.
+
+B / Business Lead: Understood. When will you know more about the mitigation, and how will you tell us if the recovery estimate remains uncertain?
+
+A / Ops Engineer: We will update you by 14:30 UTC, even if there is no confirmed estimate. The update will include validation results and any change in business impact.
+
+B / Business Lead: I will have the order owner review the manual procedure now and tell staff that the next update time is not a promised recovery time.
+
+A / Ops Engineer: Thank you. I own the technical update and will notify you earlier if impact worsens or we confirm that normal order processing has recovered.

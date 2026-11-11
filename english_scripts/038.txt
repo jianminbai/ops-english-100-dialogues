@@ -1,0 +1,26 @@
+SCENARIO 038
+环境配置不一致
+
+B / Application Lead: The release passed staging yesterday, but production validation is failing. What differs between the environments besides the customer data and normal scale differences?
+
+A / Ops Engineer: The configuration comparison shows a different dependency endpoint and one feature flag enabled only in production. We need to confirm whether both differences are intentional.
+
+B / Application Lead: The dependency endpoint should differ because production uses a separate account. I do not recognize the enabled flag; it activates the new asynchronous validation path.
+
+A / Ops Engineer: Where is the approved flag state documented, and who owns it? We should compare against that source rather than make production identical to staging.
+
+B / Application Lead: The rollout document says the flag must remain disabled until partner testing finishes. The application team owns it, and partner approval is still pending.
+
+A / Ops Engineer: The deployment history shows the production override was omitted from the new template. The application then used its default value, which enables the feature.
+
+B / Application Lead: That explains the unexpected path, but could the endpoint also be wrong? I want to rule out a second issue before we propose the correction.
+
+A / Ops Engineer: The endpoint matches the approved production inventory, and connectivity checks pass. Keep that intentional difference; correct the flag override through the reviewed configuration change.
+
+B / Application Lead: The flag affects only new requests. I will verify whether any asynchronous requests are still pending and define how they complete without being submitted twice.
+
+A / Ops Engineer: After approval, restore the documented flag state on one instance first. We should validate the normal path and inspect the pending requests before expanding.
+
+B / Application Lead: I will own the configuration correction and request tracking. The validation evidence and pending-request status will be ready at our 16:30 UTC checkpoint.
+
+A / Ops Engineer: I will compare error rates and completed transactions with baseline. We should also add explicit production flag values and required override checks to release validation.

@@ -1,0 +1,26 @@
+SCENARIO 036
+自动扩容未触发
+
+B / Application Lead: Request latency has doubled, and the queue keeps growing. Why has the autoscaler stayed at six replicas when its configured maximum is twelve?
+
+A / Ops Engineer: It scales on average CPU utilization, which is forty percent against a seventy percent target. The controller is receiving valid metrics and behaving as configured.
+
+B / Application Lead: The workers may be waiting on database connections instead of using CPU. Could queue depth be a more useful scaling signal for this service?
+
+A / Ops Engineer: The CPU signal does not reflect this waiting time. Before choosing queue depth, let us inspect dependency capacity so additional replicas do not increase database pressure.
+
+B / Application Lead: The traces show long connection waits, and the database connection pool is almost full. Application CPU dropped as the connection waits started rising.
+
+A / Ops Engineer: That supports a downstream constraint. I will ask the database owner to inspect active queries and locks, while we check request concurrency and retry volume.
+
+B / Application Lead: We found a reporting query holding locks longer than usual. The database owner is reviewing it; meanwhile, should we increase connection limits to clear the queue?
+
+A / Ops Engineer: More connections could intensify contention. Keep the approved limits while the owner assesses the query, and use existing admission controls to protect critical requests.
+
+B / Application Lead: I will verify that client retries follow our backoff policy. Once database performance recovers, we can measure whether the current workers drain the backlog safely.
+
+A / Ops Engineer: For a future queue-based policy, we need load testing, dependency headroom, and a safe replica ceiling. That should be a separate reviewed change after recovery.
+
+B / Application Lead: I will own application checks and report queue age, successful transactions, and retry volume at 11:00 UTC. The database owner will report the query findings.
+
+A / Ops Engineer: I will coordinate that checkpoint and track latency against baseline. We will confirm recovery when critical transactions succeed and the backlog returns to a healthy level.

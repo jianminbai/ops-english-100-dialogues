@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,576
+Narrator: Scenario 31. Cloud platforms, containers, and automation.
+
+2
+00:00:07,176 --> 00:00:16,776
+B: The scale-out request failed this morning, but our monthly budget has plenty of room. What is preventing the additional instances from starting?
+
+3
+00:00:17,376 --> 00:00:27,864
+A: We reached the regional compute quota for this instance family. Budget controls spending, while this quota limits the amount of compute we can provision.
+
+4
+00:00:28,464 --> 00:00:39,096
+B: The traffic peak begins tomorrow afternoon. Can the provider raise the limit today, and does a higher quota guarantee that the requested capacity exists?
+
+5
+00:00:39,696 --> 00:00:51,000
+A: I have submitted an urgent increase request, but there is no confirmed completion time. Quota approval also does not guarantee available capacity in each zone.
+
+6
+00:00:51,600 --> 00:01:01,608
+B: What alternatives can we prepare while waiting? We have some idle development instances, and another instance family appears to have unused quota.
+
+7
+00:01:02,208 --> 00:01:14,208
+A: Development uses a different account, so stopping those instances will not release this production quota. The other family needs compatibility and performance validation first.
+
+8
+00:01:14,808 --> 00:01:24,024
+B: Could we move everything into the zone that still has room? I want to understand whether our current distribution is blocking a practical workaround.
+
+9
+00:01:24,624 --> 00:01:35,448
+A: That would concentrate risk and would not change the regional quota. We should preserve the approved distribution and assess capacity across the required zones.
+
+10
+00:01:36,048 --> 00:01:45,840
+B: Please test the alternative family today, then. Can the current fleet handle tomorrow’s forecast if the increase is delayed or the tests fail?
+
+11
+00:01:46,440 --> 00:01:57,456
+A: The latest load test supports normal traffic, but the forecast exceeds our tested headroom. We can defer approved background work and review demand controls.
+
+12
+00:01:58,056 --> 00:02:10,848
+B: I will coordinate those business tradeoffs and contact our provider representative. Please bring quota status, test results, and remaining risk to the 16:00 UTC review.
+
+13
+00:02:11,448 --> 00:02:22,944
+A: I will own that update and keep the deployment plan conditional on evidence. We will not describe extra capacity as available until provisioning and validation succeed.

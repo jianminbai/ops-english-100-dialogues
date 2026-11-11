@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,864
+Narrator: Scenario 83. Changes, security, and disaster recovery.
+
+2
+00:00:07,464 --> 00:00:15,912
+B: The canary has been running for twenty minutes without an alert. Can we move from five percent to all production traffic now?
+
+3
+00:00:16,512 --> 00:00:27,816
+A: Let's review the agreed rollout stages first. We need representative traffic, comparable baseline metrics, and successful business checks before increasing its share.
+
+4
+00:00:28,416 --> 00:00:38,064
+B: The dashboard shows only two hundred requests on the new version. This region is quiet, and most requests are simple account lookups.
+
+5
+00:00:38,664 --> 00:00:48,360
+A: That sample tells us little about order creation or refunds. How many completed business transactions have we observed on the canary?
+
+6
+00:00:48,960 --> 00:00:58,608
+B: Only nine orders and no refunds. The request error rate looks normal, but one payment callback took much longer than usual.
+
+7
+00:00:59,208 --> 00:01:09,768
+A: Please compare that callback with unchanged servers and check the trace. A shared payment delay would require a different interpretation than a canary regression.
+
+8
+00:01:10,368 --> 00:01:20,736
+B: The same delay appears on the baseline servers, and the payment provider reported a short slowdown. Both versions completed those orders successfully.
+
+9
+00:01:21,336 --> 00:01:31,776
+A: Good. Keep that evidence in the rollout record, but continue the five percent stage until the agreed transaction sample and observation period are met.
+
+10
+00:01:32,376 --> 00:01:40,872
+B: Would synthetic refund tests help while we wait, provided they use our approved test accounts and avoid changing real customer orders?
+
+11
+00:01:41,472 --> 00:01:52,248
+A: Yes, they can cover that path, alongside real traffic observations. We'll still review representativeness before approving the next twenty percent stage.
+
+12
+00:01:52,848 --> 00:02:03,408
+B: I'll run the approved checks and attach transaction counts and traces. Let's review again at 10:30 UTC rather than promise full rollout today.
+
+13
+00:02:04,008 --> 00:02:15,120
+A: Agreed. I'll watch the stop thresholds and keep the baseline available. Any expansion will be a separate decision supported by the new evidence.

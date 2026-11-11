@@ -1,0 +1,26 @@
+SCENARIO 043
+API超时与上游依赖
+
+B / Developer: The gateway returns timeout errors after five seconds. Could we raise its timeout to fifteen seconds so more requests have time to finish?
+
+A / Ops Engineer: That might reduce visible errors temporarily, but it would also hold connections longer. The upstream pricing service has become much slower.
+
+B / Developer: Do the traces show where those five seconds go? We should separate network delay from time spent waiting inside the pricing service.
+
+A / Ops Engineer: Most of the time is inside pricing. Its request queue grew sharply, while connection establishment stayed near its normal twenty milliseconds.
+
+B / Developer: The pricing team says database calls are slow. Would adding application instances help clear the queue while they investigate the queries?
+
+A / Ops Engineer: More instances could increase database concurrency and make that bottleneck worse. We need their capacity assessment before changing either concurrency or instance count.
+
+B / Developer: Understood. Our client also retries once after a timeout. Could the first attempt still be running when that retry reaches the service?
+
+A / Ops Engineer: Yes, cancellation doesn't currently propagate reliably. I'll check overlapping attempts and ask the pricing owner which requests can safely be retried.
+
+B / Developer: We have an approved fallback for optional price suggestions, but confirmed checkout prices must remain accurate. Can we isolate the optional requests?
+
+A / Ops Engineer: Yes. Let's route only the optional suggestions to that fallback through the incident change process, then watch pricing load and checkout latency.
+
+B / Developer: I'll coordinate that change and review timeout budgets with both service owners. We should leave enough time for the gateway to return a controlled response.
+
+A / Ops Engineer: I'll share traces and updated queue measurements in fifteen minutes. We'll reconsider timeout settings after understanding the upstream limit and the fallback results.

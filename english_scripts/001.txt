@@ -1,0 +1,26 @@
+SCENARIO 001
+介绍职责与支持范围
+
+A / Ops Engineer: I support production operations for the APAC region. My responsibilities include infrastructure checks, application monitoring, deployment support, and incident coordination.
+
+B / Global Lead: Thanks for the introduction. When an application problem requires a code change, does your team make that change or involve another owner?
+
+A / Ops Engineer: The application team owns code changes. We gather operational evidence, coordinate the response, and help validate the service after their fix is deployed.
+
+B / Global Lead: That helps. How should the global team contact you during your coverage hours, and who takes over after your regional shift ends?
+
+A / Ops Engineer: Please use the shared operations channel during our shift. For urgent incidents, page the current on-call engineer through the incident system.
+
+B / Global Lead: Could you clarify whether your team also approves production changes? Some regional requests have been sent directly to individual engineers.
+
+A / Ops Engineer: We review operational readiness, but the designated change approver authorizes production changes. Sending a request to us does not replace that approval.
+
+B / Global Lead: Understood. Please join our weekly service review and highlight regional risks, especially capacity concerns or repeated incidents that need broader support.
+
+A / Ops Engineer: I can do that. Would you prefer a short written update beforehand so the meeting can focus on decisions and blocked items?
+
+B / Global Lead: Yes. Post the update one business day before the review, with the impact, current owner, and any decision needed from this group.
+
+A / Ops Engineer: I will share our coverage schedule and responsibility map by 16:00 UTC tomorrow, including the handoff process and escalation contacts.
+
+B / Global Lead: Great. I will review those details and add you to the recurring meeting. We can resolve any remaining ownership gaps there.

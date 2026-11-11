@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,304
+Narrator: Scenario 13. Infrastructure operations.
+
+2
+00:00:05,904 --> 00:00:15,432
+A: The log volume is ninety-two percent full. Based on the last thirty minutes of growth, it may reach capacity within about two hours.
+
+3
+00:00:16,032 --> 00:00:25,512
+B: Can we delete the oldest files now? I would like to create breathing room before the volume fills and the application starts failing writes.
+
+4
+00:00:26,112 --> 00:00:37,776
+A: I will check the retention policy and archive status first. Some older logs support an active investigation, so age alone does not establish deletion eligibility.
+
+5
+00:00:38,376 --> 00:00:48,888
+B: Understood. What is driving the growth? If rotation stopped working, a one-time cleanup could give us only a short period of relief.
+
+6
+00:00:49,488 --> 00:01:00,096
+A: The current log file is growing unusually fast, and yesterday’s rotation task failed. I am checking permissions and the task error before changing anything.
+
+7
+00:01:00,696 --> 00:01:11,544
+B: Please also check whether debug logging was enabled during troubleshooting. We should ask the application owner before reducing anything needed for the investigation.
+
+8
+00:01:12,144 --> 00:01:22,392
+A: The owner confirmed extra debug logging can end now under the troubleshooting plan. I will restore the normal level and preserve the relevant evidence.
+
+9
+00:01:22,992 --> 00:01:32,520
+B: How much space can approved cleanup recover, and do we need expansion as well? Please account for the time required to grow the filesystem.
+
+10
+00:01:33,120 --> 00:01:44,208
+A: Verified archived files should release about fifteen percent of the volume. I am also checking online expansion support and available storage with the platform owner.
+
+11
+00:01:44,808 --> 00:01:55,944
+B: Use the approved cleanup procedure and avoid truncating files that are still open. If expansion is needed, submit the appropriate change with the capacity evidence.
+
+12
+00:01:56,544 --> 00:02:07,776
+A: I will report usage and the new growth rate by 13:00 UTC. After repairing rotation, I will verify the next cycle rather than assume it works.
+
+13
+00:02:08,376 --> 00:02:20,160
+B: I will review the expansion recommendation at that checkpoint. Keep the application owner informed and verify normal log writes before closing the immediate capacity risk.

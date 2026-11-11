@@ -1,0 +1,3302 @@
+[
+  {
+    "id": 1,
+    "cat": "跨国会议沟通",
+    "title": "介绍职责与支持范围",
+    "context": "第一次参加全球运维例会，说明自己的职责。",
+    "turns": [
+      [
+        "你（Ops）",
+        "I support production operations for the APAC region, covering infrastructure, applications, and incident coordination.",
+        "我负责亚太区生产运维，涵盖基础设施、应用和故障协调。"
+      ],
+      [
+        "同事（Global Lead）",
+        "Do you also own application code changes?",
+        "应用代码修改也由你负责吗？"
+      ],
+      [
+        "你（Ops）",
+        "The application team owns code changes. I handle operational checks, deployment support, and escalation.",
+        "代码修改由应用团队负责。我负责运维检查、发布支持和升级协调。"
+      ],
+      [
+        "同事（Global Lead）",
+        "Understood. Please join the weekly service review and flag any regional risks.",
+        "明白。请参加每周服务评审，并提出区域风险。"
+      ]
+    ],
+    "phrase": [
+      "I handle …, while … owns ….",
+      "我负责……，而……由……负责。"
+    ],
+    "action": "确认责任边界、例会安排和区域风险反馈渠道。"
+  },
+  {
+    "id": 2,
+    "cat": "跨国会议沟通",
+    "title": "开场与确认议程",
+    "context": "主持跨团队生产运维会议。",
+    "turns": [
+      [
+        "你（主持人）",
+        "Today, let's cover service health, open incidents, and the upcoming maintenance window.",
+        "今天讨论服务健康状况、未关闭故障和即将到来的维护窗口。"
+      ],
+      [
+        "同事（App Lead）",
+        "Can we add the deployment blocker to the agenda?",
+        "能把发布阻塞问题加进议程吗？"
+      ],
+      [
+        "你（主持人）",
+        "Yes. We'll address it after the incident update and leave five minutes for decisions.",
+        "可以。故障更新后讨论，并留五分钟确认决定。"
+      ],
+      [
+        "同事（App Lead）",
+        "Sounds good. I'll bring the latest test results.",
+        "好的。我会提供最新测试结果。"
+      ]
+    ],
+    "phrase": [
+      "Let's cover … and leave time for ….",
+      "我们讨论……，并留时间给……。"
+    ],
+    "action": "明确议程、优先级和讨论时长。"
+  },
+  {
+    "id": 3,
+    "cat": "跨国会议沟通",
+    "title": "时区与夏令时确认",
+    "context": "安排亚太、欧洲和美国团队的变更会议。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The proposed slot is 14:00 UTC on November 12. Does that work for everyone?",
+        "建议安排在11月12日14:00 UTC，大家方便吗？"
+      ],
+      [
+        "同事（US Lead）",
+        "Our clocks changed recently. Could you include local times in the invitation?",
+        "我们最近切换了夏令时。邀请里能加上当地时间吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. I'll verify the conversions for each location and include the date and UTC time.",
+        "可以。我会核对各地时间，并注明日期和UTC时间。"
+      ],
+      [
+        "同事（EU Lead）",
+        "Thanks. Please rotate the inconvenient slot for the next meeting.",
+        "谢谢。下次请轮换承担不方便时段的团队。"
+      ]
+    ],
+    "phrase": [
+      "Could we rotate the meeting time across regions?",
+      "我们能在不同区域之间轮换会议时间吗？"
+    ],
+    "action": "使用明确日期和UTC时间，核对当地时间并轮换不便时段。"
+  },
+  {
+    "id": 4,
+    "cat": "跨国会议沟通",
+    "title": "没听清时请求重述",
+    "context": "对方语速较快，你需要确认故障描述。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "The failures seem to affect only requests passing through the regional gateway.",
+        "失败似乎只影响经过区域网关的请求。"
+      ],
+      [
+        "你（Ops）",
+        "Sorry, I missed the last part. Could you repeat it a little more slowly?",
+        "不好意思，我没听清最后一部分。能稍微慢一点再说一遍吗？"
+      ],
+      [
+        "同事（Engineer）",
+        "Direct requests succeed. Requests through the regional gateway fail intermittently.",
+        "直接请求成功，经过区域网关的请求间歇性失败。"
+      ],
+      [
+        "你（Ops）",
+        "Let me confirm: the issue is intermittent and limited to the gateway path, correct?",
+        "我确认一下：问题是间歇性的，而且仅限经过网关的链路，对吗？"
+      ]
+    ],
+    "phrase": [
+      "Let me confirm: …, correct?",
+      "我确认一下：……，对吗？"
+    ],
+    "action": "复述影响范围，避免将未听清的信息当作事实。"
+  },
+  {
+    "id": 5,
+    "cat": "跨国会议沟通",
+    "title": "礼貌打断并纠正信息",
+    "context": "会议中有人根据旧数据作出判断。",
+    "turns": [
+      [
+        "同事（Project Lead）",
+        "The service has been fully unavailable since 09:00 UTC.",
+        "服务从09:00 UTC起一直完全不可用。"
+      ],
+      [
+        "你（Ops）",
+        "May I jump in with a clarification? The impact is limited to login requests.",
+        "我能补充澄清一下吗？影响仅限登录请求。"
+      ],
+      [
+        "同事（Project Lead）",
+        "Thanks. Are existing user sessions affected?",
+        "谢谢。已经登录的用户会受影响吗？"
+      ],
+      [
+        "你（Ops）",
+        "Existing sessions remain active. I'll share the latest impact figures in the meeting chat.",
+        "现有会话仍然有效。我会把最新影响数据发到会议聊天里。"
+      ]
+    ],
+    "phrase": [
+      "May I jump in with a clarification?",
+      "我能插一句澄清一下吗？"
+    ],
+    "action": "纠正事实，同时提供可核对的最新影响数据。"
+  },
+  {
+    "id": 6,
+    "cat": "跨国会议沟通",
+    "title": "表达不同意见",
+    "context": "有人建议在高峰期实施高风险变更。",
+    "turns": [
+      [
+        "同事（Release Lead）",
+        "Can we deploy the infrastructure change during today's peak traffic?",
+        "我们能在今天的流量高峰期发布基础设施变更吗？"
+      ],
+      [
+        "你（Ops）",
+        "I understand the urgency, but I'm concerned about the recovery time if it fails.",
+        "我理解很紧急，但担心失败后的恢复时间。"
+      ],
+      [
+        "同事（Release Lead）",
+        "What would you recommend?",
+        "你建议怎么做？"
+      ],
+      [
+        "你（Ops）",
+        "Use the approved low-traffic window, with rollback checks completed beforehand.",
+        "使用已批准的低流量窗口，并提前完成回退检查。"
+      ]
+    ],
+    "phrase": [
+      "I understand the urgency, but I'm concerned about ….",
+      "我理解事情紧急，但担心……。"
+    ],
+    "action": "用具体风险和替代方案支持不同意见。"
+  },
+  {
+    "id": 7,
+    "cat": "跨国会议沟通",
+    "title": "请求具体进展",
+    "context": "跟进其他区域团队负责的排查任务。",
+    "turns": [
+      [
+        "你（Ops）",
+        "Could you give us an update on the network investigation?",
+        "能更新一下网络排查进展吗？"
+      ],
+      [
+        "同事（Network）",
+        "We checked the firewall rules but haven't reproduced the failure yet.",
+        "我们检查了防火墙规则，但还没复现故障。"
+      ],
+      [
+        "你（Ops）",
+        "What is the next step, and when can we expect another update?",
+        "下一步是什么？我们什么时候能收到下一次更新？"
+      ],
+      [
+        "同事（Network）",
+        "We'll capture traffic during the next occurrence and update the incident ticket by 16:00 UTC.",
+        "我们会在下次故障时抓包，并在16:00 UTC前更新故障工单。"
+      ]
+    ],
+    "phrase": [
+      "What is the next step, and when can we expect another update?",
+      "下一步是什么，什么时候能再次更新？"
+    ],
+    "action": "把“正在排查”转化为明确动作和下次更新时间。"
+  },
+  {
+    "id": 8,
+    "cat": "跨国会议沟通",
+    "title": "说明任务延期",
+    "context": "预生产验证未通过，原定工作无法按时完成。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The upgrade is behind schedule because the compatibility test failed in staging.",
+        "由于预生产环境兼容性测试失败，升级工作延期了。"
+      ],
+      [
+        "同事（Manager）",
+        "How does that affect the production date?",
+        "这会怎样影响生产实施日期？"
+      ],
+      [
+        "你（Ops）",
+        "We need another test cycle. I'll propose a revised date after tomorrow's validation.",
+        "我们需要再做一轮测试。明天验证后，我会提出新日期。"
+      ],
+      [
+        "同事（Manager）",
+        "Please document the blocker and tell us if you need additional support.",
+        "请记录阻塞原因，并说明是否需要额外支持。"
+      ]
+    ],
+    "phrase": [
+      "We are blocked by …; the next checkpoint is ….",
+      "目前被……阻塞；下一检查点是……。"
+    ],
+    "action": "说明延期原因、影响和新的检查节点，避免随意承诺日期。"
+  },
+  {
+    "id": 9,
+    "cat": "跨国会议沟通",
+    "title": "无法承诺恢复时间",
+    "context": "业务方在会议上追问故障何时恢复。",
+    "turns": [
+      [
+        "同事（Business Lead）",
+        "Can you confirm the service will be back within thirty minutes?",
+        "你能确认服务会在三十分钟内恢复吗？"
+      ],
+      [
+        "你（Ops）",
+        "We don't have a reliable recovery estimate yet. We're validating the mitigation now.",
+        "目前还没有可靠的恢复时间预估。我们正在验证缓解措施。"
+      ],
+      [
+        "同事（Business Lead）",
+        "When will you know more?",
+        "什么时候能有更多信息？"
+      ],
+      [
+        "你（Ops）",
+        "We'll update you by 14:30 UTC, even if the recovery estimate is still uncertain.",
+        "我们会在14:30 UTC前更新，即使届时恢复时间仍不确定。"
+      ]
+    ],
+    "phrase": [
+      "We don't have a reliable estimate yet; our next update is at ….",
+      "目前还没有可靠预估；下次更新时间是……。"
+    ],
+    "action": "区分恢复时间与下次更新时间。"
+  },
+  {
+    "id": 10,
+    "cat": "跨国会议沟通",
+    "title": "会末总结决定",
+    "context": "结束一次跨部门问题协调会议。",
+    "turns": [
+      [
+        "你（主持人）",
+        "Before we close, let's confirm the decisions and action owners.",
+        "结束前，我们确认一下决定和各项行动负责人。"
+      ],
+      [
+        "同事（App Lead）",
+        "The application team will validate the fix in staging by Thursday, 17:00 UTC.",
+        "应用团队会在周四17:00 UTC前在预生产环境验证修复。"
+      ],
+      [
+        "你（主持人）",
+        "Operations will prepare the rollback plan. We'll decide on production after reviewing the evidence.",
+        "运维会准备回退方案。评审验证证据后，再决定是否上线。"
+      ],
+      [
+        "同事（App Lead）",
+        "Agreed. Please include both actions and the decision checkpoint in the minutes.",
+        "同意。请把两项行动和决策节点都写进会议纪要。"
+      ]
+    ],
+    "phrase": [
+      "Let's confirm the decision, the owner, and the deadline.",
+      "我们确认一下决定、负责人和截止时间。"
+    ],
+    "action": "会后记录决定、负责人、截止时间与下次决策节点。"
+  },
+  {
+    "id": 11,
+    "cat": "Infrastructure 基础设施",
+    "title": "服务器CPU持续升高",
+    "context": "例会上讨论生产服务器CPU告警。",
+    "turns": [
+      [
+        "同事（Infra Lead）",
+        "CPU usage has stayed above ninety percent for twenty minutes. Is traffic higher than usual?",
+        "CPU连续二十分钟超过90%，流量比平时高吗？"
+      ],
+      [
+        "你（Ops）",
+        "Traffic is normal, but a scheduled process is consuming most of the CPU.",
+        "流量正常，但一个定时进程占用了大部分CPU。"
+      ],
+      [
+        "同事（Infra Lead）",
+        "Can we pause it without affecting critical workloads?",
+        "暂停它会影响关键任务吗？"
+      ],
+      [
+        "你（Ops）",
+        "I'll confirm its dependencies with the owner before pausing it, then check whether latency recovers.",
+        "我会先和负责人确认依赖，再暂停它，并检查延迟是否恢复。"
+      ]
+    ],
+    "phrase": [
+      "Traffic is normal, but … is consuming most of ….",
+      "流量正常，但……消耗了大部分……。"
+    ],
+    "action": "定位进程、确认业务依赖，再验证处置效果。"
+  },
+  {
+    "id": 12,
+    "cat": "Infrastructure 基础设施",
+    "title": "内存压力与OOM",
+    "context": "应用进程被系统终止，团队讨论原因。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "Was this an application crash or an operating system issue?",
+        "这是应用崩溃，还是操作系统问题？"
+      ],
+      [
+        "你（Ops）",
+        "The system logs show the process was killed by the OOM killer.",
+        "系统日志显示，该进程被OOM机制终止了。"
+      ],
+      [
+        "同事（Developer）",
+        "Should we increase the memory allocation immediately?",
+        "要立即增加内存配额吗？"
+      ],
+      [
+        "你（Ops）",
+        "We can assess temporary headroom, but we also need to investigate the growing memory usage.",
+        "可以评估临时扩容空间，但也要排查内存使用量持续增长的原因。"
+      ]
+    ],
+    "phrase": [
+      "The logs show …; we still need to investigate ….",
+      "日志显示……；我们仍需排查……。"
+    ],
+    "action": "区分内存耗尽、配额不足和潜在泄漏，避免把扩容当作根治。"
+  },
+  {
+    "id": 13,
+    "cat": "Infrastructure 基础设施",
+    "title": "磁盘空间即将耗尽",
+    "context": "生产磁盘使用率达到告警阈值。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The log volume is ninety-two percent full. At this rate, it may fill within two hours.",
+        "日志卷使用率已达92%，按当前速度可能两小时内写满。"
+      ],
+      [
+        "同事（Infra Lead）",
+        "Can we delete the old files?",
+        "能删除旧文件吗？"
+      ],
+      [
+        "你（Ops）",
+        "I'll check retention requirements and remove only approved files, then verify rotation is working.",
+        "我会核对保留要求，只清理获准文件，再验证日志轮转是否正常。"
+      ],
+      [
+        "同事（Infra Lead）",
+        "Please also assess whether the volume needs expanding.",
+        "也请评估是否需要扩容。"
+      ]
+    ],
+    "phrase": [
+      "At this rate, … may … within ….",
+      "按当前速度，……可能在……内……。"
+    ],
+    "action": "先确认保留与清理范围，同时修复增长来源并评估容量。"
+  },
+  {
+    "id": 14,
+    "cat": "Infrastructure 基础设施",
+    "title": "磁盘未满但无法写入",
+    "context": "应用报磁盘已满，但空间监控看起来正常。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "Writes are failing, but the disk still has free space. What are we missing?",
+        "写入失败，但磁盘还有空间。我们漏查了什么？"
+      ],
+      [
+        "你（Ops）",
+        "The filesystem has run out of inodes because of millions of small temporary files.",
+        "大量小临时文件耗尽了文件系统的inode。"
+      ],
+      [
+        "同事（Developer）",
+        "Can we clear the temporary directory?",
+        "能清理临时目录吗？"
+      ],
+      [
+        "你（Ops）",
+        "Let's confirm which files are inactive, clean them safely, and fix the application's cleanup policy.",
+        "先确认哪些文件不再使用，安全清理，再修复应用的清理策略。"
+      ]
+    ],
+    "phrase": [
+      "Free space is available, but … has been exhausted.",
+      "空间还有剩余，但……已经耗尽。"
+    ],
+    "action": "检查inode，并防止清理仍在使用的文件。"
+  },
+  {
+    "id": 15,
+    "cat": "Infrastructure 基础设施",
+    "title": "存储延迟升高",
+    "context": "基础设施和应用团队联合排查响应变慢。",
+    "turns": [
+      [
+        "同事（App Lead）",
+        "Application response times increased, but CPU and memory look normal.",
+        "应用响应时间上升，但CPU和内存正常。"
+      ],
+      [
+        "你（Ops）",
+        "Disk latency and queue depth increased at the same time. We're checking storage contention.",
+        "磁盘延迟和队列深度同时上升，我们正在检查存储争用。"
+      ],
+      [
+        "同事（Storage）",
+        "A backup job is running on the same storage pool.",
+        "同一存储池上正在运行备份任务。"
+      ],
+      [
+        "你（Ops）",
+        "Let's compare the timing and safely reduce backup load if the storage owner confirms it's appropriate.",
+        "我们对齐时间；若存储负责人确认可行，就安全降低备份负载。"
+      ]
+    ],
+    "phrase": [
+      "The timing suggests …, but we need to verify the connection.",
+      "时间上提示可能与……有关，但还需要验证关联。"
+    ],
+    "action": "结合时间线和存储指标验证假设。"
+  },
+  {
+    "id": 16,
+    "cat": "Infrastructure 基础设施",
+    "title": "服务器补丁维护",
+    "context": "讨论操作系统补丁的实施安排。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The security patches require a reboot. Can the service tolerate one node being unavailable?",
+        "安全补丁需要重启，服务能承受一个节点不可用吗？"
+      ],
+      [
+        "同事（Service Owner）",
+        "Yes, provided the remaining nodes have enough capacity.",
+        "可以，前提是剩余节点容量足够。"
+      ],
+      [
+        "你（Ops）",
+        "We'll check capacity, remove one node from traffic, patch it, and validate before continuing.",
+        "我们会检查容量，将单个节点移出流量后打补丁，验证通过再继续。"
+      ],
+      [
+        "同事（Service Owner）",
+        "Please stop the rollout if health checks fail or errors increase.",
+        "如果健康检查失败或错误增加，请停止推进。"
+      ]
+    ],
+    "phrase": [
+      "We'll validate each node before proceeding to the next.",
+      "我们会先验证每个节点，再处理下一个。"
+    ],
+    "action": "按节点维护，定义停止条件和恢复步骤。"
+  },
+  {
+    "id": 17,
+    "cat": "Infrastructure 基础设施",
+    "title": "虚拟机异常重启",
+    "context": "虚拟机在夜间重启，需向全球团队说明。",
+    "turns": [
+      [
+        "同事（Infra Lead）",
+        "Was the reboot planned, or did the host fail?",
+        "这是计划内重启，还是宿主机故障？"
+      ],
+      [
+        "你（Ops）",
+        "It wasn't in our change calendar. We're reviewing guest logs and hypervisor events.",
+        "变更日历里没有这次重启。我们正在检查系统日志和虚拟化平台事件。"
+      ],
+      [
+        "同事（Infra Lead）",
+        "Has the application recovered?",
+        "应用恢复了吗？"
+      ],
+      [
+        "你（Ops）",
+        "The process is running, but we're still checking transactions and investigating what triggered the reboot.",
+        "进程已经运行，但仍在验证业务交易并排查重启触发原因。"
+      ]
+    ],
+    "phrase": [
+      "The process is running, but functional validation is still in progress.",
+      "进程已运行，但功能验证仍在进行。"
+    ],
+    "action": "区分进程启动与业务恢复，同时调查非计划重启。"
+  },
+  {
+    "id": 18,
+    "cat": "Infrastructure 基础设施",
+    "title": "机房硬件故障",
+    "context": "硬件告警提示磁盘故障，需要安排更换。",
+    "turns": [
+      [
+        "你（Ops）",
+        "A physical disk has failed. The array is degraded, but the service remains available.",
+        "一块物理磁盘故障，阵列处于降级状态，但服务仍可用。"
+      ],
+      [
+        "同事（Data Center）",
+        "Do you want us to replace it now?",
+        "需要我们现在更换吗？"
+      ],
+      [
+        "你（Ops）",
+        "Please confirm the disk identifier and replacement procedure with the storage owner first.",
+        "请先与存储负责人确认磁盘标识和更换流程。"
+      ],
+      [
+        "同事（Data Center）",
+        "Understood. We'll track the rebuild and report any performance impact.",
+        "明白。我们会跟踪重建过程，并报告性能影响。"
+      ]
+    ],
+    "phrase": [
+      "The service remains available, but redundancy is reduced.",
+      "服务仍可用，但冗余能力下降了。"
+    ],
+    "action": "核对硬件标识，监控重建并评估冗余下降的风险。"
+  },
+  {
+    "id": 19,
+    "cat": "Infrastructure 基础设施",
+    "title": "时间同步异常",
+    "context": "日志时间不一致，影响跨系统排查。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "These events appear out of order. Are all servers using the same time source?",
+        "这些事件顺序不对，所有服务器使用相同时间源吗？"
+      ],
+      [
+        "你（Ops）",
+        "One server has significant clock drift. We're checking its time synchronization service.",
+        "一台服务器存在明显时钟偏差，我们正在检查时间同步服务。"
+      ],
+      [
+        "同事（Engineer）",
+        "Could that explain the authentication errors?",
+        "这能解释认证错误吗？"
+      ],
+      [
+        "你（Ops）",
+        "It could contribute. We'll correct it using the approved method and recheck authentication and timestamps.",
+        "可能有关。我们会按批准方式校时，并重新检查认证和时间戳。"
+      ]
+    ],
+    "phrase": [
+      "It could contribute, but we haven't confirmed it as the cause.",
+      "这可能有影响，但还未确认是原因。"
+    ],
+    "action": "记录时钟偏差，按安全流程校时并验证业务影响。"
+  },
+  {
+    "id": 20,
+    "cat": "Infrastructure 基础设施",
+    "title": "容量与成本评审",
+    "context": "月度会议评估未来资源需求。",
+    "turns": [
+      [
+        "你（Ops）",
+        "At current growth, we'll reach our capacity threshold in six weeks.",
+        "按当前增长速度，六周后会达到容量阈值。"
+      ],
+      [
+        "同事（Finance Partner）",
+        "Do we need to double the infrastructure budget?",
+        "需要把基础设施预算翻倍吗？"
+      ],
+      [
+        "你（Ops）",
+        "Not necessarily. We'll compare right-sizing, workload scheduling, and incremental capacity options.",
+        "不一定。我们会比较资源规格优化、任务错峰和渐进扩容方案。"
+      ],
+      [
+        "同事（Infra Lead）",
+        "Please include peak demand, resilience requirements, and estimated savings in the proposal.",
+        "请在方案中包括峰值需求、容灾冗余要求和预计节省金额。"
+      ]
+    ],
+    "phrase": [
+      "We'll compare … before committing to additional capacity.",
+      "我们会先比较……，再决定追加容量。"
+    ],
+    "action": "综合容量、韧性和成本提出可比较的选项。"
+  },
+  {
+    "id": 21,
+    "cat": "网络与访问",
+    "title": "DNS解析失败",
+    "context": "部分区域无法访问服务，但服务器仍在运行。",
+    "turns": [
+      [
+        "同事（Regional Lead）",
+        "Users in Europe cannot resolve the service hostname. Is the application down?",
+        "欧洲用户无法解析服务域名，是应用宕机了吗？"
+      ],
+      [
+        "你（Ops）",
+        "The application responds by IP in our controlled test. We're checking DNS resolution separately.",
+        "受控测试中，通过IP可收到应用响应。我们正在单独检查DNS解析。"
+      ],
+      [
+        "同事（Network）",
+        "Does the failure affect all resolvers or only the corporate ones?",
+        "所有解析器都受影响，还是只有公司内部的？"
+      ],
+      [
+        "你（Ops）",
+        "So far, only the corporate resolvers. We'll compare responses and recent DNS changes.",
+        "目前只有公司内部解析器受影响。我们会比较解析结果和近期DNS变更。"
+      ]
+    ],
+    "phrase": [
+      "So far, the issue appears limited to ….",
+      "目前看来，问题仅限于……。"
+    ],
+    "action": "区分DNS与应用故障，对比解析路径和变更记录。"
+  },
+  {
+    "id": 22,
+    "cat": "网络与访问",
+    "title": "防火墙端口申请",
+    "context": "新应用需要连接内部数据库。",
+    "turns": [
+      [
+        "你（Ops）",
+        "We need connectivity from the application subnet to the database on TCP port 5432.",
+        "应用子网需要通过TCP 5432端口连接数据库。"
+      ],
+      [
+        "同事（Security）",
+        "Can you provide the exact source, destination, and business justification?",
+        "能提供确切的源地址、目标地址和业务理由吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. I'll attach the approved data flow and request only the required access.",
+        "可以。我会附上已批准的数据流，只申请必要访问权限。"
+      ],
+      [
+        "同事（Network）",
+        "Once approved, we'll apply the rule and validate the connection with you.",
+        "审批通过后，我们会配置规则并与你一起验证连接。"
+      ]
+    ],
+    "phrase": [
+      "We need access from … to … on ….",
+      "我们需要从……到……通过……的访问权限。"
+    ],
+    "action": "明确源、目的、协议、端口和审批依据。"
+  },
+  {
+    "id": 23,
+    "cat": "网络与访问",
+    "title": "跨区域网络延迟",
+    "context": "美国团队反映访问亚洲服务缓慢。",
+    "turns": [
+      [
+        "同事（US Engineer）",
+        "Requests from the US take much longer than requests from Singapore.",
+        "美国发起的请求比新加坡发起的慢很多。"
+      ],
+      [
+        "你（Ops）",
+        "We'll separate network transit time from application processing time before drawing conclusions.",
+        "我们会先区分网络传输时间和应用处理时间，再下结论。"
+      ],
+      [
+        "同事（Network）",
+        "Please provide timestamps, source locations, and a few request IDs.",
+        "请提供时间戳、来源位置和几个请求ID。"
+      ],
+      [
+        "你（Ops）",
+        "I'll collect comparable samples from both regions and share the traces.",
+        "我会收集两个区域可比较的样本，并分享调用链。"
+      ]
+    ],
+    "phrase": [
+      "Let's separate … from … before drawing conclusions.",
+      "我们先区分……和……，再下结论。"
+    ],
+    "action": "使用相同请求和时间范围比较区域表现。"
+  },
+  {
+    "id": 24,
+    "cat": "网络与访问",
+    "title": "负载均衡健康检查",
+    "context": "后端进程运行，但负载均衡器不再转发流量。",
+    "turns": [
+      [
+        "同事（App Lead）",
+        "The process is healthy locally. Why was the instance removed from traffic?",
+        "本机进程状态正常，为什么实例被移出了流量？"
+      ],
+      [
+        "你（Ops）",
+        "The load balancer's readiness check is returning a non-success status.",
+        "负载均衡器的就绪检查返回了非成功状态。"
+      ],
+      [
+        "同事（App Lead）",
+        "Could the health endpoint be using a dependency that's unavailable?",
+        "健康检查接口是不是依赖了不可用的服务？"
+      ],
+      [
+        "你（Ops）",
+        "Let's inspect the response and confirm the endpoint matches the service's readiness requirements.",
+        "我们检查响应，并确认接口符合服务就绪判定要求。"
+      ]
+    ],
+    "phrase": [
+      "The process is running, but the readiness check is failing.",
+      "进程在运行，但就绪检查未通过。"
+    ],
+    "action": "验证健康检查语义和依赖，避免绕过真实故障。"
+  },
+  {
+    "id": 25,
+    "cat": "网络与访问",
+    "title": "TLS证书即将过期",
+    "context": "发现生产入口证书七天后过期。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The production certificate expires in seven days. Who owns the renewal?",
+        "生产证书七天后过期，续期由谁负责？"
+      ],
+      [
+        "同事（Platform）",
+        "We own the certificate, but the application team must validate the trust chain.",
+        "证书由我们负责，但应用团队需要验证信任链。"
+      ],
+      [
+        "你（Ops）",
+        "Let's renew it before the maintenance window and check the chain, hostname, and client compatibility.",
+        "我们在维护窗口前完成续期，并检查证书链、主机名和客户端兼容性。"
+      ],
+      [
+        "同事（Platform）",
+        "Agreed. We'll also verify the expiry alert after deployment.",
+        "同意。部署后也会验证到期告警。"
+      ]
+    ],
+    "phrase": [
+      "Who owns the renewal, and who will validate it?",
+      "谁负责续期，谁负责验证？"
+    ],
+    "action": "落实续期与验证责任，检查证书链和告警。"
+  },
+  {
+    "id": 26,
+    "cat": "网络与访问",
+    "title": "VPN连接与访问范围",
+    "context": "海外同事无法访问内部管理页面。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "My VPN is connected, but the management page still times out.",
+        "VPN已经连上，但管理页面仍然超时。"
+      ],
+      [
+        "你（Ops）",
+        "Can you reach other internal services, or is this limited to one destination?",
+        "其他内部服务能访问吗，还是只有这个目标不行？"
+      ],
+      [
+        "同事（Engineer）",
+        "Other services work. Only this management subnet is unreachable.",
+        "其他服务正常，只有这个管理子网无法访问。"
+      ],
+      [
+        "你（Ops）",
+        "We'll check the route and access policy for that subnet using your approved access profile.",
+        "我们会基于你已批准的访问配置，检查该子网的路由和访问策略。"
+      ]
+    ],
+    "phrase": [
+      "Is this limited to one destination, or does it affect all …?",
+      "只有一个目标受影响，还是所有……都有问题？"
+    ],
+    "action": "缩小范围，按授权检查路由与访问策略。"
+  },
+  {
+    "id": 27,
+    "cat": "网络与访问",
+    "title": "SSO登录与权限不足",
+    "context": "同事能够登录系统，却看不到生产控制台。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "SSO works, but I get an access-denied message in the production console.",
+        "单点登录正常，但生产控制台提示访问被拒绝。"
+      ],
+      [
+        "你（Ops）",
+        "That suggests an authorization issue. Which approved role should you have?",
+        "这提示可能是授权问题。你应当具有什么已批准角色？"
+      ],
+      [
+        "同事（Engineer）",
+        "The production read-only role. My manager approved it yesterday.",
+        "生产只读角色，经理昨天已经批准。"
+      ],
+      [
+        "你（Ops）",
+        "I'll verify the group mapping and provisioning status against that approval.",
+        "我会依据审批记录核对组映射和权限下发状态。"
+      ]
+    ],
+    "phrase": [
+      "Authentication succeeded, but authorization appears to have failed.",
+      "身份认证成功了，但权限校验似乎失败。"
+    ],
+    "action": "区分认证和授权，依据审批核对角色映射。"
+  },
+  {
+    "id": 28,
+    "cat": "网络与访问",
+    "title": "服务账号密钥轮换",
+    "context": "多个应用共用的服务凭据需要轮换。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The service credential is due for rotation. Have all consumers been identified?",
+        "服务凭据需要轮换，所有使用方都识别出来了吗？"
+      ],
+      [
+        "同事（App Lead）",
+        "We found three applications, but one scheduled job still needs confirmation.",
+        "目前找到三个应用，但还有一个定时任务待确认。"
+      ],
+      [
+        "你（Ops）",
+        "Let's confirm that dependency and test the new credential before revoking the old one.",
+        "先确认该依赖，测试新凭据后再撤销旧凭据。"
+      ],
+      [
+        "同事（Security）",
+        "Please record the validation results in the change ticket without including the secret.",
+        "请把验证结果记录到变更工单里，不要写入密钥内容。"
+      ]
+    ],
+    "phrase": [
+      "Have all consumers been identified before we rotate …?",
+      "轮换……前，所有使用方都识别了吗？"
+    ],
+    "action": "清点依赖，验证新凭据，再按计划撤销旧凭据。"
+  },
+  {
+    "id": 29,
+    "cat": "网络与访问",
+    "title": "WAF误拦截业务请求",
+    "context": "新规则上线后，部分合法请求被拒绝。",
+    "turns": [
+      [
+        "同事（App Lead）",
+        "Valid checkout requests started returning 403 after the WAF update.",
+        "WAF更新后，合法结算请求开始返回403。"
+      ],
+      [
+        "你（Ops）",
+        "We'll correlate request IDs with WAF logs to identify the triggering rule.",
+        "我们会结合请求ID和WAF日志，定位触发规则。"
+      ],
+      [
+        "同事（Security）",
+        "Please avoid disabling the entire policy. Can we scope an exception narrowly?",
+        "请避免关闭整个策略，能限定例外范围吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. We'll propose a time-limited exception for the verified request pattern and monitor it.",
+        "可以。我们会针对已验证的请求特征申请限时例外，并监控效果。"
+      ]
+    ],
+    "phrase": [
+      "Can we scope the exception to … and set an expiry?",
+      "能把例外限定在……，并设置到期时间吗？"
+    ],
+    "action": "基于证据处理误报，限定例外范围和有效期。"
+  },
+  {
+    "id": 30,
+    "cat": "网络与访问",
+    "title": "第三方链路与代理超时",
+    "context": "应用调用外部供应商接口出现超时。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The vendor API works from my laptop but times out from production.",
+        "供应商API在我的电脑上正常，从生产环境访问却超时。"
+      ],
+      [
+        "你（Ops）",
+        "Production uses an outbound proxy. We'll check DNS, proxy logs, and the vendor's allowlist.",
+        "生产使用出站代理。我们会检查DNS、代理日志和供应商白名单。"
+      ],
+      [
+        "同事（Vendor Engineer）",
+        "Please share the observed source IP and the failed request time.",
+        "请提供实际出口IP和失败请求时间。"
+      ],
+      [
+        "你（Ops）",
+        "I'll provide the approved network details through the support ticket and coordinate a joint test.",
+        "我会通过支持工单提供获准网络信息，并协调联合测试。"
+      ]
+    ],
+    "phrase": [
+      "The connection path differs between … and ….",
+      "……和……使用的连接路径不同。"
+    ],
+    "action": "比较真实连接路径，协调供应商验证出口与白名单。"
+  },
+  {
+    "id": 31,
+    "cat": "云平台、容器与自动化",
+    "title": "云配额阻止扩容",
+    "context": "业务高峰前，新增云实例创建失败。",
+    "turns": [
+      [
+        "同事（Platform Lead）",
+        "Why did the scale-out request fail? We still have budget available.",
+        "为什么扩容请求失败？预算不是还有吗？"
+      ],
+      [
+        "你（Ops）",
+        "The regional compute quota has been reached. Budget and service quotas are separate limits.",
+        "区域计算资源配额已满。预算和服务配额是不同限制。"
+      ],
+      [
+        "同事（Platform Lead）",
+        "What options do we have before the traffic peak?",
+        "流量高峰前有哪些选择？"
+      ],
+      [
+        "你（Ops）",
+        "We'll request a quota increase and assess approved alternatives without reducing resilience.",
+        "我们会申请提升配额，并评估不降低韧性的已批准替代方案。"
+      ]
+    ],
+    "phrase": [
+      "The request is blocked by …, rather than a budget limit.",
+      "请求被……阻塞，原因并非预算限制。"
+    ],
+    "action": "核对配额、申请提升，并评估时间和区域容量。"
+  },
+  {
+    "id": 32,
+    "cat": "云平台、容器与自动化",
+    "title": "可用区故障与流量转移",
+    "context": "一个可用区出现故障，讨论是否切流。",
+    "turns": [
+      [
+        "同事（Incident Lead）",
+        "Can we move all traffic to the healthy availability zone?",
+        "能把全部流量转到正常可用区吗？"
+      ],
+      [
+        "你（Ops）",
+        "First, we need to verify capacity and confirm the required dependencies are available there.",
+        "先要验证容量，并确认所需依赖在那里可用。"
+      ],
+      [
+        "同事（App Lead）",
+        "The application tier is ready, but we still need database confirmation.",
+        "应用层已就绪，但还需要数据库团队确认。"
+      ],
+      [
+        "你（Ops）",
+        "We'll complete those checks and follow the failover runbook with explicit validation checkpoints.",
+        "我们会完成检查，按故障切换手册执行，并设置明确验证节点。"
+      ]
+    ],
+    "phrase": [
+      "Before shifting traffic, we need to verify ….",
+      "转移流量前，我们需要验证……。"
+    ],
+    "action": "核对承载能力和依赖，再按预案切流。"
+  },
+  {
+    "id": 33,
+    "cat": "云平台、容器与自动化",
+    "title": "Pod持续重启",
+    "context": "Kubernetes应用出现CrashLoopBackOff。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The new pods keep restarting. Is the cluster unstable?",
+        "新Pod不断重启，是集群不稳定吗？"
+      ],
+      [
+        "你（Ops）",
+        "Other workloads are stable. These containers exit immediately after a configuration error.",
+        "其他工作负载稳定。这些容器在配置报错后立即退出。"
+      ],
+      [
+        "同事（Developer）",
+        "Can you share the previous container logs and exit code?",
+        "能提供上一个容器的日志和退出码吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. I'll attach sanitized logs and the deployment change details to the incident ticket.",
+        "可以。我会把脱敏日志和部署变更信息附到故障工单。"
+      ]
+    ],
+    "phrase": [
+      "Other workloads are stable; the issue appears specific to ….",
+      "其他工作负载稳定，问题似乎集中在……。"
+    ],
+    "action": "结合退出码、历史日志和配置变更定位问题。"
+  },
+  {
+    "id": 34,
+    "cat": "云平台、容器与自动化",
+    "title": "Pod无法调度",
+    "context": "发布后，部分Pod一直处于Pending状态。",
+    "turns": [
+      [
+        "同事（Release Lead）",
+        "Why are the replacement pods still pending?",
+        "替换Pod为什么仍在Pending状态？"
+      ],
+      [
+        "你（Ops）",
+        "The scheduler reports insufficient memory on eligible nodes.",
+        "调度器提示符合条件的节点内存不足。"
+      ],
+      [
+        "同事（Release Lead）",
+        "Can we lower the resource requests to get them running?",
+        "能降低资源请求让它们启动吗？"
+      ],
+      [
+        "你（Ops）",
+        "Only with evidence it's safe. We'll check actual demand, placement constraints, and available capacity first.",
+        "需要先证明这样安全。我们会检查实际需求、调度约束和可用容量。"
+      ]
+    ],
+    "phrase": [
+      "We'll check resource demand and placement constraints first.",
+      "我们会先检查资源需求和调度约束。"
+    ],
+    "action": "区分资源不足与调度约束，避免盲目降低资源请求。"
+  },
+  {
+    "id": 35,
+    "cat": "云平台、容器与自动化",
+    "title": "节点维护与工作负载迁移",
+    "context": "准备维护Kubernetes节点。",
+    "turns": [
+      [
+        "你（Ops）",
+        "We need to drain this node for maintenance. Are the workloads ready for eviction?",
+        "需要排空该节点进行维护，工作负载能安全驱逐吗？"
+      ],
+      [
+        "同事（Platform）",
+        "One workload is constrained by its disruption budget and currently has an unhealthy replica.",
+        "一个工作负载受中断预算限制，且当前有副本不健康。"
+      ],
+      [
+        "你（Ops）",
+        "Let's restore that replica first and review capacity before continuing with the drain.",
+        "先恢复该副本，并确认容量，再继续排空。"
+      ],
+      [
+        "同事（Platform）",
+        "Agreed. We'll verify application health after the workloads move.",
+        "同意。工作负载迁移后，我们会验证应用健康状况。"
+      ]
+    ],
+    "phrase": [
+      "Let's restore redundancy before proceeding with maintenance.",
+      "我们先恢复冗余，再继续维护。"
+    ],
+    "action": "检查中断预算、副本健康和迁移容量。"
+  },
+  {
+    "id": 36,
+    "cat": "云平台、容器与自动化",
+    "title": "自动扩容未触发",
+    "context": "业务延迟升高，但副本数没有增加。",
+    "turns": [
+      [
+        "同事（App Lead）",
+        "Latency is rising. Why hasn't the autoscaler added more replicas?",
+        "延迟在上升，自动扩容为什么没增加副本？"
+      ],
+      [
+        "你（Ops）",
+        "It's configured to scale on CPU, and CPU hasn't crossed the threshold.",
+        "当前按CPU扩容，而CPU还没超过阈值。"
+      ],
+      [
+        "同事（App Lead）",
+        "The bottleneck may be queued requests rather than CPU.",
+        "瓶颈可能是请求排队，而不是CPU。"
+      ],
+      [
+        "你（Ops）",
+        "Let's review queue and dependency metrics before changing the scaling signal.",
+        "我们先检查队列和依赖指标，再调整扩容依据。"
+      ]
+    ],
+    "phrase": [
+      "The scaling signal may not reflect the current bottleneck.",
+      "扩容指标可能没有反映当前瓶颈。"
+    ],
+    "action": "核对扩容信号、上限和真正瓶颈，再验证调整效果。"
+  },
+  {
+    "id": 37,
+    "cat": "云平台、容器与自动化",
+    "title": "镜像拉取失败",
+    "context": "新部署卡在ImagePullBackOff。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The image built successfully. Why can't production pull it?",
+        "镜像构建成功了，为什么生产拉取不了？"
+      ],
+      [
+        "你（Ops）",
+        "We're checking the image reference, registry reachability, and pull credentials.",
+        "我们正在检查镜像引用、仓库连通性和拉取凭据。"
+      ],
+      [
+        "同事（Developer）",
+        "The tag exists, but this namespace uses a different registry secret.",
+        "标签存在，但这个命名空间用了不同的仓库凭据。"
+      ],
+      [
+        "你（Ops）",
+        "Let's verify its permissions and update the approved secret reference through the deployment process.",
+        "我们核对权限，并通过发布流程更新已批准的凭据引用。"
+      ]
+    ],
+    "phrase": [
+      "The artifact exists, but access from … still needs validation.",
+      "制品存在，但仍需验证从……访问是否正常。"
+    ],
+    "action": "核对镜像、仓库、命名空间及凭据权限。"
+  },
+  {
+    "id": 38,
+    "cat": "云平台、容器与自动化",
+    "title": "环境配置不一致",
+    "context": "同一版本在测试环境正常，在生产环境失败。",
+    "turns": [
+      [
+        "同事（App Lead）",
+        "The release passed staging. What differs in production?",
+        "发布在预生产通过了，生产有什么不同？"
+      ],
+      [
+        "你（Ops）",
+        "One feature flag and a dependency endpoint differ between the environments.",
+        "两个环境有一个功能开关和一个依赖地址不同。"
+      ],
+      [
+        "同事（App Lead）",
+        "Are those differences intentional?",
+        "这些差异是有意配置的吗？"
+      ],
+      [
+        "你（Ops）",
+        "We'll compare them with the approved configuration and confirm ownership before changing anything.",
+        "我们会与已批准配置比较，并在修改前确认负责人。"
+      ]
+    ],
+    "phrase": [
+      "Is this difference intentional, and where is it documented?",
+      "这个差异是有意的吗，记录在哪里？"
+    ],
+    "action": "区分合理环境差异和配置漂移。"
+  },
+  {
+    "id": 39,
+    "cat": "云平台、容器与自动化",
+    "title": "Terraform计划出现意外删除",
+    "context": "基础设施代码评审发现生产资源将被销毁。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The plan includes deleting a production resource. Is that expected?",
+        "执行计划包含删除生产资源，这是预期的吗？"
+      ],
+      [
+        "同事（Platform Engineer）",
+        "No. We only intended to update a tag.",
+        "不是。我们本来只打算更新标签。"
+      ],
+      [
+        "你（Ops）",
+        "Let's stop before applying and investigate the state mapping and configuration changes.",
+        "先不要执行，排查状态映射和配置变更。"
+      ],
+      [
+        "同事（Platform Engineer）",
+        "I'll revise the change and request another plan review before execution.",
+        "我会修订变更，并在执行前重新申请计划评审。"
+      ]
+    ],
+    "phrase": [
+      "The plan includes an unexpected …; let's stop and review.",
+      "计划中出现非预期的……；我们先停下来检查。"
+    ],
+    "action": "停止非预期破坏性操作，修订后重新评审计划。"
+  },
+  {
+    "id": 40,
+    "cat": "云平台、容器与自动化",
+    "title": "自动化脚本执行范围",
+    "context": "计划用自动化脚本批量修复配置。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "Can we run the script across all production servers tonight?",
+        "今晚能在所有生产服务器上运行脚本吗？"
+      ],
+      [
+        "你（Ops）",
+        "I'd start with a dry run and one representative server, then expand after validation.",
+        "我建议先试运行，再选一台有代表性的服务器，验证后扩大范围。"
+      ],
+      [
+        "同事（Manager）",
+        "What happens if the script stops halfway through?",
+        "脚本运行到一半停止怎么办？"
+      ],
+      [
+        "你（Ops）",
+        "We'll verify it can resume safely, record each change, and define rollback steps before execution.",
+        "执行前会验证安全续跑能力，记录每次变更，并定义回退步骤。"
+      ]
+    ],
+    "phrase": [
+      "We'll expand the scope only after validating the first batch.",
+      "首批验证通过后，我们才扩大范围。"
+    ],
+    "action": "先试运行和小批验证，确认幂等、续跑与回退能力。"
+  },
+  {
+    "id": 41,
+    "cat": "Application 应用与依赖",
+    "title": "应用启动失败",
+    "context": "发布后，应用服务未能正常启动。",
+    "turns": [
+      [
+        "同事（Release Lead）",
+        "The deployment completed, but the service never became ready. What failed?",
+        "部署完成了，但服务一直没有就绪。哪里失败了？"
+      ],
+      [
+        "你（Ops）",
+        "Startup logs show a required configuration value is missing.",
+        "启动日志显示缺少一项必需配置。"
+      ],
+      [
+        "同事（Developer）",
+        "Can we restore it from the approved configuration source?",
+        "能从已批准的配置源恢复吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. We'll verify the value, redeploy through the change process, and run functional checks.",
+        "可以。我们会核对配置，通过变更流程重新部署，并做功能检查。"
+      ]
+    ],
+    "phrase": [
+      "Deployment completed, but the service has not passed readiness checks.",
+      "部署已完成，但服务尚未通过就绪检查。"
+    ],
+    "action": "核对配置来源，重新部署并验证业务功能。"
+  },
+  {
+    "id": 42,
+    "cat": "Application 应用与依赖",
+    "title": "API错误率突然上升",
+    "context": "API上线新版本后出现大量5xx。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The API's 5xx rate increased immediately after the release. We're comparing affected endpoints.",
+        "API的5xx错误率在发布后立即上升，我们正在比较受影响接口。"
+      ],
+      [
+        "同事（Developer）",
+        "Are all requests failing, or only one operation?",
+        "所有请求都失败，还是只有一个操作？"
+      ],
+      [
+        "你（Ops）",
+        "Only order creation is affected. Read-only requests remain healthy.",
+        "只有创建订单受影响，只读请求仍然正常。"
+      ],
+      [
+        "同事（Release Lead）",
+        "Let's check the rollback criteria and preserve the relevant logs before deciding.",
+        "我们检查回退条件，并在决策前保留相关日志。"
+      ]
+    ],
+    "phrase": [
+      "The impact is limited to …; … remains healthy.",
+      "影响仅限于……；……仍正常。"
+    ],
+    "action": "按接口确认影响，结合发布关联和回退条件决策。"
+  },
+  {
+    "id": 43,
+    "cat": "Application 应用与依赖",
+    "title": "API超时与上游依赖",
+    "context": "接口耗时超过网关等待时间。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "Can we increase the gateway timeout to stop these errors?",
+        "能增加网关超时时间，消除这些错误吗？"
+      ],
+      [
+        "你（Ops）",
+        "That may hide the symptom and keep requests open longer. The upstream response time has increased.",
+        "那可能掩盖症状并让请求占用更久。上游响应时间已经上升。"
+      ],
+      [
+        "同事（Developer）",
+        "What should we check first?",
+        "我们应该先检查什么？"
+      ],
+      [
+        "你（Ops）",
+        "Let's inspect the upstream traces, concurrency, and timeout budgets before changing the gateway setting.",
+        "调整网关前，先检查上游调用链、并发量和超时预算。"
+      ]
+    ],
+    "phrase": [
+      "Changing … may mask the symptom without addressing the cause.",
+      "调整……可能掩盖症状，无法解决原因。"
+    ],
+    "action": "明确超时发生层级，检查上游瓶颈和资源占用。"
+  },
+  {
+    "id": 44,
+    "cat": "Application 应用与依赖",
+    "title": "前端正常但业务操作失败",
+    "context": "页面能打开，但客户无法提交订单。",
+    "turns": [
+      [
+        "同事（Business Lead）",
+        "The homepage loads. Why are we still treating this as an incident?",
+        "首页能打开，为什么仍然按故障处理？"
+      ],
+      [
+        "你（Ops）",
+        "Availability of the page doesn't confirm the checkout journey. Order submission is failing.",
+        "页面可用不代表结算流程正常。目前提交订单失败。"
+      ],
+      [
+        "同事（Business Lead）",
+        "What evidence will confirm recovery?",
+        "什么证据能确认恢复？"
+      ],
+      [
+        "你（Ops）",
+        "A successful end-to-end transaction, supported by application metrics and business validation.",
+        "成功的端到端交易，并由应用指标和业务验证共同支持。"
+      ]
+    ],
+    "phrase": [
+      "We need to validate the user journey, not just the endpoint response.",
+      "我们需要验证用户流程，而不只是接口响应。"
+    ],
+    "action": "围绕关键业务链路判断影响与恢复。"
+  },
+  {
+    "id": 45,
+    "cat": "Application 应用与依赖",
+    "title": "连接池耗尽",
+    "context": "应用报数据库连接获取超时。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "Should we double the connection pool size?",
+        "要把连接池大小翻倍吗？"
+      ],
+      [
+        "你（Ops）",
+        "First, let's check database capacity, active connections, and how long each request holds a connection.",
+        "先检查数据库容量、活跃连接和每个请求持有连接的时间。"
+      ],
+      [
+        "同事（DBA）",
+        "The database is already close to its connection limit.",
+        "数据库已经接近连接上限。"
+      ],
+      [
+        "你（Ops）",
+        "Then increasing every pool could worsen the issue. We'll investigate slow queries and connection release.",
+        "那么扩大所有连接池可能加重问题。我们会排查慢查询和连接释放。"
+      ]
+    ],
+    "phrase": [
+      "Increasing … could worsen the issue if ….",
+      "如果……，增加……可能让问题恶化。"
+    ],
+    "action": "联合检查应用池和数据库上限，避免把压力转移到下游。"
+  },
+  {
+    "id": 46,
+    "cat": "Application 应用与依赖",
+    "title": "线程池与请求排队",
+    "context": "CPU不高，但应用处理速度明显下降。",
+    "turns": [
+      [
+        "同事（App Lead）",
+        "CPU is only forty percent. Why are requests queuing?",
+        "CPU只有40%，为什么请求还在排队？"
+      ],
+      [
+        "你（Ops）",
+        "Worker threads are waiting on a slow dependency, so low CPU doesn't mean spare processing capacity.",
+        "工作线程在等待缓慢的依赖，因此低CPU不代表还有处理余量。"
+      ],
+      [
+        "同事（Developer）",
+        "Can you capture thread information during the slowdown?",
+        "能在变慢时采集线程信息吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. We'll use the approved diagnostic method and correlate it with dependency latency.",
+        "可以。我们会使用获准诊断方式，并与依赖延迟关联分析。"
+      ]
+    ],
+    "phrase": [
+      "Low CPU doesn't necessarily mean the service has spare capacity.",
+      "CPU低不一定代表服务有余量。"
+    ],
+    "action": "结合线程等待、队列和下游延迟分析瓶颈。"
+  },
+  {
+    "id": 47,
+    "cat": "Application 应用与依赖",
+    "title": "重试放大流量",
+    "context": "依赖故障后，应用请求量异常增加。",
+    "turns": [
+      [
+        "同事（Incident Lead）",
+        "Traffic tripled even though user activity stayed flat. What's driving it?",
+        "用户活动没变，流量却翻了三倍。是什么造成的？"
+      ],
+      [
+        "你（Ops）",
+        "Multiple layers are retrying the same failed requests, adding load to the dependency.",
+        "多个层级在重试相同失败请求，增加了依赖负载。"
+      ],
+      [
+        "同事（Developer）",
+        "Should we stop all retries?",
+        "要停止所有重试吗？"
+      ],
+      [
+        "你（Ops）",
+        "Let's review retry limits, backoff, and idempotency, then apply the agreed mitigation at the right layer.",
+        "先检查重试上限、退避和幂等性，再在适当层实施约定措施。"
+      ]
+    ],
+    "phrase": [
+      "Retries are amplifying the load on ….",
+      "重试正在放大……承受的负载。"
+    ],
+    "action": "检查跨层重试叠加，评估幂等性并限制重试放大。"
+  },
+  {
+    "id": 48,
+    "cat": "Application 应用与依赖",
+    "title": "功能开关紧急降级",
+    "context": "新功能影响核心流程，团队考虑关闭开关。",
+    "turns": [
+      [
+        "同事（Product Owner）",
+        "Can we disable the recommendation feature while keeping checkout available?",
+        "能关闭推荐功能，同时保留结算吗？"
+      ],
+      [
+        "你（Ops）",
+        "The feature flag supports that, but we need to confirm the fallback behavior.",
+        "功能开关支持，但需要确认降级后的行为。"
+      ],
+      [
+        "同事（Developer）",
+        "Checkout uses a default response when recommendations are unavailable.",
+        "推荐不可用时，结算会使用默认响应。"
+      ],
+      [
+        "你（Ops）",
+        "Let's apply the approved flag change and verify both checkout success and error rates.",
+        "我们执行获准的开关变更，并验证结算成功率和错误率。"
+      ]
+    ],
+    "phrase": [
+      "Can we disable … while keeping … available?",
+      "能关闭……，同时保持……可用吗？"
+    ],
+    "action": "确认降级边界和默认行为，再验证核心流程。"
+  },
+  {
+    "id": 49,
+    "cat": "Application 应用与依赖",
+    "title": "第三方接口故障",
+    "context": "外部支付服务出现异常，内部团队需协调。",
+    "turns": [
+      [
+        "同事（Business Lead）",
+        "Is this our issue or the payment provider's issue?",
+        "这是我们的问题，还是支付服务商的问题？"
+      ],
+      [
+        "你（Ops）",
+        "We see failures on the provider path, but we're validating our requests and their responses.",
+        "我们看到服务商链路上出现失败，但仍在核对我方请求和对方响应。"
+      ],
+      [
+        "同事（Vendor Manager）",
+        "What do you need for the escalation?",
+        "升级给供应商需要什么信息？"
+      ],
+      [
+        "你（Ops）",
+        "Sanitized request IDs, UTC timestamps, impact figures, and the checks we've already completed.",
+        "脱敏请求ID、UTC时间戳、影响数据，以及已完成的检查。"
+      ]
+    ],
+    "phrase": [
+      "We're validating both sides before assigning the cause.",
+      "我们会先验证双方情况，再判断原因。"
+    ],
+    "action": "用证据协调供应商，同时保留我方排查责任。"
+  },
+  {
+    "id": 50,
+    "cat": "Application 应用与依赖",
+    "title": "版本与接口兼容性",
+    "context": "服务A升级后，旧版客户端调用失败。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The new API works in our tests. Which clients are failing?",
+        "新API在我们的测试里正常，哪些客户端失败了？"
+      ],
+      [
+        "你（Ops）",
+        "Only clients using the previous response format. They still account for part of production traffic.",
+        "只有使用旧响应格式的客户端失败，它们仍占部分生产流量。"
+      ],
+      [
+        "同事（App Lead）",
+        "Can we coordinate an immediate client upgrade?",
+        "能协调客户端立即升级吗？"
+      ],
+      [
+        "你（Ops）",
+        "We'll assess that, but we also need a compatible mitigation while those clients are updated.",
+        "我们会评估，但客户端升级期间也需要兼容的缓解方案。"
+      ]
+    ],
+    "phrase": [
+      "We need a compatible mitigation while … is being updated.",
+      "在……更新期间，我们需要兼容的缓解方案。"
+    ],
+    "action": "清点客户端版本，安排兼容措施和升级验证。"
+  },
+  {
+    "id": 51,
+    "cat": "数据库、中间件与批处理",
+    "title": "数据库慢查询",
+    "context": "数据库延迟影响应用，讨论优化方向。",
+    "turns": [
+      [
+        "同事（App Lead）",
+        "Database response time doubled. Do we need a larger instance?",
+        "数据库响应时间翻倍，需要换更大实例吗？"
+      ],
+      [
+        "你（Ops）",
+        "A small set of queries accounts for most of the increase. We're reviewing execution plans with the DBA.",
+        "少量查询造成了主要增幅，我们正和DBA检查执行计划。"
+      ],
+      [
+        "同事（DBA）",
+        "One query changed after the release and now scans many more rows.",
+        "发布后一个查询发生变化，现在扫描的行数大幅增加。"
+      ],
+      [
+        "你（Ops）",
+        "Let's validate a targeted fix and compare latency and resource use before and after.",
+        "我们验证针对性修复，并对比前后延迟和资源使用。"
+      ]
+    ],
+    "phrase": [
+      "A small set of … accounts for most of ….",
+      "少量……造成了大部分……。"
+    ],
+    "action": "用查询证据和执行计划指导优化，而非直接扩容。"
+  },
+  {
+    "id": 52,
+    "cat": "数据库、中间件与批处理",
+    "title": "锁等待与长事务",
+    "context": "数据库写入阻塞，需要决定处理方式。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "Several updates are stuck. Can we terminate the blocking session?",
+        "几个更新卡住了，能终止阻塞会话吗？"
+      ],
+      [
+        "你（Ops）",
+        "The DBA identified a long-running transaction. We need to assess rollback impact first.",
+        "DBA定位到一个长事务，需要先评估回滚影响。"
+      ],
+      [
+        "同事（DBA）",
+        "Terminating it may trigger a lengthy rollback and affect related operations.",
+        "终止它可能触发耗时回滚，并影响相关操作。"
+      ],
+      [
+        "你（Ops）",
+        "Let's confirm the transaction owner and agree on the safest recovery step with the incident lead.",
+        "我们确认事务负责人，再与故障负责人商定最合适的恢复步骤。"
+      ]
+    ],
+    "phrase": [
+      "Before terminating …, we need to assess ….",
+      "终止……前，需要评估……。"
+    ],
+    "action": "确认阻塞链、事务归属和回滚代价。"
+  },
+  {
+    "id": 53,
+    "cat": "数据库、中间件与批处理",
+    "title": "数据库复制延迟",
+    "context": "读副本返回旧数据，引发区域团队投诉。",
+    "turns": [
+      [
+        "同事（Regional Lead）",
+        "Users see outdated account details after making changes.",
+        "用户修改资料后，看到的仍是旧数据。"
+      ],
+      [
+        "你（Ops）",
+        "Replica lag has increased. We're checking whether affected reads use the delayed replica.",
+        "复制延迟上升了，我们正在检查受影响读取是否来自该副本。"
+      ],
+      [
+        "同事（DBA）",
+        "Can the primary handle additional reads temporarily?",
+        "主库能临时承担更多读取吗？"
+      ],
+      [
+        "你（Ops）",
+        "We'll assess headroom and the application's consistency requirements before changing read routing.",
+        "调整读路由前，我们会评估余量和应用一致性要求。"
+      ]
+    ],
+    "phrase": [
+      "We'll assess capacity and consistency requirements before changing ….",
+      "调整……前，我们会评估容量和一致性要求。"
+    ],
+    "action": "确认复制延迟与受影响读取，评估切换读流量的成本。"
+  },
+  {
+    "id": 54,
+    "cat": "数据库、中间件与批处理",
+    "title": "数据库主备切换",
+    "context": "主库异常，准备执行故障切换。",
+    "turns": [
+      [
+        "同事（Incident Lead）",
+        "Is the standby ready to take over?",
+        "备库可以接管了吗？"
+      ],
+      [
+        "同事（DBA）",
+        "We need to confirm replication state and prevent the old primary from accepting writes.",
+        "需要确认复制状态，并阻止旧主库继续接受写入。"
+      ],
+      [
+        "你（Ops）",
+        "I'll coordinate connection routing and application validation once the DBA authorizes promotion.",
+        "DBA确认可以提升备库后，我会协调连接路由和应用验证。"
+      ],
+      [
+        "同事（Incident Lead）",
+        "Please report any potential data loss before we approve the failover.",
+        "批准切换前，请说明潜在数据丢失范围。"
+      ]
+    ],
+    "phrase": [
+      "What is the potential data loss, and how will we validate recovery?",
+      "潜在数据丢失有多少，如何验证恢复？"
+    ],
+    "action": "明确复制状态、隔离旧主库、数据风险和验证责任。"
+  },
+  {
+    "id": 55,
+    "cat": "数据库、中间件与批处理",
+    "title": "备份成功与恢复验证",
+    "context": "审查备份状态是否足以证明可恢复。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "All backup jobs are green. Can we confirm the service is recoverable?",
+        "备份任务全是绿色，能确认服务可恢复吗？"
+      ],
+      [
+        "你（Ops）",
+        "Successful backups are encouraging, but we still need a restore test and data validation.",
+        "备份成功是好迹象，但仍需恢复测试和数据验证。"
+      ],
+      [
+        "同事（DBA）",
+        "We'll restore the selected backup into an isolated environment.",
+        "我们会把选定备份恢复到隔离环境。"
+      ],
+      [
+        "你（Ops）",
+        "Please record recovery time, the recoverable data point, and the application validation results.",
+        "请记录恢复耗时、可恢复的数据时间点和应用验证结果。"
+      ]
+    ],
+    "phrase": [
+      "A successful backup does not by itself prove recoverability.",
+      "仅有备份成功，并不能证明一定可恢复。"
+    ],
+    "action": "通过隔离恢复测试验证数据可用性与恢复目标。"
+  },
+  {
+    "id": 56,
+    "cat": "数据库、中间件与批处理",
+    "title": "Redis缓存命中率下降",
+    "context": "缓存故障导致数据库负载上升。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "Database traffic increased after the cache restart. Should we clear the cache again?",
+        "缓存重启后数据库流量增加，要再清一次缓存吗？"
+      ],
+      [
+        "你（Ops）",
+        "The hit rate is low because the cache is cold. Another flush could prolong the load spike.",
+        "命中率低是因为缓存尚未预热，再清空可能延长负载高峰。"
+      ],
+      [
+        "同事（App Lead）",
+        "Can we warm it safely?",
+        "能安全预热吗？"
+      ],
+      [
+        "你（Ops）",
+        "Let's use the approved warm-up method, limit the rate, and watch database capacity.",
+        "按批准方式预热，控制速率，并监测数据库容量。"
+      ]
+    ],
+    "phrase": [
+      "Another … could prolong the impact.",
+      "再做一次……可能延长影响。"
+    ],
+    "action": "核对缓存预热过程，控制对数据库的额外压力。"
+  },
+  {
+    "id": 57,
+    "cat": "数据库、中间件与批处理",
+    "title": "消息队列积压",
+    "context": "消息生产正常，但消费者处理跟不上。",
+    "turns": [
+      [
+        "同事（Service Owner）",
+        "The queue depth keeps growing. Can we add more consumers?",
+        "队列持续增长，能增加消费者吗？"
+      ],
+      [
+        "你（Ops）",
+        "We'll check consumer throughput and downstream capacity before increasing concurrency.",
+        "增加并发前，我们会检查消费吞吐和下游容量。"
+      ],
+      [
+        "同事（Developer）",
+        "The downstream API is already returning rate-limit errors.",
+        "下游API已经返回限流错误。"
+      ],
+      [
+        "你（Ops）",
+        "Then more consumers may add pressure. Let's agree on backpressure and an estimated drain time.",
+        "那么增加消费者可能加压。我们先商定背压措施，并估算积压清理时间。"
+      ]
+    ],
+    "phrase": [
+      "We need to check downstream capacity before increasing concurrency.",
+      "增加并发前，需要检查下游容量。"
+    ],
+    "action": "检查生产速率、消费速率、下游限制与积压清理预估。"
+  },
+  {
+    "id": 58,
+    "cat": "数据库、中间件与批处理",
+    "title": "重复消息与幂等性",
+    "context": "消息重试后，业务侧出现重复记录。",
+    "turns": [
+      [
+        "同事（Business Lead）",
+        "Some orders appear twice. Did the queue duplicate the messages?",
+        "部分订单出现两次，是队列重复消息了吗？"
+      ],
+      [
+        "你（Ops）",
+        "Delivery retries are possible. We're checking message IDs and the consumer's deduplication behavior.",
+        "消息可能重投，我们正在检查消息ID和消费者去重行为。"
+      ],
+      [
+        "同事（Developer）",
+        "The idempotency check failed for one processing path.",
+        "一条处理链路的幂等校验失效了。"
+      ],
+      [
+        "你（Ops）",
+        "Let's contain further duplicates, identify affected records, and agree on reconciliation before replaying anything.",
+        "先阻止更多重复，识别受影响记录，商定对账方案后再重放。"
+      ]
+    ],
+    "phrase": [
+      "Let's reconcile the affected records before replaying ….",
+      "重放……前，我们先核对受影响记录。"
+    ],
+    "action": "核对幂等、重复影响和业务对账，避免盲目重放。"
+  },
+  {
+    "id": 59,
+    "cat": "数据库、中间件与批处理",
+    "title": "死信队列消息处理",
+    "context": "团队准备重放死信队列中的失败消息。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The bug is fixed. Can we replay the entire dead-letter queue?",
+        "缺陷修复了，能重放整个死信队列吗？"
+      ],
+      [
+        "你（Ops）",
+        "We should classify the failures first. Some messages may still be invalid or already processed.",
+        "先分类失败原因，其中部分消息可能仍无效，或已经处理过。"
+      ],
+      [
+        "同事（Developer）",
+        "Let's start with a verified sample.",
+        "我们先从已核实样本开始。"
+      ],
+      [
+        "你（Ops）",
+        "Agreed. We'll use a controlled rate and compare processing results with business records.",
+        "同意。我们会控制速率，并将处理结果与业务记录核对。"
+      ]
+    ],
+    "phrase": [
+      "Let's start with a verified sample and expand after validation.",
+      "先处理已核实样本，验证后再扩大范围。"
+    ],
+    "action": "分类死信、确认幂等、小批重放并对账。"
+  },
+  {
+    "id": 60,
+    "cat": "数据库、中间件与批处理",
+    "title": "夜间批处理超时",
+    "context": "跨区数据任务未在业务截止时间前完成。",
+    "turns": [
+      [
+        "同事（Business Lead）",
+        "Will the overnight report be ready before the regional opening time?",
+        "夜间报表能在区域开工前完成吗？"
+      ],
+      [
+        "你（Ops）",
+        "The batch is delayed by an upstream file. We're confirming its arrival time and the remaining processing time.",
+        "批处理被上游文件延迟阻塞，我们正在确认文件到达时间和剩余处理耗时。"
+      ],
+      [
+        "同事（Business Lead）",
+        "Can we publish yesterday's report as a fallback?",
+        "能用昨天的报表作为替代吗？"
+      ],
+      [
+        "你（Ops）",
+        "Only with business approval and a clear data timestamp. I'll coordinate that decision and update by 06:00 UTC.",
+        "需要业务批准并明确数据时间戳。我会协调决定，并在06:00 UTC前更新。"
+      ]
+    ],
+    "phrase": [
+      "The fallback needs business approval and a clear data timestamp.",
+      "替代方案需要业务批准，并清楚标注数据时间。"
+    ],
+    "action": "确认依赖、截止时间和备用数据方案的业务批准。"
+  },
+  {
+    "id": 61,
+    "cat": "监控、性能与可靠性",
+    "title": "告警阈值评审",
+    "context": "团队讨论CPU告警是否过于敏感。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "We get frequent CPU alerts, but users rarely notice any impact.",
+        "CPU告警很频繁，但用户很少受到影响。"
+      ],
+      [
+        "你（Ops）",
+        "Let's compare the alerts with latency, errors, and saturation before changing the threshold.",
+        "调整阈值前，我们先对照延迟、错误和资源饱和程度。"
+      ],
+      [
+        "同事（Service Owner）",
+        "Could we use a sustained condition instead of alerting on every short spike?",
+        "能按持续异常告警，而不是每次短暂尖峰都告警吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. We'll test the rule against historical incidents and verify it still detects meaningful failures.",
+        "可以。我们会用历史故障验证规则，确认仍能发现实质性问题。"
+      ]
+    ],
+    "phrase": [
+      "Let's validate the rule against historical incidents.",
+      "我们用历史故障验证一下这条规则。"
+    ],
+    "action": "用历史数据调整阈值和持续时间，检查漏报风险。"
+  },
+  {
+    "id": 62,
+    "cat": "监控、性能与可靠性",
+    "title": "重复告警与降噪",
+    "context": "一个依赖故障引发几十条告警。",
+    "turns": [
+      [
+        "同事（On-call）",
+        "One database issue generated fifty pages. It was hard to identify the primary problem.",
+        "一个数据库问题触发了五十次呼叫，很难找到主要问题。"
+      ],
+      [
+        "你（Ops）",
+        "We should group related alerts and route them to the right owner.",
+        "我们应将相关告警分组，并路由给正确负责人。"
+      ],
+      [
+        "同事（Monitoring Lead）",
+        "Can we suppress downstream alerts when the dependency fails?",
+        "依赖失败时，能抑制下游告警吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes, where the dependency is verified. We'll preserve visibility and test the suppression behavior.",
+        "已验证依赖关系的地方可以。我们会保留可见性，并测试抑制行为。"
+      ]
+    ],
+    "phrase": [
+      "We should reduce duplicate pages while preserving visibility.",
+      "我们应减少重复呼叫，同时保持问题可见。"
+    ],
+    "action": "建立分组、依赖抑制和责任路由，并验证效果。"
+  },
+  {
+    "id": 63,
+    "cat": "监控、性能与可靠性",
+    "title": "平均延迟与P95",
+    "context": "全球会议上，平均值掩盖了慢请求。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "Average latency looks normal. Why are users reporting slow responses?",
+        "平均延迟正常，为什么用户反馈慢？"
+      ],
+      [
+        "你（Ops）",
+        "The average hides the slowest requests. P95 has increased significantly in one region.",
+        "平均值掩盖了较慢请求，一个区域的P95已明显升高。"
+      ],
+      [
+        "同事（Manager）",
+        "How will you narrow down the cause?",
+        "你会怎样缩小原因范围？"
+      ],
+      [
+        "你（Ops）",
+        "We'll break it down by region, endpoint, and dependency, using a comparable time window.",
+        "我们会在可比较的时间窗口内，按区域、接口和依赖拆分分析。"
+      ]
+    ],
+    "phrase": [
+      "The average hides …; we need to examine ….",
+      "平均值掩盖了……；我们需要查看……。"
+    ],
+    "action": "结合分位数与分组数据定位长尾延迟。"
+  },
+  {
+    "id": 64,
+    "cat": "监控、性能与可靠性",
+    "title": "SLI与SLO口径",
+    "context": "业务和技术团队对服务可用性结论不同。",
+    "turns": [
+      [
+        "同事（Business Lead）",
+        "The dashboard says ninety-nine point nine percent, but checkout failed this morning.",
+        "看板显示99.9%，但今天早上结算失败了。"
+      ],
+      [
+        "你（Ops）",
+        "We need to confirm what the indicator measures. It may cover endpoint responses rather than completed checkouts.",
+        "需要确认指标衡量什么，它可能统计接口响应，而非结算完成情况。"
+      ],
+      [
+        "同事（SRE）",
+        "Let's define a user-facing success indicator and its measurement window.",
+        "我们定义面向用户的成功指标及统计窗口。"
+      ],
+      [
+        "你（Ops）",
+        "Agreed. We'll document eligible requests, exclusions, and the target before reporting compliance.",
+        "同意。我们会先明确纳入请求、排除项和目标，再报告达标情况。"
+      ]
+    ],
+    "phrase": [
+      "What exactly does this indicator measure?",
+      "这个指标具体衡量什么？"
+    ],
+    "action": "统一SLI、统计窗口、排除项和SLO目标。"
+  },
+  {
+    "id": 65,
+    "cat": "监控、性能与可靠性",
+    "title": "错误预算与发布节奏",
+    "context": "近期故障较多，团队讨论是否继续功能发布。",
+    "turns": [
+      [
+        "同事（Product Owner）",
+        "Can we keep the normal release schedule this week?",
+        "本周还能维持正常发布节奏吗？"
+      ],
+      [
+        "你（Ops）",
+        "The service has consumed most of its error budget. Our agreed policy calls for a reliability review.",
+        "服务已消耗大部分错误预算。按已约定政策，需要开展可靠性评审。"
+      ],
+      [
+        "同事（Product Owner）",
+        "Does that mean every change must stop?",
+        "这是否意味着所有变更都停止？"
+      ],
+      [
+        "你（Ops）",
+        "We'll follow the policy: assess each change's risk and prioritize work that reduces ongoing impact.",
+        "我们会按政策评估每项变更风险，优先处理能降低当前影响的工作。"
+      ]
+    ],
+    "phrase": [
+      "Let's apply the agreed policy and assess each change's risk.",
+      "我们按已约定政策评估每项变更风险。"
+    ],
+    "action": "依据错误预算政策调整发布，避免自行套用一刀切规则。"
+  },
+  {
+    "id": 66,
+    "cat": "监控、性能与可靠性",
+    "title": "监控数据缺失",
+    "context": "看板无数据，有人认为服务已停止。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "The chart is empty. Is the service down?",
+        "图表空了，是服务宕机了吗？"
+      ],
+      [
+        "你（Ops）",
+        "We haven't confirmed that. The telemetry pipeline may be delayed; we're checking an independent probe.",
+        "还未确认。遥测链路可能延迟，我们正在检查独立探测结果。"
+      ],
+      [
+        "同事（Monitoring）",
+        "The external probe is healthy, but metric ingestion stopped ten minutes ago.",
+        "外部探测正常，但指标采集十分钟前停止了。"
+      ],
+      [
+        "你（Ops）",
+        "We'll investigate monitoring separately and maintain temporary visibility while it's restored.",
+        "我们会单独排查监控，并在恢复期间维持临时观测手段。"
+      ]
+    ],
+    "phrase": [
+      "Missing data doesn't confirm service failure; we need an independent check.",
+      "数据缺失不能确认服务故障，需要独立检查。"
+    ],
+    "action": "区分业务故障与观测故障，建立临时可见性。"
+  },
+  {
+    "id": 67,
+    "cat": "监控、性能与可靠性",
+    "title": "跨服务日志关联",
+    "context": "多个团队排查同一失败请求。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "We can't tell whether these errors belong to the same transaction.",
+        "我们无法判断这些错误是否属于同一笔交易。"
+      ],
+      [
+        "你（Ops）",
+        "Let's correlate them using the request ID, trace ID, and UTC timestamps.",
+        "我们通过请求ID、追踪ID和UTC时间戳关联。"
+      ],
+      [
+        "同事（Developer）",
+        "One service isn't forwarding the correlation header.",
+        "一个服务没有传递关联请求头。"
+      ],
+      [
+        "你（Ops）",
+        "We'll document that gap and use the available evidence without treating timestamp proximity as proof.",
+        "我们会记录这个缺口，利用现有证据，但不把时间接近当成证明。"
+      ]
+    ],
+    "phrase": [
+      "We need a shared correlation ID across the request path.",
+      "整条请求链路需要共用关联ID。"
+    ],
+    "action": "关联日志与调用链，并修复追踪上下文缺失。"
+  },
+  {
+    "id": 68,
+    "cat": "监控、性能与可靠性",
+    "title": "压测与真实流量差异",
+    "context": "压测通过，但生产高峰仍发生拥塞。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "Why did production struggle after the load test passed?",
+        "压测通过了，为什么生产仍承压异常？"
+      ],
+      [
+        "你（Ops）",
+        "The test didn't fully represent production request mix, data volume, or dependency limits.",
+        "测试未充分覆盖生产请求组合、数据量和依赖限制。"
+      ],
+      [
+        "同事（Performance Engineer）",
+        "What should the next test include?",
+        "下一轮测试应包括什么？"
+      ],
+      [
+        "你（Ops）",
+        "Representative traffic, realistic data, longer steady load, and clear pass criteria for critical journeys.",
+        "有代表性的流量、真实规模数据、更长稳态负载，以及关键流程的明确通过标准。"
+      ]
+    ],
+    "phrase": [
+      "The test didn't fully represent ….",
+      "测试未充分代表……。"
+    ],
+    "action": "对齐压测模型、生产约束和验收标准。"
+  },
+  {
+    "id": 69,
+    "cat": "监控、性能与可靠性",
+    "title": "探测成功但客户仍报错",
+    "context": "健康检查正常，但特定客户持续失败。",
+    "turns": [
+      [
+        "同事（Service Owner）",
+        "Our synthetic checks are green. Could this be a customer-side issue?",
+        "合成探测正常，会不会是客户侧问题？"
+      ],
+      [
+        "你（Ops）",
+        "Possibly, but the checks may not cover that customer's region, account type, or request path.",
+        "有可能，但探测未必覆盖该客户的区域、账户类型或请求路径。"
+      ],
+      [
+        "同事（Support）",
+        "We have failing request IDs and timestamps from the customer.",
+        "我们有客户失败请求的ID和时间戳。"
+      ],
+      [
+        "你（Ops）",
+        "Let's trace those samples and expand coverage if we find a monitoring gap.",
+        "我们追踪这些样本；若发现监控缺口，就扩大覆盖。"
+      ]
+    ],
+    "phrase": [
+      "The checks may not cover the affected ….",
+      "当前检查可能未覆盖受影响的……。"
+    ],
+    "action": "依据客户样本排查，避免用局部探测否定用户影响。"
+  },
+  {
+    "id": 70,
+    "cat": "监控、性能与可靠性",
+    "title": "容量预测与促销保障",
+    "context": "跨国业务活动前评估系统承载力。",
+    "turns": [
+      [
+        "同事（Business Lead）",
+        "We expect twice the normal traffic during the campaign. Are we ready?",
+        "活动期间预计流量翻倍，我们准备好了吗？"
+      ],
+      [
+        "你（Ops）",
+        "We'll validate peak concurrency, dependency quotas, and recovery headroom against that forecast.",
+        "我们会按预测验证峰值并发、依赖配额和恢复余量。"
+      ],
+      [
+        "同事（Business Lead）",
+        "What support do you need from the business team?",
+        "需要业务团队提供什么支持？"
+      ],
+      [
+        "你（Ops）",
+        "The regional traffic schedule, expected transaction mix, and a contact who can approve fallback decisions.",
+        "各区域流量时间表、预计交易组合，以及能批准降级决定的联系人。"
+      ]
+    ],
+    "phrase": [
+      "We'll validate readiness against the forecast for ….",
+      "我们会根据……的预测验证准备情况。"
+    ],
+    "action": "对齐需求预测、容量证据和活动期间决策联系人。"
+  },
+  {
+    "id": 71,
+    "cat": "Incident 故障响应",
+    "title": "收到告警后的初步确认",
+    "context": "值班人员收到生产错误率告警。",
+    "turns": [
+      [
+        "同事（On-call）",
+        "The error-rate alert just fired. Have you confirmed user impact?",
+        "错误率告警刚触发，确认用户影响了吗？"
+      ],
+      [
+        "你（Ops）",
+        "Not yet. I'm checking external probes, recent requests, and the affected service scope.",
+        "还没有。我正在检查外部探测、近期请求和受影响服务范围。"
+      ],
+      [
+        "同事（On-call）",
+        "Please also check whether a deployment happened near the start time.",
+        "也请检查开始时间附近是否有部署。"
+      ],
+      [
+        "你（Ops）",
+        "Will do. I'll report confirmed facts and open questions separately in five minutes.",
+        "好的。五分钟后，我会分别汇报已确认事实和待确认问题。"
+      ]
+    ],
+    "phrase": [
+      "Here's what we've confirmed, and here's what we're still checking.",
+      "以下是已确认事实，以及仍在检查的事项。"
+    ],
+    "action": "确认影响与范围，建立第一轮事实和假设清单。"
+  },
+  {
+    "id": 72,
+    "cat": "Incident 故障响应",
+    "title": "确定等级并升级",
+    "context": "核心业务大面积失败，需要启动重大故障流程。",
+    "turns": [
+      [
+        "你（Ops）",
+        "Checkout failures are affecting multiple regions. This appears to meet our major-incident criteria.",
+        "多个区域的结算失败，看来符合重大故障标准。"
+      ],
+      [
+        "同事（Incident Manager）",
+        "What's confirmed, and which teams need to join?",
+        "确认了哪些情况，需要哪些团队加入？"
+      ],
+      [
+        "你（Ops）",
+        "The failures are confirmed. We need the application, database, and network on-call engineers on the bridge.",
+        "已确认存在失败。需要应用、数据库和网络值班工程师加入故障会议。"
+      ],
+      [
+        "同事（Incident Manager）",
+        "I'll declare the severity under our policy and activate the escalation process.",
+        "我会按政策确定故障等级，并启动升级流程。"
+      ]
+    ],
+    "phrase": [
+      "This appears to meet our … criteria.",
+      "这看来符合我们的……标准。"
+    ],
+    "action": "依据组织标准定级，召集必要团队并启动升级流程。"
+  },
+  {
+    "id": 73,
+    "cat": "Incident 故障响应",
+    "title": "明确故障会议角色",
+    "context": "多人加入故障会议，需要避免重复排查。",
+    "turns": [
+      [
+        "同事（Incident Commander）",
+        "I'll coordinate the response. Who can lead technical investigation and communications?",
+        "我负责整体协调。谁负责技术排查和信息同步？"
+      ],
+      [
+        "你（Ops）",
+        "I can coordinate infrastructure checks. The application lead can drive application investigation.",
+        "我可以协调基础设施检查，应用负责人牵头应用排查。"
+      ],
+      [
+        "同事（Communications Lead）",
+        "I'll handle stakeholder updates. Who is recording the timeline?",
+        "我负责干系人更新，谁记录时间线？"
+      ],
+      [
+        "你（Ops）",
+        "Our second on-call engineer will record actions, decisions, owners, and UTC timestamps.",
+        "第二位值班工程师会记录动作、决定、负责人和UTC时间戳。"
+      ]
+    ],
+    "phrase": [
+      "Let's assign an owner to each investigation track.",
+      "我们为每条排查线指定负责人。"
+    ],
+    "action": "确定指挥、技术、沟通和记录角色。"
+  },
+  {
+    "id": 74,
+    "cat": "Incident 故障响应",
+    "title": "量化影响范围",
+    "context": "领导要求给出准确影响数字。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "How many users are affected, and is the impact global?",
+        "多少用户受影响，是全球范围吗？"
+      ],
+      [
+        "你（Ops）",
+        "We have confirmed failures in APAC. Our current figure is failed requests, not unique users.",
+        "已确认亚太区有失败。现有数字统计失败请求，不是独立用户数。"
+      ],
+      [
+        "同事（Manager）",
+        "Can we estimate the business impact?",
+        "能估算业务影响吗？"
+      ],
+      [
+        "你（Ops）",
+        "We're validating affected transactions with the business team and will state the measurement window and uncertainty.",
+        "我们正与业务团队核对受影响交易，并会说明统计窗口和不确定性。"
+      ]
+    ],
+    "phrase": [
+      "This figure represents …, not ….",
+      "这个数字代表……，不是……。"
+    ],
+    "action": "明确区域、时间窗口、指标口径与可信程度。"
+  },
+  {
+    "id": 75,
+    "cat": "Incident 故障响应",
+    "title": "建立时间线并验证假设",
+    "context": "故障与一次变更时间接近，团队怀疑有关。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The incident started after the configuration change, so that must be the cause.",
+        "故障在配置变更后开始，所以那一定是原因。"
+      ],
+      [
+        "你（Ops）",
+        "The timing makes it a strong hypothesis, but it doesn't establish causation yet.",
+        "时间上使它成为重要假设，但还不能证明因果关系。"
+      ],
+      [
+        "同事（Incident Commander）",
+        "What evidence would help us confirm or reject it?",
+        "什么证据能帮助确认或排除？"
+      ],
+      [
+        "你（Ops）",
+        "We'll compare affected instances, configuration differences, and behavior before and after a controlled mitigation.",
+        "我们会比较受影响实例、配置差异，以及受控缓解前后的表现。"
+      ]
+    ],
+    "phrase": [
+      "The timing supports the hypothesis, but we still need evidence.",
+      "时间上支持这个假设，但仍需要证据。"
+    ],
+    "action": "记录假设、依据、验证方式与结论。"
+  },
+  {
+    "id": 76,
+    "cat": "Incident 故障响应",
+    "title": "优先恢复与并行排查",
+    "context": "团队讨论是否必须先找到根因才能处理。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "Should we keep investigating until we know the exact root cause?",
+        "要继续调查，直到找到确切根因吗？"
+      ],
+      [
+        "你（Ops）",
+        "We can investigate in parallel while assessing a safe mitigation to restore service.",
+        "我们可以并行排查，同时评估安全缓解方案来恢复服务。"
+      ],
+      [
+        "同事（Incident Commander）",
+        "What do we need before applying the mitigation?",
+        "实施缓解措施前需要什么？"
+      ],
+      [
+        "你（Ops）",
+        "The expected benefit, risks, approval, rollback steps, and a clear way to validate the result.",
+        "预期收益、风险、批准、回退步骤，以及明确的结果验证方式。"
+      ]
+    ],
+    "phrase": [
+      "Let's restore service safely while continuing the investigation.",
+      "我们在继续排查的同时，安全恢复服务。"
+    ],
+    "action": "并行推进恢复和调查，记录每次操作的风险与验证结果。"
+  },
+  {
+    "id": 77,
+    "cat": "Incident 故障响应",
+    "title": "故障期间决定回退",
+    "context": "新版本疑似引发故障，需要判断回退是否安全。",
+    "turns": [
+      [
+        "同事（Release Lead）",
+        "Should we roll back to the previous version now?",
+        "现在应该回退到上一版本吗？"
+      ],
+      [
+        "你（Ops）",
+        "The rollback threshold is met, but we must confirm database and configuration compatibility.",
+        "已达到回退阈值，但必须确认数据库和配置兼容性。"
+      ],
+      [
+        "同事（Developer）",
+        "The schema change is backward-compatible, and the previous artifact is available.",
+        "数据库结构变更向后兼容，旧版本制品也可用。"
+      ],
+      [
+        "你（Ops）",
+        "I'll record those checks and request the incident commander's approval under the emergency change process.",
+        "我会记录检查结果，并按紧急变更流程请求故障指挥批准。"
+      ]
+    ],
+    "phrase": [
+      "The threshold is met; we still need to confirm … before rollback.",
+      "已经达到阈值；回退前仍需确认……。"
+    ],
+    "action": "确认回退条件、兼容性、制品和授权。"
+  },
+  {
+    "id": 78,
+    "cat": "Incident 故障响应",
+    "title": "面向管理层的简明更新",
+    "context": "向全球领导同步仍在处理的故障。",
+    "turns": [
+      [
+        "同事（Executive）",
+        "Please give us a concise update without the technical detail.",
+        "请简要更新情况，不用展开技术细节。"
+      ],
+      [
+        "你（Ops）",
+        "Order creation is failing for some APAC users. Existing orders remain accessible.",
+        "部分亚太用户创建订单失败，已有订单仍可查看。"
+      ],
+      [
+        "同事（Executive）",
+        "What's being done, and when will we hear more?",
+        "正在采取什么措施，下次什么时候更新？"
+      ],
+      [
+        "你（Ops）",
+        "We're validating a mitigation. Recovery time is unconfirmed; the next update is at 15:00 UTC.",
+        "我们正在验证缓解措施。恢复时间尚未确认，下次更新在15:00 UTC。"
+      ]
+    ],
+    "phrase": [
+      "Current impact: …. Current action: …. Next update: …. ",
+      "当前影响：……。当前措施：……。下次更新：……。"
+    ],
+    "action": "用影响、措施、恢复预估状态和下次更新时间组织汇报。"
+  },
+  {
+    "id": 79,
+    "cat": "Incident 故障响应",
+    "title": "验证服务真正恢复",
+    "context": "缓解后告警消失，准备宣布恢复。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "The alerts cleared. Can we announce recovery?",
+        "告警消失了，可以宣布恢复吗？"
+      ],
+      [
+        "你（Ops）",
+        "Let's verify critical user journeys, regional metrics, and backlog behavior first.",
+        "先验证关键用户流程、区域指标和积压情况。"
+      ],
+      [
+        "同事（Business Lead）",
+        "Test orders are successful, but some delayed orders still need reconciliation.",
+        "测试订单成功了，但部分延迟订单仍需对账。"
+      ],
+      [
+        "你（Ops）",
+        "We'll report service recovery separately from outstanding data cleanup and continue monitoring.",
+        "我们会分别报告服务恢复和未完成数据清理，并继续观察。"
+      ]
+    ],
+    "phrase": [
+      "Service recovery is confirmed; … remains outstanding.",
+      "服务恢复已确认；……仍未完成。"
+    ],
+    "action": "确认业务恢复，单独跟踪积压、数据和补偿工作。"
+  },
+  {
+    "id": 80,
+    "cat": "Incident 故障响应",
+    "title": "结束故障会议与观察交接",
+    "context": "服务稳定后，准备退出持续故障会议。",
+    "turns": [
+      [
+        "同事（Incident Commander）",
+        "The service has remained stable through the agreed observation period. Can we close the bridge?",
+        "服务在约定观察期内保持稳定，可以结束故障会议吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. Monitoring ownership, escalation triggers, and remaining actions are documented.",
+        "可以。监控负责人、再次升级条件和剩余行动均已记录。"
+      ],
+      [
+        "同事（Incident Commander）",
+        "Who will own the post-incident review?",
+        "谁负责故障复盘？"
+      ],
+      [
+        "你（Ops）",
+        "I'll coordinate it under our incident policy and circulate the evidence and agenda beforehand.",
+        "我会按故障政策协调复盘，并提前分发证据和议程。"
+      ]
+    ],
+    "phrase": [
+      "The bridge can close once … is confirmed and … is assigned.",
+      "确认……并落实……负责人后，可以结束故障会议。"
+    ],
+    "action": "按政策结束会议，保留观察责任并启动复盘。"
+  },
+  {
+    "id": 81,
+    "cat": "变更、发布、安全与灾备",
+    "title": "CAB变更评审",
+    "context": "向变更委员会说明生产变更。",
+    "turns": [
+      [
+        "同事（Change Manager）",
+        "What is changing, and what is the expected impact?",
+        "这次变更改什么，预计影响是什么？"
+      ],
+      [
+        "你（Ops）",
+        "We're upgrading the application runtime. The plan uses rolling replacement within the approved maintenance window.",
+        "我们升级应用运行环境，计划在已批准维护窗口内滚动替换。"
+      ],
+      [
+        "同事（Change Manager）",
+        "What evidence supports the plan, and how will you recover if it fails?",
+        "有什么证据支持该方案，失败后如何恢复？"
+      ],
+      [
+        "你（Ops）",
+        "I'll provide staging results, capacity checks, stop conditions, and the validated rollback procedure.",
+        "我会提供预生产结果、容量检查、停止条件和已验证回退流程。"
+      ]
+    ],
+    "phrase": [
+      "The change includes …, supported by ….",
+      "这次变更包括……，由……作为依据。"
+    ],
+    "action": "以范围、影响、证据和恢复方案支持审批。"
+  },
+  {
+    "id": 82,
+    "cat": "变更、发布、安全与灾备",
+    "title": "发布前Go/No-Go",
+    "context": "多团队共同决定是否开始生产发布。",
+    "turns": [
+      [
+        "你（Ops）",
+        "Before we proceed, are approvals, monitoring, backups, and rollback prerequisites confirmed?",
+        "开始前，审批、监控、备份和回退前提都确认了吗？"
+      ],
+      [
+        "同事（Release Lead）",
+        "All checks passed except the required business validation.",
+        "除了必需的业务验证，其他检查都通过了。"
+      ],
+      [
+        "你（Ops）",
+        "Then we haven't met the agreed entry criteria. Let's hold and confirm the validation owner.",
+        "那么还未满足约定准入条件。我们先暂停，确认验证负责人。"
+      ],
+      [
+        "同事（Release Lead）",
+        "Agreed. We'll reconvene when the evidence is available.",
+        "同意。证据齐全后再开会决策。"
+      ]
+    ],
+    "phrase": [
+      "We haven't met the agreed entry criteria yet.",
+      "我们还未满足约定的准入条件。"
+    ],
+    "action": "按既定标准决策，记录阻塞条件和负责人。"
+  },
+  {
+    "id": 83,
+    "cat": "变更、发布、安全与灾备",
+    "title": "灰度发布观察",
+    "context": "新版本只接收少量生产流量。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The canary is deployed. Can we send it all traffic now?",
+        "灰度版本已部署，能把全部流量切过去吗？"
+      ],
+      [
+        "你（Ops）",
+        "Let's compare errors, latency, and business outcomes with the baseline over the agreed observation window.",
+        "我们先在约定观察窗口内，对比基线错误率、延迟和业务结果。"
+      ],
+      [
+        "同事（Developer）",
+        "The sample is still small because this region is outside peak hours.",
+        "该区域不在高峰期，样本还很少。"
+      ],
+      [
+        "你（Ops）",
+        "Then we need enough representative evidence before expanding to the next stage.",
+        "那么进入下一阶段前，需要足够且有代表性的证据。"
+      ]
+    ],
+    "phrase": [
+      "We need representative evidence before expanding the rollout.",
+      "扩大发布范围前，需要有代表性的证据。"
+    ],
+    "action": "核对观察窗口、流量样本、对照基线和停止条件。"
+  },
+  {
+    "id": 84,
+    "cat": "变更、发布、安全与灾备",
+    "title": "数据库结构变更",
+    "context": "新版本需要调整大表结构。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "Can we apply the schema change during the application deployment?",
+        "能在应用发布时执行数据库结构变更吗？"
+      ],
+      [
+        "你（Ops）",
+        "We need the DBA to review locking behavior, execution time, and compatibility with both versions.",
+        "需要DBA评估锁行为、执行时间，以及与新旧版本的兼容性。"
+      ],
+      [
+        "同事（DBA）",
+        "The table is large. We'll test the migration with representative data first.",
+        "表很大，我们会先用有代表性的数据测试迁移。"
+      ],
+      [
+        "你（Ops）",
+        "Please also define how we'll handle a partially completed migration and application rollback.",
+        "也请明确迁移部分完成和应用回退时的处理方式。"
+      ]
+    ],
+    "phrase": [
+      "How will we handle a partially completed …?",
+      "……部分完成时，我们如何处理？"
+    ],
+    "action": "验证锁、耗时、兼容性与部分失败恢复方案。"
+  },
+  {
+    "id": 85,
+    "cat": "变更、发布、安全与灾备",
+    "title": "紧急变更授权",
+    "context": "故障期间需修改生产配置。",
+    "turns": [
+      [
+        "同事（Engineer）",
+        "The fix is small. Can I change production directly?",
+        "修改很小，我能直接改生产吗？"
+      ],
+      [
+        "你（Ops）",
+        "We should use the emergency change process and record the risk, approver, and rollback plan.",
+        "应走紧急变更流程，记录风险、批准人和回退方案。"
+      ],
+      [
+        "同事（Incident Commander）",
+        "Prepare the minimum required evidence so I can review it promptly.",
+        "准备最低必要证据，我会尽快评审。"
+      ],
+      [
+        "你（Ops）",
+        "I'll document the proposed change and validation steps, then capture the result after execution.",
+        "我会记录变更内容和验证步骤，执行后补充结果。"
+      ]
+    ],
+    "phrase": [
+      "Let's use the emergency process and keep the change traceable.",
+      "我们走紧急流程，并保证变更可追溯。"
+    ],
+    "action": "在紧急情况下落实必要授权、记录与验证。"
+  },
+  {
+    "id": 86,
+    "cat": "变更、发布、安全与灾备",
+    "title": "维护窗口通知",
+    "context": "向全球业务团队通知计划维护。",
+    "turns": [
+      [
+        "你（Ops）",
+        "Maintenance is planned for December 5, from 01:00 to 02:00 UTC.",
+        "维护计划在12月5日01:00至02:00 UTC进行。"
+      ],
+      [
+        "同事（Business Lead）",
+        "Will users lose access for the full hour?",
+        "用户会整整一小时无法访问吗？"
+      ],
+      [
+        "你（Ops）",
+        "We expect a brief interruption within that window. The notice will state the affected functions and fallback.",
+        "预计窗口内会有短暂中断。通知会说明受影响功能和替代方案。"
+      ],
+      [
+        "同事（Business Lead）",
+        "Please confirm regional impacts and the contact for updates before sending it.",
+        "发出前，请确认各区域影响和获取更新的联系人。"
+      ]
+    ],
+    "phrase": [
+      "The maintenance window is …; the expected interruption is ….",
+      "维护窗口是……；预计中断为……。"
+    ],
+    "action": "区分维护时长与预计中断时长，明确区域和联系人。"
+  },
+  {
+    "id": 87,
+    "cat": "变更、发布、安全与灾备",
+    "title": "高危漏洞修复安排",
+    "context": "安全团队要求快速处置新披露漏洞。",
+    "turns": [
+      [
+        "同事（Security）",
+        "A critical vulnerability was announced. How quickly can we patch?",
+        "刚披露一个严重漏洞，我们能多快打补丁？"
+      ],
+      [
+        "你（Ops）",
+        "We're identifying affected versions, exposure, and available mitigations before setting the rollout order.",
+        "我们先识别受影响版本、暴露面和可用缓解措施，再确定实施顺序。"
+      ],
+      [
+        "同事（Security）",
+        "Prioritize exposed systems and report any exceptions against the remediation deadline.",
+        "请优先处理暴露系统，并报告无法满足整改期限的例外。"
+      ],
+      [
+        "你（Ops）",
+        "We'll validate the fix, track each affected asset, and document temporary controls where needed.",
+        "我们会验证修复，跟踪每个受影响资产，并按需记录临时控制措施。"
+      ]
+    ],
+    "phrase": [
+      "We'll prioritize based on exposure and impact.",
+      "我们会按暴露程度和影响确定优先级。"
+    ],
+    "action": "核实资产与版本，按风险实施修复并管理例外期限。"
+  },
+  {
+    "id": 88,
+    "cat": "变更、发布、安全与灾备",
+    "title": "疑似安全事件协调",
+    "context": "运维发现异常登录和可疑进程。",
+    "turns": [
+      [
+        "你（Ops）",
+        "We detected unusual logins and an unexpected process on one host. Security needs to assess this.",
+        "一台主机出现异常登录和非预期进程，需要安全团队评估。"
+      ],
+      [
+        "同事（Security Responder）",
+        "Please preserve the evidence and avoid uncoordinated changes.",
+        "请保留证据，避免未经协调的修改。"
+      ],
+      [
+        "你（Ops）",
+        "Understood. We'll follow the response runbook and coordinate any isolation with the service owner.",
+        "明白。我们会按响应手册执行，并与服务负责人协调隔离措施。"
+      ],
+      [
+        "同事（Security Responder）",
+        "Record all actions and share sensitive details only through the approved incident channel.",
+        "记录所有动作，敏感细节只通过批准的事件渠道共享。"
+      ]
+    ],
+    "phrase": [
+      "We've detected suspicious activity; assessment and containment are being coordinated.",
+      "我们发现可疑活动，正在协调评估和控制措施。"
+    ],
+    "action": "启动安全响应，保留证据，按流程协调控制影响。"
+  },
+  {
+    "id": 89,
+    "cat": "变更、发布、安全与灾备",
+    "title": "灾备演练与RTO/RPO",
+    "context": "全球团队准备年度灾难恢复演练。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "What will prove that the disaster recovery exercise was successful?",
+        "什么能证明灾备演练成功？"
+      ],
+      [
+        "你（Ops）",
+        "We'll measure recovery time and the recoverable data point against the agreed RTO and RPO.",
+        "我们会将恢复耗时和可恢复数据时间点，与约定的RTO和RPO比较。"
+      ],
+      [
+        "同事（Business Lead）",
+        "Will the business team validate transactions after failover?",
+        "故障切换后需要业务团队验证交易吗？"
+      ],
+      [
+        "你（Ops）",
+        "Yes. We'll also verify dependencies, access, monitoring, and the plan for returning to the primary site.",
+        "需要。我们还会验证依赖、访问、监控和回切主站点方案。"
+      ]
+    ],
+    "phrase": [
+      "Success means meeting … and validating ….",
+      "成功意味着满足……并验证……。"
+    ],
+    "action": "按RTO/RPO与业务验证评估切换和回切。"
+  },
+  {
+    "id": 90,
+    "cat": "变更、发布、安全与灾备",
+    "title": "审计证据与权限复核",
+    "context": "审计要求说明生产访问和变更记录。",
+    "turns": [
+      [
+        "同事（Auditor）",
+        "Can you show who approved the production access and when it was reviewed?",
+        "能证明谁批准了生产访问，以及何时复核吗？"
+      ],
+      [
+        "你（Ops）",
+        "We'll provide the approval record, assigned role, review history, and relevant access logs.",
+        "我们会提供审批记录、分配角色、复核历史和相关访问日志。"
+      ],
+      [
+        "同事（Auditor）",
+        "Please also explain how expired access is removed.",
+        "也请说明过期权限如何移除。"
+      ],
+      [
+        "你（Ops）",
+        "I'll document the removal workflow and provide evidence for the selected sample.",
+        "我会记录权限移除流程，并提供所选样本的证据。"
+      ]
+    ],
+    "phrase": [
+      "We'll provide the approval record and evidence of ….",
+      "我们会提供审批记录，以及……的证据。"
+    ],
+    "action": "基于样本提供可追溯证据，并核对权限全生命周期。"
+  },
+  {
+    "id": 91,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "故障复盘与根因说明",
+    "context": "故障恢复后，在跨团队复盘会上说明调查结果。",
+    "turns": [
+      [
+        "同事（Review Lead）",
+        "What caused the incident, and what made the impact worse?",
+        "什么引发了故障，哪些因素扩大了影响？"
+      ],
+      [
+        "你（Ops）",
+        "A configuration change triggered connection failures. Missing validation allowed it to reach production.",
+        "一次配置变更触发连接失败，验证缺失使其进入了生产。"
+      ],
+      [
+        "同事（Review Lead）",
+        "What will prevent recurrence?",
+        "怎样防止再次发生？"
+      ],
+      [
+        "你（Ops）",
+        "We'll add configuration checks, strengthen pre-release validation, and test whether the new controls catch this failure.",
+        "我们会增加配置检查、加强发布前验证，并测试新控制能否发现这类失败。"
+      ]
+    ],
+    "phrase": [
+      "The trigger was …; the contributing factors were ….",
+      "触发因素是……；促成因素是……。"
+    ],
+    "action": "区分触发因素与系统缺口，用可验证措施支撑改进。"
+  },
+  {
+    "id": 92,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "根因尚未确认",
+    "context": "临时缓解有效，但调查仍无法确定根因。",
+    "turns": [
+      [
+        "同事（Manager）",
+        "The restart fixed it. Can we list memory leakage as the root cause?",
+        "重启解决了，能把内存泄漏写成根因吗？"
+      ],
+      [
+        "你（Ops）",
+        "Not yet. A restart restored service, but we don't have evidence proving a memory leak.",
+        "还不能。重启恢复了服务，但没有证据证明内存泄漏。"
+      ],
+      [
+        "同事（Manager）",
+        "What should the report say for now?",
+        "那目前报告怎么写？"
+      ],
+      [
+        "你（Ops）",
+        "We'll document the confirmed symptoms, effective mitigation, remaining hypotheses, and a time-bounded investigation plan.",
+        "我们会记录已确认症状、有效缓解措施、剩余假设和有明确期限的调查计划。"
+      ]
+    ],
+    "phrase": [
+      "The mitigation worked, but the underlying cause remains unconfirmed.",
+      "缓解措施有效，但底层原因仍未确认。"
+    ],
+    "action": "诚实标注调查状态，保留证据并设置后续检查点。"
+  },
+  {
+    "id": 93,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "落实行动负责人和期限",
+    "context": "复盘提出了改进方向，但没有具体责任人。",
+    "turns": [
+      [
+        "同事（Review Lead）",
+        "We should improve alerting and update the runbook.",
+        "我们应该改进告警并更新操作手册。"
+      ],
+      [
+        "你（Ops）",
+        "Let's turn those into separate actions with one accountable owner each.",
+        "我们把它们拆成独立行动，每项指定一名最终负责人。"
+      ],
+      [
+        "同事（Monitoring Lead）",
+        "I'll own the alert change. What should the acceptance criteria be?",
+        "告警修改由我负责，验收标准是什么？"
+      ],
+      [
+        "你（Ops）",
+        "It should detect the replayed failure within the agreed target. Let's also confirm the due date.",
+        "应能在约定目标时间内发现重现的故障。我们也确认一下截止日期。"
+      ]
+    ],
+    "phrase": [
+      "Who owns this, when is it due, and what proves completion?",
+      "谁负责，何时完成，用什么证明完成？"
+    ],
+    "action": "为每项行动定义负责人、期限、验收标准和证据。"
+  },
+  {
+    "id": 94,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "礼貌催办逾期任务",
+    "context": "其他区域团队负责的复盘任务已逾期。",
+    "turns": [
+      [
+        "你（Ops）",
+        "The alerting action was due yesterday. Could you share its status and any blockers?",
+        "告警改进昨天到期了，能说明当前状态和阻塞吗？"
+      ],
+      [
+        "同事（Engineer）",
+        "The change is ready, but the required test environment is unavailable.",
+        "修改已完成，但所需测试环境不可用。"
+      ],
+      [
+        "你（Ops）",
+        "What support would unblock it, and what revised date can you commit to?",
+        "需要什么支持才能解除阻塞，可以承诺哪个新日期？"
+      ],
+      [
+        "同事（Engineer）",
+        "I need the platform team's help. I'll confirm the test slot by 12:00 UTC tomorrow.",
+        "需要平台团队协助。我会在明天12:00 UTC前确认测试时段。"
+      ]
+    ],
+    "phrase": [
+      "What support would unblock this, and what is the revised checkpoint?",
+      "需要什么支持解除阻塞，新的检查节点是什么？"
+    ],
+    "action": "记录阻塞、协助方和新检查点，保留原到期记录。"
+  },
+  {
+    "id": 95,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "修复验收与关闭工单",
+    "context": "开发认为代码合并后，复盘行动即可关闭。",
+    "turns": [
+      [
+        "同事（Developer）",
+        "The fix has been merged. Can we close the action item?",
+        "修复已合并，能关闭行动项吗？"
+      ],
+      [
+        "你（Ops）",
+        "We still need deployment confirmation and evidence that the original failure no longer occurs.",
+        "还需要部署确认，以及原故障不再发生的证据。"
+      ],
+      [
+        "同事（Developer）",
+        "I'll attach the deployment record and regression results.",
+        "我会附上部署记录和回归结果。"
+      ],
+      [
+        "你（Ops）",
+        "Once the agreed acceptance criteria are met, we'll record the evidence and close it.",
+        "满足约定验收标准后，我们会记录证据并关闭。"
+      ]
+    ],
+    "phrase": [
+      "We can close this once the acceptance criteria are met.",
+      "满足验收标准后，我们可以关闭此项。"
+    ],
+    "action": "区分代码完成、生产生效与验证完成。"
+  },
+  {
+    "id": 96,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "全球值班交接",
+    "context": "亚太值班结束，将未关闭故障交给欧洲团队。",
+    "turns": [
+      [
+        "你（APAC Ops）",
+        "The service is stable after mitigation. Root-cause investigation and backlog reconciliation remain open.",
+        "缓解后服务稳定，根因调查和积压对账仍未完成。"
+      ],
+      [
+        "同事（EMEA Ops）",
+        "What should we monitor, and when should we escalate?",
+        "应该监控什么，何时需要升级？"
+      ],
+      [
+        "你（APAC Ops）",
+        "The ticket lists current metrics, escalation thresholds, pending actions, and the next update time.",
+        "工单列出了当前指标、升级阈值、待办事项和下次更新时间。"
+      ],
+      [
+        "同事（EMEA Ops）",
+        "I've reviewed it and accept ownership. I'll join the next stakeholder update.",
+        "我已查阅并接手责任，会参加下次干系人更新。"
+      ]
+    ],
+    "phrase": [
+      "I've reviewed the handover and accept ownership from this point.",
+      "我已查阅交接内容，并从现在起接手责任。"
+    ],
+    "action": "交接背景、状态、阈值、待办与沟通节点，并取得接手确认。"
+  },
+  {
+    "id": 97,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "周度运维健康汇报",
+    "context": "全球周会上总结本周稳定性和风险。",
+    "turns": [
+      [
+        "同事（Global Lead）",
+        "What changed in service health this week?",
+        "本周服务健康状况有什么变化？"
+      ],
+      [
+        "你（Ops）",
+        "Incident count decreased, but total user-impact time increased because of one prolonged outage.",
+        "故障次数减少，但一次长时间中断使总用户影响时长增加。"
+      ],
+      [
+        "同事（Global Lead）",
+        "What's the main risk for next week?",
+        "下周主要风险是什么？"
+      ],
+      [
+        "你（Ops）",
+        "The pending capacity action is the main risk. We need a decision on the proposed expansion by Friday.",
+        "待完成的容量行动是主要风险，需要在周五前决定是否按方案扩容。"
+      ]
+    ],
+    "phrase": [
+      "The main risk is …; the decision needed is … by ….",
+      "主要风险是……；需要在……前决定……。"
+    ],
+    "action": "用统一口径汇报趋势、风险和需要的决定。"
+  },
+  {
+    "id": 98,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "更新Runbook与知识转移",
+    "context": "一次故障暴露操作手册过时，新同事无法独立处理。",
+    "turns": [
+      [
+        "同事（Team Lead）",
+        "The runbook didn't match the current platform. How do we prevent that again?",
+        "操作手册与当前平台不符，如何避免再次出现？"
+      ],
+      [
+        "你（Ops）",
+        "We'll update the steps, assign a maintainer, and validate them with an engineer unfamiliar with the incident.",
+        "我们会更新步骤、指定维护人，并请不熟悉该故障的工程师验证。"
+      ],
+      [
+        "同事（Team Lead）",
+        "Please include prerequisites and escalation contacts.",
+        "请包括前提条件和升级联系人。"
+      ],
+      [
+        "你（Ops）",
+        "I'll also add expected results, stop conditions, and a review date.",
+        "我还会补充预期结果、停止条件和复查日期。"
+      ]
+    ],
+    "phrase": [
+      "A usable runbook needs clear steps and expected results.",
+      "可用的操作手册需要清晰步骤和预期结果。"
+    ],
+    "action": "通过实际演练验证文档，并明确维护责任和复查日期。"
+  },
+  {
+    "id": 99,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "跨团队责任分歧",
+    "context": "应用和平台团队对复盘行动归属存在分歧。",
+    "turns": [
+      [
+        "同事（Platform Lead）",
+        "This belongs to the application team. We only run the platform.",
+        "这应该归应用团队，我们只负责运行平台。"
+      ],
+      [
+        "你（Ops）",
+        "Let's separate the platform control from the application behavior and map the actions to each owner.",
+        "我们把平台控制与应用行为分开，并将行动对应到各负责人。"
+      ],
+      [
+        "同事（App Lead）",
+        "We can own the code fix, but platform support is needed for the detection rule.",
+        "代码修复可由我们负责，但检测规则需要平台支持。"
+      ],
+      [
+        "你（Ops）",
+        "Agreed. Let's name one accountable owner for each action and document the supporting team.",
+        "同意。每项行动指定一名最终负责人，并记录支持团队。"
+      ]
+    ],
+    "phrase": [
+      "Let's clarify ownership based on the control that needs to change.",
+      "我们依据需要改变的控制措施明确责任。"
+    ],
+    "action": "将责任讨论落到具体控制、行动和支持关系。"
+  },
+  {
+    "id": 100,
+    "cat": "Follow-up 复盘与闭环",
+    "title": "月度复盘与持续改进",
+    "context": "向全球管理层说明改进是否真正有效。",
+    "turns": [
+      [
+        "同事（Director）",
+        "We've closed many action items. How do we know reliability actually improved?",
+        "我们关闭了很多行动项，如何证明可靠性确实改善？"
+      ],
+      [
+        "你（Ops）",
+        "We'll compare recurrence, detection time, restoration time, and user impact over comparable periods.",
+        "我们会比较可比周期内的复发情况、发现耗时、恢复耗时和用户影响。"
+      ],
+      [
+        "同事（Director）",
+        "What if the same failure hasn't happened again yet?",
+        "如果同类故障暂时没有再次发生呢？"
+      ],
+      [
+        "你（Ops）",
+        "We'll use controlled validation and track the limits of the evidence, then prioritize the next improvement.",
+        "我们会通过受控验证，并说明证据局限，再确定下一项改进优先级。"
+      ]
+    ],
+    "phrase": [
+      "Closure is one milestone; effectiveness needs evidence over time.",
+      "关闭是一项里程碑，有效性需要随时间积累证据。"
+    ],
+    "action": "结合演练和长期指标评估改进效果，形成下一轮优先级。"
+  }
+]

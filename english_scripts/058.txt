@@ -1,0 +1,26 @@
+SCENARIO 058
+重复消息与幂等性
+
+B / Business Lead: Some orders appear twice in the business dashboard. Did the queue duplicate messages, and should we cancel every record that looks like a repeat?
+
+A / Ops Engineer: Delivery retries are possible, but a repeated delivery shouldn't create another order if deduplication works. We're comparing message IDs, business keys, and database records.
+
+C / Developer: I found one processing path that writes the order before saving the idempotency result. A crash between those steps can leave the retry unprotected.
+
+B / Business Lead: Can we stop that path while keeping other orders moving? We also need to know whether duplicate records caused duplicate payments or shipments.
+
+A / Ops Engineer: I'll request approval to pause the affected consumer group and hold its messages durably. Other groups use a separate path, which we'll verify before leaving them running.
+
+C / Developer: I'll preserve the failing examples and fix the write boundary. The idempotency result and business write need a consistent atomic operation for this path.
+
+B / Business Lead: How many duplicates have we confirmed so far? Please separate confirmed duplicate orders from repeated messages that were handled correctly without extra records.
+
+A / Ops Engineer: We've confirmed fourteen duplicate order pairs in the sampled window. The full affected period and any payment or fulfillment impact are still under investigation.
+
+B / Business Lead: I'll assign finance and fulfillment owners to reconcile those pairs. Don't delete or cancel records automatically; we need to identify the valid order and downstream actions.
+
+C / Developer: Before restarting, I'll test duplicate delivery, a crash after the write, and recovery using the same business key. The fix also needs normal review.
+
+A / Ops Engineer: I'll keep replay disabled until the fix and reconciliation plan are approved. We'll review containment status and the affected-record list in twenty minutes.
+
+B / Business Lead: Agreed. I'll own the business corrections and customer communication. We can resume controlled processing once technical validation and the record-handling decisions are complete.

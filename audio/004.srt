@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,256
+Narrator: Scenario 4. Global meeting communication.
+
+2
+00:00:05,856 --> 00:00:16,056
+B: The failures seem to affect only requests passing through the regional gateway, although direct tests against the application endpoint have remained successful.
+
+3
+00:00:16,656 --> 00:00:26,784
+A: I missed the last part. Could you repeat it a little more slowly? I especially need the difference between the two request paths.
+
+4
+00:00:27,384 --> 00:00:40,512
+B: Certainly. Direct requests to the application succeed. Requests routed through the regional gateway fail intermittently, and the failures are returning gateway timeout errors.
+
+5
+00:00:41,112 --> 00:00:51,096
+A: Let me confirm: the issue is intermittent and appears limited to the gateway path. We have not established that every regional user is affected.
+
+6
+00:00:51,696 --> 00:01:02,592
+B: Correct. Our sample covers two endpoints over ten minutes. About eight percent of gateway requests failed, but that is not a user count.
+
+7
+00:01:03,192 --> 00:01:13,392
+A: Thank you. When you say direct tests, are those internal health checks, or do they also exercise the same authentication and application functions?
+
+8
+00:01:13,992 --> 00:01:24,672
+B: They use the same read-only application request and test account. However, they bypass the gateway policy layer, so the paths are not identical.
+
+9
+00:01:25,272 --> 00:01:35,760
+A: That distinction matters. Could you put the endpoint names, test interval, and sample sizes in the incident ticket so I can summarize them accurately?
+
+10
+00:01:36,360 --> 00:01:48,816
+B: Yes. I will include request identifiers as well. We still need to compare gateway logs with application arrival times before identifying the failing component.
+
+11
+00:01:49,416 --> 00:01:59,712
+A: One more clarification: has anyone changed gateway configuration today, or is that still being checked? I do not want to report an assumption.
+
+12
+00:02:00,312 --> 00:02:11,208
+B: That is still being checked. I will review the change history and update the ticket by 15:20 UTC with confirmed findings and remaining questions.
+
+13
+00:02:11,808 --> 00:02:22,296
+A: Understood. I will report the observed request impact and the next update time, while keeping the gateway explanation as a working hypothesis.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,648
+Narrator: Scenario 36. Cloud platforms, containers, and automation.
+
+2
+00:00:07,248 --> 00:00:17,352
+B: Request latency has doubled, and the queue keeps growing. Why has the autoscaler stayed at six replicas when its configured maximum is twelve?
+
+3
+00:00:17,952 --> 00:00:29,760
+A: It scales on average CPU utilization, which is forty percent against a seventy percent target. The controller is receiving valid metrics and behaving as configured.
+
+4
+00:00:30,360 --> 00:00:40,416
+B: The workers may be waiting on database connections instead of using CPU. Could queue depth be a more useful scaling signal for this service?
+
+5
+00:00:41,016 --> 00:00:52,992
+A: The CPU signal does not reflect this waiting time. Before choosing queue depth, let us inspect dependency capacity so additional replicas do not increase database pressure.
+
+6
+00:00:53,592 --> 00:01:04,608
+B: The traces show long connection waits, and the database connection pool is almost full. Application CPU dropped as the connection waits started rising.
+
+7
+00:01:05,208 --> 00:01:16,128
+A: That supports a downstream constraint. I will ask the database owner to inspect active queries and locks, while we check request concurrency and retry volume.
+
+8
+00:01:16,728 --> 00:01:27,528
+B: We found a reporting query holding locks longer than usual. The database owner is reviewing it; meanwhile, should we increase connection limits to clear the queue?
+
+9
+00:01:28,128 --> 00:01:39,864
+A: More connections could intensify contention. Keep the approved limits while the owner assesses the query, and use existing admission controls to protect critical requests.
+
+10
+00:01:40,464 --> 00:01:51,984
+B: I will verify that client retries follow our backoff policy. Once database performance recovers, we can measure whether the current workers drain the backlog safely.
+
+11
+00:01:52,584 --> 00:02:03,912
+A: For a future queue-based policy, we need load testing, dependency headroom, and a safe replica ceiling. That should be a separate reviewed change after recovery.
+
+12
+00:02:04,512 --> 00:02:17,232
+B: I will own application checks and report queue age, successful transactions, and retry volume at 11:00 UTC. The database owner will report the query findings.
+
+13
+00:02:17,832 --> 00:02:29,400
+A: I will coordinate that checkpoint and track latency against baseline. We will confirm recovery when critical transactions succeed and the backlog returns to a healthy level.

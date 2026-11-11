@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,000
+Narrator: Scenario 95. Follow up and operational improvement.
+
+2
+00:00:06,600 --> 00:00:15,744
+B: The retry fix has been merged and passed the unit tests. Can we close the action item before this week's reliability review?
+
+3
+00:00:16,344 --> 00:00:27,864
+A: We still need deployment confirmation and evidence that the original failure no longer occurs. Code completion and accepted operational recovery are different milestones.
+
+4
+00:00:28,464 --> 00:00:39,168
+B: The release is scheduled for tonight, and the pipeline normally deploys automatically. Would a successful pipeline result be enough evidence to close it afterward?
+
+5
+00:00:39,768 --> 00:00:48,768
+A: It would establish part of the deployment history, but we must verify the running version and the agreed failure replay, not just pipeline status.
+
+6
+00:00:49,368 --> 00:01:00,648
+B: The original issue created duplicate payments when a response was lost. We added a stable request key and reuse the previous result for matching retries.
+
+7
+00:01:01,248 --> 00:01:12,816
+A: Then acceptance should include a lost-response test, repeated retries, and reconciliation showing one charge for one business order. Have those scenarios been reviewed?
+
+8
+00:01:13,416 --> 00:01:24,024
+B: Yes, the service owner approved them. We'll also check that different orders are processed separately and that our logs don't expose sensitive payment information.
+
+9
+00:01:24,624 --> 00:01:36,528
+A: Good. Use the approved test accounts and attach the transaction references. What observation period did we agree for the production checks after deployment?
+
+10
+00:01:37,128 --> 00:01:48,696
+B: Two hours of representative traffic, plus the controlled test results. If traffic is too low, we'll extend observation rather than claim the sample is sufficient.
+
+11
+00:01:49,296 --> 00:02:01,008
+A: I'll keep the action open with implementation marked complete. Any remaining historical duplicates also need a linked reconciliation task so they aren't lost during closure.
+
+12
+00:02:01,608 --> 00:02:12,720
+B: I'll attach the deployment record and regression evidence by November 14 at 09:00 UTC, and identify the finance owner handling any historical corrections.
+
+13
+00:02:13,320 --> 00:02:22,560
+A: Once the agreed criteria pass, I'll ask the service owner to accept the results and record closure, including any separate work that remains open.

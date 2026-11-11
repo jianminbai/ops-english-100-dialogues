@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,136
+Narrator: Scenario 79. Incident response.
+
+2
+00:00:05,736 --> 00:00:15,504
+B: The alerts cleared after the mitigation, and error rates are back near baseline. Can we announce that the incident is resolved and end the bridge?
+
+3
+00:00:16,104 --> 00:00:27,216
+A: Let us verify critical user journeys, regional metrics, and backlog behavior first. An alert clearing does not prove that customers can complete their work.
+
+4
+00:00:27,816 --> 00:00:41,304
+C: Test orders now succeed in both affected regions, and support has confirmed two customers completed checkout. However, some delayed orders still need transaction reconciliation.
+
+5
+00:00:41,904 --> 00:00:52,392
+A: Please check order visibility and payment confirmation as well as creation. We need to verify the whole journey, not only the first successful response.
+
+6
+00:00:52,992 --> 00:01:03,912
+B: Those checks pass. The processing queue is draining steadily, but forty orders remain in an uncertain state out of the original six hundred delayed orders.
+
+7
+00:01:04,512 --> 00:01:15,072
+C: Can we safely replay those forty orders? Customers are asking whether they should submit again, and I want to avoid duplicate orders or payments.
+
+8
+00:01:15,672 --> 00:01:27,384
+A: Do not replay them blindly. Reconcile each order against payment records, use the approved recovery procedure, and confirm duplicate protection before any retry.
+
+9
+00:01:27,984 --> 00:01:39,024
+B: The payments engineer will own that reconciliation, with a second reviewer. I will provide the remaining order list and current processing state in the incident record.
+
+10
+00:01:39,624 --> 00:01:51,864
+A: For service recovery, we need the agreed thirty-minute stable period. Watch successful checkouts, regional latency, and queue age, including any new orders entering the system.
+
+11
+00:01:52,464 --> 00:02:04,464
+C: Then the customer message can distinguish restored checkout service from the outstanding delayed orders. Please include a clear contact for people still waiting on confirmation.
+
+12
+00:02:05,064 --> 00:02:17,112
+B: The observation period ends at 16:10 UTC. I will bring the regional results then, while the payments engineer provides a separate reconciliation progress update.
+
+13
+00:02:17,712 --> 00:02:30,552
+A: Agreed. If validation passes, we can report service recovery and keep the forty-order cleanup open with ownership, checkpoints, and customer communication until every outcome is resolved.

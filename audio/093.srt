@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,048
+Narrator: Scenario 93. Follow up and operational improvement.
+
+2
+00:00:06,648 --> 00:00:16,320
+B: We've agreed to improve alerting and update the recovery runbook. Can I record one action saying the operations team will handle both items?
+
+3
+00:00:16,920 --> 00:00:26,880
+A: Let's split them into separate actions with one accountable owner each. Otherwise, a partial update could make the whole improvement appear complete.
+
+4
+00:00:27,480 --> 00:00:38,400
+C: I'll own the alerting action. The current rule reacts only when the queue is already full, so I propose detecting sustained processing delays earlier.
+
+5
+00:00:39,000 --> 00:00:50,472
+A: What proves completion? We should specify the failure to replay, the maximum detection time, and how we confirm the notification reaches the correct on-call engineer.
+
+6
+00:00:51,072 --> 00:01:01,872
+C: In the test, we'll stop a worker and replay representative traffic. The alert must fire within two minutes and reach the assigned on-call route.
+
+7
+00:01:02,472 --> 00:01:14,208
+B: That covers detection, but could the rule also page constantly during normal low traffic? Please include evidence that it handles expected quiet periods appropriately.
+
+8
+00:01:14,808 --> 00:01:26,952
+C: Agreed. I'll test the quiet-period behavior and attach both results. I can commit to a reviewed rule by November 18 at 12:00 UTC.
+
+9
+00:01:27,552 --> 00:01:38,736
+A: I'll own the runbook action separately. Acceptance will require another engineer to follow the steps, identify the stop condition, and complete the recovery check.
+
+10
+00:01:39,336 --> 00:01:49,536
+B: Who will review that exercise, and does your due date depend on the alerting change being finished first? We should show any sequencing explicitly.
+
+11
+00:01:50,136 --> 00:02:00,672
+A: The service lead will review it. The recovery steps can be validated independently, but I'll link the final alert reference after the monitoring review.
+
+12
+00:02:01,272 --> 00:02:11,856
+C: I will share the proposed alert details early so the runbook doesn't wait unnecessarily. Any change to our commitment will be recorded with the reason.
+
+13
+00:02:12,456 --> 00:02:24,744
+B: I'll create two tracked actions with those owners, criteria, and dependencies. We'll check progress on November 16 and keep completion evidence attached to each record.

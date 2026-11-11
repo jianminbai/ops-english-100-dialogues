@@ -1,0 +1,26 @@
+SCENARIO 037
+镜像拉取失败
+
+B / Application Developer: The build completed successfully, and I can see the image tag in the registry. Why is production stuck in ImagePullBackOff instead of starting the containers?
+
+A / Ops Engineer: The artifact exists, but access from production still needs validation. I am checking the exact image reference, registry reachability, and credentials used by this namespace.
+
+B / Application Developer: The deployment points to the expected repository and tag. Could the image have been overwritten, or might production be contacting a different registry endpoint?
+
+A / Ops Engineer: The recorded digest matches the release artifact. Node events show an authorization rejection from the correct registry, rather than a name resolution or network timeout.
+
+B / Application Developer: This namespace uses a separate image pull secret from staging. I suspect the repository moved, but the production service account kept its old credential reference.
+
+A / Ops Engineer: Let us verify the secret reference and repository read permissions through the registry owner. Please share identifiers and audit events, without copying the credential into chat.
+
+B / Application Developer: The owner confirms that the existing identity only reads the previous repository. An approved production identity already has read access to the new release repository.
+
+A / Ops Engineer: Then propose the correct secret reference through the deployment process. We should not grant broad registry administration rights just to make an image pull succeed.
+
+B / Application Developer: The old replicas still serve traffic, and the rollout is paused. I will prepare the reference correction and retain the existing release digest and verification checks.
+
+A / Ops Engineer: After approval, test one pod on a production node. Confirm image pull, startup, readiness, and a representative request before allowing the remaining rollout to continue.
+
+B / Application Developer: I will own that correction and post sanitized results by 13:00 UTC. If pulling still fails, we will keep the rollout paused and inspect the new events.
+
+A / Ops Engineer: I will monitor customer errors during validation. Afterward, we should add a production identity access check whenever a release moves to a different repository.

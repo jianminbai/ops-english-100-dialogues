@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,328
+Narrator: Scenario 18. Infrastructure operations.
+
+2
+00:00:05,928 --> 00:00:18,072
+A: A physical disk has failed in the production storage array. The service remains available, but redundancy is reduced. The hardware alert needs prompt attention.
+
+3
+00:00:18,672 --> 00:00:27,528
+B: We have a replacement available in the data center. Do you want us to replace the disk now, or should we wait for further checks?
+
+4
+00:00:28,128 --> 00:00:40,320
+C: Please wait until we confirm the enclosure, slot, and serial number against the management console. We must also verify the replacement model and supported procedure.
+
+5
+00:00:40,920 --> 00:00:50,112
+A: I will add the console evidence to the hardware ticket. Are there any other failing disks or warnings that would change the replacement risk?
+
+6
+00:00:50,712 --> 00:01:02,112
+C: There are no additional failures reported, but I am checking error trends. I will also confirm the latest verified backup before authorizing the replacement.
+
+7
+00:01:02,712 --> 00:01:13,488
+B: The spare matches the required model and capacity. I can have a second technician verify the physical labels and follow the approved replacement checklist.
+
+8
+00:01:14,088 --> 00:01:24,672
+A: Please record both verifications in the ticket. Once replacement begins, who will monitor rebuild progress and watch for application performance impact?
+
+9
+00:01:25,272 --> 00:01:36,888
+C: I own rebuild monitoring. Rebuild activity may increase storage latency, so we will track array health together with application response time and errors.
+
+10
+00:01:37,488 --> 00:01:46,152
+B: Should we tell the business team a fixed completion time? They are asking when the service will have its normal protection level again.
+
+11
+00:01:46,752 --> 00:01:58,752
+C: Not yet. The controller estimate can change with workload and disk performance. I will share the initial estimate as provisional after rebuild starts.
+
+12
+00:01:59,352 --> 00:02:11,904
+A: I will coordinate the first status check at 14:00 UTC. We should distinguish service availability from restored redundancy in every update until the rebuild completes.
+
+13
+00:02:12,504 --> 00:02:24,960
+B: Understood. We will proceed only after your checks and authorization are recorded. I own the physical replacement and will report any unexpected indication immediately.

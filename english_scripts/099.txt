@@ -1,0 +1,26 @@
+SCENARIO 099
+跨团队责任分歧
+
+B / Platform Lead: This action belongs to the application team. The platform ran as configured; we can't own every failure caused by how an application uses it.
+
+C / Application Lead: We agree the retry behavior needs a code fix, but the shared platform didn't detect the traffic surge early enough to protect neighboring services.
+
+A / Ops Engineer: Let's map the actions to the controls that need to change. We can assign ownership without requiring one team to accept responsibility for the entire incident.
+
+B / Platform Lead: What specific platform control are you proposing? A broad action such as prevent overload could become an unlimited commitment that we cannot reasonably accept.
+
+A / Ops Engineer: The first platform action is a detection rule for sustained saturation, with notification routing and a tested threshold. The application action is bounded retries.
+
+C / Application Lead: I'll be accountable for the retry change, including a maximum attempt count and delay behavior. We'll share representative traffic patterns for testing the detection rule.
+
+B / Platform Lead: I can own the detection rule if the application team supplies those patterns. My team will document what the platform signal detects and its limitations.
+
+A / Ops Engineer: Good. Each action will list one accountable owner and the supporting team. We'll also create a joint validation task with me accountable for coordinating evidence.
+
+C / Application Lead: Our test patterns will be ready by November 17 at 11:00 UTC. Can we set the integration test after both individual changes pass their reviews?
+
+B / Platform Lead: Yes. I'll provide a rule review date once I see the patterns. We should record that dependency rather than promise an unsupported delivery date today.
+
+A / Ops Engineer: At the November 17 checkpoint, we'll confirm the remaining dates and test scope. Any unresolved control boundary will go to the service owner for a decision.
+
+C / Application Lead: That works. We'll keep the incident analysis factual and track the code, platform rule, and joint validation as separate commitments with linked completion evidence.

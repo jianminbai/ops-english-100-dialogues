@@ -1,0 +1,26 @@
+SCENARIO 045
+连接池耗尽
+
+B / Developer: Requests are timing out while waiting for database connections. Should we double the application connection pool to give them more room?
+
+A / Ops Engineer: Let's check the total connection budget first. We have eight application instances, so doubling each pool would add hundreds of potential database connections.
+
+C / Database Administrator: The database currently has seven hundred sixty connections against a limit of eight hundred. Several other services share that limit with this application.
+
+B / Developer: Then a larger pool isn't safe. Are connections staying busy because queries are slow, or are we failing to return them after requests finish?
+
+A / Ops Engineer: Both need checking. Pool metrics show the hold time increased from two seconds to twenty, while active requests grew only slightly after deployment.
+
+C / Database Administrator: I see many idle connections inside open transactions. They aren't running queries, but they still hold resources and may retain database locks.
+
+B / Developer: A new error path may skip transaction cleanup. I'll inspect that code and correlate affected requests with connection identifiers before claiming a leak.
+
+A / Ops Engineer: Meanwhile, can we reduce the affected optional workload through the approved control? That could protect core transactions while we investigate connection release.
+
+C / Database Administrator: Yes, provided we monitor active transactions and lock waits. Please avoid restarting all instances together; that could produce a sudden reconnection surge.
+
+B / Developer: If a targeted restart becomes necessary, I'll first confirm request draining and transaction handling. The code fix will need a separate reviewed deployment.
+
+A / Ops Engineer: I'll coordinate the workload reduction and collect pool measurements every minute. Let's reconvene in ten minutes with connection trends and the code findings.
+
+C / Database Administrator: I'll watch database headroom and identify the transaction owners. We can call the mitigation effective only when core requests complete without growing lock waits.

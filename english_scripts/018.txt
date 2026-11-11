@@ -1,0 +1,26 @@
+SCENARIO 018
+机房硬件故障
+
+A / Ops Engineer: A physical disk has failed in the production storage array. The service remains available, but redundancy is reduced. The hardware alert needs prompt attention.
+
+B / Data Center Technician: We have a replacement available in the data center. Do you want us to replace the disk now, or should we wait for further checks?
+
+C / Storage Owner: Please wait until we confirm the enclosure, slot, and serial number against the management console. We must also verify the replacement model and supported procedure.
+
+A / Ops Engineer: I will add the console evidence to the hardware ticket. Are there any other failing disks or warnings that would change the replacement risk?
+
+C / Storage Owner: There are no additional failures reported, but I am checking error trends. I will also confirm the latest verified backup before authorizing the replacement.
+
+B / Data Center Technician: The spare matches the required model and capacity. I can have a second technician verify the physical labels and follow the approved replacement checklist.
+
+A / Ops Engineer: Please record both verifications in the ticket. Once replacement begins, who will monitor rebuild progress and watch for application performance impact?
+
+C / Storage Owner: I own rebuild monitoring. Rebuild activity may increase storage latency, so we will track array health together with application response time and errors.
+
+B / Data Center Technician: Should we tell the business team a fixed completion time? They are asking when the service will have its normal protection level again.
+
+C / Storage Owner: Not yet. The controller estimate can change with workload and disk performance. I will share the initial estimate as provisional after rebuild starts.
+
+A / Ops Engineer: I will coordinate the first status check at 14:00 UTC. We should distinguish service availability from restored redundancy in every update until the rebuild completes.
+
+B / Data Center Technician: Understood. We will proceed only after your checks and authorization are recorded. I own the physical replacement and will report any unexpected indication immediately.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,016
+Narrator: Scenario 28. Network and access.
+
+2
+00:00:05,616 --> 00:00:16,176
+A: The shared service credential is due for rotation next week. Have we identified every consumer, including background jobs that might run less frequently?
+
+3
+00:00:16,776 --> 00:00:27,168
+B: Three applications are confirmed. A monthly reconciliation job may also use it, but its owner has not verified the current configuration yet.
+
+4
+00:00:27,768 --> 00:00:39,168
+C: We should resolve that uncertainty before revocation. Does the provider support two active credentials so we can migrate consumers without an immediate shared cutover?
+
+5
+00:00:39,768 --> 00:00:50,784
+A: It supports two active credentials with separate identifiers. I propose creating the replacement in the approved secret store and tracking migration by consumer.
+
+6
+00:00:51,384 --> 00:01:01,728
+B: The reconciliation owner just confirmed the job uses this account. We can run its validation mode today without posting any financial updates.
+
+7
+00:01:02,328 --> 00:01:15,120
+C: Good. Record the credential identifier and test result, never the secret itself. Please also verify that the replacement has the same approved permission scope.
+
+8
+00:01:15,720 --> 00:01:27,264
+A: I will check permissions and update one application first through the change process. We will observe authentication errors and completed transactions before migrating the others.
+
+9
+00:01:27,864 --> 00:01:36,696
+B: How will we know the monthly job is no longer using the old credential? Its next scheduled run is after the rotation deadline.
+
+10
+00:01:37,296 --> 00:01:48,312
+A: We will validate its updated secret reference and run the approved validation mode. Provider audit logs should show the replacement identifier for that execution.
+
+11
+00:01:48,912 --> 00:02:00,360
+C: Do not revoke based only on silence in the logs. Require an explicit successful test from all four consumers and owner confirmation of the inventory.
+
+12
+00:02:00,960 --> 00:02:12,456
+B: I will collect the application and job evidence by 17:00 UTC tomorrow. Any failed test will block revocation and trigger a review of the migration.
+
+13
+00:02:13,056 --> 00:02:23,664
+A: After security approves the evidence, I will revoke the old credential and repeat key checks. We will then update the rotation schedule and ownership record.

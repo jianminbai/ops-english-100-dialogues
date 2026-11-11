@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,256
+Narrator: Scenario 73. Incident response.
+
+2
+00:00:05,856 --> 00:00:16,080
+B: We now have nine people on the bridge. I will coordinate the incident; let us assign clear owners before everyone starts checking the same systems.
+
+3
+00:00:16,680 --> 00:00:29,184
+A: I can lead the infrastructure track, covering compute, network reachability, and database connectivity. The application lead has agreed to own application-level investigation.
+
+4
+00:00:29,784 --> 00:00:39,936
+C: I will handle stakeholder communications. Who is recording the timeline, and where should I find verified facts for the next business update?
+
+5
+00:00:40,536 --> 00:00:52,368
+A: Our second on-call engineer will maintain the incident document. Every entry will include the UTC timestamp, action or finding, owner, and supporting evidence.
+
+6
+00:00:52,968 --> 00:01:03,120
+B: Please keep proposed actions separate from completed actions. I need to know what actually changed before approving anything that could interact with it.
+
+7
+00:01:03,720 --> 00:01:14,664
+A: Understood. Each investigation track will post findings to the shared document, but production changes will come through you under the emergency change process.
+
+8
+00:01:15,264 --> 00:01:27,672
+C: I will draft updates from confirmed impact and approved actions. Can technical owners review factual details without delaying the agreed fifteen-minute communication schedule?
+
+9
+00:01:28,272 --> 00:01:40,224
+B: Yes. Send the draft two minutes before each checkpoint. If a fact is uncertain, label it clearly instead of waiting for a complete root-cause explanation.
+
+10
+00:01:40,824 --> 00:01:52,152
+A: We also need one person executing each change. Otherwise, two engineers might restart overlapping components and make the result impossible to interpret safely.
+
+11
+00:01:52,752 --> 00:02:04,536
+B: Agreed. The action log will name the executor and observer, with start time, validation criteria, and rollback conditions before a change begins.
+
+12
+00:02:05,136 --> 00:02:17,232
+C: The next stakeholder update is at 11:30 UTC. I will own that deadline and ask you only about material impact changes or decisions requiring approval.
+
+13
+00:02:17,832 --> 00:02:29,280
+A: I will confirm the infrastructure assignments now and provide the first findings at 11:25 UTC. Any urgent risk will be raised immediately on the bridge.

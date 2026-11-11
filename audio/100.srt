@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,952
+Narrator: Scenario 100. Follow up and operational improvement.
+
+2
+00:00:06,552 --> 00:00:18,024
+B: We closed eighteen improvement actions this month. What evidence shows that reliability actually improved, rather than simply showing that our action tracker became shorter?
+
+3
+00:00:18,624 --> 00:00:31,752
+A: We'll compare recurrence, detection time, restoration time, and customer impact across comparable periods. We'll also review controlled tests of the specific failures those actions addressed.
+
+4
+00:00:32,352 --> 00:00:43,872
+B: What makes the periods comparable? This month's traffic was lower, so fewer incidents might reflect lighter demand instead of stronger controls or better recovery.
+
+5
+00:00:44,472 --> 00:00:57,960
+A: We'll report traffic volume, peak concurrency, and release frequency alongside the incident metrics. For workload-sensitive measures, we'll compare similar load bands and disclose remaining differences.
+
+6
+00:00:58,560 --> 00:01:09,864
+B: The connection failure hasn't recurred. Can we count that absence as proof that the new configuration validation eliminated this particular incident class from production?
+
+7
+00:01:10,464 --> 00:01:21,288
+A: It is encouraging, but the observation period is short. We replayed five invalid configurations, and the new gate blocked all five before deployment.
+
+8
+00:01:21,888 --> 00:01:32,832
+B: That demonstrates specific test coverage. Do we also have evidence that responders find problems sooner and restore business service faster when prevention fails?
+
+9
+00:01:33,432 --> 00:01:45,048
+A: In matched exercises, detection fell from seven minutes to two, and restoration from twenty-eight to eighteen. Real incidents remain too few for a strong trend claim.
+
+10
+00:01:45,648 --> 00:01:55,224
+B: Where is the largest remaining gap, and what should we prioritize next instead of spreading effort evenly across every open suggestion from the reviews?
+
+11
+00:01:55,824 --> 00:02:08,544
+A: Exercises exposed stale recovery permissions that delayed access. I recommend validating those permissions and their approved renewal process before adding more low-value dashboard changes.
+
+12
+00:02:09,144 --> 00:02:21,072
+B: Prepare a focused proposal with the access owner, acceptance evidence, and expected effort by November 20 at 15:00 UTC. Keep the longer-term measures running.
+
+13
+00:02:21,672 --> 00:02:32,472
+A: I'll bring that proposal and label each conclusion by its evidence strength. Next month, we'll review both control effectiveness and the limits of our confidence.

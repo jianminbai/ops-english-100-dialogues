@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,400
+Narrator: Scenario 47. Application operations.
+
+2
+00:00:06,000 --> 00:00:16,704
+B: Calls to the inventory dependency tripled, but customer activity stayed flat. Is this a traffic spike, or are our systems generating extra work?
+
+3
+00:00:17,304 --> 00:00:26,736
+A: The edge request rate is stable. Traces show the same operation retried by the application client and again by an internal proxy.
+
+4
+00:00:27,336 --> 00:00:39,192
+C: Each layer allows two retries, so one customer request can trigger several downstream attempts. The timeout settings may also make those attempts overlap.
+
+5
+00:00:39,792 --> 00:00:49,632
+B: Should we disable every retry while inventory recovers? We need to lower the load quickly, but I don't want to lose recoverable requests.
+
+6
+00:00:50,232 --> 00:01:01,632
+A: Let's choose one retry owner and set a bounded policy. Different operations need different treatment, especially if they can change inventory or create reservations.
+
+7
+00:01:02,232 --> 00:01:14,352
+C: Availability checks are read-only. Reservations use an idempotency key, but we must verify that the same key survives every retry before relying on it.
+
+8
+00:01:14,952 --> 00:01:24,216
+B: Which change can we safely make first under the incident procedure? Please include a measurable target so we can judge whether it helps.
+
+9
+00:01:24,816 --> 00:01:34,680
+A: We can remove duplicate proxy retries for availability checks and keep one client retry with backoff and jitter, using the approved configuration control.
+
+10
+00:01:35,280 --> 00:01:47,880
+C: I'll review reservation traces separately and hold its retry policy unchanged until key propagation is verified. We should also respect the dependency's retry guidance.
+
+11
+00:01:48,480 --> 00:02:00,120
+A: The target is fewer downstream attempts per incoming request, alongside improving success rates. A lower call count alone could simply mean more requests fail immediately.
+
+12
+00:02:00,720 --> 00:02:10,704
+B: Proceed with that scoped mitigation after approval. I'll ask the inventory owner to report capacity and errors at our checkpoint in ten minutes.
+
+13
+00:02:11,304 --> 00:02:23,160
+C: I'll document the retry chain and propose a single coordinated policy afterward. We'll keep monitoring reservations for duplicates while validating customer recovery.

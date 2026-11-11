@@ -1,0 +1,26 @@
+SCENARIO 067
+跨服务日志关联
+
+B / Application Developer: I found an order error and a payment timeout within the same second. Can we treat them as parts of the same failed transaction?
+
+A / Ops Engineer: Not from timing alone. Let us compare the request identifier, trace identifier, and UTC timestamps across the services before linking those events.
+
+C / Payments Engineer: The payment entry has a transaction identifier, but no trace identifier. Our gateway appears to drop the incoming correlation header before forwarding requests.
+
+B / Application Developer: The order service logs the transaction identifier after creating the payment request. Could that give us a reliable link for this particular sample?
+
+A / Ops Engineer: Yes, if the identifier is stable across both records and retries. Please confirm its semantics rather than assuming two fields with similar names match.
+
+C / Payments Engineer: I confirmed the same identifier on both sides. There are three payment attempts, so the timeout may describe only one attempt, not the final outcome.
+
+B / Application Developer: The final attempt succeeded, but the order update failed afterward. That explains why the customer saw an error despite a successful payment record.
+
+A / Ops Engineer: That is supported for this sample. We should check additional affected transactions before concluding the same sequence explains the whole incident or its scope.
+
+C / Payments Engineer: I will investigate the missing header and propose a gateway fix. Should we include a test that checks propagation through every retry path?
+
+A / Ops Engineer: Please do, and keep sensitive payment details out of shared logs. We need identifiers and processing states, not card data or authentication secrets.
+
+B / Application Developer: I will trace five more failed orders and document the evidence chain by 17:00 UTC, including where correlation remains incomplete or uncertain.
+
+A / Ops Engineer: Great. At that checkpoint, we will separate confirmed transaction sequences from open gaps and assign owners for both the application failure and tracing repair.

@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,136
+Narrator: Scenario 24. Network and access.
+
+2
+00:00:05,736 --> 00:00:15,864
+B: The application process is running, and a local status check succeeds. Why did the load balancer stop sending requests to this instance?
+
+3
+00:00:16,464 --> 00:00:27,360
+A: Its readiness endpoint returns HTTP 503 to the load balancer. The local check you ran only confirms that the process can answer requests.
+
+4
+00:00:27,960 --> 00:00:38,856
+B: Could the readiness endpoint depend on the recommendation service? That service is degraded, but users should still be able to place orders without recommendations.
+
+5
+00:00:39,456 --> 00:00:50,640
+A: The response body names that dependency. Let us compare the endpoint behavior with the documented readiness contract and confirm which dependencies are essential.
+
+6
+00:00:51,240 --> 00:01:03,144
+B: The contract says database access is essential, while recommendations are optional. Last week, a library update added all downstream checks to the readiness result.
+
+7
+00:01:03,744 --> 00:01:14,352
+A: That could explain the removal, but we still need functional evidence. Can the application handle an unavailable recommendation service without blocking checkout?
+
+8
+00:01:14,952 --> 00:01:25,584
+B: Staging tests show checkout succeeds and displays a fallback message. I will repeat that test with the current production version and capture the results.
+
+9
+00:01:26,184 --> 00:01:38,280
+A: Please include order creation and payment confirmation. We should correct the readiness implementation through a reviewed change, while leaving the failing dependency visible in monitoring.
+
+10
+00:01:38,880 --> 00:01:49,320
+B: I can prepare a small patch that separates optional dependency health from readiness. Would changing the load balancer to accept every response be faster?
+
+11
+00:01:49,920 --> 00:02:01,440
+A: That would also admit genuinely unready instances. Keep the current success criteria, and validate the patch on one instance before restoring its traffic gradually.
+
+12
+00:02:02,040 --> 00:02:11,232
+B: I will own the patch and request the incident change review. The test evidence will be ready for our 11:30 UTC checkpoint.
+
+13
+00:02:11,832 --> 00:02:22,536
+A: I will watch error rates and completed orders during that rollout. We can confirm recovery when readiness and customer transactions remain healthy together.

@@ -1,0 +1,26 @@
+SCENARIO 029
+WAF误拦截业务请求
+
+B / Application Lead: Since the WAF policy update, some legitimate checkout requests return HTTP 403. The application logs show no matching requests reaching the checkout handler.
+
+A / Ops Engineer: Please send a few request IDs and UTC timestamps through the incident ticket. I will correlate them with WAF events and the deployment timeline.
+
+C / Security Engineer: Do not attach complete payment payloads. Sanitized field names, rule identifiers, and the request path should let us investigate without exposing customer information.
+
+A / Ops Engineer: The matched events point to one new rule inspecting an optional delivery note. Other checkout requests pass, and the affected pattern uses valid punctuation.
+
+B / Application Lead: Our support team reproduced it with a normal delivery instruction. Could we temporarily switch the entire checkout policy to monitoring mode to restore sales?
+
+C / Security Engineer: That would remove broader protections than necessary. Let us define an exception for this rule, endpoint, and field, with an expiry and active monitoring.
+
+A / Ops Engineer: I can draft the exception request using the verified examples. We should keep inspection on other fields and preserve the remaining checkout rules.
+
+B / Application Lead: Will narrowing the exception to that field still allow malicious content there? I want to understand what compensating validation the application provides.
+
+C / Security Engineer: We need that assessment before approval. Please confirm length limits and safe handling, then test legitimate examples and our approved security test cases.
+
+A / Ops Engineer: After approval, I will apply the exception for two hours and compare blocked requests, checkout errors, and completed orders. We will review at 12:30 UTC.
+
+B / Application Lead: I will own functional validation and provide results within fifteen minutes of the change. Support will confirm whether the reported customer cases can complete checkout.
+
+C / Security Engineer: I will own the permanent rule correction. If review is incomplete before expiry, we must request an extension explicitly rather than leave the exception unattended.

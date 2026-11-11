@@ -1,0 +1,26 @@
+SCENARIO 034
+Pod无法调度
+
+B / Release Lead: The replacement pods have been pending for fifteen minutes. We have free memory elsewhere in the cluster, so why can the scheduler not place them?
+
+A / Ops Engineer: The scheduler reports insufficient requested memory on eligible nodes. These pods require the production application pool, and the spare memory is in a different pool.
+
+B / Release Lead: Could we lower the memory requests to make them fit? The dashboard shows only moderate usage, and the release window ends in an hour.
+
+A / Ops Engineer: We need peak demand and startup measurements, not just the current average. Lower requests could cause overpacking and leave the workload vulnerable during load spikes.
+
+B / Release Lead: The new version uses the same requests as the previous one. Is the rolling update temporarily asking for more capacity because old replicas remain active?
+
+A / Ops Engineer: Yes, the configured surge adds two pods while keeping existing replicas available. I also checked placement rules; the application must remain distributed across two zones.
+
+B / Release Lead: What is the lowest-risk path within this window? We could change the update strategy, add eligible nodes, or postpone the release until capacity is ready.
+
+A / Ops Engineer: The node pool has approved quota for one additional node per zone. Provisioning them preserves the current availability settings, provided the nodes become ready in time.
+
+B / Release Lead: Please start the approved capacity change. At what point should we stop waiting and defer the release rather than compress the validation period?
+
+A / Ops Engineer: If both nodes are not ready by 15:30 UTC, we will defer. Ready means cluster registration, network checks, and sufficient allocatable memory all pass.
+
+B / Release Lead: I will communicate that checkpoint to the release team. Once scheduling succeeds, we still need application readiness and the planned business validation before proceeding.
+
+A / Ops Engineer: I will own node validation and capture the scheduler events. After this release, we will include rollout surge capacity in our routine capacity planning.

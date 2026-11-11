@@ -1,0 +1,26 @@
+SCENARIO 062
+重复告警与降噪
+
+B / On-call Engineer: One database failure generated fifty pages overnight. I spent several minutes opening duplicate incidents before I could identify the shared dependency.
+
+A / Ops Engineer: Let us separate repeated notifications from distinct symptoms. Which alerts shared the same database cluster, and which belonged to unrelated services?
+
+B / On-call Engineer: Forty-two pages came from services using the east cluster. Eight came from a separate batch system and should remain independent notifications.
+
+C / Monitoring Lead: We can group the east-cluster alerts into one incident. Should the database alert also suppress every application alert associated with that cluster?
+
+A / Ops Engineer: Only where we have verified the dependency. An application may have another failure at the same time, so blanket suppression could hide impact.
+
+C / Monitoring Lead: Then we can suppress duplicate pages while keeping downstream events visible on the incident timeline. Critical user journey failures can retain separate routing.
+
+B / On-call Engineer: What happens if the database alert clears first but checkout is still failing? I need the application problem to become actionable again.
+
+A / Ops Engineer: We should test that transition explicitly. Once suppression ends, unresolved application alerts must notify their owners according to the configured notification policy.
+
+C / Monitoring Lead: I will create tests for dependency failure, recovery, missing labels, and simultaneous independent incidents. Incorrect labels will fall back to normal routing.
+
+B / On-call Engineer: Please also check the destination team. Last night the database page reached the application rotation, which added another ten minutes of delay.
+
+A / Ops Engineer: I will verify ownership with both teams today. We can review test results tomorrow at 16:00 UTC before enabling any new suppression rules.
+
+C / Monitoring Lead: Agreed. After approval, we will monitor duplicate page counts and missed escalations for seven days, with the old routing available for rollback.

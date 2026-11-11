@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,800
+Narrator: Scenario 30. Network and access.
+
+2
+00:00:05,400 --> 00:00:16,488
+B: The vendor API responds from my laptop, but production calls time out after ten seconds. The application code and requested endpoint are the same.
+
+3
+00:00:17,088 --> 00:00:29,232
+A: The connection path differs between your laptop and production. Production uses an outbound proxy, so we need to compare DNS, proxy routing, and destination access.
+
+4
+00:00:29,832 --> 00:00:40,128
+C: Please provide the failed request time and the observed public source IP through our support ticket. We will check the corresponding access records.
+
+5
+00:00:40,728 --> 00:00:52,344
+A: I will share the approved egress details there. First, I am checking whether the timeout occurs during proxy connection, TLS negotiation, or the API response.
+
+6
+00:00:52,944 --> 00:01:03,408
+B: The trace reaches the proxy, but it shows no completed TLS session with the vendor. Should we increase the application timeout to thirty seconds?
+
+7
+00:01:04,008 --> 00:01:14,088
+A: A longer timeout would not resolve a blocked connection and could tie up more workers. Let us identify the failed connection stage before changing it.
+
+8
+00:01:14,688 --> 00:01:24,984
+C: I see connection attempts from an address outside your registered range. Did the production egress address change during your recent proxy maintenance?
+
+9
+00:01:25,584 --> 00:01:36,336
+A: The maintenance added a second approved proxy gateway, but its public address is absent from the vendor request. I will verify both active gateways.
+
+10
+00:01:36,936 --> 00:01:46,728
+B: Can we force production through the original gateway until the update is approved? We need to consider whether that would reduce capacity or redundancy.
+
+11
+00:01:47,328 --> 00:01:56,976
+A: We will assess that option with the network owner. The preferred fix is to update the vendor allowlist through the existing approval process.
+
+12
+00:01:57,576 --> 00:02:09,120
+C: Once approved, I can add the exact new address and coordinate a test at 18:00 UTC. Please send requests through each gateway separately.
+
+13
+00:02:09,720 --> 00:02:21,264
+A: I will coordinate those tests and verify successful business responses, not just open connections. We will attach results and add vendor checks to the maintenance checklist.

@@ -1,0 +1,26 @@
+SCENARIO 005
+礼貌打断并纠正信息
+
+B / Project Lead: The service has been fully unavailable since 09:00 UTC, so I think we should tell all business teams that work has stopped.
+
+A / Ops Engineer: May I jump in with a clarification? The latest evidence shows failures on new login requests, while existing authenticated sessions remain active.
+
+B / Project Lead: Thanks for correcting that. The earlier message said the service was down. Do we know when the login failures actually started?
+
+A / Ops Engineer: The first confirmed failure was at 09:12 UTC. We are reviewing earlier logs, so I would describe that as the confirmed start, pending further evidence.
+
+B / Project Lead: Are existing sessions completely unaffected, or could users encounter problems when their session expires and they need to authenticate again?
+
+A / Ops Engineer: Existing sessions can still perform the tested business actions. When a session expires, the next login could fail, so the impact may expand over time.
+
+B / Project Lead: What figures should we use in the update? Leadership will ask whether the percentage refers to requests, accounts, or active users.
+
+A / Ops Engineer: During the last ten minutes, eighteen percent of login requests failed. We have not calculated unique affected accounts, and retries can inflate request counts.
+
+B / Project Lead: That is clearer. Please share the current dashboard and a timestamped summary so people do not keep forwarding the earlier description.
+
+A / Ops Engineer: I will post both in the incident channel now. I suggest saying that login is degraded and existing sessions continue to work in our checks.
+
+B / Project Lead: Agreed. I will correct the business update and ask regional leads to reference that summary. When is the next impact review?
+
+A / Ops Engineer: We will review the impact again at 09:45 UTC and update sooner if conditions change. I will own the technical figures and their wording.

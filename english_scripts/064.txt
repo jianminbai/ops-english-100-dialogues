@@ -1,0 +1,26 @@
+SCENARIO 064
+SLI与SLO口径
+
+B / Business Lead: The dashboard shows ninety-nine point nine percent availability, but customers could not finish checkout this morning. Those two messages seem inconsistent to me.
+
+A / Ops Engineer: We need to confirm what the indicator measures. The current chart counts successful endpoint responses, which may not represent completed customer checkouts.
+
+C / Reliability Engineer: The payment handoff returned a successful response before confirmation arrived. Our indicator treated that response as success even when confirmation later failed.
+
+B / Business Lead: Then can we define success as an order being confirmed and visible to the customer? That would be closer to the actual business outcome.
+
+A / Ops Engineer: Yes, provided we define the eligible attempts and completion deadline. We also need to explain how retries and abandoned sessions affect the calculation.
+
+C / Reliability Engineer: I suggest counting each valid checkout attempt once, using its transaction identifier. A retry within that attempt should not create another successful outcome.
+
+B / Business Lead: How will you handle declined cards? A valid decline is different from our platform failing, but customers still do not receive an order.
+
+A / Ops Engineer: We will document expected business rejections separately and agree on exclusions with you. Unexpected processing failures must remain visible in the service indicator.
+
+C / Reliability Engineer: For the service level objective, the proposed target is ninety-nine point nine percent over a rolling thirty-day window, subject to business approval.
+
+B / Business Lead: Before approving that target, I need to see results for last month and this morning's outage, including any missing transaction events.
+
+A / Ops Engineer: I will backfill the proposed service level indicator and flag data gaps. We will review the definition and historical result Friday at 11:00 UTC.
+
+C / Reliability Engineer: After approval, I will publish the denominator, exclusions, target, and measurement window beside the dashboard so future reports use the same definitions.

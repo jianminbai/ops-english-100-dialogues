@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:06,336
+Narrator: Scenario 70. Monitoring, performance, and reliability.
+
+2
+00:00:06,936 --> 00:00:17,016
+B: The campaign forecast is twice our normal traffic. Can you confirm we are ready before the regional teams finalize their promotional messages tomorrow?
+
+3
+00:00:17,616 --> 00:00:28,200
+A: We need more than a daily traffic total. Please share the regional launch schedule, peak concurrency forecast, and expected mix of browsing and transactions.
+
+4
+00:00:28,800 --> 00:00:39,792
+B: Most advertisements launch at 12:00 UTC, and purchases may triple for thirty minutes. The rest of the day should remain near twice normal volume.
+
+5
+00:00:40,392 --> 00:00:52,368
+C: That concentrated peak matters. Application capacity has headroom, but the payment provider quota is only twenty percent above our previous transaction peak.
+
+6
+00:00:52,968 --> 00:01:03,864
+A: Adding application replicas will not remove that quota. We should request provider capacity and validate queue behavior under the forecast transaction rate.
+
+7
+00:01:04,464 --> 00:01:14,328
+B: If the provider cannot increase the quota in time, could we stagger advertisements by region? I need to know the practical business alternatives.
+
+8
+00:01:14,928 --> 00:01:26,616
+C: Yes, if the revised schedule keeps the combined transaction peak within tested capacity. We must also reserve headroom for a component failure during the event.
+
+9
+00:01:27,216 --> 00:01:37,800
+A: We also need approved fallback options, trigger conditions, and a business contact who can authorize them. We should not invent those decisions during overload.
+
+10
+00:01:38,400 --> 00:01:48,168
+B: I will own the regional schedule and authorize campaign changes. Please bring me a clear choice between the original launch and a staggered plan.
+
+11
+00:01:48,768 --> 00:02:00,600
+C: I will finish the quota check and peak-load evidence by 17:00 UTC today. Readiness will remain conditional until the provider confirms its limit.
+
+12
+00:02:01,200 --> 00:02:11,304
+A: Let us review both plans at that checkpoint, including recovery capacity, alert coverage, and named on-call contacts for every critical dependency involved.
+
+13
+00:02:11,904 --> 00:02:21,768
+B: Agreed. I will publish the approved schedule afterward and ensure regional leads know the escalation route and who can change the campaign if needed.
